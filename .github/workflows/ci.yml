@@ -8,8 +8,7 @@ on:
       - 'main'
   push:
     branches:
-      - '!production'
-      - '!main'
+      - '**'
       
 jobs:
   tests:
