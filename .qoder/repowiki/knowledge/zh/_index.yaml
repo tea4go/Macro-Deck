@@ -3,7 +3,7 @@ schema_version: 1
 locale: zh-CN
 branch: main
 nodes_managed: true
-exported_at: "2026-06-22T05:59:21Z"
+exported_at: "2026-06-22T06:05:55Z"
 modules:
     "":
         dir_name: Macro Deck 主机与运行时核心_2
@@ -21,7 +21,7 @@ modules:
         depends_on: []
         related_to: []
     build_system:
-        dir_name: 构建与发布系统
+        dir_name: 构建与发布系统_2
         title: 构建与发布系统
         scope: []
         source_files:
@@ -59,13 +59,13 @@ modules:
             - Directory.Packages.props
             - Directory.Build.props
             - src/MacroDeck/MacroDeck.csproj
-            - tests/MacroDeck.Tests/MacroDeck.Tests.csproj
             - src/MacroDeck/MacroDeck.nuspec
+            - tests/MacroDeck.Tests/MacroDeck.Tests.csproj
         children: []
         depends_on: []
         related_to: []
     error_handling:
-        dir_name: 错误处理与日志记录体系
+        dir_name: 错误处理与日志记录体系_2
         title: 错误处理与日志记录体系
         scope: []
         source_files:
@@ -80,7 +80,7 @@ modules:
         depends_on: []
         related_to: []
     frontend_style:
-        dir_name: Windows Forms 自定义深色主题与圆角控件体系
+        dir_name: Windows Forms 自定义深色主题与圆角控件体系_2
         title: Windows Forms 自定义深色主题与圆角控件体系
         scope: []
         source_files:
@@ -89,9 +89,8 @@ modules:
             - src/MacroDeck/GUI/CustomControls/RoundedButton.cs
             - src/MacroDeck/GUI/CustomControls/RoundedPanel.cs
             - src/MacroDeck/GUI/CustomControls/RoundedTextBox.cs
-            - src/MacroDeck/GUI/CustomControls/ComboBox.cs
-            - src/MacroDeck/GUI/MainWindow.Designer.cs
-            - src/MacroDeck/GUI/CustomControls/Form.Designer.cs
+            - src/MacroDeck/GUI/CustomControls/ContentSelectorButton.cs
+            - src/MacroDeck/GUI/MainWindow.cs
         children: []
         depends_on: []
         related_to: []
@@ -101,11 +100,10 @@ modules:
         scope: []
         source_files:
             - src/MacroDeck/Logging/MacroDeckLogger.cs
-            - src/MacroDeck/Logging/SentryConfiguration.cs
             - src/MacroDeck/StartupConfig/LoggingConfig.cs
+            - src/MacroDeck/Logging/SentryConfiguration.cs
             - src/MacroDeck/Logging/DebugConsoleSink.cs
             - src/MacroDeck/Logging/PluginSourceEnricher.cs
-            - src/MacroDeck/Program.cs
         children: []
         depends_on: []
         related_to: []
