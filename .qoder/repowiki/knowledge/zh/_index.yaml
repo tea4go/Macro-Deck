@@ -3,7 +3,7 @@ schema_version: 1
 locale: zh-CN
 branch: main
 nodes_managed: true
-exported_at: "2026-06-22T07:07:06Z"
+exported_at: "2026-06-22T07:37:07Z"
 modules:
     "":
         dir_name: Macro Deck 主机与运行时核心_2
@@ -2006,6 +2006,16 @@ modules:
         children: []
         depends_on: []
         related_to: []
+    devops:
+        dir_name: Macro Deck 本地自动化更新
+        title: Macro Deck 本地自动化更新
+        scope:
+            - .github/workflows/
+            - update-macrodeck-local.ps1
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
     error_handling:
         dir_name: 错误处理与日志记录体系_2
         title: 错误处理与日志记录体系
@@ -2029,9 +2039,8 @@ modules:
             - src/MacroDeck/GUI/CustomControls/RoundedButton.cs
             - src/MacroDeck/GUI/CustomControls/RoundedPanel.cs
             - src/MacroDeck/GUI/CustomControls/RoundedTextBox.cs
-            - src/MacroDeck/GUI/CustomControls/ComboBox.cs
-            - src/MacroDeck/GUI/MainWindow.Designer.cs
-            - src/MacroDeck/GUI/CustomControls/Form.Designer.cs
+            - src/MacroDeck/GUI/CustomControls/ContentSelectorButton.cs
+            - src/MacroDeck/GUI/MainWindow.cs
         children: []
         depends_on: []
         related_to: []
@@ -2041,10 +2050,11 @@ modules:
         scope: []
         source_files:
             - src/MacroDeck/Logging/MacroDeckLogger.cs
-            - src/MacroDeck/StartupConfig/LoggingConfig.cs
             - src/MacroDeck/Logging/SentryConfiguration.cs
+            - src/MacroDeck/StartupConfig/LoggingConfig.cs
             - src/MacroDeck/Logging/DebugConsoleSink.cs
             - src/MacroDeck/Logging/PluginSourceEnricher.cs
+            - src/MacroDeck/Program.cs
         children: []
         depends_on: []
         related_to: []
