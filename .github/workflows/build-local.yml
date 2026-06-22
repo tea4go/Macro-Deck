@@ -1,0 +1,26 @@
+name: Build Local
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build and publish
+        shell: cmd
+        run: |
+          dotnet publish "src\MacroDeck\MacroDeck.csproj" -c Release -r win-x64 --self-contained true -o publish
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macro-deck-build
+          path: publish/
+          if-no-files-found: error
+          retention-days: 7
