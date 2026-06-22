@@ -1,0 +1,16 @@
+schema_version: 1
+module_path: build_system
+title: 构建与发布系统
+scope: []
+source_files:
+    - Macro-Deck.slnx
+    - Directory.Build.props
+    - Directory.Packages.props
+    - src/MacroDeck/MacroDeck.csproj
+    - .github/workflows/build-push-windows.yml
+    - .github/workflows/create-release.yml
+    - .github/workflows/release-created.yml
+    - .github/workflows/pull-web-client.yml
+    - setup/Macro Deck.iss
+depends_on: []
+related_to: []

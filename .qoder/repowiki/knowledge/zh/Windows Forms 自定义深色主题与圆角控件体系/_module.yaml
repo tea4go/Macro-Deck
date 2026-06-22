@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: frontend_style
+title: Windows Forms 自定义深色主题与圆角控件体系
+scope: []
+source_files:
+    - src/MacroDeck/GUI/Colors.cs
+    - src/MacroDeck/GUI/CustomControls/ButtonPrimary.cs
+    - src/MacroDeck/GUI/CustomControls/RoundedButton.cs
+    - src/MacroDeck/GUI/CustomControls/RoundedPanel.cs
+    - src/MacroDeck/GUI/CustomControls/RoundedTextBox.cs
+    - src/MacroDeck/GUI/CustomControls/ComboBox.cs
+    - src/MacroDeck/GUI/MainWindow.Designer.cs
+    - src/MacroDeck/GUI/CustomControls/Form.Designer.cs
+depends_on: []
+related_to: []
