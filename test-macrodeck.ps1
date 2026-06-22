@@ -62,7 +62,9 @@ if (-not $SkipRestart) {
         Write-Fail "Macro Deck executable not found: $MacroDeckExe"
         exit 1
     }
-    Start-Process -FilePath $MacroDeckExe
+    # Launch with the working directory set to the install folder, otherwise Macro Deck
+    # uses the caller's CWD as its content root and cannot find wwwroot (web client).
+    Start-Process -FilePath $MacroDeckExe -WorkingDirectory (Split-Path -Parent $MacroDeckExe)
 } else {
     Write-Step "Skip restart; testing the running instance."
 }
