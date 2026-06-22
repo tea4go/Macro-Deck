@@ -144,7 +144,7 @@ public class ConditionAction : PluginAction
         };
 
         configurationString["actions"] = JsonConvert.SerializeObject(_actions, jsonSerializerSettings);
-        configurationString["actionsElse"] = JsonConvert.SerializeObject(_actions, jsonSerializerSettings);
+        configurationString["actionsElse"] = JsonConvert.SerializeObject(_actionsElse, jsonSerializerSettings);
         configurationString["source"] = JsonConvert.SerializeObject(_conditionValue1Source, jsonSerializerSettings);
         configurationString["conditionType"] = JsonConvert.SerializeObject(_conditionType, jsonSerializerSettings);
         configurationString["contitionMethod"] = JsonConvert.SerializeObject(_conditionMethod, jsonSerializerSettings);
