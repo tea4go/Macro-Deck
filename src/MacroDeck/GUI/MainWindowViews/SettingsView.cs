@@ -68,6 +68,15 @@ public partial class SettingsView : UserControl
         lblTranslationBy.Text = string.Format(LanguageManager.Strings.XTranslationByX,
             LanguageManager.Strings.__Language__,
             LanguageManager.Strings.__Author__);
+        checkEnableSsl.Text = LanguageManager.Strings.EnableSsl;
+        btnApplySslConfiguration.Text = LanguageManager.Strings.ApplySslConfiguration;
+        btnGenerateCertificate.Text = LanguageManager.Strings.GenerateNewCertificate;
+        label4.Text = LanguageManager.Strings.PrivateKeyPem;
+        label3.Text = LanguageManager.Strings.CertificatePem;
+        checkEnableAdb.Text = LanguageManager.Strings.EnableAdb;
+        checkAutoStartUsb.Text = LanguageManager.Strings.AutoWakeStartClient;
+        label6.Text = LanguageManager.Strings.RuntimeLabel;
+        label1.Text = LanguageManager.Strings.LicensedUnderApache;
     }
 
     private void Settings_Load(object sender, EventArgs e)

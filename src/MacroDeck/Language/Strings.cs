@@ -405,4 +405,13 @@ public class Strings
     public string VersionBuild = "Build";
     public string OpenExtensionManager = "Open Extension Manager";
     public string OpenSettings = "Open settings";
+    public string EnableSsl = "Enable SSL";
+    public string ApplySslConfiguration = "Apply SSL configuration";
+    public string GenerateNewCertificate = "Generate new certificate";
+    public string PrivateKeyPem = "Private Key (PEM):";
+    public string CertificatePem = "Certificate (PEM):";
+    public string EnableAdb = "Enable Android Debug Bridge (Required for Android USB connection)";
+    public string AutoWakeStartClient = "Automatically wake screen and start Macro Deck Client when connected";
+    public string RuntimeLabel = "Runtime:";
+    public string LicensedUnderApache = "Licensed under Apache-2.0";
 }

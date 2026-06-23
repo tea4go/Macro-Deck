@@ -327,5 +327,14 @@
     "Deny": "拒绝",
     "VersionBuild": "构建",
     "OpenExtensionManager": "打开扩展管理器",
-    "OpenSettings": "打开设置"
+    "OpenSettings": "打开设置",
+    "EnableSsl": "启用 SSL",
+    "ApplySslConfiguration": "应用 SSL 配置",
+    "GenerateNewCertificate": "生成新证书",
+    "PrivateKeyPem": "私钥 (PEM)：",
+    "CertificatePem": "证书 (PEM)：",
+    "EnableAdb": "启用 Android 调试桥（安卓 USB 连接所需）",
+    "AutoWakeStartClient": "连接时自动唤醒屏幕并启动 Macro Deck 客户端",
+    "RuntimeLabel": "运行时：",
+    "LicensedUnderApache": "基于 Apache-2.0 许可证"
 }
