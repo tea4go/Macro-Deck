@@ -248,7 +248,7 @@ public class RoundedButton : PictureBox
                 Alignment = StringAlignment.Near,
                 LineAlignment = StringAlignment.Center
             };
-            using var font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            using var font = new Font(Utils.FontManager.FontFamily, 12F, FontStyle.Regular, GraphicsUnit.Point);
             var r = new Rectangle(30, Height / 2 - 12, Width - 35, 24);
             var p = new Pen(Color.Black, 1)
             {

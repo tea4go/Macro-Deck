@@ -1,5 +1,6 @@
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView;
 
@@ -62,12 +63,12 @@ public class ExtensionGrid : Panel
         AutoScroll = true;
         BackColor = Color.FromArgb(45, 45, 45);
 
-        _titleFont = new Font("Tahoma", 11.25f, FontStyle.Bold);
-        _subtitleFont = new Font("Tahoma", 8.25f);
-        _descriptionFont = new Font("Tahoma", 9.75f);
-        _badgeFont = new Font("Tahoma", 8.25f);
-        _buttonFont = new Font("Tahoma", 9.75f);
-        _messageFont = new Font("Tahoma", 12f);
+        _titleFont = new Font(FontManager.FontFamily, 11.25f, FontStyle.Bold);
+        _subtitleFont = new Font(FontManager.FontFamily, 8.25f);
+        _descriptionFont = new Font(FontManager.FontFamily, 9.75f);
+        _badgeFont = new Font(FontManager.FontFamily, 8.25f);
+        _buttonFont = new Font(FontManager.FontFamily, 9.75f);
+        _messageFont = new Font(FontManager.FontFamily, 12f);
     }
 
     /// <summary>When true a centered "Loading…" message is drawn over the grid.</summary>

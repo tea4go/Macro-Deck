@@ -1,4 +1,6 @@
-﻿namespace SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.Utils;
+
+namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class Form : System.Windows.Forms.Form
 {
@@ -7,6 +9,12 @@ public partial class Form : System.Windows.Forms.Form
     public Form()
     {
         InitializeComponent();
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        FontManager.Apply(this);
     }
 
     protected override void WndProc(ref Message m)

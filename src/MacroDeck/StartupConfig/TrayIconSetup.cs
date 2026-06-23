@@ -1,4 +1,5 @@
 ﻿using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.StartupConfig;
 
@@ -22,21 +23,21 @@ public static class TrayIconSetup
         var showItem = new ToolStripMenuItem
         {
             Text = LanguageManager.Strings.Show,
-            Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point)
+            Font = new Font(FontManager.FontFamily, 9F, FontStyle.Regular, GraphicsUnit.Point)
         };
         showItem.Click += (obj, e) => { showAction?.Invoke(); };
 
         var restartItem = new ToolStripMenuItem
         {
             Text = LanguageManager.Strings.Restart,
-            Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point)
+            Font = new Font(FontManager.FontFamily, 9F, FontStyle.Regular, GraphicsUnit.Point)
         };
         restartItem.Click += (obj, e) => { restartAction?.Invoke(); };
 
         var exitItem = new ToolStripMenuItem
         {
             Text = LanguageManager.Strings.Exit,
-            Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point)
+            Font = new Font(FontManager.FontFamily, 9F, FontStyle.Regular, GraphicsUnit.Point)
         };
         exitItem.Click += (obj, e) => { exitAction?.Invoke(); };
 

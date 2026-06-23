@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using SuchByte.MacroDeck.Backup;
 using SuchByte.MacroDeck.GUI.CustomControls.Settings;
@@ -51,6 +52,7 @@ public partial class SettingsView : UserControl
         checkStartWindows.Text = LanguageManager.Strings.AutomaticallyStartWithWindows;
         checkSendErrorReports.Text = LanguageManager.Strings.SendAnonymousErrorReports;
         lblLanguage.Text = LanguageManager.Strings.Language;
+        lblFont.Text = LanguageManager.Strings.Font;
         lblConnection.Text = LanguageManager.Strings.Connection;
         lblPort.Text = LanguageManager.Strings.Port;
         btnChangePort.Text = LanguageManager.Strings.Ok;
@@ -84,6 +86,7 @@ public partial class SettingsView : UserControl
         LoadAutoStart();
         LoadErrorReporting();
         LoadLanguage();
+        LoadFont();
         LoadUpdateChannel();
         LoadNetworkConfiguration();
         LoadAutoUpdate();
@@ -108,6 +111,22 @@ public partial class SettingsView : UserControl
 
         language.Text = MacroDeck.Configuration.Language;
         language.SelectedIndexChanged += Language_SelectedIndexChanged;
+    }
+
+    private void LoadFont()
+    {
+        font.SelectedIndexChanged -= Font_SelectedIndexChanged;
+        font.Items.Clear();
+        using (var col = new InstalledFontCollection())
+        {
+            foreach (var fontFamily in col.Families)
+            {
+                font.Items.Add(fontFamily.Name);
+            }
+        }
+
+        font.Text = MacroDeck.Configuration.FontFamily;
+        font.SelectedIndexChanged += Font_SelectedIndexChanged;
     }
 
     private void LoadAutoUpdate()
@@ -282,6 +301,22 @@ public partial class SettingsView : UserControl
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
         LanguageManager.SetLanguage(MacroDeck.Configuration.Language);
         UpdateTranslation();
+    }
+
+    private void Font_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (font.Text == MacroDeck.Configuration.FontFamily)
+        {
+            return;
+        }
+
+        MacroDeck.Configuration.FontFamily = font.Text;
+        MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
+
+        using var msgBox = new MessageBox();
+        msgBox.ShowDialog(LanguageManager.Strings.MacroDeckNeedsARestart,
+            LanguageManager.Strings.MacroDeckMustBeRestartedForTheChanges,
+            MessageBoxButtons.OK);
     }
 
     private void BackupManager_BackupFailed(object sender, BackupFailedEventArgs e)

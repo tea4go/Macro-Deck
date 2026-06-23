@@ -42,6 +42,8 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabGeneral = new TabPage();
             language = new RoundedComboBox();
             lblLanguage = new Label();
+            font = new RoundedComboBox();
+            lblFont = new Label();
             checkStartWindows = new CheckBox();
             checkSendErrorReports = new CheckBox();
             lblBehaviour = new Label();
@@ -128,6 +130,8 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabGeneral.BackColor = Color.FromArgb(45, 45, 45);
             tabGeneral.Controls.Add(language);
             tabGeneral.Controls.Add(lblLanguage);
+            tabGeneral.Controls.Add(font);
+            tabGeneral.Controls.Add(lblFont);
             tabGeneral.Controls.Add(checkStartWindows);
             tabGeneral.Controls.Add(checkSendErrorReports);
             tabGeneral.Controls.Add(lblBehaviour);
@@ -169,9 +173,38 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblLanguage.TabIndex = 3;
             lblLanguage.Text = "Language";
             lblLanguage.UseMnemonic = false;
-            // 
+            //
+            // font
+            //
+            font.BackColor = Color.FromArgb(65, 65, 65);
+            font.Cursor = Cursors.Hand;
+            font.DropDownStyle = ComboBoxStyle.DropDownList;
+            font.Font = new Font("Tahoma", 12F);
+            font.ForeColor = Color.White;
+            font.Icon = null;
+            font.Location = new Point(12, 286);
+            font.Name = "font";
+            font.Padding = new Padding(8, 2, 8, 2);
+            font.SelectedIndex = -1;
+            font.SelectedItem = null;
+            font.Size = new Size(253, 31);
+            font.TabIndex = 6;
+            font.SelectedIndexChanged += Font_SelectedIndexChanged;
+            //
+            // lblFont
+            //
+            lblFont.AutoSize = true;
+            lblFont.Font = new Font("Tahoma", 14.25F);
+            lblFont.ForeColor = Color.Gray;
+            lblFont.Location = new Point(3, 262);
+            lblFont.Name = "lblFont";
+            lblFont.Size = new Size(50, 23);
+            lblFont.TabIndex = 5;
+            lblFont.Text = "Font";
+            lblFont.UseMnemonic = false;
+            //
             // checkStartWindows
-            // 
+            //
             checkStartWindows.AutoSize = true;
             checkStartWindows.Location = new Point(13, 89);
             checkStartWindows.Name = "checkStartWindows";
@@ -888,6 +921,8 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         private CheckBox checkSendErrorReports;
         private Label lblLanguage;
         private RoundedComboBox language;
+        private Label lblFont;
+        private RoundedComboBox font;
         private Label lblPort;
         private NumericUpDown port;
         private ButtonPrimary btnChangePort;

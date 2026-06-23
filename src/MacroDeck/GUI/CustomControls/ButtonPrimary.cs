@@ -119,7 +119,7 @@ public partial class ButtonPrimary : Button
         ForeColor = Color.White;
         BackColor = Color.FromArgb(0, 123, 255);
         FlatAppearance.BorderSize = 0;
-        Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        Font = new Font(Utils.FontManager.FontFamily, 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
         Cursor = Cursors.Hand;
         Size = new Size(150, 40);
         Resize += Button_Resize;

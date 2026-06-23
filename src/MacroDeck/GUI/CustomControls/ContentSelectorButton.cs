@@ -27,7 +27,7 @@ public sealed partial class ContentSelectorButton : PictureBox
         BackColor = Color.Transparent;
         BackgroundImageLayout = ImageLayout.Stretch;
         ForeColor = Color.White;
-        Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        Font = new Font(Utils.FontManager.FontFamily, 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
         Text = "";
         Height = 44;
         Width = 44;

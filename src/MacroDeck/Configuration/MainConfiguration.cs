@@ -94,6 +94,9 @@ public class MainConfiguration
     /// <summary>界面语言名称</summary>
     [JsonProperty("Language")] public string Language { get; set; } = "English";
 
+    /// <summary>界面字体族名称，下次启动生效</summary>
+    [JsonProperty("Font")] public string FontFamily { get; set; } = "Tahoma";
+
     /// <summary>是否发送匿名错误报告</summary>
     [JsonProperty("Privacy.SendAnonymousErrorReports")]
     public bool SendAnonymousErrorReports { get; set; } = true;

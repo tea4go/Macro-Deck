@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Serilog;
 using SuchByte.MacroDeck.Pipe;
 using SuchByte.MacroDeck.StartupConfig;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck;
 
@@ -42,6 +43,9 @@ internal class Program
         // 提前构建 Serilog 日志记录器，确保从应用启动开始就有日志输出
         // ASP.NET 主机后续会复用这个静态日志记录器
         Log.Logger = LoggingConfig.CreateLogger();
+
+        // 在创建任何窗口之前设置应用程序默认字体（SetDefaultFont 要求早于第一个 Win32 窗口）
+        FontManager.SetDefaultFontEarly(ApplicationPaths.MainConfigFilePath);
 
         // 启动 Macro Deck 主程序
         MacroDeck.Start(startParameters);

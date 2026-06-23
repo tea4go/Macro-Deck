@@ -23,6 +23,7 @@ using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Services;
 using SuchByte.MacroDeck.StartupConfig;
+using SuchByte.MacroDeck.Utils;
 using SuchByte.MacroDeck.Variables;
 using Version = SuchByte.MacroDeck.DataTypes.Core.Version;
 
@@ -158,6 +159,7 @@ public class MacroDeck : NativeWindow
         Configuration = MainConfiguration.LoadFromFile(ApplicationPaths.MainConfigFilePath);
         SentryConfiguration.Enabled = Configuration.SendAnonymousErrorReports;
         LanguageManager.SetLanguage(Configuration.Language);
+        FontManager.Initialize(Configuration.FontFamily);
 
         // 初始化热键管理器
         _ = new HotkeyManager();
