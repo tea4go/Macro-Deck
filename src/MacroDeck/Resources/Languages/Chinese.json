@@ -353,5 +353,10 @@
     "Or": "或",
     "Not": "非",
     "ViewChangeNotes": "查看更新说明",
-    "DownloadSize": "下载大小"
+    "DownloadSize": "下载大小",
+    "JoinDiscordServer": "加入我们的 Discord 服务器",
+    "Donate": "捐赠",
+    "Done": "完成",
+    "ThirdPartyLicenses": "第三方许可证",
+    "LicensesInfo": "Macro Deck 使用了一些优秀的免费开源软件，其中部分要求附带其许可证。感谢所有创造这些优秀软件的人！"
 }

@@ -2,6 +2,7 @@
 using System.Xml;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.CustomControls.Settings;
+using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -10,6 +11,8 @@ public partial class LicensesDialog : DialogForm
     public LicensesDialog()
     {
         InitializeComponent();
+        label1.Text = LanguageManager.Strings.ThirdPartyLicenses;
+        label3.Text = LanguageManager.Strings.LicensesInfo;
     }
 
     private void label3_Click(object sender, EventArgs e)

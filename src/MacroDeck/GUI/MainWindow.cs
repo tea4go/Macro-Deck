@@ -82,6 +82,8 @@ public partial class MainWindow : Form
     /// </summary>
     private void UpdateTranslation()
     {
+        btnDiscord.Text = LanguageManager.Strings.JoinDiscordServer;
+        btnDonate.Text = LanguageManager.Strings.Donate;
     }
 
     /// <summary>

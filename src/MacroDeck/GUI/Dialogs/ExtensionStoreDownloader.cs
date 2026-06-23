@@ -24,6 +24,7 @@ public partial class ExtensionStoreDownloader : DialogForm
         _packageIds = packageIds;
         InitializeComponent();
         SetCloseIconVisible(false);
+        btnDone.Text = LanguageManager.Strings.Done;
 
         FormClosing += ExtensionStoreDownloader_FormClosing;
     }

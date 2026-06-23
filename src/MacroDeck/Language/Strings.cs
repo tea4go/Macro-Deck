@@ -431,4 +431,9 @@ public class Strings
     public string Not = "Not";
     public string ViewChangeNotes = "View change notes";
     public string DownloadSize = "Download size";
+    public string JoinDiscordServer = "Join our Discord server";
+    public string Donate = "Donate";
+    public string Done = "Done";
+    public string ThirdPartyLicenses = "Third-party licenses";
+    public string LicensesInfo = "Macro Deck uses some awesome free and open-source software. Some of them require their licenses to be included. Thank you all who created this awesome software!";
 }
