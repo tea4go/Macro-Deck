@@ -9,6 +9,7 @@ using SuchByte.MacroDeck.Notifications;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Services;
+using SuchByte.MacroDeck.Utils;
 using System.Diagnostics;
 using SuchByte.MacroDeck.GUI.CustomControls.Notifications;
 using Form = SuchByte.MacroDeck.GUI.CustomControls.Form;
@@ -143,6 +144,9 @@ public partial class MainWindow : Form
 
         // 添加新视图到内容面板
         contentPanel.Controls.Add(view);
+
+        // 视图为运行时动态创建，需在此应用全局字体（基类 OnLoad 覆盖不到）
+        FontManager.Apply(view);
 
         // 根据视图类型选中对应的导航按钮
         switch (view)
