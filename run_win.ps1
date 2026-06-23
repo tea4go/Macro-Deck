@@ -3,7 +3,7 @@ param(
     [switch]$Run,
     [switch]$Portable,
     [string]$Configuration = "Release",
-    [string]$Output = "publish"
+    [string]$Output = "C:\Program Files\Macro Deck"
 )
 
 if (-not $Build -and -not $Run) {
@@ -14,7 +14,8 @@ if (-not $Build -and -not $Run) {
     Write-Host "  -Portable        以便携模式运行（数据存于输出目录的 Data 子目录）"
     Write-Host "                   默认不加此参数，使用标准模式（数据存于 %APPDATA%\Macro Deck）"
     Write-Host "  -Configuration   构建配置（默认: Release）"
-    Write-Host "  -Output          输出目录（默认: publish）"
+    Write-Host "  -Output          输出目录（默认: C:\Program Files\Macro Deck，与标准安装目录一致）"
+    Write-Host "                   注意：写入该目录需以管理员身份运行"
     exit 0
 }
 
@@ -23,6 +24,13 @@ $exeName = "Macro Deck 2"
 if ($Build) {
     if (-not (Get-Command dotnet -ErrorAction SilentlyContinue)) {
         Write-Error "未找到 .NET SDK，请安装：https://dotnet.microsoft.com/download/dotnet/10.0"
+        exit 1
+    }
+
+    # 写入 Program Files 等受保护目录需要管理员权限，提前检查避免构建到一半失败
+    $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    if (($Output -like "$env:ProgramFiles*" -or $Output -like "${env:ProgramFiles(x86)}*") -and -not $isAdmin) {
+        Write-Error "输出目录位于受保护位置：$Output`n请以管理员身份运行 PowerShell，或用 -Output 指定其他目录。"
         exit 1
     }
 
