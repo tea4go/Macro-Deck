@@ -28,4 +28,10 @@ Write-Host "正在发布 ($Configuration)..."
 dotnet publish $proj -c $Configuration -r win-x64 --self-contained true -o $Output
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+@"
+@echo off
+cd /d "%~dp0"
+start "" "Macro Deck 2.exe" --portable
+"@ | Set-Content "$Output\启动.bat" -Encoding ASCII
+
 Write-Host "完成 -> $Output"
