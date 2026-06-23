@@ -49,6 +49,8 @@ if ($Build) {
     [System.IO.File]::WriteAllText($batPath, ($batLines -join "`r`n") + "`r`n", [System.Text.Encoding]::Default)
 
     Write-Host "完成 -> $Output"
+    $exeFullPath = Join-Path (Resolve-Path $Output).Path "$exeName.exe"
+    Write-Host "可执行文件: $exeFullPath"
 }
 
 if ($Run) {
