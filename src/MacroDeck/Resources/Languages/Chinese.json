@@ -343,5 +343,6 @@
     "KeepAwake": "保持唤醒",
     "WhenConnected": "连接时",
     "Always": "始终",
-    "Wait": "等待"
+    "Wait": "等待",
+    "Quality": "质量"
 }

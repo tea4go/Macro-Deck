@@ -12,6 +12,7 @@ public partial class IconImportQuality : DialogForm
         InitializeComponent();
         SuspendLayout();
         lblInfo.Text = LanguageManager.Strings.IconImportQualityInfo;
+        label1.Text = LanguageManager.Strings.Quality;
         qualityOriginal.Text = LanguageManager.Strings.Original;
         qualityHigh.Text = LanguageManager.Strings.High350px;
         qualityNormal.Text = LanguageManager.Strings.Normal200px;

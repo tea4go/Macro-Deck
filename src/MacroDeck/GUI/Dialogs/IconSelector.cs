@@ -32,6 +32,7 @@ public partial class IconSelector : DialogForm
         btnExportIconPack.Text = LanguageManager.Strings.ExportIconPack;
         btnCreateIcon.Text = LanguageManager.Strings.CreateIcon;
         btnImport.Text = LanguageManager.Strings.ImportIcon;
+        btnOk.Text = LanguageManager.Strings.Ok;
         btnDeleteIcon.Text = LanguageManager.Strings.DeleteIcon;
         lblManaged.Text = LanguageManager.Strings.IconSelectorManagedInfo;
         lblSizeLabel.Text = LanguageManager.Strings.Size;

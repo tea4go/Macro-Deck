@@ -13,6 +13,7 @@ public partial class CreateIconPack : DialogForm
         lblName.Text = LanguageManager.Strings.Name;
         lblAuthor.Text = LanguageManager.Strings.Author;
         lblVersion.Text = LanguageManager.Strings.Version;
+        btnOk.Text = LanguageManager.Strings.Ok;
         author.Text = Environment.UserName;
         version.Text = "1.0.0";
     }

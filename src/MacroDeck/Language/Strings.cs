@@ -421,4 +421,5 @@ public class Strings
     public string WhenConnected = "When connected";
     public string Always = "Always";
     public string Wait = "Wait";
+    public string Quality = "Quality";
 }
