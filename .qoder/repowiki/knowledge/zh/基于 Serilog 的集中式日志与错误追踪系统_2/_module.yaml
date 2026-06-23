@@ -4,10 +4,9 @@ title: 基于 Serilog 的集中式日志与错误追踪系统
 scope: []
 source_files:
     - src/MacroDeck/Logging/MacroDeckLogger.cs
-    - src/MacroDeck/Logging/SentryConfiguration.cs
     - src/MacroDeck/StartupConfig/LoggingConfig.cs
+    - src/MacroDeck/Logging/SentryConfiguration.cs
     - src/MacroDeck/Logging/DebugConsoleSink.cs
     - src/MacroDeck/Logging/PluginSourceEnricher.cs
-    - src/MacroDeck/Program.cs
 depends_on: []
 related_to: []

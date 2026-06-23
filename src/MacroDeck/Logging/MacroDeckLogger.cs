@@ -8,6 +8,12 @@ using SuchByte.MacroDeck.StartupConfig;
 
 namespace SuchByte.MacroDeck.Logging;
 
+/// <summary>
+/// Macro Deck 日志管理器，提供统一的日志记录 API。
+/// 支持按插件归属记录日志，核心事件使用 SuchByte.MacroDeck 作为 SourceContext，
+/// 插件事件携带 Plugin 属性（被 Sentry 过滤排除）。
+/// 日志级别可通过 LogLevel 属性运行时调整。
+/// </summary>
 public static class MacroDeckLogger
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(MacroDeckLogger));
@@ -15,13 +21,13 @@ public static class MacroDeckLogger
     private static LogLevel _logLevel = Debugger.IsAttached ? LogLevel.Trace : LogLevel.Info;
 
     /// <summary>
-    /// Runtime-adjustable Serilog minimum level. Referenced by the logging configuration
-    /// (<see cref="StartupConfig.LoggingConfig"/>) and updated through <see cref="LogLevel"/>.
+    /// 运行时可调整的 Serilog 最低日志级别开关。
+    /// 由日志配置（LoggingConfig）引用，通过 LogLevel 属性更新。
     /// </summary>
     public static readonly LoggingLevelSwitch LevelSwitch = new(ToLogEventLevel(_logLevel));
 
     /// <summary>
-    /// Level of what should be logged.
+    /// 日志级别。设置时同步更新 Serilog 的最低级别开关。
     /// </summary>
     internal static LogLevel LogLevel
     {
@@ -34,6 +40,10 @@ public static class MacroDeckLogger
         }
     }
 
+    /// <summary>
+    /// 将自定义 LogLevel 枚举转换为 Serilog 的 LogEventLevel。
+    /// Nothing 级别使用 Fatal+1 来过滤所有日志。
+    /// </summary>
     private static LogEventLevel ToLogEventLevel(LogLevel level)
     {
         return level switch
@@ -42,25 +52,29 @@ public static class MacroDeckLogger
             LogLevel.Info => LogEventLevel.Information,
             LogLevel.Warning => LogEventLevel.Warning,
             LogLevel.Error => LogEventLevel.Error,
-            // No dedicated "off" level exists; a value above Fatal filters everything out.
+            // 没有专门的"关闭"级别，使用高于 Fatal 的值过滤所有日志
             LogLevel.Nothing => LogEventLevel.Fatal + 1,
             _ => LogEventLevel.Information
         };
     }
 
     // -------------------------------------------------------------------------
-    //  Logging API
+    //  日志 API
     //
-    //  Use these methods for all new logging. They accept Serilog message
-    //  templates with structured properties, an optional exception and an
-    //  optional originating plugin, e.g.:
+    //  使用这些方法记录所有日志。它们支持 Serilog 消息模板和结构化属性，
+    //  可选异常和来源插件，例如：
     //
     //      MacroDeckLogger.Error(ex, "Error in {SomeParameter}", parameter);
     //      MacroDeckLogger.Information(plugin, "Connected to {Host}", host);
     //
-    //  When no plugin is supplied the event is attributed to Macro Deck itself.
+    //  不指定插件时，事件归属于 Macro Deck 核心。
     // -------------------------------------------------------------------------
 
+    /// <summary>
+    /// 核心日志写入方法。根据是否指定插件设置不同的日志上下文：
+    /// - 核心事件使用 SuchByte.MacroDeck 作为 SourceContext（通过 Sentry 白名单）
+    /// - 插件事件携带 Plugin 属性（被 Sentry 排除）
+    /// </summary>
     private static void Write(
         LogEventLevel level,
         MacroDeckPlugin? plugin,
@@ -68,29 +82,31 @@ public static class MacroDeckLogger
         string messageTemplate,
         object[] propertyValues)
     {
-        // Host events get a SuchByte.MacroDeck SourceContext so they pass Sentry's source whitelist;
-        // plugin events carry the "Plugin" property and are excluded from Sentry.
         var contextLogger = plugin is null
             ? Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, "SuchByte.MacroDeck")
             : Log.ForContext("Plugin", plugin.Name);
         contextLogger.Write(level, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录详细级别日志（核心）</summary>
     public static void Verbose(string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Verbose, null, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录详细级别日志（核心，含异常）</summary>
     public static void Verbose(Exception exception, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Verbose, null, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录详细级别日志（插件）</summary>
     public static void Verbose(MacroDeckPlugin plugin, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Verbose, plugin, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录详细级别日志（插件，含异常）</summary>
     public static void Verbose(MacroDeckPlugin plugin,
         Exception exception,
         string messageTemplate,
@@ -99,21 +115,25 @@ public static class MacroDeckLogger
         Write(LogEventLevel.Verbose, plugin, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录调试级别日志（核心）</summary>
     public static void Debug(string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Debug, null, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录调试级别日志（核心，含异常）</summary>
     public static void Debug(Exception exception, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Debug, null, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录调试级别日志（插件）</summary>
     public static void Debug(MacroDeckPlugin plugin, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Debug, plugin, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录调试级别日志（插件，含异常）</summary>
     public static void Debug(MacroDeckPlugin plugin,
         Exception exception,
         string messageTemplate,
@@ -122,21 +142,25 @@ public static class MacroDeckLogger
         Write(LogEventLevel.Debug, plugin, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录信息级别日志（核心）</summary>
     public static void Information(string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Information, null, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录信息级别日志（核心，含异常）</summary>
     public static void Information(Exception exception, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Information, null, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录信息级别日志（插件）</summary>
     public static void Information(MacroDeckPlugin plugin, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Information, plugin, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录信息级别日志（插件，含异常）</summary>
     public static void Information(MacroDeckPlugin plugin,
         Exception exception,
         string messageTemplate,
@@ -145,21 +169,25 @@ public static class MacroDeckLogger
         Write(LogEventLevel.Information, plugin, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录警告级别日志（核心）</summary>
     public static void Warning(string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Warning, null, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录警告级别日志（核心，含异常）</summary>
     public static void Warning(Exception exception, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Warning, null, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录警告级别日志（插件）</summary>
     public static void Warning(MacroDeckPlugin plugin, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Warning, plugin, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录警告级别日志（插件，含异常）</summary>
     public static void Warning(MacroDeckPlugin plugin,
         Exception exception,
         string messageTemplate,
@@ -168,21 +196,25 @@ public static class MacroDeckLogger
         Write(LogEventLevel.Warning, plugin, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录错误级别日志（核心）</summary>
     public static void Error(string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Error, null, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录错误级别日志（核心，含异常）</summary>
     public static void Error(Exception exception, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Error, null, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录错误级别日志（插件）</summary>
     public static void Error(MacroDeckPlugin plugin, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Error, plugin, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录错误级别日志（插件，含异常）</summary>
     public static void Error(MacroDeckPlugin plugin,
         Exception exception,
         string messageTemplate,
@@ -191,21 +223,25 @@ public static class MacroDeckLogger
         Write(LogEventLevel.Error, plugin, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录致命级别日志（核心）</summary>
     public static void Fatal(string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Fatal, null, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录致命级别日志（核心，含异常）</summary>
     public static void Fatal(Exception exception, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Fatal, null, exception, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录致命级别日志（插件）</summary>
     public static void Fatal(MacroDeckPlugin plugin, string messageTemplate, params object[] propertyValues)
     {
         Write(LogEventLevel.Fatal, plugin, null, messageTemplate, propertyValues);
     }
 
+    /// <summary>记录致命级别日志（插件，含异常）</summary>
     public static void Fatal(MacroDeckPlugin plugin,
         Exception exception,
         string messageTemplate,
@@ -215,11 +251,8 @@ public static class MacroDeckLogger
     }
 
     /// <summary>
-    /// Debug trace messages for internal debugging
+    /// 调试跟踪消息（已过时，请使用 MacroDeckLogger.Debug）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="classType"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Debug(MacroDeckPlugin, string, params object[]) instead")]
     public static void Trace(MacroDeckPlugin macroDeckPlugin, Type classType, string message)
     {
@@ -228,11 +261,8 @@ public static class MacroDeckLogger
     }
 
     /// <summary>
-    /// Log informations that could be useful
+    /// 记录有用的信息（已过时，请使用 MacroDeckLogger.Information）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="classType"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Information(MacroDeckPlugin, string, params object[]) instead")]
     public static void Info(MacroDeckPlugin macroDeckPlugin, Type classType, string message)
     {
@@ -241,11 +271,8 @@ public static class MacroDeckLogger
     }
 
     /// <summary>
-    /// Log warnings if something gone wrong
+    /// 记录警告（已过时，请使用 MacroDeckLogger.Warning）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="classType"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Warning(MacroDeckPlugin, string, params object[]) instead")]
     public static void Warning(MacroDeckPlugin macroDeckPlugin, Type classType, string message)
     {
@@ -254,11 +281,8 @@ public static class MacroDeckLogger
     }
 
     /// <summary>
-    /// Log errors if something gone really wrong
+    /// 记录错误（已过时，请使用 MacroDeckLogger.Error）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="classType"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Error(MacroDeckPlugin, string, params object[]) instead")]
     public static void Error(MacroDeckPlugin macroDeckPlugin, Type classType, string message)
     {
@@ -266,12 +290,9 @@ public static class MacroDeckLogger
             .Error("{LogMessage}", message);
     }
 
-
     /// <summary>
-    /// Debug trace messages for internal debugging
+    /// 调试跟踪消息（已过时，请使用 MacroDeckLogger.Debug）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Debug(MacroDeckPlugin, string, params object[]) instead")]
     public static void Trace(MacroDeckPlugin macroDeckPlugin, string message)
     {
@@ -280,10 +301,8 @@ public static class MacroDeckLogger
     }
 
     /// <summary>
-    /// Log informations that could be useful
+    /// 记录有用的信息（已过时，请使用 MacroDeckLogger.Information）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Information(MacroDeckPlugin, string, params object[]) instead")]
     public static void Info(MacroDeckPlugin macroDeckPlugin, string message)
     {
@@ -292,10 +311,8 @@ public static class MacroDeckLogger
     }
 
     /// <summary>
-    /// Log warnings if something gone wrong
+    /// 记录警告（已过时，请使用 MacroDeckLogger.Warning）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Warning(MacroDeckPlugin, string, params object[]) instead")]
     public static void Warning(MacroDeckPlugin macroDeckPlugin, string message)
     {
@@ -304,10 +321,8 @@ public static class MacroDeckLogger
     }
 
     /// <summary>
-    /// Log errors if something gone really wrong
+    /// 记录错误（已过时，请使用 MacroDeckLogger.Error）
     /// </summary>
-    /// <param name="macroDeckPlugin"></param>
-    /// <param name="message"></param>
     [Obsolete("Use MacroDeckLogger.Error(MacroDeckPlugin, string, params object[]) instead")]
     public static void Error(MacroDeckPlugin macroDeckPlugin, string message)
     {
@@ -315,6 +330,9 @@ public static class MacroDeckLogger
             .Error("{LogMessage}", message);
     }
 
+    /// <summary>
+    /// 清理日志目录中超过 30 天的日志文件
+    /// </summary>
     internal static void CleanUpLogsDir()
     {
         foreach (var file in new DirectoryInfo(ApplicationPaths.LogsDirectoryPath).GetFiles()
@@ -331,30 +349,23 @@ public static class MacroDeckLogger
     }
 }
 
+/// <summary>
+/// 日志级别枚举，定义不同的日志详细程度
+/// </summary>
 public enum LogLevel
 {
-    /// <summary>
-    /// Log Trace, Info, Warnings and Errors
-    /// </summary>
+    /// <summary>记录跟踪、信息、警告和错误</summary>
     Trace = 1,
 
-    /// <summary>
-    /// Log Info, Warnings and Errors
-    /// </summary>
+    /// <summary>记录信息、警告和错误</summary>
     Info = 2,
 
-    /// <summary>
-    /// Log Warnings and Errors
-    /// </summary>
+    /// <summary>记录警告和错误</summary>
     Warning = 3,
 
-    /// <summary>
-    /// Log only Errors
-    /// </summary>
+    /// <summary>仅记录错误</summary>
     Error = 4,
 
-    /// <summary>
-    /// Log nothing
-    /// </summary>
+    /// <summary>不记录任何日志</summary>
     Nothing = 100
 }

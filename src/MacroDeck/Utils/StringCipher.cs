@@ -1,22 +1,33 @@
-﻿using System.IO;
+using System.IO;
 using System.Security.Cryptography;
 using Microsoft.Win32;
 
 namespace SuchByte.MacroDeck.Utils;
 
+/// <summary>
+/// 字符串加密/解密工具类，使用 AES（Rijndael）对称加密算法。
+/// 加密时随机生成 Salt 和 IV，并拼接到密文前面，解密时从中提取。
+/// 使用 PBKDF2（Rfc2898DeriveBytes）从密码派生密钥。
+/// 还提供获取 Windows 机器 GUID 的方法，用于生成机器绑定的加密密钥。
+/// </summary>
 public static class StringCipher
 {
-    // This constant is used to determine the keysize of the encryption algorithm in bits.
-    // We divide this by 8 within the code below to get the equivalent number of bytes.
+    /// <summary>加密算法密钥大小（位）</summary>
     private const int Keysize = 128;
 
-    // This constant determines the number of iterations for the password bytes generation function.
+    /// <summary>PBKDF2 密钥派生迭代次数</summary>
     private const int DerivationIterations = 1000;
 
+    /// <summary>
+    /// 使用密码短语加密明文字符串。
+    /// 每次加密随机生成 Salt 和 IV，拼接格式：[Salt 16字节] + [IV 16字节] + [密文]。
+    /// </summary>
+    /// <param name="plainText">要加密的明文</param>
+    /// <param name="passPhrase">加密密码短语</param>
+    /// <returns>Base64 编码的密文字符串</returns>
     public static string Encrypt(string plainText, string passPhrase)
     {
-        // Salt and IV is randomly generated each time, but is preprended to encrypted cipher text
-        // so that the same Salt and IV values can be used when decrypting.  
+        // 每次加密随机生成 Salt 和 IV，拼接在密文前面以便解密时提取
         var saltStringBytes = Generate128BitsOfRandomEntropy();
         var ivStringBytes = Generate128BitsOfRandomEntropy();
         var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
@@ -31,7 +42,7 @@ public static class StringCipher
         using var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
         cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
         cryptoStream.FlushFinalBlock();
-        // Create the final bytes as a concatenation of the random salt bytes, the random iv bytes and the cipher bytes.
+        // 拼接最终密文：Salt + IV + 加密数据
         var cipherTextBytes = saltStringBytes;
         cipherTextBytes = cipherTextBytes.Concat(ivStringBytes).ToArray();
         cipherTextBytes = cipherTextBytes.Concat(memoryStream.ToArray()).ToArray();
@@ -40,16 +51,22 @@ public static class StringCipher
         return Convert.ToBase64String(cipherTextBytes);
     }
 
+    /// <summary>
+    /// 使用密码短语解密密文字符串。
+    /// 从密文中提取 Salt、IV 和加密数据，然后使用相同的算法解密。
+    /// </summary>
+    /// <param name="cipherText">Base64 编码的密文</param>
+    /// <param name="passPhrase">解密密码短语</param>
+    /// <returns>解密后的明文字符串</returns>
     public static string Decrypt(string cipherText, string passPhrase)
     {
-        // Get the complete stream of bytes that represent:
-        // [32 bytes of Salt] + [32 bytes of IV] + [n bytes of CipherText]
+        // 密文格式：[Salt 16字节] + [IV 16字节] + [加密数据]
         var cipherTextBytesWithSaltAndIv = Convert.FromBase64String(cipherText);
-        // Get the saltbytes by extracting the first 32 bytes from the supplied cipherText bytes.
+        // 提取前 16 字节作为 Salt
         var saltStringBytes = cipherTextBytesWithSaltAndIv.Take(Keysize / 8).ToArray();
-        // Get the IV bytes by extracting the next 32 bytes from the supplied cipherText bytes.
+        // 提取接下来的 16 字节作为 IV
         var ivStringBytes = cipherTextBytesWithSaltAndIv.Skip(Keysize / 8).Take(Keysize / 8).ToArray();
-        // Get the actual cipher text bytes by removing the first 64 bytes from the cipherText string.
+        // 剩余部分为实际加密数据
         var cipherTextBytes = cipherTextBytesWithSaltAndIv.Skip(Keysize / 8 * 2)
             .Take(cipherTextBytesWithSaltAndIv.Length - Keysize / 8 * 2).ToArray();
 
@@ -66,15 +83,26 @@ public static class StringCipher
         return streamReader.ReadToEnd();
     }
 
+    /// <summary>
+    /// 生成 128 位（16 字节）的密码学安全随机数，用作 Salt 或 IV
+    /// </summary>
+    /// <returns>16 字节的随机字节数组</returns>
     private static byte[] Generate128BitsOfRandomEntropy()
     {
-        var randomBytes = new byte[16]; // 16 Bytes will give us 128 bits.
+        var randomBytes = new byte[16];
         using var rngCsp = new RNGCryptoServiceProvider();
-        // Fill the array with cryptographically secure random bytes.
         rngCsp.GetBytes(randomBytes);
         return randomBytes;
     }
 
+    /// <summary>
+    /// 获取当前 Windows 机器的 GUID。
+    /// 从注册表 SOFTWARE\Microsoft\Cryptography 下的 MachineGuid 值读取。
+    /// 该 GUID 在系统安装时生成，可用于生成机器绑定的加密密钥。
+    /// </summary>
+    /// <returns>机器 GUID 字符串</returns>
+    /// <exception cref="KeyNotFoundException">注册表键不存在时抛出</exception>
+    /// <exception cref="IndexOutOfRangeException">注册表值不存在时抛出</exception>
     public static string GetMachineGuid()
     {
         var location = @"SOFTWARE\Microsoft\Cryptography";

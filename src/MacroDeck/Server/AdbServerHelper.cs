@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using AdvancedSharpAdbClient;
 using AdvancedSharpAdbClient.DeviceCommands;
 using AdvancedSharpAdbClient.Models;
@@ -8,16 +8,27 @@ using SuchByte.MacroDeck.StartupConfig;
 
 namespace SuchByte.MacroDeck.Server;
 
+/// <summary>
+/// ADB 服务器辅助类，管理 Android Debug Bridge 服务器的启动和设备连接。
+/// 当 Android 设备通过 USB 连接时，自动启动 Macro Deck 客户端应用
+/// 并设置反向端口转发，使设备可以通过 localhost 访问 Macro Deck 服务器。
+/// </summary>
 public class AdbServerHelper
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(AdbServerHelper));
 
+    /// <summary>ADB 服务器实例</summary>
     private static AdbServer? _adbServer;
 
+    /// <summary>ADB 文件夹名称</summary>
     private const string AdbFolderName = "Android Debug Bridge";
 
+    /// <summary>ADB 可执行文件路径</summary>
     private static readonly string AdbPath = Path.Combine(ApplicationPaths.MainDirectoryPath, AdbFolderName, "adb.exe");
 
+    /// <summary>
+    /// 停止 ADB 服务器
+    /// </summary>
     public static async Task Stop()
     {
         if (_adbServer is null)
@@ -28,6 +39,10 @@ public class AdbServerHelper
         await _adbServer.StopServerAsync();
     }
 
+    /// <summary>
+    /// 初始化 ADB 服务器。如果配置中启用了 ADB 且 adb.exe 存在，
+    /// 则启动 ADB 服务器并监听设备连接/断开事件。
+    /// </summary>
     public static async Task Initialize()
     {
         if (!MacroDeck.Configuration.EnableAdbServer)
@@ -50,12 +65,18 @@ public class AdbServerHelper
             Logger.Information("Unable to start ADB server");
         }
 
+        // 启动设备监视器，监听设备连接和断开事件
         var monitor = new DeviceMonitor(new AdbSocket(AdbClient.AdbServerEndPoint));
         monitor.DeviceConnected += Monitor_DeviceConnected;
         monitor.DeviceDisconnected += Monitor_DeviceDisconnected;
         await monitor.StartAsync();
     }
 
+    /// <summary>
+    /// 在指定设备上执行异步操作。先获取 ADB 客户端和设备数据，然后执行操作。
+    /// </summary>
+    /// <param name="serial">设备序列号</param>
+    /// <param name="action">要执行的异步操作</param>
     private static async Task RunForDevice(string serial, Func<AdbClient, DeviceData, Task> action)
     {
         var adbClient = await GetAdbClient();
@@ -73,12 +94,22 @@ public class AdbServerHelper
         await action(adbClient, device);
     }
 
+    /// <summary>
+    /// 根据序列号获取设备数据
+    /// </summary>
+    /// <param name="adbDeviceClient">ADB 客户端</param>
+    /// <param name="serial">设备序列号</param>
+    /// <returns>设备数据，未找到返回 null</returns>
     private static async Task<DeviceData?> GetDevice(AdbClient adbDeviceClient, string serial)
     {
         var devices = await adbDeviceClient.GetDevicesAsync();
         return devices.FirstOrDefault(x => x.Serial.Equals(serial));
     }
 
+    /// <summary>
+    /// 获取已连接的 ADB 客户端实例
+    /// </summary>
+    /// <returns>ADB 客户端，连接失败返回 null</returns>
     private static async Task<AdbClient?> GetAdbClient()
     {
         var serverEndpoint = GetAdbServerEndpoint();
@@ -92,6 +123,10 @@ public class AdbServerHelper
         return adbClient;
     }
 
+    /// <summary>
+    /// 获取 ADB 服务器端点地址
+    /// </summary>
+    /// <returns>端点字符串，服务器未运行返回 null</returns>
     private static string? GetAdbServerEndpoint()
     {
         var adbServerEndpoint = _adbServer?.EndPoint.ToString();
@@ -104,13 +139,21 @@ public class AdbServerHelper
         return null;
     }
 
+    /// <summary>
+    /// 设备断开连接事件处理
+    /// </summary>
     private static void Monitor_DeviceDisconnected(object sender, DeviceDataEventArgs e)
     {
         Logger.Information("{DeviceName} disconnected", e.Device.Name);
     }
 
+    /// <summary>
+    /// 设备连接事件处理。排除模拟器设备（127.0.0.1 开头），
+    /// 对真实 USB 设备启动 Macro Deck 客户端并设置反向端口转发。
+    /// </summary>
     private static async void Monitor_DeviceConnected(object sender, DeviceDataEventArgs e)
     {
+        // 排除模拟器设备
         if (e.Device.Serial.StartsWith("127.0.0.1"))
         {
             return;
@@ -125,6 +168,11 @@ public class AdbServerHelper
             });
     }
 
+    /// <summary>
+    /// 等待设备上线。最多等待 20 秒，超时返回 false。
+    /// </summary>
+    /// <param name="device">目标设备</param>
+    /// <returns>设备在线返回 true，超时返回 false</returns>
     private static async Task<bool> IsDeviceOnline(DeviceData device)
     {
         var timeoutTask = Task.Delay(TimeSpan.FromSeconds(20));
@@ -148,6 +196,11 @@ public class AdbServerHelper
         }
     }
 
+    /// <summary>
+    /// 退出设备上的 Macro Deck 客户端应用并发送休眠按键
+    /// </summary>
+    /// <param name="adbDeviceClient">ADB 客户端</param>
+    /// <param name="device">目标设备</param>
     private static async Task ExitMacroDeckClient(AdbClient adbDeviceClient, DeviceData device)
     {
         var deviceIsOnline = await IsDeviceOnline(device);
@@ -165,10 +218,16 @@ public class AdbServerHelper
         }
         catch
         {
-            // ignore
         }
     }
 
+    /// <summary>
+    /// 在设备上启动 Macro Deck 客户端应用。
+    /// 先唤醒设备屏幕，然后启动应用主活动。
+    /// 仅在配置中启用了 ADB 自动启动应用时执行。
+    /// </summary>
+    /// <param name="adbDeviceClient">ADB 客户端</param>
+    /// <param name="device">目标设备</param>
     private static async Task StartMacroDeckClient(AdbClient adbDeviceClient, DeviceData device)
     {
         if (!MacroDeck.Configuration.EnableAdbAutoStartApp)
@@ -184,17 +243,25 @@ public class AdbServerHelper
 
         try
         {
+            // 唤醒设备屏幕
             await adbDeviceClient.SendKeyEventAsync(device, "KEYCODE_WAKEUP");
+            // 启动 Macro Deck 应用
             await adbDeviceClient.ExecuteRemoteCommandAsync("am start -n com.suchbyte.macrodeck/.MainActivity",
                 device,
                 new ConsoleOutputReceiver());
         }
         catch
         {
-            // ignore
         }
     }
 
+    /// <summary>
+    /// 在设备上设置反向端口转发。
+    /// 使设备可以通过 localhost:port 访问电脑上的 Macro Deck 服务器，
+    /// 无需知道电脑的实际 IP 地址。
+    /// </summary>
+    /// <param name="adbDeviceClient">ADB 客户端</param>
+    /// <param name="device">目标设备</param>
     private static async Task StartReverseForward(AdbClient adbDeviceClient, DeviceData device)
     {
         var deviceIsOnline = await IsDeviceOnline(device);

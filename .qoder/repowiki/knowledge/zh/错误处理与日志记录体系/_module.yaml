@@ -8,7 +8,5 @@ source_files:
     - src/MacroDeck/StartupConfig/LoggingConfig.cs
     - src/MacroDeck/Program.cs
     - src/MacroDeck/Utils/Retry.cs
-    - src/MacroDeck/Backup/BackupManager.cs
-    - src/MacroDeck/DataTypes/WebSocketSession.cs
 depends_on: []
 related_to: []

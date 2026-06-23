@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using SuchByte.MacroDeck.DataTypes;
 using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.Enums;
@@ -13,24 +13,42 @@ using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.Server;
 
+/// <summary>
+/// Macro Deck 服务器核心类，管理 WebSocket 连接、客户端消息处理和按钮状态同步。
+/// 负责客户端的连接认证、消息路由、按钮事件分发和状态更新。
+/// </summary>
 public static class MacroDeckServer
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(MacroDeckServer));
 
+    /// <summary>设备连接状态变化事件</summary>
     public static event EventHandler? OnDeviceConnectionStateChanged;
+
+    /// <summary>服务器状态变化事件</summary>
     public static event EventHandler? OnServerStateChanged;
+
+    /// <summary>文件夹变化事件</summary>
     public static event EventHandler? OnFolderChanged;
 
+    /// <summary>已连接的客户端列表</summary>
     public static List<MacroDeckClient> Clients { get; } = new();
 
+    /// <summary>快速设置令牌，用于新设备首次连接时自动注册</summary>
     public static string QuickSetupToken { get; } = RandomStringGenerator.RandomString(8);
 
+    /// <summary>
+    /// 启动 Macro Deck 服务器。加载已知设备并启动 WebSocket 服务。
+    /// </summary>
+    /// <param name="port">监听端口</param>
     public static void Start(int port)
     {
         DeviceManager.LoadKnownDevices();
         Task.Run(async () => await StartWebSocketServer(port));
     }
 
+    /// <summary>
+    /// 启动 WebSocket 服务器。配置 SSL 证书（如启用）并开始监听连接。
+    /// </summary>
     private static async Task StartWebSocketServer(int port)
     {
         Clients.Clear();
@@ -54,6 +72,9 @@ public static class MacroDeckServer
         }
     }
 
+    /// <summary>
+    /// WebSocket 消息接收处理，将消息路由到 OnMessage 方法
+    /// </summary>
     private static void WebSocketHandlerOnMessageReceived(object? sender, string message)
     {
         if (sender is not WebSocketSession session)
@@ -71,6 +92,10 @@ public static class MacroDeckServer
         OnMessage(macroDeckClient, message);
     }
 
+    /// <summary>
+    /// WebSocket 会话连接处理。创建客户端对象，检查连接限制后添加到客户端列表。
+    /// 如果阻止新连接、客户端数已达上限（10）或无可用配置，则关闭连接。
+    /// </summary>
     private static void WebSocketHandlerOnSessionConnected(object? sender, EventArgs e)
     {
         if (sender is not WebSocketSession session)
@@ -79,6 +104,8 @@ public static class MacroDeckServer
         }
 
         var macroDeckClient = new MacroDeckClient(session.Id);
+
+        // 检查连接限制：阻止新连接、客户端数上限、无可用配置
         if (MacroDeck.Configuration.BlockNewConnections ||
             Clients.Count >= 10 ||
             ProfileManager.CurrentProfile?.Folders.Count < 1)
@@ -90,6 +117,9 @@ public static class MacroDeckServer
         Clients.Add(macroDeckClient);
     }
 
+    /// <summary>
+    /// WebSocket 会话断开处理。从客户端列表中移除并触发连接状态变化事件。
+    /// </summary>
     private static void WebSocketHandlerOnSessionDisconnected(object? sender, EventArgs e)
     {
         if (sender is not WebSocketSession session)
@@ -110,16 +140,21 @@ public static class MacroDeckServer
     }
 
     /// <summary>
-    /// Closes the connection
+    /// 关闭指定客户端的连接
     /// </summary>
-    /// <param name="macroDeckClient"></param>
+    /// <param name="macroDeckClient">要关闭的客户端</param>
     public static void CloseClient(MacroDeckClient macroDeckClient)
     {
         Logger.Information("Close connection to {ClientId}", macroDeckClient.ClientId);
         Task.Run(async () => await WebSocketHandler.Close(macroDeckClient.SessionId));
     }
 
-
+    /// <summary>
+    /// 消息处理核心方法。解析 JSON 消息中的方法类型并分发处理。
+    /// 支持的方法：CONNECTED（连接认证）、BUTTON_PRESS/RELEASE/LONG_PRESS/LONG_PRESS_RELEASE（按钮事件）、GET_BUTTONS（获取按钮）。
+    /// </summary>
+    /// <param name="macroDeckClient">发送消息的客户端</param>
+    /// <param name="jsonMessageString">JSON 格式的消息字符串</param>
     private static void OnMessage(MacroDeckClient macroDeckClient, string jsonMessageString)
     {
         var responseObject = JObject.Parse(jsonMessageString);
@@ -139,6 +174,7 @@ public static class MacroDeckServer
         switch (method)
         {
             case JsonMethod.CONNECTED:
+                // 验证客户端 API 版本和必要字段
                 if (responseObject["API"] == null ||
                     responseObject["Client-Id"] == null ||
                     responseObject["Device-Type"] == null ||
@@ -155,12 +191,14 @@ public static class MacroDeckServer
                 Enum.TryParse(responseObject["Device-Type"].ToString(), out DeviceType deviceType);
                 macroDeckClient.DeviceType = deviceType;
 
+                // 快速设置令牌验证：匹配则自动注册设备
                 if (responseObject["Token"]?.ToString() is { } token && token.EqualsCryptographically(QuickSetupToken))
                 {
                     DeviceManager.AddKnownDevice(macroDeckClient);
                 }
                 else
                 {
+                    // 常规连接请求验证
                     if (!DeviceManager.RequestConnection(macroDeckClient))
                     {
                         CloseClient(macroDeckClient);
@@ -173,6 +211,7 @@ public static class MacroDeckServer
                     return;
                 }
 
+                // 确保设备有分配的配置文件
                 if (string.IsNullOrWhiteSpace(DeviceManager.GetMacroDeckDevice(macroDeckClient.ClientId).ProfileId))
                 {
                     DeviceManager.GetMacroDeckDevice(macroDeckClient.ClientId).ProfileId
@@ -181,6 +220,7 @@ public static class MacroDeckServer
 
                 DeviceManager.SaveKnownDevices();
 
+                // 设置客户端的配置文件和文件夹
                 macroDeckClient.Profile
                     = ProfileManager.FindProfileById(DeviceManager.GetMacroDeckDevice(macroDeckClient.ClientId)
                         .ProfileId);
@@ -192,16 +232,18 @@ public static class MacroDeckServer
 
                 macroDeckClient.Folder = macroDeckClient.Profile.Folders.FirstOrDefault();
 
+                // 发送连接成功消息
                 macroDeckClient.DeviceMessage.Connected(macroDeckClient);
-
 
                 OnDeviceConnectionStateChanged?.Invoke(macroDeckClient, EventArgs.Empty);
                 Logger.Information("{ClientId} connected", macroDeckClient.ClientId);
                 break;
+
             case JsonMethod.BUTTON_PRESS:
             case JsonMethod.BUTTON_RELEASE:
             case JsonMethod.BUTTON_LONG_PRESS:
             case JsonMethod.BUTTON_LONG_PRESS_RELEASE:
+                // 将方法类型映射为按钮按压类型
                 var buttonPressType = method switch
                 {
                     JsonMethod.BUTTON_PRESS => ButtonPressType.SHORT,
@@ -220,6 +262,7 @@ public static class MacroDeckServer
                         return;
                     }
 
+                    // 解析按钮位置（格式：row_column）
                     var row = int.Parse(responseObject["Message"].ToString().Split('_')[0]);
                     var column = int.Parse(responseObject["Message"].ToString().Split('_')[1]);
 
@@ -237,16 +280,25 @@ public static class MacroDeckServer
                 }
 
                 break;
+
             case JsonMethod.GET_BUTTONS:
+                // 客户端请求获取所有按钮数据
                 Task.Run(() => { SendAllButtons(macroDeckClient); });
                 break;
         }
     }
 
+    /// <summary>
+    /// 执行动作按钮的触发操作。根据按钮按压类型选择对应的动作列表并异步执行。
+    /// </summary>
+    /// <param name="actionButton">目标动作按钮</param>
+    /// <param name="clientId">触发客户端 ID</param>
+    /// <param name="buttonPressType">按钮按压类型</param>
     internal static void Execute(ActionButton.ActionButton actionButton,
         string clientId,
         ButtonPressType buttonPressType)
     {
+        // 根据按压类型选择对应的动作列表
         var actions = buttonPressType switch
         {
             ButtonPressType.SHORT => actionButton.Actions,
@@ -277,10 +329,10 @@ public static class MacroDeckServer
     }
 
     /// <summary>
-    /// Sets the current profile of a client
+    /// 设置客户端的配置文件，并发送配置和按钮数据
     /// </summary>
-    /// <param name="macroDeckClient"></param>
-    /// <param name="macroDeckProfile"></param>
+    /// <param name="macroDeckClient">目标客户端</param>
+    /// <param name="macroDeckProfile">要设置的配置文件</param>
     public static void SetProfile(MacroDeckClient macroDeckClient, MacroDeckProfile macroDeckProfile)
     {
         macroDeckClient.Profile = macroDeckProfile;
@@ -290,10 +342,10 @@ public static class MacroDeckServer
     }
 
     /// <summary>
-    /// Sets the current folder of a client
+    /// 设置客户端的当前文件夹，并发送该文件夹的所有按钮数据
     /// </summary>
-    /// <param name="macroDeckClient"></param>
-    /// <param name="folder"></param>
+    /// <param name="macroDeckClient">目标客户端</param>
+    /// <param name="folder">要设置的文件夹</param>
     public static void SetFolder(MacroDeckClient macroDeckClient, MacroDeckFolder folder)
     {
         macroDeckClient.Folder = folder;
@@ -302,9 +354,9 @@ public static class MacroDeckServer
     }
 
     /// <summary>
-    /// Updates the folder on all clients with this folder as the current folder
+    /// 更新所有正在显示指定文件夹的客户端的按钮数据
     /// </summary>
-    /// <param name="folder"></param>
+    /// <param name="folder">发生变化的文件夹</param>
     public static void UpdateFolder(MacroDeckFolder folder)
     {
         foreach (var macroDeckClient in Clients.FindAll(macroDeckClient => macroDeckClient.Folder.Equals(folder)))
@@ -314,34 +366,38 @@ public static class MacroDeckServer
     }
 
     /// <summary>
-    /// Sends all buttons of the current folder to the client
+    /// 向客户端发送当前文件夹的所有按钮数据
     /// </summary>
-    /// <param name="macroDeckClient"></param>
+    /// <param name="macroDeckClient">目标客户端</param>
     private static void SendAllButtons(MacroDeckClient macroDeckClient)
     {
         macroDeckClient?.DeviceMessage?.SendAllButtons(macroDeckClient);
     }
 
     /// <summary>
-    /// Sends a single button to the client
+    /// 向客户端发送单个按钮的更新数据
     /// </summary>
-    /// <param name="macroDeckClient"></param>
-    /// <param name="actionButton"></param>
+    /// <param name="macroDeckClient">目标客户端</param>
+    /// <param name="actionButton">要更新的按钮</param>
     public static void SendButton(MacroDeckClient macroDeckClient, ActionButton.ActionButton actionButton)
     {
         macroDeckClient?.DeviceMessage?.UpdateButton(macroDeckClient, actionButton);
     }
 
     /// <summary>
-    /// Set button state on or off
+    /// 设置动作按钮的开/关状态
     /// </summary>
-    /// <param name="actionButton">ActionButton</param>
-    /// <param name="state">State true = on, off = false</param>
+    /// <param name="actionButton">目标按钮</param>
+    /// <param name="state">true 为开，false 为关</param>
     public static void SetState(ActionButton.ActionButton actionButton, bool state)
     {
         actionButton.State = state;
     }
 
+    /// <summary>
+    /// 更新按钮状态到所有正在显示该按钮的客户端
+    /// </summary>
+    /// <param name="actionButton">状态变化的按钮</param>
     internal static void UpdateState(ActionButton.ActionButton actionButton)
     {
         foreach (var macroDeckClient in Clients.FindAll(macroDeckClient =>
@@ -352,10 +408,10 @@ public static class MacroDeckServer
     }
 
     /// <summary>
-    /// Get the MacroDeckClient from the client id
+    /// 根据客户端 ID 获取 MacroDeckClient 实例
     /// </summary>
-    /// <param name="macroDeckClientId">Client-ID</param>
-    /// <returns></returns>
+    /// <param name="macroDeckClientId">客户端 ID</param>
+    /// <returns>客户端实例，未找到返回 null</returns>
     public static MacroDeckClient? GetMacroDeckClient(string macroDeckClientId)
     {
         return string.IsNullOrWhiteSpace(macroDeckClientId)
@@ -364,10 +420,10 @@ public static class MacroDeckServer
     }
 
     /// <summary>
-    /// Raw send function
+    /// 原始发送方法，向指定客户端发送 JSON 对象
     /// </summary>
-    /// <param name="macroDeckClient"></param>
-    /// <param name="jObject"></param>
+    /// <param name="macroDeckClient">目标客户端</param>
+    /// <param name="jObject">要发送的 JSON 对象</param>
     internal static void Send(MacroDeckClient macroDeckClient, JObject jObject)
     {
         Task.Run(async () => await WebSocketHandler.SendMessageToClient(macroDeckClient.SessionId, jObject.ToString()));

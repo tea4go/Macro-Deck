@@ -1,4 +1,4 @@
-﻿using System.Drawing.Imaging;
+using System.Drawing.Imaging;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -11,21 +11,37 @@ using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.Icons;
 
+/// <summary>
+/// 图标管理器，负责图标包的加载、保存、安装、导出和删除等操作。
+/// 管理所有已安装的图标包，并提供图标的查找和添加功能。
+/// </summary>
 public class IconManager
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(IconManager));
 
+    /// <summary>已安装的图标包列表</summary>
     public static List<IconPack> IconPacks = new();
+
+    /// <summary>有可用更新的图标包列表</summary>
     public static List<IconPack> IconPacksUpdateAvailable = new();
 
+    /// <summary>图标包安装完成事件</summary>
     public static event EventHandler InstallationFinished;
 
+    /// <summary>图标包变更事件（添加/删除时触发）</summary>
     public static event EventHandler OnIconPacksChanged;
 
+    /// <summary>更新检查完成回调</summary>
     public static Action<object, EventArgs> OnUpdateCheckFinished { get; internal set; }
+
+    /// <summary>图标包加载完成回调</summary>
     public static Action<object, EventArgs> IconPacksLoaded { get; set; }
 
 
+    /// <summary>
+    /// 初始化图标管理器。创建图标包目录并加载所有图标包。
+    /// 如果没有图标包，则创建默认的 "My Icons" 图标包。
+    /// </summary>
     public static void Initialize()
     {
         if (!Directory.Exists(ApplicationPaths.IconPackDirectoryPath))
@@ -36,6 +52,10 @@ public class IconManager
         LoadIconPacks();
     }
 
+    /// <summary>
+    /// 从磁盘加载所有图标包。扫描图标包目录下的每个子目录。
+    /// 如果没有任何图标包，则创建默认图标包。
+    /// </summary>
     private static void LoadIconPacks()
     {
         IconPacks.Clear();
@@ -53,6 +73,12 @@ public class IconManager
         Logger.Information("Loaded {IconPackCount} icon packs", IconPacks.Count);
     }
 
+    /// <summary>
+    /// 从指定路径加载单个图标包。
+    /// 读取 ExtensionManifest.json 获取元数据，然后加载目录下的所有图片文件。
+    /// </summary>
+    /// <param name="path">图标包目录路径</param>
+    /// <returns>加载成功返回 true，否则返回 false</returns>
     public static bool LoadIconPack(string path)
     {
         var extensionManifestFilePath = Path.Combine(path, "ExtensionManifest.json");
@@ -68,18 +94,20 @@ public class IconManager
             return false;
         }
 
-
         var iconPack = new IconPack
         {
             Name = extensionManifest.Name,
             Author = extensionManifest.Author,
             Version = extensionManifest.Version,
             PackageId = extensionManifest.PackageId,
+            // 通过 .extensionstore 标记文件判断是否由扩展商店管理
             ExtensionStoreManaged = File.Exists(Path.Combine(path, ".extensionstore")),
+            // 通过 .hidden 标记文件判断是否隐藏
             Hidden = File.Exists(Path.Combine(path, ".hidden")),
             Icons = new List<Icon>()
         };
 
+        // 如果已存在同名图标包则替换
         if (IconPacks.Find(x => x.PackageId.Equals(iconPack.PackageId)) != null)
         {
             IconPacks.RemoveAll(x => x.PackageId.Equals(iconPack.PackageId));
@@ -87,6 +115,7 @@ public class IconManager
 
         IconPacks.Add(iconPack);
 
+        // 加载目录下所有图片文件作为图标（排除 ExtensionIcon）
         foreach (var imageFile in Directory.GetFiles(path).Where(s =>
             s.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
             s.EndsWith(".gif", StringComparison.OrdinalIgnoreCase) ||
@@ -112,11 +141,14 @@ public class IconManager
             }
         }
 
-        // The preview image is intentionally not generated here to avoid keeping a bitmap
-        // per icon pack permanently in memory. Consumers generate it on demand and dispose it.
+        // 预览图不在此处生成，避免每个图标包长期占用内存
         return true;
     }
 
+    /// <summary>
+    /// 异步检查图标包是否有可用更新
+    /// </summary>
+    /// <param name="iconPack">要检查的图标包</param>
     internal static async Task SearchUpdate(IconPack iconPack)
     {
         var updateAvailable = await ExtensionStoreHelper.CheckForAvailableUpdate(iconPack.PackageId, iconPack.Version);
@@ -126,16 +158,32 @@ public class IconManager
         }
     }
 
+    /// <summary>
+    /// 根据名称获取图标包
+    /// </summary>
+    /// <param name="name">图标包名称</param>
+    /// <returns>图标包实例，未找到返回 null</returns>
     public static IconPack? GetIconPackByName(string name)
     {
         return IconPacks.FirstOrDefault(iconPack => iconPack.Name == name);
     }
 
+    /// <summary>
+    /// 从指定图标包中获取指定 ID 的图标
+    /// </summary>
+    /// <param name="iconPack">图标包</param>
+    /// <param name="iconId">图标 ID</param>
+    /// <returns>图标实例，未找到返回 null</returns>
     public static Icon? GetIcon(IconPack iconPack, string iconId)
     {
         return iconPack?.Icons.FirstOrDefault(icon => icon.IconId == iconId);
     }
 
+    /// <summary>
+    /// 根据字符串格式 "图标包名.图标ID" 获取图标
+    /// </summary>
+    /// <param name="s">格式为 "图标包名.图标ID" 的字符串</param>
+    /// <returns>图标实例，未找到返回 null</returns>
     public static Icon? GetIconByString(string s)
     {
         var iconPack = GetIconPackByName(s.Substring(0, s.IndexOf(".")));
@@ -148,6 +196,13 @@ public class IconManager
         return icon;
     }
 
+    /// <summary>
+    /// 将图像添加到图标包中。GIF 格式直接保存，其他格式转换为 PNG 保存。
+    /// </summary>
+    /// <param name="iconPack">目标图标包</param>
+    /// <param name="image">要添加的图像</param>
+    /// <param name="iconId">图标 ID（为空时自动生成 GUID）</param>
+    /// <returns>新添加的图标，失败返回 null</returns>
     public static Icon AddIconImage(IconPack iconPack, Image image, string iconId = "")
     {
         if (iconPack == null || image == null || iconPack.Icons.Find(x => x.IconId == iconId) != null)
@@ -170,9 +225,9 @@ public class IconManager
             }
             else
             {
+                // 非 GIF 格式创建新位图避免 GDI+ 错误
                 filePath = Path.Combine(ApplicationPaths.IconPackDirectoryPath, iconPack.PackageId, $"{iconId}.png");
-                image = new Bitmap(
-                    image); // Generating a new bitmap if the file format is not a gif because otherwise it causes a GDI+ error in some cases
+                image = new Bitmap(image);
                 format = ImageFormat.Png;
             }
 
@@ -196,15 +251,23 @@ public class IconManager
         return null;
     }
 
+    /// <summary>
+    /// 导出图标包为 ZIP 文件。先生成预览图，然后将所有文件打包。
+    /// </summary>
+    /// <param name="iconPack">要导出的图标包</param>
+    /// <param name="destination">目标子目录名</param>
     public static void ExportIconPack(IconPack iconPack, string destination)
     {
         var iconPackDir = Path.Combine(ApplicationPaths.IconPackDirectoryPath, iconPack.PackageId);
         try
         {
+            // 生成并保存预览图
             using (var preview = iconPack.IconPackIcon ?? IconPackPreview.GeneratePreviewImage(iconPack))
             {
                 preview?.Save(Path.Combine(iconPackDir, "ExtensionIcon.png"));
             }
+
+            // 将图标包目录下的所有文件打包为 ZIP
             using var archive = ZipFile.Open(Path.Combine(ApplicationPaths.BackupsDirectoryPath,
                     destination,
                     $"{iconPack.Name}.macroDeckIconPack"),
@@ -225,6 +288,10 @@ public class IconManager
         }
     }
 
+    /// <summary>
+    /// 删除图标包。从列表中移除并删除磁盘上的目录。
+    /// </summary>
+    /// <param name="iconPack">要删除的图标包</param>
     public static void DeleteIconPack(IconPack iconPack)
     {
         if (iconPack == null)
@@ -248,6 +315,11 @@ public class IconManager
         }
     }
 
+    /// <summary>
+    /// 从图标包中删除指定图标。移除图标引用并删除磁盘上的文件。
+    /// </summary>
+    /// <param name="iconPack">图标包</param>
+    /// <param name="icon">要删除的图标</param>
     public static void DeleteIcon(IconPack iconPack, Icon icon)
     {
         if (iconPack == null || icon == null)
@@ -269,6 +341,10 @@ public class IconManager
         }
     }
 
+    /// <summary>
+    /// 保存图标包的扩展清单（ExtensionManifest.json）到磁盘。
+    /// </summary>
+    /// <param name="iconPack">要保存的图标包</param>
     public static void SaveIconPack(IconPack iconPack)
     {
         var extensionManifestModel = new ExtensionManifestModel
@@ -308,6 +384,13 @@ public class IconManager
         }
     }
 
+    /// <summary>
+    /// 创建新的图标包。自动生成 PackageId（格式：作者名.图标包名），
+    /// 保存清单文件并添加到图标包列表。
+    /// </summary>
+    /// <param name="iconPackName">图标包名称</param>
+    /// <param name="author">作者名</param>
+    /// <param name="version">版本号</param>
     public static void CreateIconPack(string iconPackName, string author, string version)
     {
         var iconPack = new IconPack
@@ -324,6 +407,13 @@ public class IconManager
         IconPacks.Add(iconPack);
     }
 
+    /// <summary>
+    /// 从 ZIP 文件安装图标包。
+    /// 验证清单文件和类型，解压到图标包目录，支持扩展商店管理的标记。
+    /// </summary>
+    /// <param name="location">ZIP 文件路径</param>
+    /// <param name="extensionStoreManaged">是否由扩展商店管理</param>
+    /// <returns>安装成功的图标包，失败返回 null</returns>
     public static IconPack InstallIconPackZip(string location, bool extensionStoreManaged = false)
     {
         try
@@ -346,6 +436,7 @@ public class IconManager
             if (!Directory.Exists(destinationPath))
             {
                 Directory.CreateDirectory(destinationPath);
+                // 扩展商店管理时，记录下载统计
                 if (extensionStoreManaged)
                 {
                     try
@@ -361,10 +452,12 @@ public class IconManager
             }
             else
             {
+                // 目录已存在则先删除（覆盖安装）
                 Directory.Delete(destinationPath, true);
             }
 
             ZipFile.ExtractToDirectory(location, destinationPath);
+            // 创建扩展商店管理标记文件
             if (extensionStoreManaged)
             {
                 try
@@ -378,6 +471,7 @@ public class IconManager
 
             if (LoadIconPack(destinationPath))
             {
+                // 从可用更新列表中移除
                 if (IconPacksUpdateAvailable.Find(x => x.PackageId.Equals(extensionManifestModel.PackageId)) != null)
                 {
                     IconPacksUpdateAvailable.Remove(IconPacksUpdateAvailable.Find(x =>

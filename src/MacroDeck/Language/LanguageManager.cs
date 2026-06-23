@@ -1,22 +1,38 @@
-﻿using System.IO;
+using System.IO;
 using Newtonsoft.Json;
 using Serilog;
 using SuchByte.MacroDeck.StartupConfig;
 
 namespace SuchByte.MacroDeck.Language;
 
+/// <summary>
+/// 语言管理器，负责加载、管理和切换应用程序的多语言支持。
+/// 从嵌入资源中加载语言文件，支持运行时切换语言。
+/// </summary>
 public static class LanguageManager
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(LanguageManager));
 
+    /// <summary>语言变更事件</summary>
     public static event EventHandler LanguageChanged;
+
+    /// <summary>所有可用语言列表</summary>
     public static List<Strings> Languages => _languages;
+
     private static List<Strings> _languages = new();
 
+    /// <summary>当前使用的语言字符串</summary>
     private static Strings _strings = new();
+
+    /// <summary>当前使用的语言字符串实例</summary>
     public static Strings Strings => _strings;
 
 
+    /// <summary>
+    /// 加载所有语言文件。从嵌入资源中读取语言 JSON 文件，
+    /// 去重后按语言名称排序。可选导出默认语言文件到磁盘。
+    /// </summary>
+    /// <param name="exportDefaultStrings">是否导出默认语言文件到磁盘</param>
     public static void Load(bool exportDefaultStrings = false)
     {
         _languages.Clear();
@@ -26,13 +42,14 @@ public static class LanguageManager
             SaveDefault();
         }
 
-        // Loading languages from resources
+        // 从嵌入资源加载语言文件
         Logger.Information("Loading language files...");
         var assembly = typeof(Strings).Assembly;
         foreach (var manifestResource in assembly.GetManifestResourceNames())
         {
             try
             {
+                // 仅加载 Languages 目录下的 JSON 文件
                 if (!manifestResource.StartsWith("SuchByte.MacroDeck.Resources.Languages.") ||
                     !manifestResource.EndsWith(".json"))
                 {
@@ -48,6 +65,7 @@ public static class LanguageManager
                 while (!sr.EndOfStream)
                 {
                     var language = serializer.Deserialize<Strings>(jsonReader);
+                    // 去重：跳过已存在的同名、同语言代码、同作者的语言
                     if (_languages.FindAll(l =>
                             l.__Language__.Equals(language.__Language__) &&
                             l.__LanguageCode__.Equals(language.__LanguageCode__) &&
@@ -69,6 +87,9 @@ public static class LanguageManager
         _languages = _languages.OrderBy(x => x.__Language__).ToList();
     }
 
+    /// <summary>
+    /// 将默认语言字符串导出为 JSON 文件到磁盘
+    /// </summary>
     private static void SaveDefault()
     {
         var path = Path.Combine(ApplicationPaths.MainDirectoryPath, "Language", _strings.__Language__ + ".json");
@@ -92,6 +113,10 @@ public static class LanguageManager
         }
     }
 
+    /// <summary>
+    /// 根据语言名称设置当前语言
+    /// </summary>
+    /// <param name="languageName">语言名称</param>
     public static void SetLanguage(string languageName)
     {
         var strings = _languages.Find(l => l.__Language__.Equals(languageName));
@@ -101,6 +126,10 @@ public static class LanguageManager
         }
     }
 
+    /// <summary>
+    /// 设置当前语言并触发语言变更事件
+    /// </summary>
+    /// <param name="language">要设置的语言字符串实例</param>
     public static void SetLanguage(Strings language)
     {
         Logger.Information("Set language to {Language}", language.__Language__);
@@ -108,11 +137,17 @@ public static class LanguageManager
         LanguageChanged?.Invoke(language, EventArgs.Empty);
     }
 
+    /// <summary>
+    /// 获取当前语言名称
+    /// </summary>
     public static string GetLanguageName()
     {
         return _strings.__Language__;
     }
 
+    /// <summary>
+    /// 获取当前语言代码
+    /// </summary>
     public static string GetLanguageCode()
     {
         return _strings.__LanguageCode__;
