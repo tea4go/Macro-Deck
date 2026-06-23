@@ -417,4 +417,7 @@ public class Strings
     public string Actions = "Actions";
     public string AlignLabel = "Align label:";
     public string EditJson = "Edit JSON";
+    public string KeepAwake = "Keep awake";
+    public string WhenConnected = "When connected";
+    public string Always = "Always";
 }

@@ -19,6 +19,10 @@ public partial class DeviceConfigurator : DialogForm
         lblBrightness.Text = LanguageManager.Strings.Brightness;
         checkAutoConnect.Text = LanguageManager.Strings.AutoConnect;
         btnOk.Text = LanguageManager.Strings.Ok;
+        lblKeepWake.Text = LanguageManager.Strings.KeepAwake;
+        radioKeepAwakeNever.Text = LanguageManager.Strings.Never;
+        radioKeepAwakeConnected.Text = LanguageManager.Strings.WhenConnected;
+        radioKeepAwakeAlways.Text = LanguageManager.Strings.Always;
     }
 
     private void DeviceConfigurator_Load(object sender, EventArgs e)

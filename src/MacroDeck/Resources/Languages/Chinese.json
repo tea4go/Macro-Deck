@@ -339,5 +339,8 @@
     "LicensedUnderApache": "基于 Apache-2.0 许可证",
     "Actions": "动作",
     "AlignLabel": "对齐标签：",
-    "EditJson": "编辑 JSON"
+    "EditJson": "编辑 JSON",
+    "KeepAwake": "保持唤醒",
+    "WhenConnected": "连接时",
+    "Always": "始终"
 }
