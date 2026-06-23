@@ -1,6 +1,7 @@
 ﻿using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.InternalPlugins.DevicePlugin.ViewModels;
+using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Server;
 
@@ -15,6 +16,9 @@ public partial class SetBrightnessActionConfigView : ActionConfigControl
     {
         InitializeComponent();
         _viewModel = new SetBrightnessActionConfigViewModel(action);
+        lblBrightness.Text = LanguageManager.Strings.Brightness;
+        lblDevice.Text = LanguageManager.Strings.Device;
+        radioCurrentDevice.Text = LanguageManager.Strings.WhereExecuted;
     }
 
     private void SetBrightnessActionConfigView_Load(object sender, EventArgs e)
