@@ -33,6 +33,8 @@ $batLines = @(
     'cd /d "%~dp0"'
     'start "" "Macro Deck 2.exe" --portable'
 )
-[System.IO.File]::WriteAllText("$Output\启动.bat", ($batLines -join "`r`n") + "`r`n", [System.Text.Encoding]::Default)
+$outputFull = (Resolve-Path $Output).Path
+$batPath = Join-Path $outputFull "启动.bat"
+[System.IO.File]::WriteAllText($batPath, ($batLines -join "`r`n") + "`r`n", [System.Text.Encoding]::Default)
 
 Write-Host "完成 -> $Output"
