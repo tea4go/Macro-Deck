@@ -53,6 +53,8 @@ public partial class SettingsView : UserControl
         checkSendErrorReports.Text = LanguageManager.Strings.SendAnonymousErrorReports;
         lblLanguage.Text = LanguageManager.Strings.Language;
         lblFont.Text = LanguageManager.Strings.Font;
+        lblFontSize.Text = LanguageManager.Strings.Size;
+        checkBold.Text = LanguageManager.Strings.Bold;
         lblConnection.Text = LanguageManager.Strings.Connection;
         lblPort.Text = LanguageManager.Strings.Port;
         btnChangePort.Text = LanguageManager.Strings.Ok;
@@ -116,6 +118,9 @@ public partial class SettingsView : UserControl
     private void LoadFont()
     {
         font.SelectedIndexChanged -= Font_SelectedIndexChanged;
+        fontSize.ValueChanged -= FontSize_ValueChanged;
+        checkBold.CheckedChanged -= CheckBold_CheckedChanged;
+
         font.Items.Clear();
         using (var col = new InstalledFontCollection())
         {
@@ -126,7 +131,17 @@ public partial class SettingsView : UserControl
         }
 
         font.Text = MacroDeck.Configuration.FontFamily;
+
+        var size = (decimal)MacroDeck.Configuration.FontSize;
+        if (size < fontSize.Minimum) size = fontSize.Minimum;
+        if (size > fontSize.Maximum) size = fontSize.Maximum;
+        fontSize.Value = size;
+
+        checkBold.Checked = MacroDeck.Configuration.FontBold;
+
         font.SelectedIndexChanged += Font_SelectedIndexChanged;
+        fontSize.ValueChanged += FontSize_ValueChanged;
+        checkBold.CheckedChanged += CheckBold_CheckedChanged;
     }
 
     private void LoadAutoUpdate()
@@ -311,6 +326,34 @@ public partial class SettingsView : UserControl
         }
 
         MacroDeck.Configuration.FontFamily = font.Text;
+        SaveFontAndNotifyRestart();
+    }
+
+    private void FontSize_ValueChanged(object sender, EventArgs e)
+    {
+        var value = (float)fontSize.Value;
+        if (Math.Abs(value - MacroDeck.Configuration.FontSize) < 0.001f)
+        {
+            return;
+        }
+
+        MacroDeck.Configuration.FontSize = value;
+        SaveFontAndNotifyRestart();
+    }
+
+    private void CheckBold_CheckedChanged(object sender, EventArgs e)
+    {
+        if (checkBold.Checked == MacroDeck.Configuration.FontBold)
+        {
+            return;
+        }
+
+        MacroDeck.Configuration.FontBold = checkBold.Checked;
+        SaveFontAndNotifyRestart();
+    }
+
+    private void SaveFontAndNotifyRestart()
+    {
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
 
         using var msgBox = new MessageBox();

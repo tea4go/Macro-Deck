@@ -44,6 +44,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblLanguage = new Label();
             font = new RoundedComboBox();
             lblFont = new Label();
+            fontSize = new NumericUpDown();
+            lblFontSize = new Label();
+            checkBold = new CheckBox();
             checkStartWindows = new CheckBox();
             checkSendErrorReports = new CheckBox();
             lblBehaviour = new Label();
@@ -97,6 +100,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabGeneral.SuspendLayout();
             tabConnection.SuspendLayout();
             ((ISupportInitialize)port).BeginInit();
+            ((ISupportInitialize)fontSize).BeginInit();
             tabUpdater.SuspendLayout();
             tabBackups.SuspendLayout();
             tabAbout.SuspendLayout();
@@ -132,6 +136,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabGeneral.Controls.Add(lblLanguage);
             tabGeneral.Controls.Add(font);
             tabGeneral.Controls.Add(lblFont);
+            tabGeneral.Controls.Add(fontSize);
+            tabGeneral.Controls.Add(lblFontSize);
+            tabGeneral.Controls.Add(checkBold);
             tabGeneral.Controls.Add(checkStartWindows);
             tabGeneral.Controls.Add(checkSendErrorReports);
             tabGeneral.Controls.Add(lblBehaviour);
@@ -202,6 +209,46 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblFont.TabIndex = 5;
             lblFont.Text = "Font";
             lblFont.UseMnemonic = false;
+            //
+            // fontSize
+            //
+            fontSize.BackColor = Color.FromArgb(65, 65, 65);
+            fontSize.BorderStyle = BorderStyle.FixedSingle;
+            fontSize.DecimalPlaces = 2;
+            fontSize.Font = new Font("Tahoma", 12F);
+            fontSize.ForeColor = Color.White;
+            fontSize.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
+            fontSize.Location = new Point(277, 286);
+            fontSize.Maximum = new decimal(new int[] { 72, 0, 0, 0 });
+            fontSize.Minimum = new decimal(new int[] { 6, 0, 0, 0 });
+            fontSize.Name = "fontSize";
+            fontSize.Size = new Size(80, 30);
+            fontSize.TabIndex = 8;
+            fontSize.Value = new decimal(new int[] { 975, 0, 0, 131072 });
+            fontSize.ValueChanged += FontSize_ValueChanged;
+            //
+            // lblFontSize
+            //
+            lblFontSize.AutoSize = true;
+            lblFontSize.Font = new Font("Tahoma", 14.25F);
+            lblFontSize.ForeColor = Color.Gray;
+            lblFontSize.Location = new Point(277, 262);
+            lblFontSize.Name = "lblFontSize";
+            lblFontSize.Size = new Size(50, 23);
+            lblFontSize.TabIndex = 7;
+            lblFontSize.Text = "Size";
+            lblFontSize.UseMnemonic = false;
+            //
+            // checkBold
+            //
+            checkBold.AutoSize = true;
+            checkBold.Location = new Point(13, 326);
+            checkBold.Name = "checkBold";
+            checkBold.Size = new Size(70, 23);
+            checkBold.TabIndex = 9;
+            checkBold.Text = "Bold";
+            checkBold.UseVisualStyleBackColor = true;
+            checkBold.CheckedChanged += CheckBold_CheckedChanged;
             //
             // checkStartWindows
             //
@@ -888,6 +935,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             verticalTabControl.ResumeLayout(false);
             tabGeneral.ResumeLayout(false);
             tabGeneral.PerformLayout();
+            ((ISupportInitialize)fontSize).EndInit();
             tabConnection.ResumeLayout(false);
             tabConnection.PerformLayout();
             ((ISupportInitialize)port).EndInit();
@@ -923,6 +971,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         private RoundedComboBox language;
         private Label lblFont;
         private RoundedComboBox font;
+        private Label lblFontSize;
+        private NumericUpDown fontSize;
+        private CheckBox checkBold;
         private Label lblPort;
         private NumericUpDown port;
         private ButtonPrimary btnChangePort;

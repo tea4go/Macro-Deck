@@ -16,17 +16,32 @@ public static class FontManager
 
     private const string DefaultFontFamily = "Tahoma";
 
+    /// <summary>
+    /// 基准字号（基线）。界面中出现最多的字号，用于计算各控件相对基线的修正量：
+    /// 修正量 = 控件原字号 - 基线；应用后字号 = 用户设定字号 + 修正量。
+    /// 这样统一调整字号时仍保留各控件原有的相对大小层次。
+    /// </summary>
+    private const float BaselineFontSize = 9.75F;
+
     /// <summary>当前生效的界面字体族名称，启动时初始化一次。</summary>
     public static string FontFamily { get; private set; } = DefaultFontFamily;
 
+    /// <summary>当前生效的基准字号（用户设定值），启动时初始化一次。</summary>
+    public static float FontSize { get; private set; } = BaselineFontSize;
+
+    /// <summary>是否对所有控件叠加粗体，启动时初始化一次。</summary>
+    public static bool FontBold { get; private set; }
+
     /// <summary>
-    /// 根据配置初始化字体族。若配置的字体未安装，则回退到默认字体并记录日志。
-    /// 缓存 FontFamily 供 Apply/Resolve 使用。
+    /// 根据配置初始化字体族、字号与粗体。若配置的字体未安装，则回退到默认字体并记录日志。
+    /// 缓存配置供 Apply/Resolve 使用。
     /// 必须在创建第一个窗体之前调用（兜底的 SetDefaultFont 请用 SetDefaultFontEarly 在
     /// 程序入口更早调用，因为它要求早于任何 Win32 窗口的创建）。
     /// </summary>
     /// <param name="configuredFamily">配置中的字体族名称</param>
-    public static void Initialize(string? configuredFamily)
+    /// <param name="configuredSize">配置中的基准字号</param>
+    /// <param name="configuredBold">配置中是否粗体</param>
+    public static void Initialize(string? configuredFamily, float configuredSize, bool configuredBold)
     {
         var family = string.IsNullOrWhiteSpace(configuredFamily) ? DefaultFontFamily : configuredFamily.Trim();
 
@@ -38,6 +53,19 @@ public static class FontManager
         }
 
         FontFamily = family;
+        FontSize = configuredSize > 0 ? configuredSize : BaselineFontSize;
+        FontBold = configuredBold;
+    }
+
+    /// <summary>
+    /// 判断当前配置是否为默认值（字体 Tahoma、字号等于基线、未加粗）。
+    /// 为默认时无需改动任何控件，直接短路以保证零开销零回归。
+    /// </summary>
+    private static bool IsDefault()
+    {
+        return string.Equals(FontFamily, DefaultFontFamily, StringComparison.OrdinalIgnoreCase)
+            && Math.Abs(FontSize - BaselineFontSize) < 0.01F
+            && !FontBold;
     }
 
     /// <summary>
@@ -49,15 +77,32 @@ public static class FontManager
     {
         try
         {
-            var family = ReadFontFamilyFromConfig(configFilePath);
-            if (string.IsNullOrWhiteSpace(family) ||
-                string.Equals(family, DefaultFontFamily, StringComparison.OrdinalIgnoreCase) ||
-                !IsFontInstalled(family))
+            if (!File.Exists(configFilePath))
             {
                 return;
             }
 
-            Application.SetDefaultFont(new Font(family, 9F));
+            var json = JObject.Parse(File.ReadAllText(configFilePath));
+            var family = json["Font"]?.ToString();
+            var size = (float?)json["Font.Size"] ?? BaselineFontSize;
+            var bold = (bool?)json["Font.Bold"] ?? false;
+
+            var resolvedFamily = string.IsNullOrWhiteSpace(family) ? DefaultFontFamily : family.Trim();
+            if (!string.Equals(resolvedFamily, DefaultFontFamily, StringComparison.OrdinalIgnoreCase)
+                && !IsFontInstalled(resolvedFamily))
+            {
+                resolvedFamily = DefaultFontFamily;
+            }
+
+            // 配置全为默认值时无需设置默认字体
+            if (string.Equals(resolvedFamily, DefaultFontFamily, StringComparison.OrdinalIgnoreCase)
+                && Math.Abs(size - BaselineFontSize) < 0.01F && !bold)
+            {
+                return;
+            }
+
+            var style = bold ? FontStyle.Bold : FontStyle.Regular;
+            Application.SetDefaultFont(new Font(resolvedFamily, size > 0 ? size : BaselineFontSize, style));
         }
         catch (Exception ex)
         {
@@ -65,26 +110,16 @@ public static class FontManager
         }
     }
 
-    private static string? ReadFontFamilyFromConfig(string configFilePath)
-    {
-        if (!File.Exists(configFilePath))
-        {
-            return null;
-        }
-
-        var json = JObject.Parse(File.ReadAllText(configFilePath));
-        return json["Font"]?.ToString();
-    }
-
     /// <summary>
-    /// 递归地将控件及其所有子控件的字体替换为配置字体族，保留原有字号、样式和单位。
-    /// 当用户未更改字体（仍为默认 Tahoma）时直接返回，零开销。
+    /// 递归地将控件及其所有子控件的字体替换为配置字体。字号按"用户设定字号 + 控件相对
+    /// 基线的修正量"计算以保留层次，粗体按配置叠加，字体族换为配置族。
+    /// 当配置为默认值（Tahoma / 基线字号 / 非粗体）时直接返回，零开销。
     /// 控件的 Tag 为 "no-font" 时跳过（用于等宽对齐等不应更改字体的控件）。
     /// </summary>
     /// <param name="root">要处理的根控件（通常是窗体自身）</param>
     public static void Apply(Control root)
     {
-        if (string.Equals(FontFamily, DefaultFontFamily, StringComparison.OrdinalIgnoreCase))
+        if (IsDefault())
         {
             return;
         }
@@ -98,8 +133,7 @@ public static class FontManager
         {
             try
             {
-                var old = control.Font;
-                control.Font = new Font(FontFamily, old.Size, old.Style, old.Unit, old.GdiCharSet);
+                control.Font = BuildFont(control.Font);
             }
             catch (Exception ex)
             {
@@ -114,19 +148,36 @@ public static class FontManager
     }
 
     /// <summary>
-    /// 根据原字体返回替换字体族后的新字体（保留字号/样式/单位），供自定义绘制等
-    /// 不在控件树中的场景调用。未更改字体时直接返回原字体。
+    /// 根据原字体返回应用配置后的新字体，供自定义绘制等不在控件树中的场景调用。
+    /// 配置为默认时直接返回原字体。
     /// </summary>
     /// <param name="original">原字体</param>
-    /// <returns>替换字体族后的字体</returns>
+    /// <returns>应用配置后的字体</returns>
     public static Font Resolve(Font original)
     {
-        if (string.Equals(FontFamily, DefaultFontFamily, StringComparison.OrdinalIgnoreCase))
+        if (IsDefault())
         {
             return original;
         }
 
-        return new Font(FontFamily, original.Size, original.Style, original.Unit, original.GdiCharSet);
+        return BuildFont(original);
+    }
+
+    /// <summary>
+    /// 基于原字体构造应用了配置字体族、字号修正和粗体叠加的新字体，保留原单位与字符集。
+    /// </summary>
+    private static Font BuildFont(Font original)
+    {
+        // 字号 = 用户设定字号 + 控件原字号相对基线的修正量，保留视觉层次
+        var size = FontSize + (original.Size - BaselineFontSize);
+        if (size <= 0)
+        {
+            size = original.Size;
+        }
+
+        var style = FontBold ? original.Style | FontStyle.Bold : original.Style;
+
+        return new Font(FontFamily, size, style, original.Unit, original.GdiCharSet);
     }
 
     private static bool IsFontInstalled(string family)

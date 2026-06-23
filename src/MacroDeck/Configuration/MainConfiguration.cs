@@ -97,6 +97,12 @@ public class MainConfiguration
     /// <summary>界面字体族名称，下次启动生效</summary>
     [JsonProperty("Font")] public string FontFamily { get; set; } = "Tahoma";
 
+    /// <summary>界面基准字号，下次启动生效。各控件按相对基线(9.75)的修正量等比调整</summary>
+    [JsonProperty("Font.Size")] public float FontSize { get; set; } = 9.75F;
+
+    /// <summary>是否对所有界面文字叠加粗体，下次启动生效</summary>
+    [JsonProperty("Font.Bold")] public bool FontBold { get; set; }
+
     /// <summary>是否发送匿名错误报告</summary>
     [JsonProperty("Privacy.SendAnonymousErrorReports")]
     public bool SendAnonymousErrorReports { get; set; } = true;

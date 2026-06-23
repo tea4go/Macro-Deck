@@ -159,7 +159,7 @@ public class MacroDeck : NativeWindow
         Configuration = MainConfiguration.LoadFromFile(ApplicationPaths.MainConfigFilePath);
         SentryConfiguration.Enabled = Configuration.SendAnonymousErrorReports;
         LanguageManager.SetLanguage(Configuration.Language);
-        FontManager.Initialize(Configuration.FontFamily);
+        FontManager.Initialize(Configuration.FontFamily, Configuration.FontSize, Configuration.FontBold);
 
         // 初始化热键管理器
         _ = new HotkeyManager();
