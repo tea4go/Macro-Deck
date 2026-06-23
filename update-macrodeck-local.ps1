@@ -112,9 +112,14 @@ function Get-RecentStatus {
     $runs = gh api "repos/$Repo/actions/runs?per_page=5" | ConvertFrom-Json | Select-Object -ExpandProperty workflow_runs
     if (-not $runs) { Write-Host "  （暂无运行记录）"; return }
     foreach ($r in $runs) {
-        $concl = if ($r.conclusion) { $r.conclusion } else { "进行中" }
+        # 时间转为本地时间的标准格式 yyyy-MM-dd HH:mm:ss
+        $time = ([DateTime]$r.created_at).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")
+        # 结果：成功打勾，失败打叉，未完成显示问号
+        if ($r.status -ne "completed") { $mark = "?" }
+        elseif ($r.conclusion -eq "success") { $mark = [char]0x2713 }  # ✓
+        else { $mark = [char]0x2717 }                                  # ✗
         Write-Host ("  [{0}] {1} | 分支={2} | 状态={3} | 结果={4} | {5}" -f `
-            $r.id, $r.name, $r.head_branch, $r.status, $concl, $r.created_at)
+            $r.id, $time, $r.head_branch, $r.status, $mark, $r.name)
     }
 }
 
