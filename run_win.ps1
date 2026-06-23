@@ -1,15 +1,18 @@
 param(
     [switch]$Build,
     [switch]$Run,
+    [switch]$Portable,
     [string]$Configuration = "Release",
     [string]$Output = "publish"
 )
 
 if (-not $Build -and -not $Run) {
-    Write-Host "用法: .\run_win.ps1 [-Build] [-Run] [-Configuration <Release|Debug>] [-Output <目录>]"
+    Write-Host "用法: .\run_win.ps1 [-Build] [-Run] [-Portable] [-Configuration <Release|Debug>] [-Output <目录>]"
     Write-Host ""
     Write-Host "  -Build           执行构建和发布"
     Write-Host "  -Run             退出旧版本并运行已发布的最新版本"
+    Write-Host "  -Portable        以便携模式运行（数据存于输出目录的 Data 子目录）"
+    Write-Host "                   默认不加此参数，使用标准模式（数据存于 %APPDATA%\Macro Deck）"
     Write-Host "  -Configuration   构建配置（默认: Release）"
     Write-Host "  -Output          输出目录（默认: publish）"
     exit 0
@@ -69,5 +72,9 @@ if ($Run) {
     }
 
     Write-Host "正在启动 $exeName..."
-    Start-Process -FilePath $exePath -ArgumentList "--portable"
+    if ($Portable) {
+        Start-Process -FilePath $exePath -ArgumentList "--portable"
+    } else {
+        Start-Process -FilePath $exePath
+    }
 }
