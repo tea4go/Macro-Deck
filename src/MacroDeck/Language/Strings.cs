@@ -438,4 +438,5 @@ public class Strings
     public string LicensesInfo = "Macro Deck uses some awesome free and open-source software. Some of them require their licenses to be included. Thank you all who created this awesome software!";
     public string Font = "Font";
     public string Bold = "Bold";
+    public string FontPartialRestartHint = "Font applied. Some elements (icons, tray menu) take effect after restart.";
 }

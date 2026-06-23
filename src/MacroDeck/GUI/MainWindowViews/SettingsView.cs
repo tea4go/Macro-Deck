@@ -356,7 +356,12 @@ public partial class SettingsView : UserControl
     {
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
 
-        lblFontRestartHint.Text = LanguageManager.Strings.MacroDeckMustBeRestartedForTheChanges;
+        // 实时刷新所有已打开窗体的字体（自定义绘制部分仍需重启完全生效）
+        FontManager.UpdateAndRefresh(MacroDeck.Configuration.FontFamily,
+            MacroDeck.Configuration.FontSize,
+            MacroDeck.Configuration.FontBold);
+
+        lblFontRestartHint.Text = LanguageManager.Strings.FontPartialRestartHint;
         lblFontRestartHint.Visible = true;
     }
 

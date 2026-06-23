@@ -1,5 +1,6 @@
 using System.Drawing.Text;
 using System.IO;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json.Linq;
 using Serilog;
 
@@ -9,10 +10,15 @@ namespace SuchByte.MacroDeck.Utils;
 /// 全局字体管理器。在启动时根据配置初始化界面字体族，并提供递归替换
 /// 控件树字体的能力。设计目标：在不改动大量 Designer 硬编码字体的前提下，
 /// 让所有界面统一使用用户选择的字体族，同时保留各控件原有的字号与样式。
+/// 支持运行时实时刷新：缓存每个控件的原始字体，重复 Apply 始终基于原始字体
+/// 重算，因而幂等、可反复调用（包括把字号改小）。
 /// </summary>
 public static class FontManager
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(FontManager));
+
+    /// <summary>缓存每个控件首次被处理时的原始字体，用于幂等重算（实时刷新）。</summary>
+    private static readonly ConditionalWeakTable<Control, Font> OriginalFonts = new();
 
     private const string DefaultFontFamily = "Tahoma";
 
@@ -55,6 +61,31 @@ public static class FontManager
         FontFamily = family;
         FontSize = configuredSize > 0 ? configuredSize : BaselineFontSize;
         FontBold = configuredBold;
+    }
+
+    /// <summary>
+    /// 更新当前生效的字体配置并立即刷新所有已打开的窗体（实时生效）。
+    /// 字号采用基于各控件原始字体重算的方式，因而支持反复调整、改小、改回默认。
+    /// 注意：非控件树的自定义绘制（卡片、托盘菜单等）不在此实时刷新范围内，需重启生效。
+    /// </summary>
+    /// <param name="configuredFamily">字体族名称</param>
+    /// <param name="configuredSize">基准字号</param>
+    /// <param name="configuredBold">是否粗体</param>
+    public static void UpdateAndRefresh(string? configuredFamily, float configuredSize, bool configuredBold)
+    {
+        Initialize(configuredFamily, configuredSize, configuredBold);
+
+        foreach (System.Windows.Forms.Form form in Application.OpenForms)
+        {
+            try
+            {
+                Apply(form);
+            }
+            catch (Exception ex)
+            {
+                Logger.Warning(ex, "Failed to refresh font for form {Form}", form.Name);
+            }
+        }
     }
 
     /// <summary>
@@ -113,17 +144,13 @@ public static class FontManager
     /// <summary>
     /// 递归地将控件及其所有子控件的字体替换为配置字体。字号按"用户设定字号 + 控件相对
     /// 基线的修正量"计算以保留层次，粗体按配置叠加，字体族换为配置族。
-    /// 当配置为默认值（Tahoma / 基线字号 / 非粗体）时直接返回，零开销。
+    /// 始终基于控件的原始字体重算（首次处理时缓存），因而可反复调用、幂等，支持运行时
+    /// 实时刷新（包括把字号改小、或改回默认时还原成原始字体）。
     /// 控件的 Tag 为 "no-font" 时跳过（用于等宽对齐等不应更改字体的控件）。
     /// </summary>
     /// <param name="root">要处理的根控件（通常是窗体自身）</param>
     public static void Apply(Control root)
     {
-        if (IsDefault())
-        {
-            return;
-        }
-
         ApplyRecursive(root);
     }
 
@@ -133,7 +160,18 @@ public static class FontManager
         {
             try
             {
-                control.Font = BuildFont(control.Font);
+                // 缓存首次处理时的原始字体，后续始终基于它重算（保证幂等、可还原）
+                if (!OriginalFonts.TryGetValue(control, out var original))
+                {
+                    original = control.Font;
+                    OriginalFonts.Add(control, original);
+                }
+
+                var target = IsDefault() ? original : BuildFont(original);
+                if (!control.Font.Equals(target))
+                {
+                    control.Font = target;
+                }
             }
             catch (Exception ex)
             {
