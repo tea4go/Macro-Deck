@@ -319,5 +319,13 @@
     "ActionSetBackgroundColor": "设置背景颜色",
     "ActionSetBackgroundColorDescription": "更改动作按钮的背景颜色",
     "Fixed": "固定",
-    "Random": "随机"
+    "Random": "随机",
+    "SendAnonymousErrorReports": "发送匿名错误报告",
+    "NewConnectionRequest": "新连接请求",
+    "ClientId": "客户端 ID",
+    "Accept": "接受",
+    "Deny": "拒绝",
+    "VersionBuild": "构建",
+    "OpenExtensionManager": "打开扩展管理器",
+    "OpenSettings": "打开设置"
 }
