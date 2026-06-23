@@ -422,4 +422,8 @@ public class Strings
     public string Always = "Always";
     public string Wait = "Wait";
     public string Quality = "Quality";
+    public string ExtensionStore = "Extension Store";
+    public string ViewLicense = "View license";
+    public string ProjectPage = "Project page";
+    public string PackageId = "Package ID:";
 }

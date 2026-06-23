@@ -30,6 +30,10 @@ public partial class ExtensionStoreView : UserControl
         Dock = DockStyle.Fill;
         DoubleBuffered = true;
 
+        label1.Text = LanguageManager.Strings.ExtensionStore;
+        checkPlugins.Text = LanguageManager.Strings.Plugins;
+        checkIconPacks.Text = LanguageManager.Strings.IconPacks;
+
         _searchDebounce = new System.Windows.Forms.Timer { Interval = 350 };
         _searchDebounce.Tick += SearchDebounce_Tick;
 

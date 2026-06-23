@@ -2,6 +2,7 @@
 using Serilog;
 using SuchByte.MacroDeck.ExtensionStore;
 using SuchByte.MacroDeck.Icons;
+using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Plugins;
 
@@ -20,6 +21,10 @@ public partial class ExtensionZipInstallerView : UserControl
     {
         InitializeComponent();
         Dock = DockStyle.Fill;
+        label1.Text = LanguageManager.Strings.Author;
+        lblPackageId.Text = LanguageManager.Strings.PackageId;
+        lblZipPath.Text = LanguageManager.Strings.Path;
+        btnInstall.Text = LanguageManager.Strings.Install;
     }
 
     private void BtnSelectFile_Click(object sender, EventArgs e)

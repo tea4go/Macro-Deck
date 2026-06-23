@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Settings;
 
@@ -10,6 +11,8 @@ public partial class LicenseItem : UserControl
     {
         lblName.Text = _name;
         lblAuthor.Text = _author;
+        lblLicense.Text = LanguageManager.Strings.ViewLicense;
+        lblProjectPage.Text = LanguageManager.Strings.ProjectPage;
 
         MouseEnter += MouseEnterEvent;
         MouseLeave += MouseLeaveEvent;
