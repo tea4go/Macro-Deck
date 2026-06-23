@@ -16,6 +16,7 @@ public partial class ActionConfigurator : DialogForm
         InitializeComponent();
         lblSelectToBegin.Text = LanguageManager.Strings.SelectAPluginAndActionToBegin;
         btnApply.Text = LanguageManager.Strings.Ok;
+        label2.Text = LanguageManager.Strings.Action;
         pluginSearch.PlaceHolderText = LanguageManager.Strings.Search;
         Shown += OnShown;
     }

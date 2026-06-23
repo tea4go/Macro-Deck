@@ -53,6 +53,11 @@ public partial class TemplateEditor : DialogForm
         lblResultLabel.Text = LanguageManager.Strings.Result;
         btnVariables.Text = LanguageManager.Strings.Variable;
         checkTrimBlankLines.Text = LanguageManager.Strings.TrimBlankLines;
+        btnOk.Text = LanguageManager.Strings.Ok;
+        btnIf.Text = LanguageManager.Strings.If;
+        btnAnd.Text = LanguageManager.Strings.And;
+        btnOr.Text = LanguageManager.Strings.Or;
+        btnNot.Text = LanguageManager.Strings.Not;
 
         Variables = VariableManager.ListVariables.ToList();
         var variablesList = VariableManager.ListVariables.Select(v => v.Name).ToArray();

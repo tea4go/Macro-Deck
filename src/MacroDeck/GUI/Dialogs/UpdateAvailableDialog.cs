@@ -29,9 +29,10 @@ public partial class UpdateAvailableDialog : DialogForm
             _availableUpdate.Version,
             _availableUpdate.IsBeta == true ? "Beta" : "Release");
         btnInstall.Text = LanguageManager.Strings.DownloadAndInstall;
+        lblShowChangeNotes.Text = LanguageManager.Strings.ViewChangeNotes;
         lblSize.Text
-            = $"Download size: {_updateApiVersionFileInfo?.FileSize.ConvertBytesToMegabytes().ToString("0.##")}MB";
-        lblInstalledVersion.Text = $"Installed version: {MacroDeck.Version}";
+            = $"{LanguageManager.Strings.DownloadSize}: {_updateApiVersionFileInfo?.FileSize.ConvertBytesToMegabytes().ToString("0.##")}MB";
+        lblInstalledVersion.Text = $"{LanguageManager.Strings.InstalledVersion}: {MacroDeck.Version}";
     }
 
     private async void BtnInstall_Click(object sender, EventArgs e)

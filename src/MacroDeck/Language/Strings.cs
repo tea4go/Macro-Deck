@@ -426,4 +426,9 @@ public class Strings
     public string ViewLicense = "View license";
     public string ProjectPage = "Project page";
     public string PackageId = "Package ID:";
+    public string And = "And";
+    public string Or = "Or";
+    public string Not = "Not";
+    public string ViewChangeNotes = "View change notes";
+    public string DownloadSize = "Download size";
 }
