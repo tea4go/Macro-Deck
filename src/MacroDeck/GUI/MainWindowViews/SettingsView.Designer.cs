@@ -47,6 +47,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             fontSize = new NumericUpDown();
             lblFontSize = new Label();
             checkBold = new CheckBox();
+            lblFontRestartHint = new Label();
             checkStartWindows = new CheckBox();
             checkSendErrorReports = new CheckBox();
             lblBehaviour = new Label();
@@ -139,6 +140,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabGeneral.Controls.Add(fontSize);
             tabGeneral.Controls.Add(lblFontSize);
             tabGeneral.Controls.Add(checkBold);
+            tabGeneral.Controls.Add(lblFontRestartHint);
             tabGeneral.Controls.Add(checkStartWindows);
             tabGeneral.Controls.Add(checkSendErrorReports);
             tabGeneral.Controls.Add(lblBehaviour);
@@ -249,6 +251,17 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkBold.Text = "Bold";
             checkBold.UseVisualStyleBackColor = true;
             checkBold.CheckedChanged += CheckBold_CheckedChanged;
+            //
+            // lblFontRestartHint
+            //
+            lblFontRestartHint.AutoSize = true;
+            lblFontRestartHint.Font = new Font("Tahoma", 9.75F);
+            lblFontRestartHint.ForeColor = Color.FromArgb(222, 170, 27);
+            lblFontRestartHint.Location = new Point(13, 356);
+            lblFontRestartHint.Name = "lblFontRestartHint";
+            lblFontRestartHint.Size = new Size(0, 0);
+            lblFontRestartHint.TabIndex = 10;
+            lblFontRestartHint.Visible = false;
             //
             // checkStartWindows
             //
@@ -974,6 +987,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         private Label lblFontSize;
         private NumericUpDown fontSize;
         private CheckBox checkBold;
+        private Label lblFontRestartHint;
         private Label lblPort;
         private NumericUpDown port;
         private ButtonPrimary btnChangePort;

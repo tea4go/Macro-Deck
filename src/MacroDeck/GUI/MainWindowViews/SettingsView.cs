@@ -356,10 +356,8 @@ public partial class SettingsView : UserControl
     {
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
 
-        using var msgBox = new MessageBox();
-        msgBox.ShowDialog(LanguageManager.Strings.MacroDeckNeedsARestart,
-            LanguageManager.Strings.MacroDeckMustBeRestartedForTheChanges,
-            MessageBoxButtons.OK);
+        lblFontRestartHint.Text = LanguageManager.Strings.MacroDeckMustBeRestartedForTheChanges;
+        lblFontRestartHint.Visible = true;
     }
 
     private void BackupManager_BackupFailed(object sender, BackupFailedEventArgs e)
