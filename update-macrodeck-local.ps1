@@ -1,34 +1,42 @@
 ﻿<#
 .SYNOPSIS
-    更新本地 Macro Deck：默认下载最近一次成功的 CI 编译产物并安装；
+    更新本地 Macro Deck：可下载最近一次成功的 CI 编译产物并安装，
     也可触发新构建、查询版本号或查询最近的 CI 状态。
+    不带任何参数或使用 -Help 时显示帮助。
 .DESCRIPTION
-    默认行为（不带 -Build）：
+    使用 -Install 时：
         下载最近一次成功的 build-local 编译产物（artifact），关闭 Macro Deck，
         复制程序文件到安装目录，再重启。不会触发新的 CI 编译。
     只复制产物中的文件（不含子目录），因此用户数据目录
     （plugins、wwwroot、Android Debug Bridge）不会被改动。
+.PARAMETER Install
+    下载最近一次成功的 build-local 编译产物并安装到本地（不触发新构建）。
 .PARAMETER Build
     触发一次新的 build-local CI 编译，等待完成后再下载安装。
 .PARAMETER Version
     仅查询 GitHub 上最新的版本号（main 分支 csproj 的 Version 及最新 Release），然后退出。
 .PARAMETER Status
     仅查询最近 5 次 CI 构建状态，然后退出。
+.PARAMETER Help
+    显示帮助信息。
 .PARAMETER Repo
     GitHub 仓库，格式为 owner/repo。
 .PARAMETER InstallDir
     Macro Deck 安装目录。
 .EXAMPLE
     powershell -ExecutionPolicy Bypass -File .\update-macrodeck-local.ps1
+    powershell -ExecutionPolicy Bypass -File .\update-macrodeck-local.ps1 -Install
     powershell -ExecutionPolicy Bypass -File .\update-macrodeck-local.ps1 -Build
     powershell -ExecutionPolicy Bypass -File .\update-macrodeck-local.ps1 -Version
     powershell -ExecutionPolicy Bypass -File .\update-macrodeck-local.ps1 -Status
 #>
 
 param(
+    [switch]$Install,
     [switch]$Build,
     [switch]$Version,
     [switch]$Status,
+    [switch]$Help,
     [string]$Repo = "tea4go/Macro-Deck",
     [string]$InstallDir = "C:\Program Files\Macro Deck"
 )
@@ -42,6 +50,36 @@ $WorkflowFile = "build-local.yml"
 function Write-Step($m) { Write-Host "[信息] $m" -ForegroundColor Cyan }
 function Write-Ok($m)   { Write-Host "[成功] $m" -ForegroundColor Green }
 function Write-Fail($m) { Write-Host "[失败] $m" -ForegroundColor Red }
+
+function Show-Help {
+    Write-Host "=== Macro Deck 本地更新工具 ===" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "用法：" -ForegroundColor Yellow
+    Write-Host "  powershell -ExecutionPolicy Bypass -File .\update-macrodeck-local.ps1 [参数]"
+    Write-Host ""
+    Write-Host "参数：" -ForegroundColor Yellow
+    Write-Host "  -Install     下载最近一次成功的 CI 编译产物并安装到本地（不触发新构建）"
+    Write-Host "  -Build       触发一次新的 CI 编译，等待完成后再下载安装"
+    Write-Host "  -Version     仅查询最新版本号（main 分支 csproj 的 Version 及最新 Release）"
+    Write-Host "  -Status      仅查询最近 5 次 CI 构建状态"
+    Write-Host "  -Help        显示本帮助"
+    Write-Host "  -Repo        GitHub 仓库（owner/repo），默认 tea4go/Macro-Deck"
+    Write-Host "  -InstallDir  Macro Deck 安装目录，默认 C:\Program Files\Macro Deck"
+    Write-Host ""
+    Write-Host "示例：" -ForegroundColor Yellow
+    Write-Host "  .\update-macrodeck-local.ps1 -Install    # 安装最新编译产物"
+    Write-Host "  .\update-macrodeck-local.ps1 -Build      # 重新编译后安装"
+    Write-Host "  .\update-macrodeck-local.ps1 -Version    # 查看版本号"
+    Write-Host "  .\update-macrodeck-local.ps1 -Status     # 查看最近构建状态"
+    Write-Host ""
+    Write-Host "不带任何参数或使用 -Help 时显示本帮助。" -ForegroundColor DarkGray
+}
+
+# 不带任何参数 或 -Help 时显示帮助并退出
+if ($Help -or -not ($Install -or $Build -or $Version -or $Status)) {
+    Show-Help
+    exit 0
+}
 
 if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     Write-Fail "未找到 gh CLI，请从 https://cli.github.com 安装"
