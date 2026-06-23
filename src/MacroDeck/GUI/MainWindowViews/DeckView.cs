@@ -42,7 +42,7 @@ public partial class DeckView : UserControl
         qrCodeBox.BackgroundImage = QrCodeService.Instance.GetQuickSetupQrCode();
         checkQrAndNetwork.Checked = Settings.Default.ShowQrCodeAndNetwork;
         lblNetworkInterfaces.Text = GetNetworkInterfacesString();
-        lblPort.Text = $"Port: {MacroDeck.Configuration.HostPort}";
+        lblPort.Text = $"{LanguageManager.Strings.Port}: {MacroDeck.Configuration.HostPort}";
         _mainWindow = mainWindow;
         typeof(TreeView)
             .GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic)
@@ -93,6 +93,7 @@ public partial class DeckView : UserControl
         lblSpacing.Text = LanguageManager.Strings.Spacing;
         lblCornerRadius.Text = LanguageManager.Strings.CornerRadius;
         checkButtonBackground.Text = LanguageManager.Strings.ButtonBackGround;
+        lblFolders.Text = LanguageManager.Strings.Folders;
         foldersContextMenuNew.Text = LanguageManager.Strings.Create;
         foldersContextMenuEdit.Text = LanguageManager.Strings.Edit;
         foldersContextMenuDelete.Text = LanguageManager.Strings.Delete;
