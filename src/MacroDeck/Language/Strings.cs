@@ -420,4 +420,5 @@ public class Strings
     public string KeepAwake = "Keep awake";
     public string WhenConnected = "When connected";
     public string Always = "Always";
+    public string Wait = "Wait";
 }

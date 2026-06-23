@@ -1,5 +1,6 @@
 ﻿using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.Interfaces;
+using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Plugins;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
@@ -17,6 +18,7 @@ public partial class DelayItem : UserControl, IActionConditionItem
     {
         Action = macroDeckAction;
         InitializeComponent();
+        lblWait.Text = LanguageManager.Strings.Wait;
         if (Action != null)
         {
             millis.ValueChanged -= DelayValueChanged;
