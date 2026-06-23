@@ -336,5 +336,8 @@
     "EnableAdb": "启用 Android 调试桥（安卓 USB 连接所需）",
     "AutoWakeStartClient": "连接时自动唤醒屏幕并启动 Macro Deck 客户端",
     "RuntimeLabel": "运行时：",
-    "LicensedUnderApache": "基于 Apache-2.0 许可证"
+    "LicensedUnderApache": "基于 Apache-2.0 许可证",
+    "Actions": "动作",
+    "AlignLabel": "对齐标签：",
+    "EditJson": "编辑 JSON"
 }

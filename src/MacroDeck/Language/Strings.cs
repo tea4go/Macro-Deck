@@ -414,4 +414,7 @@ public class Strings
     public string AutoWakeStartClient = "Automatically wake screen and start Macro Deck Client when connected";
     public string RuntimeLabel = "Runtime:";
     public string LicensedUnderApache = "Licensed under Apache-2.0";
+    public string Actions = "Actions";
+    public string AlignLabel = "Align label:";
+    public string EditJson = "Edit JSON";
 }

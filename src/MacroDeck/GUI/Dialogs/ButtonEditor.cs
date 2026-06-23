@@ -67,6 +67,9 @@ public partial class ButtonEditor : DialogForm
         btnApply.Text = LanguageManager.Strings.Save;
         btnOk.Text = LanguageManager.Strings.Ok;
         lblKeyBinding.Text = LanguageManager.Strings.Hotkey;
+        lblActions.Text = LanguageManager.Strings.Actions;
+        label2.Text = LanguageManager.Strings.AlignLabel;
+        btnEditJson.Text = LanguageManager.Strings.EditJson;
 
         this.folder = folder;
         this.actionButton = actionButton;
