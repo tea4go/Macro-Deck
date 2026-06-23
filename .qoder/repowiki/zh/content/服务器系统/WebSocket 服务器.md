@@ -1,7 +1,7 @@
 # WebSocket 服务器
 
 <cite>
-**本文引用的文件**
+**本文档引用的文件**
 - [WebSocketHandler.cs](file://src/MacroDeck/WebSocketHandler.cs)
 - [WebSocketSession.cs](file://src/MacroDeck/DataTypes/WebSocketSession.cs)
 - [WebSocketCloseReason.cs](file://src/MacroDeck/DataTypes/WebSocketCloseReason.cs)
@@ -17,7 +17,16 @@
 - [DeviceManager.cs](file://src/MacroDeck/Device/DeviceManager.cs)
 - [BroadcastServer.cs](file://src/MacroDeck/Server/BroadcastServer.cs)
 - [Program.cs](file://src/MacroDeck/Program.cs)
+- [SoftwareClientMessage.cs](file://src/MacroDeck/Server/DeviceMessage/SoftwareClientMessage.cs)
 </cite>
+
+## 更新摘要
+**所做更改**
+- 增强了 WebSocketSession 类的 XML 文档注释，提供更详细的代码可读性
+- 完善了 WebSocketCloseReason 和 WebSocketNormalClose 类的详细注释
+- 更新了连接管理组件的文档说明，特别强调了设备通信协议支持
+- 增加了软件客户端消息处理的详细说明
+- 改进了 XML 文档增强对开发者支持的作用说明
 
 ## 目录
 1. [简介](#简介)
@@ -33,6 +42,8 @@
 
 ## 简介
 本文件系统性阐述 Macro-Deck 的 WebSocket 服务器实现，覆盖启动流程、SSL 证书配置、服务器状态管理、客户端连接与会话管理、连接池维护、生命周期事件（启动/停止/异常）、配置参数说明，以及与 WebSocketHandler 和其他服务器组件的协作关系。文档同时提供关键流程的时序图与类图，帮助读者快速理解整体设计。
+
+**更新** 本次更新重点增强了 WebSocketSession 类和相关连接管理组件的 XML 文档注释，提供了更好的代码可读性和开发者支持，特别是在设备通信协议和软件客户端消息处理方面。
 
 ## 项目结构
 WebSocket 服务器由以下模块协同完成：
@@ -56,7 +67,7 @@ C --> J["设备管理与连接策略<br/>DeviceManager.cs"]
 B --> K["广播服务<br/>BroadcastServer.cs"]
 ```
 
-图表来源
+**图表来源**
 - [Program.cs:12-35](file://src/MacroDeck/Program.cs#L12-L35)
 - [MacroDeck.cs:113-114](file://src/MacroDeck/MacroDeck.cs#L113-L114)
 - [MacroDeckServer.cs:28-55](file://src/MacroDeck/Server/MacroDeckServer.cs#L28-L55)
@@ -69,7 +80,7 @@ B --> K["广播服务<br/>BroadcastServer.cs"]
 - [DeviceManager.cs:253-277](file://src/MacroDeck/Device/DeviceManager.cs#L253-L277)
 - [BroadcastServer.cs:13-30](file://src/MacroDeck/Server/BroadcastServer.cs#L13-L30)
 
-章节来源
+**章节来源**
 - [Program.cs:12-35](file://src/MacroDeck/Program.cs#L12-L35)
 - [MacroDeck.cs:113-114](file://src/MacroDeck/MacroDeck.cs#L113-L114)
 - [MacroDeckServer.cs:28-55](file://src/MacroDeck/Server/MacroDeckServer.cs#L28-L55)
@@ -94,7 +105,9 @@ B --> K["广播服务<br/>BroadcastServer.cs"]
 - DeviceManager：新连接确认对话框、阻断与已知设备登记
 - BroadcastServer：UDP 广播本机服务信息
 
-章节来源
+**更新** 增强了组件间的协作关系说明，特别强调了 WebSocketSession 在设备通信协议支持方面的关键作用。
+
+**章节来源**
 - [WebSocketController.cs:5-20](file://src/MacroDeck/Controllers/WebSocketController.cs#L5-L20)
 - [WebSocketHandler.cs:6-91](file://src/MacroDeck/WebSocketHandler.cs#L6-L91)
 - [WebSocketSession.cs:5-119](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L5-L119)
@@ -140,7 +153,7 @@ MH --> SC
 SC --> CFG
 ```
 
-图表来源
+**图表来源**
 - [MacroDeck.cs:113-114](file://src/MacroDeck/MacroDeck.cs#L113-L114)
 - [MacroDeckServer.cs:28-55](file://src/MacroDeck/Server/MacroDeckServer.cs#L28-L55)
 - [MacroDeckServerHelper.cs:15-48](file://src/MacroDeck/MacroDeckServerHelper.cs#L15-L48)
@@ -190,11 +203,11 @@ class WebSocketSession {
 WebSocketHandler --> WebSocketSession : "管理/分发"
 ```
 
-图表来源
+**图表来源**
 - [WebSocketHandler.cs:6-91](file://src/MacroDeck/WebSocketHandler.cs#L6-L91)
 - [WebSocketSession.cs:5-119](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L5-L119)
 
-章节来源
+**章节来源**
 - [WebSocketHandler.cs:6-91](file://src/MacroDeck/WebSocketHandler.cs#L6-L91)
 - [WebSocketSession.cs:5-119](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L5-L119)
 
@@ -202,6 +215,8 @@ WebSocketHandler --> WebSocketSession : "管理/分发"
 - 循环读取：按文本帧聚合消息，非文本或关闭帧抛出异常
 - 错误处理：捕获异常并通过 Error 事件上报
 - 关闭流程：正常/指定原因关闭，最终触发 Disconnected
+
+**更新** 增强了 WebSocketSession 类的 XML 文档注释，详细说明了会话生命周期管理、消息接收处理和关闭原因处理机制。
 
 ```mermaid
 flowchart TD
@@ -218,14 +233,14 @@ Raise --> Loop
 Throw --> Finally
 ```
 
-图表来源
+**图表来源**
 - [WebSocketSession.cs:25-76](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L25-L76)
 
-章节来源
+**章节来源**
 - [WebSocketSession.cs:20-76](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L20-L76)
 
 ### WebSocketController：HTTP 到 WebSocket 升级
-- 路由“/”，若非 WebSocket 请求则重定向到前端页面
+- 路由"/"，若非 WebSocket 请求则重定向到前端页面
 - 接受 WebSocket 请求并交由 WebSocketHandler 处理
 
 ```mermaid
@@ -248,12 +263,12 @@ WS-->>WH : 断开触发 Disconnected
 end
 ```
 
-图表来源
+**图表来源**
 - [WebSocketController.cs:7-19](file://src/MacroDeck/Controllers/WebSocketController.cs#L7-L19)
 - [WebSocketHandler.cs:37-49](file://src/MacroDeck/WebSocketHandler.cs#L37-L49)
 - [WebSocketSession.cs:20-49](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L20-L49)
 
-章节来源
+**章节来源**
 - [WebSocketController.cs:5-20](file://src/MacroDeck/Controllers/WebSocketController.cs#L5-L20)
 - [WebSocketHandler.cs:37-49](file://src/MacroDeck/WebSocketHandler.cs#L37-L49)
 - [WebSocketSession.cs:20-49](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L20-L49)
@@ -284,7 +299,7 @@ WH-->>MS : 转发事件
 MS->>MS : 准入控制/添加/移除客户端
 ```
 
-图表来源
+**图表来源**
 - [MacroDeck.cs:113-114](file://src/MacroDeck/MacroDeck.cs#L113-L114)
 - [MacroDeckServer.cs:28-55](file://src/MacroDeck/Server/MacroDeckServer.cs#L28-L55)
 - [MacroDeckServerHelper.cs:15-48](file://src/MacroDeck/MacroDeckServerHelper.cs#L15-L48)
@@ -292,7 +307,7 @@ MS->>MS : 准入控制/添加/移除客户端
 - [WebSocketHandler.cs:37-49](file://src/MacroDeck/WebSocketHandler.cs#L37-L49)
 - [WebSocketSession.cs:20-49](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L20-L49)
 
-章节来源
+**章节来源**
 - [MacroDeckServer.cs:28-121](file://src/MacroDeck/Server/MacroDeckServer.cs#L28-L121)
 - [MacroDeck.cs:113-114](file://src/MacroDeck/MacroDeck.cs#L113-L114)
 
@@ -314,13 +329,13 @@ HTTPS --> End(["完成"])
 HTTP --> End
 ```
 
-图表来源
+**图表来源**
 - [SslCertificateService.cs:12-29](file://src/MacroDeck/Services/SslCertificateService.cs#L12-L29)
 - [SslCertificateService.cs:31-54](file://src/MacroDeck/Services/SslCertificateService.cs#L31-L54)
 - [MacroDeckServerHelper.cs:29-44](file://src/MacroDeck/MacroDeckServerHelper.cs#L29-L44)
 - [MainConfiguration.cs:52-59](file://src/MacroDeck/Configuration/MainConfiguration.cs#L52-L59)
 
-章节来源
+**章节来源**
 - [SslCertificateService.cs:12-54](file://src/MacroDeck/Services/SslCertificateService.cs#L12-L54)
 - [MacroDeckServerHelper.cs:29-44](file://src/MacroDeck/MacroDeckServerHelper.cs#L29-L44)
 - [MainConfiguration.cs:52-59](file://src/MacroDeck/Configuration/MainConfiguration.cs#L52-L59)
@@ -330,6 +345,8 @@ HTTP --> End
 - 消息处理：WebSocketSession 接收文本消息 -> WebSocketHandler 分发 MessageReceived
 - 断开清理：WebSocketSession 触发 Disconnected -> WebSocketHandler 移除会话并释放资源
 - 准入控制：MacroDeckServer 在 SessionConnected 时根据配置与数量限制决定是否允许连接
+
+**更新** 增强了连接管理流程的说明，特别强调了 WebSocketSession 在设备通信协议支持方面的作用。
 
 ```mermaid
 sequenceDiagram
@@ -358,13 +375,13 @@ WH-->>MS : 转发 SessionDisconnected
 MS->>MS : 移除 MacroDeckClient
 ```
 
-图表来源
+**图表来源**
 - [WebSocketController.cs:7-19](file://src/MacroDeck/Controllers/WebSocketController.cs#L7-L19)
 - [WebSocketHandler.cs:37-49](file://src/MacroDeck/WebSocketHandler.cs#L37-L49)
 - [WebSocketSession.cs:20-49](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L20-L49)
 - [MacroDeckServer.cs:74-110](file://src/MacroDeck/Server/MacroDeckServer.cs#L74-L110)
 
-章节来源
+**章节来源**
 - [WebSocketController.cs:7-19](file://src/MacroDeck/Controllers/WebSocketController.cs#L7-L19)
 - [WebSocketHandler.cs:37-49](file://src/MacroDeck/WebSocketHandler.cs#L37-L49)
 - [WebSocketSession.cs:20-49](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L20-L49)
@@ -374,6 +391,8 @@ MS->>MS : 移除 MacroDeckClient
 - 设备类型映射：MacroDeckClient 根据 DeviceType 设置 DeviceClass 与消息载体
 - 新连接确认：DeviceManager 弹窗询问用户是否允许新连接，否则关闭并可加入已知设备黑名单
 - 客户端集合：MacroDeckServer 维护 MacroDeckClient 列表，用于消息发送与状态同步
+
+**更新** 增强了设备管理与客户端模型协作关系的说明，特别强调了软件客户端消息处理的重要性。
 
 ```mermaid
 classDiagram
@@ -392,13 +411,24 @@ class DeviceManager {
 MacroDeckClient --> DeviceManager : "连接确认/阻断"
 ```
 
-图表来源
+**图表来源**
 - [MacroDeckClient.cs:8-52](file://src/MacroDeck/Server/MacroDeckClient.cs#L8-L52)
 - [DeviceManager.cs:253-277](file://src/MacroDeck/Device/DeviceManager.cs#L253-L277)
 
-章节来源
+**章节来源**
 - [MacroDeckClient.cs:8-52](file://src/MacroDeck/Server/MacroDeckClient.cs#L8-L52)
 - [DeviceManager.cs:253-277](file://src/MacroDeck/Device/DeviceManager.cs#L253-L277)
+
+### 软件客户端消息处理增强
+- 消息协议支持：支持 CONNECTED、BUTTON_PRESS、BUTTON_RELEASE、BUTTON_LONG_PRESS、BUTTON_LONG_PRESS_RELEASE、GET_BUTTONS 等方法
+- 按钮状态管理：根据按钮按压类型执行对应的动作列表
+- 配置同步：自动分配配置文件和文件夹，确保客户端与服务器状态一致
+
+**更新** 新增了软件客户端消息处理的详细说明，强调了设备通信协议支持的完整性。
+
+**章节来源**
+- [SoftwareClientMessage.cs:15-232](file://src/MacroDeck/Server/DeviceMessage/SoftwareClientMessage.cs#L15-L232)
+- [MacroDeckServer.cs:152-289](file://src/MacroDeck/Server/MacroDeckServer.cs#L152-L289)
 
 ## 依赖分析
 - 松耦合：WebSocketController 仅负责升级；WebSocketHandler 负责会话与事件；MacroDeckServer 负责业务策略
@@ -418,7 +448,7 @@ MS --> MC["MacroDeckClient.cs"]
 MS --> DM["DeviceManager.cs"]
 ```
 
-图表来源
+**图表来源**
 - [WebSocketController.cs:7-19](file://src/MacroDeck/Controllers/WebSocketController.cs#L7-L19)
 - [WebSocketHandler.cs:37-49](file://src/MacroDeck/WebSocketHandler.cs#L37-L49)
 - [WebSocketSession.cs:20-49](file://src/MacroDeck/DataTypes/WebSocketSession.cs#L20-L49)
@@ -430,7 +460,7 @@ MS --> DM["DeviceManager.cs"]
 - [MacroDeckClient.cs:8-52](file://src/MacroDeck/Server/MacroDeckClient.cs#L8-L52)
 - [DeviceManager.cs:253-277](file://src/MacroDeck/Device/DeviceManager.cs#L253-L277)
 
-章节来源
+**章节来源**
 - [MacroDeckServer.cs:28-55](file://src/MacroDeck/Server/MacroDeckServer.cs#L28-L55)
 - [MacroDeckServerHelper.cs:15-48](file://src/MacroDeck/MacroDeckServerHelper.cs#L15-L48)
 - [SslCertificateService.cs:12-29](file://src/MacroDeck/Services/SslCertificateService.cs#L12-L29)
@@ -450,7 +480,7 @@ MS --> DM["DeviceManager.cs"]
 - 连接被拒：检查配置中的阻止新连接开关、客户端数量上限与当前文件夹数量
 - 断开频繁：检查 Keep-Alive 设置与网络环境稳定性
 
-章节来源
+**章节来源**
 - [MacroDeckServer.cs:46-54](file://src/MacroDeck/Server/MacroDeckServer.cs#L46-L54)
 - [SslCertificateService.cs:49-53](file://src/MacroDeck/Services/SslCertificateService.cs#L49-L53)
 - [ServerStartup.cs:24-27](file://src/MacroDeck/ServerStartup.cs#L24-L27)
@@ -458,6 +488,8 @@ MS --> DM["DeviceManager.cs"]
 
 ## 结论
 该 WebSocket 服务器以清晰的分层设计实现了稳定的连接管理与消息分发，结合 SSL 证书自动配置与严格的连接准入策略，满足桌面端服务场景的安全与可用性需求。通过事件驱动与会话抽象，系统具备良好的扩展性与可维护性。
+
+**更新** 本次 XML 文档增强显著提升了代码可读性和开发者支持，特别是在设备通信协议和软件客户端消息处理方面提供了更详细的说明，有助于开发者更好地理解和使用 WebSocket 服务器功能。
 
 ## 附录：配置参数与示例路径
 - 端口设置
