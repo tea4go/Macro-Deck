@@ -1,8 +1,8 @@
 schema_version: 1
-module_path: tests
-title: 核心功能单元测试模块
+module_path: ci_cd
+title: CI/CD 流水线与发布配置
 scope:
-    - tests/
+    - .github/
 source_files: []
 depends_on: []
 related_to: []

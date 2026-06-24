@@ -7,7 +7,8 @@ source_files:
     - src/MacroDeck/StartupConfig/ApplicationPaths.cs
     - src/MacroDeck/StartupConfig/StartParameters.cs
     - src/MacroDeck/MacroDeck.cs
-    - src/MacroDeck/Program.cs
     - src/MacroDeck/Models/ISerializableConfiguration.cs
+    - src/MacroDeck/Profiles/ProfileManager.cs
+    - src/MacroDeck/Device/DeviceConfiguration.cs
 depends_on: []
 related_to: []

@@ -6,7 +6,7 @@ source_files:
     - Directory.Packages.props
     - Directory.Build.props
     - src/MacroDeck/MacroDeck.csproj
-    - src/MacroDeck/MacroDeck.nuspec
     - tests/MacroDeck.Tests/MacroDeck.Tests.csproj
+    - src/MacroDeck/MacroDeck.nuspec
 depends_on: []
 related_to: []

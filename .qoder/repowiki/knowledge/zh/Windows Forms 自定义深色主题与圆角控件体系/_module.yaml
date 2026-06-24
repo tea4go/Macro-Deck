@@ -8,7 +8,8 @@ source_files:
     - src/MacroDeck/GUI/CustomControls/RoundedButton.cs
     - src/MacroDeck/GUI/CustomControls/RoundedPanel.cs
     - src/MacroDeck/GUI/CustomControls/RoundedTextBox.cs
-    - src/MacroDeck/GUI/CustomControls/ContentSelectorButton.cs
-    - src/MacroDeck/GUI/MainWindow.cs
+    - src/MacroDeck/GUI/CustomControls/ComboBox.cs
+    - src/MacroDeck/GUI/MainWindow.Designer.cs
+    - src/MacroDeck/GUI/CustomControls/Form.Designer.cs
 depends_on: []
 related_to: []
