@@ -1,46 +1,24 @@
-## 1. 核心系统与工具
-该项目采用 **.NET (C#)** 作为主要开发语言，使用 **Inno Setup** 进行 Windows 安装包打包。构建流程完全托管于 **GitHub Actions**，实现了从代码提交、测试、版本管理到最终发布的全自动化 CI/CD 流水线。
+Macro-Deck 采用基于 .NET SDK 的集中式构建体系，结合 GitHub Actions 实现自动化 CI/CD、版本管理与多平台分发。核心特征如下：
 
-- **编译框架**: .NET 10.0 (Windows Desktop)
-- **包管理**: Central Package Management (CPM) via `Directory.Packages.props`
-- **安装程序**: Inno Setup 6 (`setup/Macro Deck.iss`)
-- **CI/CD**: GitHub Actions
-- **Web 客户端集成**: Docker (用于构建前端资源)
+### 1. 技术栈与工具链
+- **编译框架**：.NET 10.0 (Windows Desktop)，同时启用 Windows Forms 和 WPF。
+- **依赖管理**：采用 `Directory.Packages.props` 实现 NuGet 包的集中式版本控制（Central Package Management）。
+- **打包工具**：使用 Inno Setup (`setup/Macro Deck.iss`) 生成 Windows 安装程序；使用 `nuget pack` 生成插件开发 API 包。
+- **前端集成**：通过 Docker 容器化构建 Angular/Ionic Web Client，并自动同步至主仓库 `wwwroot/client` 目录。
 
-## 2. 关键文件与目录
-- **解决方案配置**: `Macro-Deck.slnx`, `Directory.Build.props`, `Directory.Packages.props`
-- **主项目文件**: `src/MacroDeck/MacroDeck.csproj`
-- **CI 工作流**:
-  - `.github/workflows/ci.yml`: 触发 PR 和 Push 的入口。
-  - `.github/workflows/tests.yml`: 执行单元测试。
-  - `.github/workflows/build-push-windows.yml`: 核心构建脚本，负责编译、发布并调用 Inno Setup 生成 `.exe` 安装包。
-  - `.github/workflows/create-release.yml`: 自动化版本号提升（Bump Version）并创建 GitHub Release。
-  - `.github/workflows/pull-web-client.yml`: 从外部仓库拉取并构建 Web 客户端资源。
-- **安装脚本**: `setup/Macro Deck.iss`
+### 2. 核心构建流程
+- **本地/CI 编译**：通过 `dotnet build` 和 `dotnet publish` 进行自包含（Self-contained）发布，目标运行时为 `win-x64`。
+- **安装程序生成**：在 CI 中调用 Inno Setup Compiler (`ISCC.exe`)，将发布的二进制文件、ADB 组件及 VC++ 运行时分发逻辑打包为 `.exe` 安装包。
+- **Web 客户端同步**：利用 `pull-web-client.yml` 工作流，从私有仓库拉取最新前端代码，在 Docker 中编译后提取静态资源并提交 PR。
 
-## 3. 架构与约定
-### 3.1 依赖管理
-项目启用了 **Central Package Management (CPM)**。所有 NuGet 包的版本统一在根目录的 `Directory.Packages.props` 中定义，子项目通过 `<PackageReference Include="PackageName" />` 引用，确保了全仓库依赖版本的一致性。
+### 3. 自动化发布策略
+- **版本管理**：通过 `create-release.yml` 手动触发版本升级（支持 major/minor/patch 及 beta 分支），自动更新 `.csproj` 中的 `<Version>` 标签。
+- **多渠道分发**：
+  - **GitHub Releases**：上传 Windows 安装程序并计算 SHA256 校验码。
+  - **NuGet.org**：发布 `MacroDeck.nuspec` 定义的 API 库，供第三方插件开发者引用。
+  - **更新服务**：构建完成后自动调用 Update API 推送新版本元数据，触发客户端更新提示。
 
-### 3.2 构建目标
-- **目标框架**: `net10.0-windows10.0.22000.0`
-- **运行时标识符 (RID)**: `win-x64`
-- **自包含发布**: 启用 `SelfContained=true`，确保发布的二进制文件包含 .NET 运行时，用户无需单独安装 .NET SDK/Runtime。
-
-### 3.3 发布流程
-1. **版本提升**: 通过 `create-release.yml` 手动触发，根据选择的类型（major/minor/patch/beta）自动修改 `MacroDeck.csproj` 中的 `<Version>` 标签并提交。
-2. **触发构建**: 创建 GitHub Release 后，`release-created.yml` 被触发。
-3. **并行任务**:
-   - **Windows 构建**: 编译代码 -> 注入 Sentry DSN -> 运行 Inno Setup -> 上传安装包至 Release -> 推送更新信息至 Update API。
-   - **NuGet 发布**: 将核心库发布至 NuGet.org。
-4. **Web 客户端同步**: 通过 `pull-web-client.yml` 手动触发，利用 Docker 容器构建前端静态资源，并自动创建 PR 合并至主分支。
-
-## 4. 开发者规范
-- **版本号管理**: 严禁手动修改 `MacroDeck.csproj` 中的版本号，应通过 GitHub Actions 的 `Create Release` 工作流进行自动化管理。
-- **依赖添加**: 新增 NuGet 包时，必须在 `Directory.Packages.props` 中声明版本，禁止在 `.csproj` 中硬编码 `Version` 属性。
-- **本地构建**: 
-  ```bash
-  dotnet restore
-  dotnet build src/MacroDeck/MacroDeck.csproj -c Release -r win-x64
-  ```
-- **测试**: 提交前务必运行 `dotnet test tests/MacroDeck.Tests/MacroDeck.Tests.csproj` 确保单元测试通过。
+### 4. 开发者规范
+- **版本号维护**：版本号统一在 `src/MacroDeck/MacroDeck.csproj` 中定义，格式为 `Major.Minor.Patch-betaN`。
+- **敏感配置注入**：Sentry DSN 等密钥通过 GitHub Secrets 在构建时动态注入 `SentryConfiguration.cs`，严禁硬编码。
+- **测试门禁**：所有 PR 必须通过 `tests.yml` 触发的 NUnit 单元测试方可合并。

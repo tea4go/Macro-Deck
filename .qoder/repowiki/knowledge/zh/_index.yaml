@@ -3,7 +3,7 @@ schema_version: 1
 locale: zh-CN
 branch: main
 nodes_managed: true
-exported_at: "2026-06-23T11:14:45Z"
+exported_at: "2026-06-24T05:26:13Z"
 modules:
     "":
         dir_name: Macro Deck 主机与运行时核心
@@ -1967,14 +1967,15 @@ modules:
         title: 构建与发布系统
         scope: []
         source_files:
-            - .github/workflows/build-push-windows.yml
-            - .github/workflows/create-release.yml
-            - .github/workflows/publish-nuget.yml
-            - .github/workflows/pull-web-client.yml
-            - setup/Macro Deck.iss
-            - src/MacroDeck/MacroDeck.csproj
+            - Macro-Deck.slnx
             - Directory.Build.props
             - Directory.Packages.props
+            - src/MacroDeck/MacroDeck.csproj
+            - .github/workflows/build-push-windows.yml
+            - .github/workflows/create-release.yml
+            - .github/workflows/release-created.yml
+            - .github/workflows/pull-web-client.yml
+            - setup/Macro Deck.iss
         children: []
         depends_on: []
         related_to: []
@@ -2010,8 +2011,8 @@ modules:
             - Directory.Packages.props
             - Directory.Build.props
             - src/MacroDeck/MacroDeck.csproj
-            - src/MacroDeck/MacroDeck.nuspec
             - tests/MacroDeck.Tests/MacroDeck.Tests.csproj
+            - src/MacroDeck/MacroDeck.nuspec
         children: []
         depends_on: []
         related_to: []
@@ -2025,6 +2026,8 @@ modules:
             - src/MacroDeck/StartupConfig/LoggingConfig.cs
             - src/MacroDeck/Program.cs
             - src/MacroDeck/Utils/Retry.cs
+            - src/MacroDeck/Backup/BackupManager.cs
+            - src/MacroDeck/DataTypes/WebSocketSession.cs
         children: []
         depends_on: []
         related_to: []
@@ -2049,10 +2052,11 @@ modules:
         scope: []
         source_files:
             - src/MacroDeck/Logging/MacroDeckLogger.cs
-            - src/MacroDeck/StartupConfig/LoggingConfig.cs
             - src/MacroDeck/Logging/SentryConfiguration.cs
+            - src/MacroDeck/StartupConfig/LoggingConfig.cs
             - src/MacroDeck/Logging/DebugConsoleSink.cs
             - src/MacroDeck/Logging/PluginSourceEnricher.cs
+            - src/MacroDeck/Program.cs
         children: []
         depends_on: []
         related_to: []

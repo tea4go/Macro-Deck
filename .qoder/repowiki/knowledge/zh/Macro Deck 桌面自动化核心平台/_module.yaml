@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: ""
-title: Macro Deck 桌面自动化主机
+title: Macro Deck 桌面自动化核心平台
 scope:
     - '**'
 source_files:
