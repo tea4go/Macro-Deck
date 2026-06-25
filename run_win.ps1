@@ -21,6 +21,35 @@ if (-not $Build -and -not $Run) {
 
 $exeName = "Macro Deck 2"
 
+function Set-FirewallRule {
+    $rule = "Macro Deck 2"
+    if (-not (Get-NetFirewallRule -DisplayName $rule -ErrorAction SilentlyContinue)) {
+        try {
+            New-NetFirewallRule -DisplayName $rule -Direction Inbound -Protocol TCP -LocalPort 8191 -Action Allow | Out-Null
+            Write-Host "防火墙已放行: $rule (TCP 8191)"
+        } catch {
+            Write-Warning "添加防火墙规则需要管理员权限，请以管理员身份运行"
+        }
+    } else {
+        Write-Host "防火墙规则已存在: $rule"
+    }
+}
+
+function Update-HostAddress {
+    $wifiIP = (Get-NetIPAddress -AddressFamily IPv4 |
+        Where-Object { $_.InterfaceAlias -match 'Wi-Fi|WLAN|Wireless' -and $_.IPAddress -notlike '169.254*' } |
+        Select-Object -First 1).IPAddress
+    if (-not $wifiIP) { Write-Host "未检测到 Wi-Fi，跳过主机地址更新"; return }
+
+    $configPath = "$env:APPDATA\Macro Deck\config.json"
+    if (-not (Test-Path $configPath)) { Write-Host "config.json 不存在，跳过"; return }
+
+    $cfg = Get-Content $configPath -Raw | ConvertFrom-Json
+    $cfg.'Connection.Host.Address' = $wifiIP
+    $cfg | ConvertTo-Json -Depth 10 | Set-Content $configPath -Encoding UTF8
+    Write-Host "主机地址已更新: $wifiIP"
+}
+
 if ($Build) {
     if (-not (Get-Command dotnet -ErrorAction SilentlyContinue)) {
         Write-Error "未找到 .NET SDK，请安装：https://dotnet.microsoft.com/download/dotnet/10.0"
@@ -59,6 +88,9 @@ if ($Build) {
     Write-Host "完成 -> $Output"
     $exeFullPath = Join-Path (Resolve-Path $Output).Path "$exeName.exe"
     Write-Host "可执行文件: $exeFullPath"
+
+    Set-FirewallRule
+    Update-HostAddress
 }
 
 if ($Run) {
