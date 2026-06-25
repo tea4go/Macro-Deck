@@ -38,6 +38,7 @@ public static class MacroDeckServerHelper
         UseHttps = certificate is not null;
 
         _host = Host.CreateDefaultBuilder()
+            .UseContentRoot(AppContext.BaseDirectory)
             .ConfigureSerilog()
             .ConfigureWebHostDefaults(hostBuilder =>
             {
