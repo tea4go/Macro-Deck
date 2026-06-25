@@ -19,7 +19,7 @@ public partial class RoundedTextBox : UserControl
         set
         {
             icon = value;
-            Padding = icon == null ? new Padding(8, 5, 8, 5) : new Padding(textBox1.Height + 8 + 3, 5, 8, 5);
+            Padding = icon == null ? new Padding(0, 0, 0, 0) : new Padding(textBox1.Height + 3, 0, 0, 0);
             Invalidate();
         }
     }

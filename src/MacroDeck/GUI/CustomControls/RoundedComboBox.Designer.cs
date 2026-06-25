@@ -8,12 +8,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 {
     partial class RoundedComboBox
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -28,17 +28,17 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
         {
             this.borderlessComboBox1 = new BorderlessComboBox();
             this.SuspendLayout();
-            // 
+            //
             // borderlessComboBox1
-            // 
+            //
             this.borderlessComboBox1.BackColor = Color.FromArgb(65, 65, 65);
             this.borderlessComboBox1.Dock = DockStyle.Fill;
             this.borderlessComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -57,21 +57,21 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.borderlessComboBox1.KeyPress += new KeyPressEventHandler(this.BorderlessComboBox1_KeyPress);
             this.borderlessComboBox1.LostFocus += new EventHandler(this.BorderlessComboBox1_LostFocus);
             this.borderlessComboBox1.TextChanged += new EventHandler(this.BorderlessComboBox1_TextChanged);
-            // 
+            //
             // RoundedComboBox
-            // 
+            //
             this.AutoScaleMode = AutoScaleMode.None;
             this.BackColor = Color.FromArgb(65, 65, 65);
             this.Controls.Add(this.borderlessComboBox1);
             this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.Name = "RoundedComboBox";
-            this.Padding = new Padding(8, 2, 8, 2);
+            this.Padding = new Padding(0, 0, 0, 0);
             this.Size = new Size(250, 26);
             this.ResumeLayout(false);
 
         }
 
-        
+
 
 
         #endregion

@@ -20,7 +20,7 @@ public partial class RoundedComboBox : UserControl
         set
         {
             icon = value;
-            Padding = icon == null ? new Padding(8, 2, 8, 2) : new Padding(borderlessComboBox1.Height + 8 + 3, 2, 8, 2);
+            Padding = icon == null ? new Padding(0, 0, 0, 0) : new Padding(borderlessComboBox1.Height + 3, 0, 0, 0);
             Invalidate();
         }
     }

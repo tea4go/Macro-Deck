@@ -8,12 +8,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 {
     partial class RoundedTextBox
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -28,17 +28,17 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
         {
             textBox1 = new TextBox();
             SuspendLayout();
-            // 
+            //
             // textBox1
-            // 
+            //
             textBox1.BackColor = Color.FromArgb(65, 65, 65);
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Dock = DockStyle.Fill;
@@ -56,16 +56,16 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             textBox1.LostFocus += TextBox1_LostFocus;
             textBox1.MouseEnter += TextBox1_MouseEnter;
             textBox1.MouseLeave += TextBox1_MouseLeave;
-            // 
+            //
             // RoundedTextBox
-            // 
+            //
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(65, 65, 65);
             Controls.Add(textBox1);
             Cursor = Cursors.Hand;
             Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "RoundedTextBox";
-            Padding = new Padding(8, 5, 8, 5);
+            Padding = new Padding(0, 0, 0, 0);
             Size = new Size(250, 30);
             ResumeLayout(false);
             PerformLayout();
