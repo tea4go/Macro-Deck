@@ -213,16 +213,22 @@ public partial class AddFolder : DialogForm
         btnReloadApplications.Height = Math.Max(_originalHeights[btnReloadApplications], textHeight975 + 6);
 
         var appRowHeight = new[] { lblApplication.Height, applicationList.Height, btnReloadApplications.Height }.Max();
-        lblApplication.Height = appRowHeight;
-        lblApplication.Top = 4;
-        applicationList.Height = appRowHeight;
+
+        // 先设置下拉框高度并读回实际值：DropDownList 风格的 ComboBox 高度由系统按字体强制，
+        // 赋值后会回弹为字体决定的真实高度，需以此为整行对齐基准
         applicationList.Top = 2;
-        btnReloadApplications.Height = appRowHeight;
-        btnReloadApplications.Top = 2;
+        applicationList.Height = appRowHeight;
+        var rowHeight = applicationList.Height;
+
+        // 标签与刷新按钮与下拉框同顶、同高，标签 MiddleLeft 使文字垂直居中于下拉框
+        lblApplication.Height = rowHeight;
+        lblApplication.Top = applicationList.Top;
+        btnReloadApplications.Height = rowHeight;
+        btnReloadApplications.Top = applicationList.Top;
 
         // 设备选择行
         lblDevices.Height = Math.Max(_originalHeights[lblDevices], textHeight1125 + 4);
-        lblDevices.Top = appRowHeight + 8;
+        lblDevices.Top = applicationList.Bottom + 8;
 
         devicesList.Top = lblDevices.Bottom + 4;
         devicesList.Height = Math.Max(
