@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Variables
 {
@@ -39,7 +39,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Variables
             // 
             // lblName
             // 
-            this.lblName.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.lblName.BackColor = Color.FromArgb(35, 35, 35);
             this.lblName.BorderStyle = BorderStyle.None;
             this.lblName.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblName.ForeColor = Color.White;
@@ -94,12 +94,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Variables
             this.btnEdit.FlatStyle = FlatStyle.Flat;
             this.btnEdit.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnEdit.ForeColor = Color.White;
-            this.btnEdit.HoverColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnEdit.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnEdit.Icon = null;
             this.btnEdit.Location = new Point(797, 7);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Progress = 0;
-            this.btnEdit.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnEdit.ProgressColor = Color.FromArgb(0, 46, 94);
             this.btnEdit.Size = new Size(35, 35);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "...";
@@ -112,7 +112,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Variables
             // 
             this.AutoScaleDimensions = new SizeF(96F, 96F);
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblCreator);
             this.Controls.Add(this.lblValue);

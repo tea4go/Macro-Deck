@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.Properties;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Notifications
@@ -141,7 +141,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Notifications
             this.AutoScaleMode = AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.flowLayoutPanel1);

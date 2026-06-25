@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -67,7 +67,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             // displayName
             // 
-            this.displayName.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.displayName.BackColor = Color.FromArgb(65, 65, 65);
             this.displayName.Cursor = Cursors.Hand;
             this.displayName.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.displayName.ForeColor = Color.White;
@@ -181,7 +181,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             // profiles
             // 
-            this.profiles.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.profiles.BackColor = Color.FromArgb(65, 65, 65);
             this.profiles.Cursor = Cursors.Hand;
             this.profiles.DropDownStyle = ComboBoxStyle.DropDownList;
             this.profiles.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -210,19 +210,19 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             // btnConfigure
             // 
-            this.btnConfigure.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnConfigure.BackColor = Color.FromArgb(0, 123, 255);
             this.btnConfigure.BorderRadius = 8;
             this.btnConfigure.Cursor = Cursors.Hand;
             this.btnConfigure.FlatAppearance.BorderSize = 0;
             this.btnConfigure.FlatStyle = FlatStyle.Flat;
             this.btnConfigure.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnConfigure.ForeColor = Color.White;
-            this.btnConfigure.HoverColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnConfigure.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnConfigure.Icon = null;
             this.btnConfigure.Location = new Point(5, 33);
             this.btnConfigure.Name = "btnConfigure";
             this.btnConfigure.Progress = 0;
-            this.btnConfigure.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnConfigure.ProgressColor = Color.FromArgb(0, 46, 94);
             this.btnConfigure.Size = new Size(183, 27);
             this.btnConfigure.TabIndex = 13;
             this.btnConfigure.Text = "Device settings";
@@ -234,7 +234,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.btnConfigure);
             this.Controls.Add(this.lblProfile);
             this.Controls.Add(this.profiles);

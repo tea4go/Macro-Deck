@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -39,7 +39,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             // borderlessComboBox1
             // 
-            this.borderlessComboBox1.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.borderlessComboBox1.BackColor = Color.FromArgb(65, 65, 65);
             this.borderlessComboBox1.Dock = DockStyle.Fill;
             this.borderlessComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             this.borderlessComboBox1.FlatStyle = FlatStyle.Popup;
@@ -61,7 +61,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // RoundedComboBox
             // 
             this.AutoScaleMode = AutoScaleMode.None;
-            this.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BackColor = Color.FromArgb(65, 65, 65);
             this.Controls.Add(this.borderlessComboBox1);
             this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.Name = "RoundedComboBox";

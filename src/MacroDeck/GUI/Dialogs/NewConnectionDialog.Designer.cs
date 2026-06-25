@@ -1,4 +1,4 @@
-﻿
+
 using System.ComponentModel;
 using System.Windows.Forms;
 using SuchByte.MacroDeck.GUI.CustomControls;
@@ -120,7 +120,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnAccept.Location = new System.Drawing.Point(167, 256);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Progress = 0;
-            this.btnAccept.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(205)))));
+            this.btnAccept.ProgressColor = System.Drawing.Color.FromArgb(0, 103, 205);
             this.btnAccept.Size = new System.Drawing.Size(209, 60);
             this.btnAccept.TabIndex = 10;
             this.btnAccept.Text = "Accept";
@@ -141,7 +141,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnDeny.Location = new System.Drawing.Point(167, 322);
             this.btnDeny.Name = "btnDeny";
             this.btnDeny.Progress = 0;
-            this.btnDeny.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(205)))));
+            this.btnDeny.ProgressColor = System.Drawing.Color.FromArgb(0, 103, 205);
             this.btnDeny.Size = new System.Drawing.Size(209, 60);
             this.btnDeny.TabIndex = 11;
             this.btnDeny.Text = "Deny";

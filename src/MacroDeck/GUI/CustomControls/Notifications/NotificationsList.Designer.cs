@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Notifications
 {
@@ -58,7 +58,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Notifications
             this.AutoScaleMode = AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BackColor = Color.FromArgb(65, 65, 65);
             this.Controls.Add(this.notificationList);
             this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.ForeColor = Color.White;

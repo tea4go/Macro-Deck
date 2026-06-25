@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -81,12 +81,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnDelete.FlatStyle = FlatStyle.Flat;
             this.btnDelete.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnDelete.ForeColor = Color.White;
-            this.btnDelete.HoverColor = Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDelete.HoverColor = Color.FromArgb(150, 0, 0);
             this.btnDelete.Icon = Resources.Delete_Hover;
             this.btnDelete.Location = new Point(847, 8);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Progress = 0;
-            this.btnDelete.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnDelete.ProgressColor = Color.FromArgb(0, 46, 94);
             this.btnDelete.Size = new Size(35, 35);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.UseMnemonic = false;
@@ -102,12 +102,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnRestore.FlatStyle = FlatStyle.Flat;
             this.btnRestore.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnRestore.ForeColor = Color.White;
-            this.btnRestore.HoverColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnRestore.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnRestore.Icon = Resources.Backup_Restore;
             this.btnRestore.Location = new Point(806, 8);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Progress = 0;
-            this.btnRestore.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnRestore.ProgressColor = Color.FromArgb(0, 46, 94);
             this.btnRestore.Size = new Size(35, 35);
             this.btnRestore.TabIndex = 4;
             this.btnRestore.UseMnemonic = false;
@@ -119,7 +119,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblSize);

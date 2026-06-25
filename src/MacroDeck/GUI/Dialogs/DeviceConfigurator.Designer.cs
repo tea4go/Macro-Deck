@@ -1,4 +1,4 @@
-﻿
+
 using System.ComponentModel;
 using System.Windows.Forms;
 using SuchByte.MacroDeck.GUI.CustomControls;
@@ -54,12 +54,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnOk.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnOk.Icon = null;
             this.btnOk.Location = new System.Drawing.Point(483, 156);
             this.btnOk.Name = "btnOk";
             this.btnOk.Progress = 0;
-            this.btnOk.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnOk.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnOk.Size = new System.Drawing.Size(75, 25);
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "Ok";

@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -66,7 +66,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // eventBox
             // 
-            this.eventBox.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.eventBox.BackColor = Color.FromArgb(65, 65, 65);
             this.eventBox.Cursor = Cursors.Hand;
             this.eventBox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.eventBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -121,7 +121,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // addItemContextMenu
             // 
-            this.addItemContextMenu.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.addItemContextMenu.BackColor = Color.FromArgb(45, 45, 45);
             this.addItemContextMenu.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.addItemContextMenu.Items.AddRange(new ToolStripItem[] {
             this.menuItemAction,
@@ -201,7 +201,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // eventParameter
             // 
-            this.eventParameter.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.eventParameter.BackColor = Color.FromArgb(65, 65, 65);
             this.eventParameter.Cursor = Cursors.Hand;
             this.eventParameter.DropDownStyle = ComboBoxStyle.DropDownList;
             this.eventParameter.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -221,7 +221,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.BackColor = Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.BackColor = Color.FromArgb(32, 32, 32);
             this.Controls.Add(this.eventParameter);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelEdit);

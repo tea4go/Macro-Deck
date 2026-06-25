@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Properties;
 
@@ -106,7 +106,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.Variables.Views
             // 
             // variables
             // 
-            this.variables.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.variables.BackColor = Color.FromArgb(65, 65, 65);
             this.variables.Cursor = Cursors.Hand;
             this.variables.DropDownStyle = ComboBoxStyle.DropDownList;
             this.variables.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -121,7 +121,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.Variables.Views
             // 
             // value
             // 
-            this.value.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.value.BackColor = Color.FromArgb(65, 65, 65);
             this.value.Cursor = Cursors.Hand;
             this.value.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.value.Icon = null;

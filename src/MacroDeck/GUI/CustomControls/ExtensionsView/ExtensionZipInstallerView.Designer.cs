@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
@@ -111,7 +111,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             // 
             this.txtAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAuthor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAuthor.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.txtAuthor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtAuthor.Enabled = false;
             this.txtAuthor.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -136,7 +136,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             // 
             this.txtPackageId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPackageId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtPackageId.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.txtPackageId.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtPackageId.Enabled = false;
             this.txtPackageId.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -161,7 +161,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             // 
             this.txtZipPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtZipPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.txtZipPath.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.txtZipPath.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtZipPath.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtZipPath.ForeColor = System.Drawing.Color.White;
@@ -196,7 +196,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             this.btnInstall.Location = new System.Drawing.Point(313, 273);
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.Progress = 0;
-            this.btnInstall.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(225)))));
+            this.btnInstall.ProgressColor = System.Drawing.Color.FromArgb(0, 103, 225);
             this.btnInstall.Size = new System.Drawing.Size(150, 40);
             this.btnInstall.TabIndex = 5;
             this.btnInstall.Text = "Install";
@@ -218,7 +218,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             this.btnSelectFile.Location = new System.Drawing.Point(717, 117);
             this.btnSelectFile.Name = "btnSelectFile";
             this.btnSelectFile.Progress = 0;
-            this.btnSelectFile.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(225)))));
+            this.btnSelectFile.ProgressColor = System.Drawing.Color.FromArgb(0, 103, 225);
             this.btnSelectFile.Size = new System.Drawing.Size(40, 25);
             this.btnSelectFile.TabIndex = 8;
             this.btnSelectFile.Text = "...";
@@ -229,7 +229,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             // roundedTextBox1
             // 
             this.roundedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.roundedTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.roundedTextBox1.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.roundedTextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedTextBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.roundedTextBox1.Icon = null;
@@ -253,7 +253,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             // 
            
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.roundedTextBox1);
             this.Controls.Add(this.lblPackageId);

@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -51,7 +51,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // ActionConfiguratorActionItem
             // 
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.lblActionName);
             this.Cursor = Cursors.Hand;
             this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);

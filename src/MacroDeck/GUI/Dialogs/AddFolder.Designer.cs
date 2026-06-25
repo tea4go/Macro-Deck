@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using ComboBox = SuchByte.MacroDeck.GUI.CustomControls.ComboBox;
 
@@ -50,7 +50,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // folderName
             // 
-            this.folderName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.folderName.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.folderName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.folderName.ForeColor = System.Drawing.Color.White;
             this.folderName.Icon = null;
@@ -76,19 +76,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // btnCreateFolder
             // 
-            this.btnCreateFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnCreateFolder.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
             this.btnCreateFolder.BorderRadius = 8;
             this.btnCreateFolder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateFolder.FlatAppearance.BorderSize = 0;
             this.btnCreateFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateFolder.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCreateFolder.ForeColor = System.Drawing.Color.White;
-            this.btnCreateFolder.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnCreateFolder.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnCreateFolder.Icon = null;
             this.btnCreateFolder.Location = new System.Drawing.Point(381, 333);
             this.btnCreateFolder.Name = "btnCreateFolder";
             this.btnCreateFolder.Progress = 0;
-            this.btnCreateFolder.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnCreateFolder.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnCreateFolder.Size = new System.Drawing.Size(75, 25);
             this.btnCreateFolder.TabIndex = 2;
             this.btnCreateFolder.Text = "Ok";
@@ -125,7 +125,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // btnReloadApplications
             // 
-            this.btnReloadApplications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.btnReloadApplications.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.btnReloadApplications.BackgroundImage = global::SuchByte.MacroDeck.Properties.Resources.reload;
             this.btnReloadApplications.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReloadApplications.BorderRadius = 8;
@@ -134,12 +134,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnReloadApplications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReloadApplications.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnReloadApplications.ForeColor = System.Drawing.Color.White;
-            this.btnReloadApplications.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnReloadApplications.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnReloadApplications.Icon = global::SuchByte.MacroDeck.Properties.Resources.reload;
             this.btnReloadApplications.Location = new System.Drawing.Point(404, 2);
             this.btnReloadApplications.Name = "btnReloadApplications";
             this.btnReloadApplications.Progress = 0;
-            this.btnReloadApplications.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnReloadApplications.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnReloadApplications.Size = new System.Drawing.Size(25, 25);
             this.btnReloadApplications.TabIndex = 6;
             this.btnReloadApplications.UseMnemonic = false;
@@ -148,7 +148,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // devicesList
             // 
-            this.devicesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.devicesList.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.devicesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.devicesList.ForeColor = System.Drawing.Color.White;
             this.devicesList.FormattingEnabled = true;
@@ -171,7 +171,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // applicationList
             // 
-            this.applicationList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.applicationList.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.applicationList.BorderRadius = 8;
             this.applicationList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.applicationList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -224,7 +224,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // AddFolder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.ClientSize = new System.Drawing.Size(468, 368);
             this.Controls.Add(this.groupAutomaticallySwitchFolder);
             this.Controls.Add(this.btnCreateFolder);

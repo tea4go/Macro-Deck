@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -70,7 +70,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // rows
             // 
             this.rows.Anchor = AnchorStyles.None;
-            this.rows.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.rows.BackColor = Color.FromArgb(55, 55, 55);
             this.rows.BorderStyle = BorderStyle.FixedSingle;
             this.rows.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.rows.ForeColor = Color.White;
@@ -98,7 +98,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // columns
             // 
             this.columns.Anchor = AnchorStyles.None;
-            this.columns.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.columns.BackColor = Color.FromArgb(55, 55, 55);
             this.columns.BorderStyle = BorderStyle.FixedSingle;
             this.columns.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.columns.ForeColor = Color.White;
@@ -127,7 +127,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblConfigureGridPreferences);
             this.Name = "SetupPage3";

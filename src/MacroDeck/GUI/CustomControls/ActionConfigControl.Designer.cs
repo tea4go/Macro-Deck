@@ -1,4 +1,4 @@
-﻿
+
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -38,7 +38,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // ActionConfigControl
             // 
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.ForeColor = Color.White;
             this.Margin = new Padding(4, 5, 4, 5);

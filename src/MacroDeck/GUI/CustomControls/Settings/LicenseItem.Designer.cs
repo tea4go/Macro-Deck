@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
 {
@@ -57,9 +57,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             // 
             // lblLicense
             // 
-            this.lblLicense.ActiveLinkColor = Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.lblLicense.ActiveLinkColor = Color.FromArgb(155, 155, 155);
             this.lblLicense.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblLicense.LinkColor = Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.lblLicense.LinkColor = Color.FromArgb(155, 155, 155);
             this.lblLicense.Location = new Point(347, 4);
             this.lblLicense.Name = "lblLicense";
             this.lblLicense.Size = new Size(149, 19);
@@ -68,14 +68,14 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.lblLicense.Text = "View license";
             this.lblLicense.TextAlign = ContentAlignment.MiddleRight;
             this.lblLicense.UseMnemonic = false;
-            this.lblLicense.VisitedLinkColor = Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.lblLicense.VisitedLinkColor = Color.FromArgb(155, 155, 155);
             this.lblLicense.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LblLicense_LinkClicked);
             // 
             // lblProjectPage
             // 
-            this.lblProjectPage.ActiveLinkColor = Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.lblProjectPage.ActiveLinkColor = Color.FromArgb(155, 155, 155);
             this.lblProjectPage.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblProjectPage.LinkColor = Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.lblProjectPage.LinkColor = Color.FromArgb(155, 155, 155);
             this.lblProjectPage.Location = new Point(347, 23);
             this.lblProjectPage.Name = "lblProjectPage";
             this.lblProjectPage.Size = new Size(149, 17);
@@ -84,14 +84,14 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.lblProjectPage.Text = "Project page";
             this.lblProjectPage.TextAlign = ContentAlignment.MiddleRight;
             this.lblProjectPage.UseMnemonic = false;
-            this.lblProjectPage.VisitedLinkColor = Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.lblProjectPage.VisitedLinkColor = Color.FromArgb(155, 155, 155);
             this.lblProjectPage.LinkClicked += new LinkLabelLinkClickedEventHandler(this.lblProjectPage_LinkClicked);
             // 
             // LicenseItem
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.lblProjectPage);
             this.Controls.Add(this.lblLicense);
             this.Controls.Add(this.lblAuthor);

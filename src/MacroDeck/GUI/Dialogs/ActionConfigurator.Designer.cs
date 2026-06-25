@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.GUI.CustomControls;
 
 namespace SuchByte.MacroDeck.GUI
@@ -46,18 +46,18 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // btnApply
             // 
-            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
             this.btnApply.BorderRadius = 8;
             this.btnApply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnApply.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnApply.ForeColor = System.Drawing.Color.White;
-            this.btnApply.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnApply.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnApply.Icon = null;
             this.btnApply.Location = new System.Drawing.Point(1110, 596);
             this.btnApply.Name = "btnApply";
             this.btnApply.Progress = 0;
-            this.btnApply.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnApply.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnApply.Size = new System.Drawing.Size(75, 25);
             this.btnApply.TabIndex = 1;
             this.btnApply.Text = "Ok";
@@ -109,7 +109,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // pluginSearch
             // 
-            this.pluginSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.pluginSearch.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.pluginSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pluginSearch.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pluginSearch.ForeColor = System.Drawing.Color.White;
@@ -134,7 +134,7 @@ namespace SuchByte.MacroDeck.GUI
             // pluginsList
             // 
             this.pluginsList.AutoScroll = true;
-            this.pluginsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.pluginsList.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.pluginsList.Location = new System.Drawing.Point(11, 55);
             this.pluginsList.Name = "pluginsList";
             this.pluginsList.Size = new System.Drawing.Size(310, 566);
@@ -162,7 +162,7 @@ namespace SuchByte.MacroDeck.GUI
             // ActionConfigurator
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.ClientSize = new System.Drawing.Size(1200, 635);
             this.Controls.Add(this.lblSelectedActionName);
             this.Controls.Add(this.selectedPluginIcon);

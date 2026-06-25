@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Properties;
 
@@ -87,7 +87,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // typeBox
             // 
-            this.typeBox.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.typeBox.BackColor = Color.FromArgb(65, 65, 65);
             this.typeBox.Cursor = Cursors.Hand;
             this.typeBox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.typeBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -105,7 +105,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // methodBox
             // 
-            this.methodBox.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.methodBox.BackColor = Color.FromArgb(65, 65, 65);
             this.methodBox.Cursor = Cursors.Hand;
             this.methodBox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.methodBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -124,7 +124,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             this.valueToCompare.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left) 
                                                           | AnchorStyles.Right)));
-            this.valueToCompare.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.valueToCompare.BackColor = Color.FromArgb(65, 65, 65);
             this.valueToCompare.Cursor = Cursors.Hand;
             this.valueToCompare.DropDownStyle = ComboBoxStyle.DropDown;
             this.valueToCompare.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -171,7 +171,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // source
             // 
-            this.source.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.source.BackColor = Color.FromArgb(65, 65, 65);
             this.source.Cursor = Cursors.Hand;
             this.source.DropDownStyle = ComboBoxStyle.DropDownList;
             this.source.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -335,7 +335,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // addItemContextMenu
             // 
-            this.addItemContextMenu.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.addItemContextMenu.BackColor = Color.FromArgb(45, 45, 45);
             this.addItemContextMenu.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.addItemContextMenu.Items.AddRange(new ToolStripItem[] {
             this.menuItemAction,
@@ -363,7 +363,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // template
             // 
-            this.template.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.template.BackColor = Color.FromArgb(65, 65, 65);
             this.template.Cursor = Cursors.Hand;
             this.template.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.template.Icon = null;
@@ -385,19 +385,19 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // btnOpenTemplateEditor
             // 
-            this.btnOpenTemplateEditor.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnOpenTemplateEditor.BackColor = Color.FromArgb(0, 123, 255);
             this.btnOpenTemplateEditor.BorderRadius = 8;
             this.btnOpenTemplateEditor.Cursor = Cursors.Hand;
             this.btnOpenTemplateEditor.FlatAppearance.BorderSize = 0;
             this.btnOpenTemplateEditor.FlatStyle = FlatStyle.Flat;
             this.btnOpenTemplateEditor.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnOpenTemplateEditor.ForeColor = Color.White;
-            this.btnOpenTemplateEditor.HoverColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnOpenTemplateEditor.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnOpenTemplateEditor.Icon = Resources.Arrow_Top_Right_Hover;
             this.btnOpenTemplateEditor.Location = new Point(476, 31);
             this.btnOpenTemplateEditor.Name = "btnOpenTemplateEditor";
             this.btnOpenTemplateEditor.Progress = 0;
-            this.btnOpenTemplateEditor.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnOpenTemplateEditor.ProgressColor = Color.FromArgb(0, 46, 94);
             this.btnOpenTemplateEditor.Size = new Size(28, 28);
             this.btnOpenTemplateEditor.TabIndex = 12;
             this.btnOpenTemplateEditor.UseVisualStyleBackColor = false;
@@ -410,7 +410,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.BackColor = Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.BackColor = Color.FromArgb(32, 32, 32);
             this.Controls.Add(this.panelEdit);
             this.Controls.Add(this.typeBox);
             this.Controls.Add(this.lblIf);

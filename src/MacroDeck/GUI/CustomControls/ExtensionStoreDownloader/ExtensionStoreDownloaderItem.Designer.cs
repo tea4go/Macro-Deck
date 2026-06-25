@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -90,7 +90,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionStoreDownloader
             this.progressBar.Location = new Point(341, 35);
             this.progressBar.Name = "progressBar";
             this.progressBar.Progress = 0;
-            this.progressBar.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(205)))));
+            this.progressBar.ProgressColor = Color.FromArgb(0, 103, 205);
             this.progressBar.Size = new Size(177, 22);
             this.progressBar.TabIndex = 3;
             this.progressBar.UseVisualStyleBackColor = true;
@@ -115,7 +115,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionStoreDownloader
             // 
             this.AutoScaleDimensions = new SizeF(7F, 14F);
             this.AutoScaleMode = AutoScaleMode.Font;
-            this.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BackColor = Color.FromArgb(65, 65, 65);
             this.Controls.Add(this.btnAbort);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.lblStatus);

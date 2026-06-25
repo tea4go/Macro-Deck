@@ -45,7 +45,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.DevicePlugin.Views
             // devicesList
             // 
             this.devicesList.Anchor = AnchorStyles.None;
-            this.devicesList.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.devicesList.BackColor = Color.FromArgb(65, 65, 65);
             this.devicesList.Cursor = Cursors.Hand;
             this.devicesList.DropDownStyle = ComboBoxStyle.DropDownList;
             this.devicesList.Enabled = false;
@@ -62,7 +62,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.DevicePlugin.Views
             // profilesList
             // 
             this.profilesList.Anchor = AnchorStyles.None;
-            this.profilesList.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.profilesList.BackColor = Color.FromArgb(65, 65, 65);
             this.profilesList.Cursor = Cursors.Hand;
             this.profilesList.DropDownStyle = ComboBoxStyle.DropDownList;
             this.profilesList.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);

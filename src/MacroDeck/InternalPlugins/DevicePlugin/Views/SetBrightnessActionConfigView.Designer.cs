@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -91,7 +91,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.DevicePlugin.Views
             // devicesList
             // 
             this.devicesList.Anchor = AnchorStyles.None;
-            this.devicesList.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.devicesList.BackColor = Color.FromArgb(65, 65, 65);
             this.devicesList.Cursor = Cursors.Hand;
             this.devicesList.DropDownStyle = ComboBoxStyle.DropDownList;
             this.devicesList.Enabled = false;

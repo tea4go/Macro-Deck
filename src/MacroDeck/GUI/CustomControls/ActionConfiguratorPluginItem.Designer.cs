@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -91,7 +91,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.chevron);
             this.Controls.Add(this.lblCountActions);
             this.Controls.Add(this.pluginName);

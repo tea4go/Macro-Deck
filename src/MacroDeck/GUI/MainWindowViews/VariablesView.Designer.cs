@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Variables;
 
@@ -107,12 +107,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.btnCreateVariable.FlatStyle = FlatStyle.Flat;
             this.btnCreateVariable.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnCreateVariable.ForeColor = Color.White;
-            this.btnCreateVariable.HoverColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnCreateVariable.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnCreateVariable.Icon = null;
             this.btnCreateVariable.Location = new Point(1014, 510);
             this.btnCreateVariable.Name = "btnCreateVariable";
             this.btnCreateVariable.Progress = 0;
-            this.btnCreateVariable.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnCreateVariable.ProgressColor = Color.FromArgb(0, 46, 94);
             this.btnCreateVariable.Size = new Size(120, 27);
             this.btnCreateVariable.TabIndex = 16;
             this.btnCreateVariable.Text = "Create variable";
@@ -135,7 +135,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             this.AutoScaleDimensions = new SizeF(96F, 96F);
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.creatorFilter);
             this.Controls.Add(this.btnCreateVariable);
             this.Controls.Add(this.lblCreator);

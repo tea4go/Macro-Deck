@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.GUI.CustomControls;
 
 namespace SuchByte.MacroDeck.GUI
@@ -70,12 +70,12 @@ namespace SuchByte.MacroDeck.GUI
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImport.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnImport.ForeColor = System.Drawing.Color.White;
-            this.btnImport.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnImport.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnImport.Icon = null;
             this.btnImport.Location = new System.Drawing.Point(3, 3);
             this.btnImport.Name = "btnImport";
             this.btnImport.Progress = 0;
-            this.btnImport.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnImport.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnImport.Size = new System.Drawing.Size(115, 25);
             this.btnImport.TabIndex = 1;
             this.btnImport.Text = "Import icon";
@@ -86,7 +86,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // btnPreview
             // 
-            this.btnPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnPreview.BackColor = System.Drawing.Color.FromArgb(35, 35, 35);
             this.btnPreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPreview.Column = 0;
             this.btnPreview.ForegroundImage = null;
@@ -108,12 +108,12 @@ namespace SuchByte.MacroDeck.GUI
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnOk.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnOk.Icon = null;
             this.btnOk.Location = new System.Drawing.Point(700, 570);
             this.btnOk.Name = "btnOk";
             this.btnOk.Progress = 0;
-            this.btnOk.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnOk.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnOk.Size = new System.Drawing.Size(75, 25);
             this.btnOk.TabIndex = 6;
             this.btnOk.Text = "Ok";
@@ -124,7 +124,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // iconPacksBox
             // 
-            this.iconPacksBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.iconPacksBox.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.iconPacksBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconPacksBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.iconPacksBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -179,12 +179,12 @@ namespace SuchByte.MacroDeck.GUI
             this.btnImportIconPack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportIconPack.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnImportIconPack.ForeColor = System.Drawing.Color.White;
-            this.btnImportIconPack.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnImportIconPack.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnImportIconPack.Icon = null;
             this.btnImportIconPack.Location = new System.Drawing.Point(417, 10);
             this.btnImportIconPack.Name = "btnImportIconPack";
             this.btnImportIconPack.Progress = 0;
-            this.btnImportIconPack.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnImportIconPack.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnImportIconPack.Size = new System.Drawing.Size(130, 23);
             this.btnImportIconPack.TabIndex = 11;
             this.btnImportIconPack.Text = "Import icon pack...";
@@ -201,12 +201,12 @@ namespace SuchByte.MacroDeck.GUI
             this.btnExportIconPack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportIconPack.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnExportIconPack.ForeColor = System.Drawing.Color.White;
-            this.btnExportIconPack.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnExportIconPack.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnExportIconPack.Icon = null;
             this.btnExportIconPack.Location = new System.Drawing.Point(553, 11);
             this.btnExportIconPack.Name = "btnExportIconPack";
             this.btnExportIconPack.Progress = 0;
-            this.btnExportIconPack.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnExportIconPack.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnExportIconPack.Size = new System.Drawing.Size(130, 23);
             this.btnExportIconPack.TabIndex = 12;
             this.btnExportIconPack.Text = "Export icon pack...";
@@ -223,12 +223,12 @@ namespace SuchByte.MacroDeck.GUI
             this.btnDeleteIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteIcon.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDeleteIcon.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteIcon.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteIcon.HoverColor = System.Drawing.Color.FromArgb(130, 0, 0);
             this.btnDeleteIcon.Icon = null;
             this.btnDeleteIcon.Location = new System.Drawing.Point(667, 443);
             this.btnDeleteIcon.Name = "btnDeleteIcon";
             this.btnDeleteIcon.Progress = 0;
-            this.btnDeleteIcon.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnDeleteIcon.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnDeleteIcon.Size = new System.Drawing.Size(105, 25);
             this.btnDeleteIcon.TabIndex = 13;
             this.btnDeleteIcon.Text = "Delete icon";
@@ -282,12 +282,12 @@ namespace SuchByte.MacroDeck.GUI
             this.btnCreateIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateIcon.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCreateIcon.ForeColor = System.Drawing.Color.White;
-            this.btnCreateIcon.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnCreateIcon.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnCreateIcon.Icon = null;
             this.btnCreateIcon.Location = new System.Drawing.Point(124, 3);
             this.btnCreateIcon.Name = "btnCreateIcon";
             this.btnCreateIcon.Progress = 0;
-            this.btnCreateIcon.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnCreateIcon.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnCreateIcon.Size = new System.Drawing.Size(115, 25);
             this.btnCreateIcon.TabIndex = 18;
             this.btnCreateIcon.Text = "Create icon";
@@ -324,12 +324,12 @@ namespace SuchByte.MacroDeck.GUI
             this.btnGenerateStatic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerateStatic.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGenerateStatic.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateStatic.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnGenerateStatic.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnGenerateStatic.Icon = null;
             this.btnGenerateStatic.Location = new System.Drawing.Point(266, 500);
             this.btnGenerateStatic.Name = "btnGenerateStatic";
             this.btnGenerateStatic.Progress = 0;
-            this.btnGenerateStatic.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnGenerateStatic.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
             this.btnGenerateStatic.Size = new System.Drawing.Size(145, 25);
             this.btnGenerateStatic.TabIndex = 22;
             this.btnGenerateStatic.Text = "Generate static";
@@ -343,7 +343,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.ClientSize = new System.Drawing.Size(787, 606);
             this.Controls.Add(this.panelCreateIcon);
             this.Controls.Add(this.lblType);

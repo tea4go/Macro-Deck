@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.InitialSetup
 {
@@ -84,7 +84,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.InitialSetup
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.checkInstall);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.preview);

@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.Server;
 
@@ -95,7 +95,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             this.radioBlockNew.AutoSize = true;
             this.radioBlockNew.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.radioBlockNew.ForeColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.radioBlockNew.ForeColor = Color.FromArgb(192, 0, 0);
             this.radioBlockNew.Location = new Point(3, 61);
             this.radioBlockNew.Name = "radioBlockNew";
             this.radioBlockNew.Size = new Size(207, 23);
@@ -140,7 +140,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblBehaviour);
             this.Controls.Add(this.lblKnownDevices);

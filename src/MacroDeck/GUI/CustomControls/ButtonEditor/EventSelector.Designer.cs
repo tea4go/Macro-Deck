@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -55,19 +55,19 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // btnAddEvent
             // 
-            this.btnAddEvent.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnAddEvent.BackColor = Color.FromArgb(0, 123, 255);
             this.btnAddEvent.BorderRadius = 8;
             this.btnAddEvent.Cursor = Cursors.Hand;
             this.btnAddEvent.FlatAppearance.BorderSize = 0;
             this.btnAddEvent.FlatStyle = FlatStyle.Flat;
             this.btnAddEvent.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnAddEvent.ForeColor = Color.White;
-            this.btnAddEvent.HoverColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(184)))));
+            this.btnAddEvent.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnAddEvent.Icon = null;
             this.btnAddEvent.Location = new Point(6, 7);
             this.btnAddEvent.Name = "btnAddEvent";
             this.btnAddEvent.Progress = 0;
-            this.btnAddEvent.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(46)))), ((int)(((byte)(94)))));
+            this.btnAddEvent.ProgressColor = Color.FromArgb(0, 46, 94);
             this.btnAddEvent.Size = new Size(165, 30);
             this.btnAddEvent.TabIndex = 6;
             this.btnAddEvent.Text = "+ Event";
@@ -77,7 +77,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.flowLayoutPanel1.BackColor = Color.FromArgb(65, 65, 65);
             this.flowLayoutPanel1.Controls.Add(this.eventsList);
             this.flowLayoutPanel1.Controls.Add(this.btnAddEvent);
             this.flowLayoutPanel1.Dock = DockStyle.Fill;
@@ -91,7 +91,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BackColor = Color.FromArgb(65, 65, 65);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.ForeColor = Color.White;

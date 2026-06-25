@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -80,7 +80,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // 
             // languages
             // 
-            this.languages.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.languages.BackColor = Color.FromArgb(55, 55, 55);
             this.languages.BorderStyle = BorderStyle.FixedSingle;
             this.languages.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.languages.ForeColor = Color.White;
@@ -108,7 +108,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.lblSelectLanguage);
             this.Controls.Add(this.languages);
             this.Controls.Add(this.lblLetsConfigure);

@@ -92,7 +92,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             this.btnCheckUpdates.Location = new Point(230, 462);
             this.btnCheckUpdates.Name = "btnCheckUpdates";
             this.btnCheckUpdates.Progress = 0;
-            this.btnCheckUpdates.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(225)))));
+            this.btnCheckUpdates.ProgressColor = Color.FromArgb(0, 103, 225);
             this.btnCheckUpdates.Size = new Size(191, 30);
             this.btnCheckUpdates.TabIndex = 3;
             this.btnCheckUpdates.Text = "Check updates";
@@ -128,7 +128,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             this.btnAddViaZip.Location = new Point(942, 463);
             this.btnAddViaZip.Name = "btnAddViaZip";
             this.btnAddViaZip.Progress = 0;
-            this.btnAddViaZip.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(225)))));
+            this.btnAddViaZip.ProgressColor = Color.FromArgb(0, 103, 225);
             this.btnAddViaZip.Size = new Size(192, 29);
             this.btnAddViaZip.TabIndex = 5;
             this.btnAddViaZip.Text = "Install from file";
@@ -140,7 +140,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             //
 
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.btnAddViaZip);
             this.Controls.Add(this.lblUpdateState);
             this.Controls.Add(this.btnCheckUpdates);

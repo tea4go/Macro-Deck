@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -64,7 +64,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // 
             // adapter
             // 
-            this.adapter.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.adapter.BackColor = Color.FromArgb(55, 55, 55);
             this.adapter.BorderRadius = 8;
             this.adapter.Cursor = Cursors.Hand;
             this.adapter.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -126,7 +126,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // 
             // port
             // 
-            this.port.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.port.BackColor = Color.FromArgb(55, 55, 55);
             this.port.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.port.ForeColor = Color.White;
             this.port.Location = new Point(141, 224);
@@ -175,7 +175,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // SetupPage2
             // 
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.groupInfo);
             this.Controls.Add(this.port);
             this.Controls.Add(this.lblPort);

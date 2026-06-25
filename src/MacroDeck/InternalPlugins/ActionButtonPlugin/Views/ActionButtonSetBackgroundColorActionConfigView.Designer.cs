@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -44,7 +44,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Views
             // 
             // btnChangeColor
             // 
-            this.btnChangeColor.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnChangeColor.BackColor = Color.FromArgb(35, 35, 35);
             this.btnChangeColor.BackgroundImage = Resources.Palette;
             this.btnChangeColor.BackgroundImageLayout = ImageLayout.Center;
             this.btnChangeColor.Column = 0;

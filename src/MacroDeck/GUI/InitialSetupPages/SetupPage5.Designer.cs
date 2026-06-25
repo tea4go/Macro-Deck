@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -87,7 +87,7 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             // 
            
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.iconPacks);
             this.Controls.Add(this.lblInstallLaterPackageManager);

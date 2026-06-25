@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -133,7 +133,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // minutes
             // 
-            this.minutes.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.minutes.BackColor = Color.FromArgb(55, 55, 55);
             this.minutes.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.minutes.ForeColor = Color.White;
             this.minutes.Location = new Point(148, 10);
@@ -160,7 +160,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // seconds
             // 
-            this.seconds.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.seconds.BackColor = Color.FromArgb(55, 55, 55);
             this.seconds.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.seconds.ForeColor = Color.White;
             this.seconds.Location = new Point(254, 10);
@@ -192,7 +192,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // millis
             // 
-            this.millis.BackColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.millis.BackColor = Color.FromArgb(55, 55, 55);
             this.millis.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.millis.ForeColor = Color.White;
             this.millis.Location = new Point(360, 10);
@@ -222,7 +222,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(107)))), ((int)(((byte)(138)))));
+            this.BackColor = Color.FromArgb(8, 107, 138);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.millis);
             this.Controls.Add(this.label2);

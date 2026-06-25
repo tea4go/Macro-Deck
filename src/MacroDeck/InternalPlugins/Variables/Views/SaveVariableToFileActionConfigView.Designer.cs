@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Properties;
 
@@ -44,7 +44,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.Variables.Views
             // path
             // 
             this.path.Anchor = AnchorStyles.None;
-            this.path.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.path.BackColor = Color.FromArgb(65, 65, 65);
             this.path.Cursor = Cursors.Hand;
             this.path.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.path.Icon = null;
@@ -66,7 +66,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.Variables.Views
             // variable
             // 
             this.variable.Anchor = AnchorStyles.None;
-            this.variable.BackColor = Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.variable.BackColor = Color.FromArgb(65, 65, 65);
             this.variable.Cursor = Cursors.Hand;
             this.variable.DropDownStyle = ComboBoxStyle.DropDownList;
             this.variable.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -93,7 +93,7 @@ namespace SuchByte.MacroDeck.InternalPlugins.Variables.Views
             this.btnChoosePath.Location = new Point(730, 241);
             this.btnChoosePath.Name = "btnChoosePath";
             this.btnChoosePath.Progress = 0;
-            this.btnChoosePath.ProgressColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(205)))));
+            this.btnChoosePath.ProgressColor = Color.FromArgb(0, 103, 205);
             this.btnChoosePath.Size = new Size(32, 25);
             this.btnChoosePath.TabIndex = 2;
             this.btnChoosePath.Text = "...";
