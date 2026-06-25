@@ -83,8 +83,6 @@ public partial class MainWindow : Form
     /// </summary>
     private void UpdateTranslation()
     {
-        btnDiscord.Text = LanguageManager.Strings.JoinDiscordServer;
-        btnDonate.Text = LanguageManager.Strings.Donate;
     }
 
     /// <summary>
@@ -193,6 +191,10 @@ public partial class MainWindow : Form
 
         // 设置默认显示 DeckView
         SetView(DeckView);
+
+        // --view 参数：调试时直接跳转到指定视图
+        if (!string.IsNullOrWhiteSpace(MacroDeck.StartParameters.View))
+            NavigateToView(MacroDeck.StartParameters.View);
 
         // 根据版本信息显示设置按钮的通知标记
         btnSettings.SetNotification(UpdateService.Instance().VersionInfo != null);
@@ -413,38 +415,38 @@ public partial class MainWindow : Form
     }
 
     /// <summary>
-    /// 捐赠按钮点击事件处理。
-    /// 在默认浏览器中打开 Ko-fi 捐赠页面。
+    /// 按视图名称导航（供 --view 启动参数和 Ctrl+1~5 快捷键使用）。
+    /// 支持：deck/1, extensions/2, settings/3, devices/4, variables/5
     /// </summary>
-    /// <param name="sender">触发事件的对象</param>
-    /// <param name="e">事件参数</param>
-    private void btnDonate_Click(object sender, EventArgs e)
+    public void NavigateToView(string? viewName)
     {
-        var p = new Process
+        switch (viewName?.ToLowerInvariant().Trim())
         {
-            StartInfo = new ProcessStartInfo("https://ko-fi.com/manuelmayer")
-            {
-                UseShellExecute = true
-            }
-        };
-        p.Start();
+            case "deck":      case "1": SetView(DeckView); DeckView.UpdateButtons(); break;
+            case "extensions":case "2": SetView(new ExtensionsView()); break;
+            case "settings":  case "3": SetView(new SettingsView()); break;
+            case "devices":   case "4": SetView(new DeviceManagerView()); break;
+            case "variables": case "5": SetView(new VariablesView()); break;
+        }
     }
 
-    /// <summary>
-    /// Discord 按钮点击事件处理。
-    /// 在默认浏览器中打开 Macro Deck Discord 服务器链接。
-    /// </summary>
-    /// <param name="sender">触发事件的对象</param>
-    /// <param name="e">事件参数</param>
-    private void btnDiscord_Click(object sender, EventArgs e)
+    /// <summary>Ctrl+1~5 快捷键切换视图</summary>
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
     {
-        var p = new Process
+        if ((keyData & Keys.Control) != 0)
         {
-            StartInfo = new ProcessStartInfo("https://discord.macro-deck.app")
+            var view = (keyData & ~Keys.Control) switch
             {
-                UseShellExecute = true
-            }
-        };
-        p.Start();
+                Keys.D1 => "deck",
+                Keys.D2 => "extensions",
+                Keys.D3 => "settings",
+                Keys.D4 => "devices",
+                Keys.D5 => "variables",
+                _ => null
+            };
+            if (view != null) { NavigateToView(view); return true; }
+        }
+        return base.ProcessCmdKey(ref msg, keyData);
     }
+
 }

@@ -8,7 +8,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls;
 [DefaultBindingProperty(nameof(Text))]
 public partial class RoundedComboBox : UserControl
 {
-    private int borderRadius = 8;
+    private int borderRadius = 0;
     private Image icon;
 
 

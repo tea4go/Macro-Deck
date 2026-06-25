@@ -71,9 +71,6 @@ namespace SuchByte.MacroDeck.GUI
             btnSettings = new ContentSelectorButton();
             lblNumClientsConnected = new Label();
             navigation = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            btnDiscord = new ButtonPrimary();
-            btnDonate = new ButtonPrimary();
             contentButtonPanel.SuspendLayout();
             ((ISupportInitialize)btnDeck).BeginInit();
             ((ISupportInitialize)btnExtensions).BeginInit();
@@ -81,7 +78,6 @@ namespace SuchByte.MacroDeck.GUI
             ((ISupportInitialize)btnVariables).BeginInit();
             ((ISupportInitialize)btnSettings).BeginInit();
             navigation.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblVersion
@@ -89,7 +85,7 @@ namespace SuchByte.MacroDeck.GUI
             lblVersion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblVersion.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblVersion.ForeColor = Color.White;
-            lblVersion.Location = new Point(60, 613);
+            lblVersion.Location = new Point(60, 740);
             lblVersion.Margin = new Padding(9, 0, 9, 0);
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(154, 20);
@@ -104,7 +100,7 @@ namespace SuchByte.MacroDeck.GUI
             contentPanel.Location = new Point(60, 0);
             contentPanel.Margin = new Padding(0);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(1140, 611);
+            contentPanel.Size = new Size(1380, 728);
             contentPanel.TabIndex = 4;
             // 
             // contentButtonPanel
@@ -258,7 +254,7 @@ namespace SuchByte.MacroDeck.GUI
             lblNumClientsConnected.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblNumClientsConnected.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNumClientsConnected.ForeColor = Color.White;
-            lblNumClientsConnected.Location = new Point(661, 613);
+            lblNumClientsConnected.Location = new Point(901, 740);
             lblNumClientsConnected.Margin = new Padding(9, 0, 9, 0);
             lblNumClientsConnected.Name = "lblNumClientsConnected";
             lblNumClientsConnected.Size = new Size(154, 20);
@@ -278,77 +274,20 @@ namespace SuchByte.MacroDeck.GUI
             navigation.Name = "navigation";
             navigation.Size = new Size(60, 635);
             navigation.TabIndex = 15;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.Controls.Add(btnDiscord);
-            flowLayoutPanel1.Controls.Add(btnDonate);
-            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel1.Location = new Point(824, 611);
-            flowLayoutPanel1.Margin = new Padding(0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(376, 24);
-            flowLayoutPanel1.TabIndex = 46;
-            // 
-            // btnDiscord
-            // 
-            btnDiscord.BorderRadius = 8;
-            btnDiscord.FlatAppearance.BorderSize = 0;
-            btnDiscord.FlatStyle = FlatStyle.Flat;
-            btnDiscord.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDiscord.ForeColor = Color.White;
-            btnDiscord.HoverColor = Color.FromArgb(94, 111, 184);
-            btnDiscord.Icon = null;
-            btnDiscord.Location = new Point(200, 0);
-            btnDiscord.Margin = new Padding(2, 0, 2, 0);
-            btnDiscord.Name = "btnDiscord";
-            btnDiscord.Progress = 0;
-            btnDiscord.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnDiscord.Size = new Size(174, 24);
-            btnDiscord.TabIndex = 2;
-            btnDiscord.Text = "Join our Discord server";
-            btnDiscord.UseVisualStyleBackColor = true;
-            btnDiscord.UseWindowsAccentColor = true;
-            btnDiscord.WriteProgress = true;
-            btnDiscord.Click += btnDiscord_Click;
-            // 
-            // btnDonate
-            // 
-            btnDonate.BorderRadius = 8;
-            btnDonate.FlatAppearance.BorderSize = 0;
-            btnDonate.FlatStyle = FlatStyle.Flat;
-            btnDonate.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDonate.ForeColor = Color.White;
-            btnDonate.HoverColor = Color.FromArgb(181, 136, 2);
-            btnDonate.Icon = null;
-            btnDonate.Location = new Point(22, 0);
-            btnDonate.Margin = new Padding(2, 0, 2, 0);
-            btnDonate.Name = "btnDonate";
-            btnDonate.Progress = 0;
-            btnDonate.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnDonate.Size = new Size(174, 24);
-            btnDonate.TabIndex = 3;
-            btnDonate.Text = "Donate";
-            btnDonate.UseVisualStyleBackColor = true;
-            btnDonate.UseWindowsAccentColor = true;
-            btnDonate.WriteProgress = true;
-            btnDonate.Click += btnDonate_Click;
-            // 
+            //
             // MainWindow
-            // 
+            //
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(65, 65, 65);
-            ClientSize = new Size(1200, 635);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(1440, 762);
             Controls.Add(navigation);
             Controls.Add(lblNumClientsConnected);
             Controls.Add(contentPanel);
             Controls.Add(lblVersion);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(10, 4, 10, 4);
-            MinimumSize = new Size(1200, 635);
+            MinimumSize = new Size(1440, 762);
             Name = "MainWindow";
             Text = "Macro Deck 2";
             FormClosing += OnFormClosing;
@@ -360,7 +299,6 @@ namespace SuchByte.MacroDeck.GUI
             ((ISupportInitialize)btnVariables).EndInit();
             ((ISupportInitialize)btnSettings).EndInit();
             navigation.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -378,8 +316,5 @@ namespace SuchByte.MacroDeck.GUI
         private Panel panel2;
         private Panel navigation;
         private NotificationButton btnNotifications;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private ButtonPrimary btnDiscord;
-        private ButtonPrimary btnDonate;
     }
 }

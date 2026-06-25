@@ -6,7 +6,7 @@ public partial class RoundedTextBox : UserControl
 {
     public EventHandler<string>? InputChanged;
 
-    private int borderRadius = 8;
+    private int borderRadius = 0;
     private Color placeHolderColor = Color.Gray;
     private string placeHolderText = "";
     private bool isPlaceHolder;

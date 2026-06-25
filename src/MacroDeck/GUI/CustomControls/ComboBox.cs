@@ -5,7 +5,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls;
 [Obsolete("Use RoundedComboBox instead.")]
 public class ComboBox : System.Windows.Forms.ComboBox
 {
-    private int _borderRadius = 8;
+    private int _borderRadius = 0;
     private bool _regionSet;
     private bool _hover;
 

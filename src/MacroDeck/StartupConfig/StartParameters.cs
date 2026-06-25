@@ -33,6 +33,9 @@ public class StartParameters
     [Option("ignore-pid-check", Default = 0, Required = false)]
     public int IgnorePidCheck { get; set; }
 
+    [Option("view", Default = "", Required = false)]
+    public string View { get; set; } = "";
+
     public static StartParameters ParseParameters(string[] args)
     {
         var startParameters = new StartParameters();
