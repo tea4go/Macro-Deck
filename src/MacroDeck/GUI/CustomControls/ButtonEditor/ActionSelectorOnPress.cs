@@ -21,6 +21,8 @@ public partial class ActionSelectorOnPress : RoundedUserControl
         menuItemAction.Text = LanguageManager.Strings.Action;
         menuItemCondition.Text = LanguageManager.Strings.Condition;
         menuItemDelay.Text = LanguageManager.Strings.Delay;
+        // ContextMenuStrip 不在窗体控件树中，FontManager.Apply 无法触及，需手动套用配置字体
+        addItemContextMenu.Font = Utils.FontManager.Resolve(addItemContextMenu.Font);
     }
 
     private void AddActionItem(PluginAction? action)
