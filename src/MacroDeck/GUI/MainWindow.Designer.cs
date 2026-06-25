@@ -85,7 +85,7 @@ namespace SuchByte.MacroDeck.GUI
             lblVersion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblVersion.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblVersion.ForeColor = Color.White;
-            lblVersion.Location = new Point(60, 613);
+            lblVersion.Location = new Point(60, 740);
             lblVersion.Margin = new Padding(9, 0, 9, 0);
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(154, 20);
@@ -100,7 +100,7 @@ namespace SuchByte.MacroDeck.GUI
             contentPanel.Location = new Point(60, 0);
             contentPanel.Margin = new Padding(0);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(1140, 611);
+            contentPanel.Size = new Size(1380, 728);
             contentPanel.TabIndex = 4;
             // 
             // contentButtonPanel
@@ -254,7 +254,7 @@ namespace SuchByte.MacroDeck.GUI
             lblNumClientsConnected.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblNumClientsConnected.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNumClientsConnected.ForeColor = Color.White;
-            lblNumClientsConnected.Location = new Point(661, 613);
+            lblNumClientsConnected.Location = new Point(901, 740);
             lblNumClientsConnected.Margin = new Padding(9, 0, 9, 0);
             lblNumClientsConnected.Name = "lblNumClientsConnected";
             lblNumClientsConnected.Size = new Size(154, 20);
@@ -280,14 +280,14 @@ namespace SuchByte.MacroDeck.GUI
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(65, 65, 65);
-            ClientSize = new Size(1200, 635);
+            ClientSize = new Size(1440, 762);
             Controls.Add(navigation);
             Controls.Add(lblNumClientsConnected);
             Controls.Add(contentPanel);
             Controls.Add(lblVersion);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(10, 4, 10, 4);
-            MinimumSize = new Size(1200, 635);
+            MinimumSize = new Size(1440, 762);
             Name = "MainWindow";
             Text = "Macro Deck 2";
             FormClosing += OnFormClosing;
