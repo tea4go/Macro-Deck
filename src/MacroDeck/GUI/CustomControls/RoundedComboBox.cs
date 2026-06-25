@@ -89,10 +89,7 @@ public partial class RoundedComboBox : UserControl
         {
             base.Font = value;
             borderlessComboBox1.Font = value;
-            if (DesignMode)
-            {
-                UpdateControlHeight();
-            }
+            UpdateControlHeight();
         }
     }
 
