@@ -83,8 +83,6 @@ public partial class MainWindow : Form
     /// </summary>
     private void UpdateTranslation()
     {
-        btnDiscord.Text = LanguageManager.Strings.JoinDiscordServer;
-        btnDonate.Text = LanguageManager.Strings.Donate;
     }
 
     /// <summary>
@@ -412,39 +410,4 @@ public partial class MainWindow : Form
         }
     }
 
-    /// <summary>
-    /// 捐赠按钮点击事件处理。
-    /// 在默认浏览器中打开 Ko-fi 捐赠页面。
-    /// </summary>
-    /// <param name="sender">触发事件的对象</param>
-    /// <param name="e">事件参数</param>
-    private void btnDonate_Click(object sender, EventArgs e)
-    {
-        var p = new Process
-        {
-            StartInfo = new ProcessStartInfo("https://ko-fi.com/manuelmayer")
-            {
-                UseShellExecute = true
-            }
-        };
-        p.Start();
-    }
-
-    /// <summary>
-    /// Discord 按钮点击事件处理。
-    /// 在默认浏览器中打开 Macro Deck Discord 服务器链接。
-    /// </summary>
-    /// <param name="sender">触发事件的对象</param>
-    /// <param name="e">事件参数</param>
-    private void btnDiscord_Click(object sender, EventArgs e)
-    {
-        var p = new Process
-        {
-            StartInfo = new ProcessStartInfo("https://discord.macro-deck.app")
-            {
-                UseShellExecute = true
-            }
-        };
-        p.Start();
-    }
 }
