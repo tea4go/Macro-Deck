@@ -20,6 +20,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews;
 /// </summary>
 public partial class SettingsView : UserControl
 {
+    /// <summary>
+    /// 日志记录器，用于记录设置视图的运行时日志。
+    /// </summary>
     private static readonly ILogger Logger = Log.ForContext(typeof(SettingsView));
 
     /// <summary>

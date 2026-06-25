@@ -27,6 +27,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews;
 /// </summary>
 public partial class DeckView : UserControl
 {
+    /// <summary>
+    /// 日志记录器，用于记录 Deck 视图的运行时日志。
+    /// </summary>
     private static readonly ILogger Logger = Log.ForContext(typeof(DeckView));
 
     /// <summary>
@@ -39,6 +42,9 @@ public partial class DeckView : UserControl
     /// </summary>
     private Control _buttonClicked;
 
+    /// <summary>
+    /// 主窗体引用，用于注册窗口大小变更事件以同步刷新按钮布局。
+    /// </summary>
     private readonly MainWindow _mainWindow;
 
     /// <summary>

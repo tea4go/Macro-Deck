@@ -8,8 +8,17 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews;
 /// </summary>
 public partial class ExtensionsView : UserControl
 {
+    /// <summary>
+    /// 在线扩展商店视图实例。
+    /// </summary>
     private ExtensionStoreView extensionStoreView;
+    /// <summary>
+    /// ZIP 包安装器视图实例。
+    /// </summary>
     private ExtensionZipInstallerView extensionZipInstallerView;
+    /// <summary>
+    /// 已安装扩展列表视图实例。
+    /// </summary>
     private InstalledExtensionsView installedExtensionsView;
 
     /// <summary>

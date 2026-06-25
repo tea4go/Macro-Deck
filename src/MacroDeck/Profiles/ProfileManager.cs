@@ -17,29 +17,68 @@ using SuchByte.MacroDeck.WindowFocus;
 
 namespace SuchByte.MacroDeck.Profiles;
 
+/// <summary>
+/// 配置文件管理器，负责所有配置文件（Profile）的加载、保存、创建、删除，以及
+/// 文件夹与按钮的 CRUD 操作。同时监听变量变化以刷新按钮标签，监听窗口焦点变化
+/// 以自动切换当前活动文件夹。这是一个静态类，全局唯一。
+/// </summary>
 public static class ProfileManager
 {
+    /// <summary>
+    /// Serilog 日志记录器实例，用于记录配置文件管理过程中的调试、信息和错误日志。
+    /// </summary>
     private static readonly ILogger Logger = Log.ForContext(typeof(ProfileManager));
 
+    /// <summary>
+    /// 在所有配置文件保存完成后触发，通知订阅者刷新 UI 或执行后续操作。
+    /// </summary>
     public static event EventHandler? ProfilesSaved;
+    /// <summary>
+    /// 在新配置文件创建完成后触发，通知订阅者（如设备管理器）进行初始化。
+    /// </summary>
     public static event EventHandler? ProfileCreated;
 
+    /// <summary>
+    /// 获取或设置当前选中的配置文件。设备客户端会根据此配置显示对应的按钮布局。
+    /// </summary>
     public static MacroDeckProfile? CurrentProfile { get; set; }
 
+    /// <summary>
+    /// 获取当前加载的所有配置文件列表。通过 <see cref="Load"/> 方法填充。
+    /// </summary>
     public static List<MacroDeckProfile> Profiles { get; private set; } = [];
 
+    /// <summary>
+    /// 用于序列化保存操作的互斥锁，确保同一时间只有一个写操作在进行，
+    /// 防止并发写入导致 JSON 文件损坏。
+    /// </summary>
     private static readonly Lock SaveLock = new();
 
+    /// <summary>
+    /// 历史记录字典，键为客户端，值为（上一个文件夹, 触发此切换的进程名）。
+    /// 用于窗口焦点离开应用时，将客户端恢复到之前的文件夹状态。
+    /// </summary>
     private static readonly ConcurrentDictionary<MacroDeckClient, (MacroDeckFolder PreviousFolder, string ProcessName)>
         History = new();
 
+    /// <summary>
+    /// 注册变量变更监听器。当 <see cref="VariableManager"/> 中的变量值发生变化时，
+    /// 自动更新所有引用该变量的按钮标签。
+    /// </summary>
     public static void AddVariableChangedListener()
     {
         VariableManager.OnVariableChanged += VariableChanged;
     }
 
+    /// <summary>
+    /// 窗口焦点检测器实例，通过轮询当前活动窗口来触发焦点切换逻辑。
+    /// </summary>
     private static WindowFocusDetection? _windowFocusDetection;
 
+    /// <summary>
+    /// 注册窗口焦点变更监听器。创建 <see cref="WindowFocusDetection"/> 实例并开始
+    /// 监听活动窗口切换，同时注册应用程序退出事件以进行资源清理。
+    /// </summary>
     public static void AddWindowFocusChangedListener()
     {
         _windowFocusDetection = new WindowFocusDetection();
@@ -48,6 +87,12 @@ public static class ProfileManager
         Application.ApplicationExit += OnApplicationExit;
     }
 
+    /// <summary>
+    /// 应用程序退出时的清理逻辑。取消所有事件订阅，
+    /// 释放 <see cref="WindowFocusDetection"/> 实例并置为 null。
+    /// </summary>
+    /// <param name="sender">事件源（Application 实例）。</param>
+    /// <param name="e">事件参数。</param>
     private static void OnApplicationExit(object? sender, EventArgs e)
     {
         Application.ApplicationExit -= OnApplicationExit;
@@ -59,13 +104,29 @@ public static class ProfileManager
         }
     }
 
+    /// <summary>
+    /// 窗口焦点变更事件处理程序。在后台线程中异步调用文件夹切换逻辑，
+    /// 避免阻塞 UI 线程。
+    /// </summary>
+    /// <param name="sender">事件源。</param>
+    /// <param name="e">包含新旧进程名称的事件参数。</param>
     private static void OnWindowFocusChanged(object sender, WindowChangedEventArgs e)
     {
+        // 使用 Task.Run 在后台线程执行，避免延时影响焦点检测的实时性
         _ = Task.Run(() => UpdateSetFolderForProcess(e.NewProcess, e.PreviousProcess));
     }
 
+    /// <summary>
+    /// 根据前台窗口进程名称自动切换设备客户端所显示的文件夹。
+    /// 当检测到活动窗口切换到新进程时：
+    /// 1. 查找离开旧进程的客户端，将其恢复到之前的文件夹；
+    /// 2. 查找匹配新进程的文件夹，将对应设备的客户端切换到该文件夹。
+    /// </summary>
+    /// <param name="newProcess">新激活的窗口进程名称（如 "notepad.exe"）。</param>
+    /// <param name="oldProcess">之前的窗口进程名称。</param>
     private static void UpdateSetFolderForProcess(string newProcess, string oldProcess)
     {
+        // 空进程名无法匹配任何文件夹，直接返回
         if (string.IsNullOrWhiteSpace(newProcess))
         {
             return;
@@ -124,6 +185,12 @@ public static class ProfileManager
         }
     }
 
+    /// <summary>
+    /// 变量变更事件处理程序。当 <see cref="VariableManager"/> 中任意变量发生变化时，
+    /// 触发所有引用该变量的按钮标签更新。
+    /// </summary>
+    /// <param name="sender">事件源，应为 <see cref="Variable"/> 实例。</param>
+    /// <param name="e">事件参数。</param>
     private static void VariableChanged(object sender, EventArgs e)
     {
         if (sender is Variable variable)
@@ -132,6 +199,11 @@ public static class ProfileManager
         }
     }
 
+    /// <summary>
+    /// 更新所有引用了指定变量的按钮标签。遍历所有配置文件->文件夹->按钮，
+    /// 筛选出 LabelOff 或 LabelOn 文本中包含该变量名的按钮，然后并行更新它们的标签图像。
+    /// </summary>
+    /// <param name="variable">发生变化的变量实例。</param>
     public static void UpdateAllVariableLabels(Variable variable)
     {
         if (string.IsNullOrWhiteSpace(variable?.Name))
@@ -153,6 +225,11 @@ public static class ProfileManager
         Parallel.ForEach(buttons, UpdateVariableLabels);
     }
 
+    /// <summary>
+    /// 更新单个按钮的标签图像。使用 Cottle 模板引擎渲染标签文本中的变量引用，
+    /// 然后生成对应的 Base64 编码图像，并通过 WebSocket 推送给所有连接的客户端。
+    /// </summary>
+    /// <param name="actionButton">需要更新标签的按钮实例。</param>
     public static void UpdateVariableLabels(ActionButton.ActionButton actionButton)
     {
         if (actionButton?.LabelOff == null || actionButton.LabelOn == null)
@@ -202,6 +279,10 @@ public static class ProfileManager
         }
     }
 
+    /// <summary>
+    /// 加载所有配置文件。从 Profiles 目录读取 JSON 文件并反序列化为 <see cref="MacroDeckProfile"/> 对象。
+    /// 首次启动时会自动创建默认配置文件。加载完成后会初始化所有按钮的插件动作绑定和标签。
+    /// </summary>
     internal static void Load()
     {
         Logger.Information("Loading profiles...");
@@ -310,6 +391,11 @@ public static class ProfileManager
         Logger.Information("Loaded {ProfileCount} profiles", Profiles.Count);
     }
 
+    /// <summary>
+    /// 将所有配置文件序列化为 JSON 并写入磁盘。使用原子写入策略（先写临时文件再移动）
+    /// 防止写入过程中崩溃导致文件损坏。同时清理已删除配置对应的孤儿 JSON 文件。
+    /// 安全模式下不执行任何保存操作。
+    /// </summary>
     public static void Save()
     {
         if (MacroDeck.SafeMode)
@@ -379,6 +465,11 @@ public static class ProfileManager
         ProfilesSaved?.Invoke(Profiles, EventArgs.Empty);
     }
 
+    /// <summary>
+    /// 将旧版 SQLite 数据库中的配置文件迁移到 JSON 文件格式。
+    /// 迁移完成后将原始数据库文件重命名为 .migrated 后缀以标记已完成。
+    /// 仅在旧版数据库文件存在且 Profiles 目录为空时执行。
+    /// </summary>
     private static void MigrateLegacyDatabase()
     {
         var legacyPath = ApplicationPaths.ProfilesLegacyFilePath;
@@ -455,6 +546,14 @@ public static class ProfileManager
         }
     }
 
+    /// <summary>
+    /// 在指定配置文件中创建一个新文件夹。检查显示名称是否已存在，
+    /// 若存在则返回 null。新文件夹会被添加到父文件夹的子文件夹列表中。
+    /// </summary>
+    /// <param name="displayName">文件夹的显示名称。</param>
+    /// <param name="parent">父文件夹，新文件夹将作为其子文件夹。</param>
+    /// <param name="macroDeckProfile">目标配置文件。</param>
+    /// <returns>创建成功返回新文件夹实例，名称冲突时返回 null。</returns>
     public static MacroDeckFolder? CreateFolder(string displayName,
         MacroDeckFolder parent,
         MacroDeckProfile macroDeckProfile)
@@ -485,6 +584,12 @@ public static class ProfileManager
     }
 
 
+    /// <summary>
+    /// 在指定配置文件中查找包含给定文件夹 ID 的父文件夹。
+    /// </summary>
+    /// <param name="macroDeckFolder">需要查找父文件夹的子文件夹。</param>
+    /// <param name="macroDeckProfile">目标配置文件。</param>
+    /// <returns>找到的父文件夹，未找到则返回 null。</returns>
     public static MacroDeckFolder FindParentFolder(MacroDeckFolder macroDeckFolder, MacroDeckProfile macroDeckProfile)
     {
         MacroDeckFolder parentFolder = null;
@@ -492,6 +597,15 @@ public static class ProfileManager
         return parentFolder;
     }
 
+    /// <summary>
+    /// 从指定配置文件中删除一个文件夹及其所有子文件夹。
+    /// 根文件夹（配置中的第一个文件夹）不可删除。删除前会：
+    /// 1. 释放文件夹内所有按钮的资源；
+    /// 2. 将正在查看该文件夹的客户端切换到根文件夹；
+    /// 3. 递归删除所有子文件夹。
+    /// </summary>
+    /// <param name="folder">要删除的文件夹实例。</param>
+    /// <param name="macroDeckProfile">目标配置文件。</param>
     public static void DeleteFolder(MacroDeckFolder folder, MacroDeckProfile macroDeckProfile)
     {
         if (!macroDeckProfile.Folders.Contains(folder))
@@ -536,6 +650,13 @@ public static class ProfileManager
     }
 
 
+    /// <summary>
+    /// 创建一个新的配置文件。如果显示名称已存在，返回已有的配置文件实例。
+    /// 新配置默认包含 5 列 x 3 行的布局和一个根文件夹。
+    /// </summary>
+    /// <param name="displayName">新配置文件的显示名称。</param>
+    /// <param name="deviceClass">目标设备类别，默认为 <see cref="DeviceClass.SoftwareClient"/>。</param>
+    /// <returns>创建成功返回新配置文件实例，名称冲突时返回已有的配置文件。</returns>
     public static MacroDeckProfile CreateProfile(string displayName,
         DeviceClass deviceClass = DeviceClass.SoftwareClient)
     {
@@ -577,6 +698,12 @@ public static class ProfileManager
         return newProfile;
     }
 
+    /// <summary>
+    /// 删除指定的配置文件及其所有文件夹和按钮资源。
+    /// 至少保留一个配置文件（Profiles.Count < 2 时拒绝删除）。
+    /// 删除前会将使用该配置的设备切换到默认配置。
+    /// </summary>
+    /// <param name="macroDeckProfile">要删除的配置文件实例。</param>
     public static void DeleteProfile(MacroDeckProfile macroDeckProfile)
     {
         if (!Profiles.Contains(macroDeckProfile))
@@ -609,29 +736,58 @@ public static class ProfileManager
         Save();
     }
 
+    /// <summary>
+    /// 在指定配置文件中通过文件夹 ID 查找文件夹。
+    /// </summary>
+    /// <param name="id">文件夹的唯一标识符。</param>
+    /// <param name="macroDeckProfile">目标配置文件。</param>
+    /// <returns>找到的文件夹实例，未找到则返回 null。</returns>
     public static MacroDeckFolder? FindFolderById(string id, MacroDeckProfile macroDeckProfile)
     {
         return macroDeckProfile.Folders.FirstOrDefault(x => x.FolderId.Equals(id));
     }
 
 
+    /// <summary>
+    /// 在指定配置文件中通过显示名称查找文件夹。
+    /// </summary>
+    /// <param name="displayName">文件夹的显示名称。</param>
+    /// <param name="macroDeckProfile">目标配置文件。</param>
+    /// <returns>找到的文件夹实例，未找到则返回 null。</returns>
     public static MacroDeckFolder? FindFolderByDisplayName(string displayName, MacroDeckProfile macroDeckProfile)
     {
         return macroDeckProfile.Folders.FirstOrDefault(macroDeckFolder =>
             macroDeckFolder.DisplayName.Equals(displayName));
     }
 
+    /// <summary>
+    /// 在指定文件夹中通过网格坐标（行和列）查找按钮。
+    /// </summary>
+    /// <param name="folder">目标文件夹。</param>
+    /// <param name="row">按钮所在的行索引。</param>
+    /// <param name="col">按钮所在的列索引。</param>
+    /// <returns>找到的按钮实例，未找到则返回 null。</returns>
     public static ActionButton.ActionButton? FindActionButton(MacroDeckFolder folder, int row, int col)
     {
         return folder.ActionButtons.FirstOrDefault(actionButton =>
             actionButton.Position_X == col && actionButton.Position_Y == row);
     }
 
+    /// <summary>
+    /// 在所有已加载的配置文件中通过 ID 查找配置文件。
+    /// </summary>
+    /// <param name="id">配置文件的唯一标识符。</param>
+    /// <returns>找到的配置文件实例，未找到则返回 null。</returns>
     public static MacroDeckProfile? FindProfileById(string id)
     {
         return Profiles.FirstOrDefault(macroDeckProfile => macroDeckProfile.ProfileId.Equals(id));
     }
 
+    /// <summary>
+    /// 在所有已加载的配置文件中通过显示名称查找配置文件。
+    /// </summary>
+    /// <param name="displayName">配置文件的显示名称。</param>
+    /// <returns>找到的配置文件实例，未找到则返回 null。</returns>
     public static MacroDeckProfile? FindProfileByDisplayName(string displayName)
     {
         return Profiles.FirstOrDefault(macroDeckProfile => macroDeckProfile.DisplayName.Equals(displayName));
