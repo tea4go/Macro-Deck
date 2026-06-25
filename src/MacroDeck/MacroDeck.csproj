@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-	
+
   <PropertyGroup>
     <UseWPF>true</UseWPF>
     <RootNamespace>SuchByte.MacroDeck</RootNamespace>
@@ -26,13 +26,13 @@
     <OutputType>WinExe</OutputType>
     <Nullable>annotations</Nullable>
   </PropertyGroup>
-	
+
   <ItemGroup>
     <Content Update="Macro Deck 2.dll">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
   </ItemGroup>
-	
+
   <ItemGroup>
     <EmbeddedResource Include="Resources\*">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
