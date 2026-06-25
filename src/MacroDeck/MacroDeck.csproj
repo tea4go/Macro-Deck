@@ -6,7 +6,10 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>appicon.ico</ApplicationIcon>
     <StartupObject>SuchByte.MacroDeck.Program</StartupObject>
-    <Version>2.15.0-b10</Version>
+    <VersionPrefix>2.15.0</VersionPrefix>
+    <!-- BetaNumber 默认为 UTC 时间戳，确保每次本地编译版本号自动递增；CI 可通过 /p:BetaNumber=xxx 覆盖 -->
+    <BetaNumber Condition="'$(BetaNumber)' == ''">$([System.DateTime]::UtcNow.ToString("yyMMddHHmm"))</BetaNumber>
+    <Version>$(VersionPrefix)-b$(BetaNumber)</Version>
     <Company>Macro Deck</Company>
     <Authors>Manuel Mayer</Authors>
     <SignAssembly>False</SignAssembly>
