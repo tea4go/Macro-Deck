@@ -7,9 +7,10 @@ public partial struct Version
     public int Major { get; set; }
     public int Minor { get; set; }
     public int Patch { get; set; }
-    public int? BetaNo { get; set; }
+    /// <summary>Beta 版本号，使用 long 类型以支持时间戳等大数值构建号。</summary>
+    public long? BetaNo { get; set; }
 
-    public Version(int major, int minor, int patch, int? betaNo = null)
+    public Version(int major, int minor, int patch, long? betaNo = null)
     {
         Major = major;
         Minor = minor;
@@ -59,10 +60,10 @@ public partial struct Version
         var minor = int.Parse(match.Groups["minor"].Value);
         var patch = int.Parse(match.Groups["patch"].Value);
 
-        int? previewNo = null;
+        long? previewNo = null;
         if (match.Groups["beta"].Success)
         {
-            previewNo = int.Parse(match.Groups["beta"].Value);
+            previewNo = long.Parse(match.Groups["beta"].Value);
         }
 
         return new Version(major, minor, patch, previewNo);

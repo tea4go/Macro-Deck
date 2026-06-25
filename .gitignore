@@ -366,3 +366,5 @@ MacroDeck.Setup/*.exe
 
 .idea
 /.idea/.idea.MacroDeck/.idea
+publish_test/
+_check_version.ps1

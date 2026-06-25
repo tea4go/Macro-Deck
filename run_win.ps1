@@ -115,8 +115,8 @@ if ($Run) {
 
     Write-Host "正在启动 $exeName..."
     if ($Portable) {
-        Start-Process -FilePath $exePath -ArgumentList "--portable"
+        Start-Process -FilePath $exePath -ArgumentList "--portable --show"
     } else {
-        Start-Process -FilePath $exePath
+        Start-Process -FilePath $exePath -ArgumentList "--show"
     }
 }
