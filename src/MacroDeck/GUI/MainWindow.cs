@@ -192,6 +192,10 @@ public partial class MainWindow : Form
         // 设置默认显示 DeckView
         SetView(DeckView);
 
+        // --view 参数：调试时直接跳转到指定视图
+        if (!string.IsNullOrWhiteSpace(MacroDeck.StartParameters.View))
+            NavigateToView(MacroDeck.StartParameters.View);
+
         // 根据版本信息显示设置按钮的通知标记
         btnSettings.SetNotification(UpdateService.Instance().VersionInfo != null);
         // 异步搜索扩展商店更新
@@ -408,6 +412,41 @@ public partial class MainWindow : Form
             Controls.Add(_notificationsList);
             _notificationsList.BringToFront();
         }
+    }
+
+    /// <summary>
+    /// 按视图名称导航（供 --view 启动参数和 Ctrl+1~5 快捷键使用）。
+    /// 支持：deck/1, extensions/2, settings/3, devices/4, variables/5
+    /// </summary>
+    public void NavigateToView(string? viewName)
+    {
+        switch (viewName?.ToLowerInvariant().Trim())
+        {
+            case "deck":      case "1": SetView(DeckView); DeckView.UpdateButtons(); break;
+            case "extensions":case "2": SetView(new ExtensionsView()); break;
+            case "settings":  case "3": SetView(new SettingsView()); break;
+            case "devices":   case "4": SetView(new DeviceManagerView()); break;
+            case "variables": case "5": SetView(new VariablesView()); break;
+        }
+    }
+
+    /// <summary>Ctrl+1~5 快捷键切换视图</summary>
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+    {
+        if ((keyData & Keys.Control) != 0)
+        {
+            var view = (keyData & ~Keys.Control) switch
+            {
+                Keys.D1 => "deck",
+                Keys.D2 => "extensions",
+                Keys.D3 => "settings",
+                Keys.D4 => "devices",
+                Keys.D5 => "variables",
+                _ => null
+            };
+            if (view != null) { NavigateToView(view); return true; }
+        }
+        return base.ProcessCmdKey(ref msg, keyData);
     }
 
 }
