@@ -140,7 +140,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             buttonPanel.Location = new Point(237, 49);
             buttonPanel.Margin = new Padding(10);
             buttonPanel.Name = "buttonPanel";
-            buttonPanel.Size = new Size(684, 507);
+            buttonPanel.Size = new Size(634, 507);
             buttonPanel.TabIndex = 5;
             //
             // actionButtonContextMenuItemEdit
@@ -512,7 +512,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             qrCodeBox.Location = new Point(5, 5);
             qrCodeBox.Margin = new Padding(5);
             qrCodeBox.Name = "qrCodeBox";
-            qrCodeBox.Size = new Size(190, 190);
+            qrCodeBox.Size = new Size(240, 240);
             qrCodeBox.TabIndex = 44;
             //
             // networkInformationPanel
@@ -523,10 +523,10 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             networkInformationPanel.Controls.Add(lblNetworkInterfaces);
             networkInformationPanel.Controls.Add(lblPort);
             networkInformationPanel.FlowDirection = FlowDirection.TopDown;
-            networkInformationPanel.Location = new Point(931, 42);
+            networkInformationPanel.Location = new Point(881, 42);
             networkInformationPanel.Margin = new Padding(0);
             networkInformationPanel.Name = "networkInformationPanel";
-            networkInformationPanel.Size = new Size(200, 517);
+            networkInformationPanel.Size = new Size(250, 517);
             networkInformationPanel.TabIndex = 46;
             //
             // lblNetworkInterfaces
@@ -537,7 +537,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblNetworkInterfaces.Margin = new Padding(5);
             lblNetworkInterfaces.Name = "lblNetworkInterfaces";
             lblNetworkInterfaces.Padding = new Padding(0, 5, 0, 5);
-            lblNetworkInterfaces.Size = new Size(190, 38);
+            lblNetworkInterfaces.Size = new Size(240, 38);
             lblNetworkInterfaces.TabIndex = 46;
             lblNetworkInterfaces.Text = "Network interfaces:\r\n- 127.0.0.1";
             //
