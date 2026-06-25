@@ -1,6 +1,7 @@
 ﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Server;
+using SuchByte.MacroDeck.Utils;
 using Timer = System.Timers.Timer;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
@@ -12,6 +13,8 @@ public partial class NewConnectionDialog : DialogForm
     private int _denyTimeout = 15;
 
     private Timer _denyTimer;
+
+    private Size _originalClientSize;
 
     public bool Blocked => checkBlockThisDevice.Checked;
 
@@ -55,6 +58,14 @@ public partial class NewConnectionDialog : DialogForm
                 }
             }
         };
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void BtnAccept_Click(object sender, EventArgs e)

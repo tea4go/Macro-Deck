@@ -1,6 +1,7 @@
 ﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Profiles;
+using SuchByte.MacroDeck.Utils;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
@@ -9,12 +10,21 @@ public partial class CreateProfileDialog : DialogForm
 {
     public MacroDeckProfile Profile;
 
+    private Size _originalClientSize;
+
     public CreateProfileDialog(MacroDeckProfile macroDeckProfile = null)
     {
         Profile = macroDeckProfile;
         InitializeComponent();
         lblName.Text = LanguageManager.Strings.Name;
         btnOk.Text = LanguageManager.Strings.Ok;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void BtnOk_Click(object sender, EventArgs e)

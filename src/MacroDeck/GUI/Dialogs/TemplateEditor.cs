@@ -5,6 +5,7 @@ using FastColoredTextBoxNS.Types;
 using SuchByte.MacroDeck.CottleIntegration;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 using SuchByte.MacroDeck.Variables;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
@@ -45,6 +46,8 @@ public partial class TemplateEditor : DialogForm
 
     private List<Variable> Variables { get; }
 
+    private Size _originalClientSize;
+
     public TemplateEditor(string template = "")
     {
         InitializeComponent();
@@ -69,6 +72,14 @@ public partial class TemplateEditor : DialogForm
 
         this.template.TextChanged += Template_TextChanged;
         Template = template;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void Template_TextChanged(object? sender, TextChangedEventArgs e)

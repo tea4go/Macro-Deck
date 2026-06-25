@@ -19,6 +19,33 @@ public class ComboBox : System.Windows.Forms.ComboBox
         }
     }
 
+    /// <summary>
+    /// 覆盖 Font 属性，在字体变更时自动重算 ComboBox 的最小高度，
+    /// 确保下拉框文字在任何字号下都不会被裁剪。
+    /// </summary>
+    public override Font Font
+    {
+        get => base.Font;
+        set
+        {
+            base.Font = value;
+            UpdateComboHeight();
+        }
+    }
+
+    /// <summary>
+    /// 根据当前字体文字高度 + 上下 padding 重算 ComboBox 的最小高度。
+    /// </summary>
+    private void UpdateComboHeight()
+    {
+        var textHeight = TextRenderer.MeasureText("Ay", Font).Height + 1;
+        var minHeight = textHeight + 8;
+        if (Height < minHeight)
+        {
+            Height = minHeight;
+        }
+    }
+
 
     public ComboBox()
     {
@@ -32,6 +59,12 @@ public class ComboBox : System.Windows.Forms.ComboBox
         MouseEnter += MouseEnterEvent;
         MouseLeave += MouseLeaveEvent;
         SelectedIndexChanged += SelectedIndexEvent;
+    }
+
+    protected override void OnHandleCreated(EventArgs e)
+    {
+        base.OnHandleCreated(e);
+        UpdateComboHeight();
     }
 
     private void SelectedIndexEvent(object sender, EventArgs e)

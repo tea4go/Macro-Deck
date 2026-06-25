@@ -1,5 +1,6 @@
 ﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 using SuchByte.MacroDeck.Variables;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
@@ -11,6 +12,8 @@ public partial class VariableDialog : DialogForm
 
     private readonly bool _protected;
     private readonly bool _edit;
+
+    private Size _originalClientSize;
 
     public VariableDialog(Variable variable = null)
     {
@@ -36,6 +39,13 @@ public partial class VariableDialog : DialogForm
         _protected = Variable.Creator != "User";
         variableType.Enabled = !_protected;
         variableValue.Enabled = !_protected;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
 

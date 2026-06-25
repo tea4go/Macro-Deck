@@ -38,6 +38,8 @@ public partial class ButtonEditor : DialogForm
     private ActionSelectorOnPress actionSelectorOnLongPress;
     private ActionSelectorOnPress actionSelectorOnLongPressRelease;
 
+    private Size _originalClientSize;
+
     public ActionButton.ActionButton ActionButton => actionButton;
 
     protected override void OnFormClosed(FormClosedEventArgs e)
@@ -47,6 +49,14 @@ public partial class ButtonEditor : DialogForm
         btnPreview.BackgroundImage?.Dispose();
         btnPreview.BackgroundImage = null;
         base.OnFormClosed(e);
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     public ButtonEditor(ActionButton.ActionButton actionButton, MacroDeckFolder folder)

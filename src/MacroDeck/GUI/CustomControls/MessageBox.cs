@@ -1,9 +1,12 @@
 ﻿using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class MessageBox : DialogForm
 {
+    private Size _originalClientSize;
+
     public MessageBox()
     {
         InitializeComponent();
@@ -12,6 +15,14 @@ public partial class MessageBox : DialogForm
         {
             StartPosition = FormStartPosition.CenterScreen;
         }
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     public DialogResult ShowDialog(string title, string message, MessageBoxButtons messageBoxButtons)

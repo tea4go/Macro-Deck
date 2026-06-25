@@ -1,12 +1,15 @@
 ﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Icons;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 public partial class CreateIconPack : DialogForm
 {
+    private Size _originalClientSize;
+
     public CreateIconPack()
     {
         InitializeComponent();
@@ -32,6 +35,14 @@ public partial class CreateIconPack : DialogForm
     public string IconPackName => _iconPackName;
     public string Author => _author;
     public string Version => _version;
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
+    }
 
     private void BtnOk_Click(object sender, EventArgs e)
     {

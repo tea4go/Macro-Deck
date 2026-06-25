@@ -1,12 +1,15 @@
 ﻿using Newtonsoft.Json;
 using Serilog;
 using SuchByte.MacroDeck.GUI.CustomControls;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 public partial class JsonButtonEditor : DialogForm
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(JsonButtonEditor));
+
+    private Size _originalClientSize;
 
     private static JsonSerializerSettings jsonSerializerSettings = new()
     {
@@ -40,6 +43,13 @@ public partial class JsonButtonEditor : DialogForm
         }
 
         jsonTextBox.Text = JsonConvert.SerializeObject(ActionButton, jsonSerializerSettings);
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void BtnApply_Click(object sender, EventArgs e)

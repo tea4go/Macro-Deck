@@ -1,16 +1,27 @@
 ﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 using Form = System.Windows.Forms.Form;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 internal partial class WaitDialog : DialogForm
 {
+    private Size _originalClientSize;
+
     public WaitDialog()
     {
         InitializeComponent();
         SetCloseIconVisible(false);
         lblPleaseWait.Text = LanguageManager.Strings.PleaseWait;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustLabelHeight(lblPleaseWait);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 }
 

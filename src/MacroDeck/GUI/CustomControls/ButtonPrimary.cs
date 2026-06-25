@@ -103,6 +103,35 @@ public partial class ButtonPrimary : Button
         }
     }
 
+    /// <summary>
+    /// 覆盖 Font 属性，在字体变更时自动重算按钮最小高度，
+    /// 确保文字在任何字号下都不会被裁剪。
+    /// </summary>
+    public override Font Font
+    {
+        get => base.Font;
+        set
+        {
+            base.Font = value;
+            UpdateButtonHeight();
+        }
+    }
+
+    /// <summary>
+    /// 根据当前字体文字高度 + 上下 padding 重算按钮的最小高度。
+    /// 使用 TextRenderer.MeasureText 精确测量当前字体下的文字高度，
+    /// 确保按钮高度始终能容纳按钮文字。
+    /// </summary>
+    private void UpdateButtonHeight()
+    {
+        var textHeight = TextRenderer.MeasureText(Text.Length > 0 ? Text : "Ay", Font).Height + 1;
+        var minHeight = textHeight + 12; // 上下各 6px padding
+        if (Height < minHeight)
+        {
+            Height = minHeight;
+        }
+    }
+
     public override string Text
     {
         get => text;
@@ -129,6 +158,12 @@ public partial class ButtonPrimary : Button
         MouseEnter += ButtonPrimary_MouseEnter;
         MouseLeave += ButtonPrimary_MouseLeave;
         MouseUp += ButtonPrimary_MouseUp;
+    }
+
+    protected override void OnHandleCreated(EventArgs e)
+    {
+        base.OnHandleCreated(e);
+        UpdateButtonHeight();
     }
 
     private void ButtonPrimary_MouseUp(object sender, MouseEventArgs e)

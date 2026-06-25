@@ -3,16 +3,27 @@ using System.Xml;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.CustomControls.Settings;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 public partial class LicensesDialog : DialogForm
 {
+    private Size _originalClientSize;
+
     public LicensesDialog()
     {
         InitializeComponent();
         label1.Text = LanguageManager.Strings.ThirdPartyLicenses;
         label3.Text = LanguageManager.Strings.LicensesInfo;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustLabelHeight(label3);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void label3_Click(object sender, EventArgs e)

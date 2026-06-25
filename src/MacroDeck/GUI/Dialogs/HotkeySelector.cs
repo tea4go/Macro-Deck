@@ -1,16 +1,28 @@
 ﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Hotkeys;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 public partial class HotkeySelector : DialogForm
 {
+    private Size _originalClientSize;
+
     public HotkeySelector()
     {
         InitializeComponent();
 
         lblPressKeysNow.Text = LanguageManager.Strings.PressTheKeysNow;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustLabelHeight(lblPressKeysNow);
+        LayoutHelper.AdjustLabelHeight(lblDetectedKeys);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     public new Keys ModifierKeys;

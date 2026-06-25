@@ -10,6 +10,7 @@ using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Profiles;
 using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.StartupConfig;
+using SuchByte.MacroDeck.Utils;
 using Icon = SuchByte.MacroDeck.Icons.Icon;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
@@ -23,6 +24,8 @@ public partial class IconSelector : DialogForm
     public IconPack SelectedIconPack;
 
     private IconPack? _selectIconPack;
+
+    private Size _originalClientSize;
 
     public IconSelector(IconPack? iconPack = null)
     {
@@ -40,6 +43,14 @@ public partial class IconSelector : DialogForm
         btnPreview.Radius = ProfileManager.CurrentProfile?.ButtonRadius ?? 0;
         btnGenerateStatic.Text = LanguageManager.Strings.GenerateStatic;
         iconList.IconSelected += (_, icon) => SelectIcon(icon);
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     protected override void OnFormClosed(FormClosedEventArgs e)

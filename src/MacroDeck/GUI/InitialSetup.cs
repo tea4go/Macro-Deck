@@ -4,6 +4,7 @@ using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.InitialSetupPages;
 using SuchByte.MacroDeck.Language;
 using Serilog;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI;
 
@@ -15,6 +16,8 @@ public partial class InitialSetup : DialogForm
 
     private int currentPage;
     private List<Control> pages;
+
+    private Size _originalClientSize;
 
     //List<JObject> objectsToInstall = new List<JObject>();
 
@@ -38,6 +41,13 @@ public partial class InitialSetup : DialogForm
         SetSystemLanguage();
     }
 
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
+    }
 
     private void LoadSetupPages()
     {

@@ -5,6 +5,7 @@ using SuchByte.MacroDeck.GUI.CustomControls.ExtensionStoreDownloader;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Plugins;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -16,6 +17,8 @@ public partial class ExtensionStoreDownloader : DialogForm
     private int _pluginsInstalled;
 
     private List<ExtensionStoreDownloaderPackageInfoModel> _packageIds;
+
+    private Size _originalClientSize;
 
 
     public ExtensionStoreDownloader(List<ExtensionStoreDownloaderPackageInfoModel> packageIds)
@@ -35,6 +38,14 @@ public partial class ExtensionStoreDownloader : DialogForm
         {
             PUtils.SetNativeEnabled(Owner.Handle, true);
         }
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     public void DownloadAndInstall()

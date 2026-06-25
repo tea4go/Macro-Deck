@@ -6,6 +6,7 @@ using SuchByte.MacroDeck.Notifications;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.StartupConfig;
+using SuchByte.MacroDeck.Utils;
 using Form = SuchByte.MacroDeck.GUI.CustomControls.Form;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
@@ -19,6 +20,8 @@ public partial class DebugConsole : Form
     /// to forward log events to the window.
     /// </summary>
     public static DebugConsole? Current { get; private set; }
+
+    private Size _originalClientSize;
 
     /// <summary>
     /// Opens the debug console on its own dedicated UI thread so it is independent of, and
@@ -56,6 +59,14 @@ public partial class DebugConsole : Form
         FormClosed += DebugConsole_FormClosed;
         filtersList.ItemClicked += FiltersList_ItemClicked;
         filter.TextChanged += Filter_TextChanged;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void Filter_TextChanged(object sender, EventArgs e)

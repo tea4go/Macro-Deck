@@ -3,6 +3,7 @@ using Serilog;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Server;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -11,6 +12,8 @@ public partial class DeviceConfigurator : DialogForm
     private static readonly ILogger Logger = Log.ForContext(typeof(DeviceConfigurator));
 
     private MacroDeckDevice _macroDeckDevice;
+
+    private Size _originalClientSize;
 
     public DeviceConfigurator(MacroDeckDevice macroDeckDevice)
     {
@@ -23,6 +26,14 @@ public partial class DeviceConfigurator : DialogForm
         radioKeepAwakeNever.Text = LanguageManager.Strings.Never;
         radioKeepAwakeConnected.Text = LanguageManager.Strings.WhenConnected;
         radioKeepAwakeAlways.Text = LanguageManager.Strings.Always;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void DeviceConfigurator_Load(object sender, EventArgs e)

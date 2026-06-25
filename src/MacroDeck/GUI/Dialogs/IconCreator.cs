@@ -9,6 +9,8 @@ public partial class IconCreator : DialogForm
 {
     private Dictionary<string, Bitmap> _layers = new();
 
+    private Size _originalClientSize;
+
     public event EventHandler OnLayersChanged;
 
     private Image _image;
@@ -22,6 +24,14 @@ public partial class IconCreator : DialogForm
         btnAddImage.Text = LanguageManager.Strings.AddImage;
         btnBackgroundColor.Text = LanguageManager.Strings.Color;
         btnOk.Text = LanguageManager.Strings.Ok;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void BtnAddLayer_Click(object sender, EventArgs e)

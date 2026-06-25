@@ -1,11 +1,14 @@
 ﻿using SuchByte.MacroDeck.Backup;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 public partial class RestoreBackupDialog : DialogForm
 {
+    private Size _originalClientSize;
+
     public RestoreBackupDialog()
     {
         InitializeComponent();
@@ -20,6 +23,14 @@ public partial class RestoreBackupDialog : DialogForm
         checkRestorePluginCredentials.Text = LanguageManager.Strings.PluginCredentials;
         checkRestoreIconPacks.Text = LanguageManager.Strings.InstalledIconPacks;
         btnRestore.Text = LanguageManager.Strings.Restore;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustLabelHeight(lblWhatToRestore);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
 

@@ -10,6 +10,8 @@ public partial class ActionConfigurator : DialogForm
 {
     public PluginAction? Action { get; private set; }
 
+    private Size _originalClientSize;
+
     public ActionConfigurator(PluginAction? action = null)
     {
         Action = action;
@@ -19,6 +21,14 @@ public partial class ActionConfigurator : DialogForm
         label2.Text = LanguageManager.Strings.Action;
         pluginSearch.PlaceHolderText = LanguageManager.Strings.Search;
         Shown += OnShown;
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void OnShown(object? sender, EventArgs e)

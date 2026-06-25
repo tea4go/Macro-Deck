@@ -1,11 +1,14 @@
 ﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 public partial class IconImportQuality : DialogForm
 {
     public int Pixels;
+
+    private Size _originalClientSize;
 
     public IconImportQuality(bool gif = false)
     {
@@ -25,6 +28,14 @@ public partial class IconImportQuality : DialogForm
         }
 
         ResumeLayout();
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustLabelHeight(lblInfo);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private void BtnOk_Click(object sender, EventArgs e)

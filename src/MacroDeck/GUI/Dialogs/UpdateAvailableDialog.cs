@@ -6,6 +6,7 @@ using Serilog;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Services;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -15,6 +16,8 @@ public partial class UpdateAvailableDialog : DialogForm
 
     private readonly UpdateApiVersionInfo _availableUpdate;
     private readonly UpdateApiVersionFileInfo? _updateApiVersionFileInfo;
+
+    private Size _originalClientSize;
 
     public UpdateAvailableDialog(UpdateApiVersionInfo availableUpdate)
     {
@@ -33,6 +36,14 @@ public partial class UpdateAvailableDialog : DialogForm
         lblSize.Text
             = $"{LanguageManager.Strings.DownloadSize}: {_updateApiVersionFileInfo?.FileSize.ConvertBytesToMegabytes().ToString("0.##")}MB";
         lblInstalledVersion.Text = $"{LanguageManager.Strings.InstalledVersion}: {MacroDeck.Version}";
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+        LayoutHelper.AdjustAllLabelHeights(this);
+        LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
     }
 
     private async void BtnInstall_Click(object sender, EventArgs e)
