@@ -115,6 +115,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             foldersView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             foldersView.BackColor = Colors.Surface;
             foldersView.BorderStyle = BorderStyle.None;
+            foldersView.Cursor = Cursors.Hand;
             foldersView.DrawMode = TreeViewDrawMode.OwnerDrawAll;
             foldersView.Font = new Font("Tahoma", 11.25F);
             foldersView.ForeColor = Color.FromArgb(220, 220, 220);
