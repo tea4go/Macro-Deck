@@ -112,10 +112,7 @@ public partial class RoundedTextBox : UserControl
         {
             base.Font = value;
             textBox1.Font = value;
-            if (DesignMode)
-            {
-                UpdateControlHeight();
-            }
+            UpdateControlHeight();
         }
     }
 

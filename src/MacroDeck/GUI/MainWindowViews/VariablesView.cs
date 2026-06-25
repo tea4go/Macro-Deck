@@ -7,8 +7,14 @@ using SuchByte.MacroDeck.Variables;
 
 namespace SuchByte.MacroDeck.GUI.MainWindowViews;
 
+/// <summary>
+/// 变量管理视图，用于查看、创建和筛选系统中的变量。
+/// </summary>
 public partial class VariablesView : UserControl
 {
+    /// <summary>
+    /// 初始化变量视图，加载界面文本翻译。
+    /// </summary>
     public VariablesView()
     {
         InitializeComponent();
@@ -16,6 +22,9 @@ public partial class VariablesView : UserControl
         UpdateTranslation();
     }
 
+    /// <summary>
+    /// 更新界面文本翻译，将所有 UI 文本设置为当前语言。
+    /// </summary>
     public void UpdateTranslation()
     {
         SuspendLayout();
@@ -28,6 +37,9 @@ public partial class VariablesView : UserControl
         ResumeLayout();
     }
 
+    /// <summary>
+    /// 加载变量创建者筛选器列表，为每个唯一的创建者生成一个复选框。
+    /// </summary>
     private void LoadCreators()
     {
         var variableCreators = new List<string>();
@@ -43,6 +55,7 @@ public partial class VariablesView : UserControl
 
         foreach (var creator in variableCreators)
         {
+            // 跳过已存在的复选框控件
             if (creatorFilter.Controls.OfType<CheckBox>().Where(x => x.Name.Equals(creator)).Count() > 0)
             {
                 continue;
@@ -61,6 +74,9 @@ public partial class VariablesView : UserControl
         }
     }
 
+    /// <summary>
+    /// 创建者筛选复选框状态变更时，更新对应变量的可见性并保存筛选配置。
+    /// </summary>
     private void CreatorCheckBox_CheckedChanged(object sender, EventArgs e)
     {
         var checkBox = sender as CheckBox;
@@ -76,6 +92,7 @@ public partial class VariablesView : UserControl
                 Invoke(new Action(() => variableItem.Visible = checkBox.Checked));
             });
 
+        // 构建并保存筛选模型
         var filterModel = new VariableViewCreatorFilterModel
         {
             HiddenCreators = (from creator in creatorFilter.Controls.OfType<CheckBox>()
@@ -86,6 +103,9 @@ public partial class VariablesView : UserControl
         Settings.Default.Save();
     }
 
+    /// <summary>
+    /// 变量页面加载时初始化，加载创建者筛选器和变量列表。
+    /// </summary>
     private void VariablesPage_Load(object sender, EventArgs e)
     {
         LoadCreators();
@@ -94,6 +114,9 @@ public partial class VariablesView : UserControl
         VariableManager.OnVariableRemoved += VariableRemoved;
     }
 
+    /// <summary>
+    /// 变量被移除时，从面板中移除对应的 UI 控件。
+    /// </summary>
     private void VariableRemoved(object sender, EventArgs e)
     {
         if (InvokeRequired)
@@ -111,6 +134,9 @@ public partial class VariablesView : UserControl
         }
     }
 
+    /// <summary>
+    /// 变量值发生变更时，更新或创建对应的 UI 控件。
+    /// </summary>
     private void VariableChanged(object sender, EventArgs e)
     {
         if (InvokeRequired)
@@ -129,17 +155,22 @@ public partial class VariablesView : UserControl
             .Where(x => x.Variable.Name.Equals(variable.Name)).FirstOrDefault();
         if (variableItemView == null)
         {
+            // 新变量，创建控件
             var newVariableItem = new VariableItem(variable);
             variablesPanel.Controls.Add(newVariableItem);
             LoadCreators();
         }
         else
         {
+            // 已有变量，更新显示
             variableItemView.Variable = variable;
             variableItemView.Update();
         }
     }
 
+    /// <summary>
+    /// 加载所有变量到面板，并根据当前筛选器设置可见性。
+    /// </summary>
     private void LoadVariables()
     {
         variablesPanel.Controls.Clear();
@@ -159,6 +190,9 @@ public partial class VariablesView : UserControl
         }
     }
 
+    /// <summary>
+    /// 点击"创建变量"按钮，打开变量创建对话框。
+    /// </summary>
     private void BtnCreateVariable_Click(object sender, EventArgs e)
     {
         using var variableDialog = new VariableDialog();

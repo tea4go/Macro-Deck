@@ -15,10 +15,17 @@ using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.GUI.MainWindowViews;
 
+/// <summary>
+/// 设置视图，提供常规、连接、更新、备份、关于等配置页面。
+/// </summary>
 public partial class SettingsView : UserControl
 {
     private static readonly ILogger Logger = Log.ForContext(typeof(SettingsView));
 
+    /// <summary>
+    /// 初始化设置视图，注册备份事件并加载文本翻译。
+    /// </summary>
+    /// <param name="page">初始显示的选项卡索引，默认为 0。</param>
     public SettingsView(int page = 0)
     {
         InitializeComponent();
@@ -35,11 +42,17 @@ public partial class SettingsView : UserControl
         BackupManager.DeleteSuccess += BackupManager_DeleteSuccess;
     }
 
+    /// <summary>
+    /// 检查是否有可用更新，并设置更新选项卡的通知标记。
+    /// </summary>
     private void UpdateAvailable(object sender, EventArgs e)
     {
         verticalTabControl.SetNotification(2, UpdateService.Instance().VersionInfo != null);
     }
 
+    /// <summary>
+    /// 更新界面文本翻译，将所有 UI 文本设置为当前语言。
+    /// </summary>
     private void UpdateTranslation()
     {
         Name = LanguageManager.Strings.SettingsTitle;
@@ -83,6 +96,9 @@ public partial class SettingsView : UserControl
         label1.Text = LanguageManager.Strings.LicensedUnderApache;
     }
 
+    /// <summary>
+    /// 设置页面加载时初始化所有配置项的显示。
+    /// </summary>
     private void Settings_Load(object sender, EventArgs e)
     {
         LoadAutoStart();
@@ -102,6 +118,9 @@ public partial class SettingsView : UserControl
         lblDotnetVersion.Text = RuntimeInformation.FrameworkDescription;
     }
 
+    /// <summary>
+    /// 加载语言列表到下拉框，并根据当前配置设置选中项。
+    /// </summary>
     private void LoadLanguage()
     {
         language.SelectedIndexChanged -= Language_SelectedIndexChanged;
@@ -115,6 +134,9 @@ public partial class SettingsView : UserControl
         language.SelectedIndexChanged += Language_SelectedIndexChanged;
     }
 
+    /// <summary>
+    /// 加载系统字体列表到下拉框，并根据当前配置设置字体相关选项。
+    /// </summary>
     private void LoadFont()
     {
         font.SelectedIndexChanged -= Font_SelectedIndexChanged;
@@ -144,6 +166,9 @@ public partial class SettingsView : UserControl
         checkBold.CheckedChanged += CheckBold_CheckedChanged;
     }
 
+    /// <summary>
+    /// 加载自动更新设置到复选框。
+    /// </summary>
     private void LoadAutoUpdate()
     {
         checkAutoUpdate.CheckedChanged -= CheckAutoUpdate_CheckedChanged;
@@ -151,6 +176,9 @@ public partial class SettingsView : UserControl
         checkAutoUpdate.CheckedChanged += CheckAutoUpdate_CheckedChanged;
     }
 
+    /// <summary>
+    /// 加载网络配置（端口、SSL、ADB 等）到对应控件。
+    /// </summary>
     private void LoadNetworkConfiguration()
     {
         port.Value = MacroDeck.Configuration.HostPort;
@@ -165,18 +193,27 @@ public partial class SettingsView : UserControl
         checkAutoStartUsb.CheckedChanged += CheckAutoStartUsb_CheckedChanged;
     }
 
+    /// <summary>
+    /// ADB 自动启动客户端选项变更时保存配置。
+    /// </summary>
     private void CheckAutoStartUsb_CheckedChanged(object? sender, EventArgs e)
     {
         MacroDeck.Configuration.EnableAdbAutoStartApp = checkAutoStartUsb.Checked;
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
     }
 
+    /// <summary>
+    /// ADB 服务启用选项变更时保存配置。
+    /// </summary>
     private void CheckEnableAdb_CheckedChanged(object? sender, EventArgs e)
     {
         MacroDeck.Configuration.EnableAdbServer = checkEnableAdb.Checked;
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
     }
 
+    /// <summary>
+    /// 加载开机自启动设置到复选框。
+    /// </summary>
     private void LoadAutoStart()
     {
         checkStartWindows.CheckedChanged -= CheckStartWindows_CheckedChanged;
@@ -184,6 +221,9 @@ public partial class SettingsView : UserControl
         checkStartWindows.CheckedChanged += CheckStartWindows_CheckedChanged;
     }
 
+    /// <summary>
+    /// 加载匿名错误报告设置到复选框。
+    /// </summary>
     private void LoadErrorReporting()
     {
         checkSendErrorReports.CheckedChanged -= CheckSendErrorReports_CheckedChanged;
@@ -191,6 +231,9 @@ public partial class SettingsView : UserControl
         checkSendErrorReports.CheckedChanged += CheckSendErrorReports_CheckedChanged;
     }
 
+    /// <summary>
+    /// 匿名错误报告选项变更时，更新 Sentry 配置并保存。
+    /// </summary>
     private void CheckSendErrorReports_CheckedChanged(object sender, EventArgs e)
     {
         MacroDeck.Configuration.SendAnonymousErrorReports = checkSendErrorReports.Checked;
@@ -198,6 +241,9 @@ public partial class SettingsView : UserControl
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
     }
 
+    /// <summary>
+    /// 加载测试版更新渠道设置到复选框。
+    /// </summary>
     private void LoadUpdateChannel()
     {
         checkInstallBetaVersions.CheckedChanged -= CheckInstallBetaVersions_CheckedChanged;
@@ -205,6 +251,9 @@ public partial class SettingsView : UserControl
         checkInstallBetaVersions.CheckedChanged += CheckInstallBetaVersions_CheckedChanged;
     }
 
+    /// <summary>
+    /// 加载备份列表到面板。
+    /// </summary>
     private void LoadBackups()
     {
         backupsPanel.Controls.Clear();
@@ -215,6 +264,9 @@ public partial class SettingsView : UserControl
         }
     }
 
+    /// <summary>
+    /// 测试版更新渠道选项变更时，弹出警告确认后保存配置。
+    /// </summary>
     private void CheckInstallBetaVersions_CheckedChanged(object sender, EventArgs e)
     {
         if (checkInstallBetaVersions.Checked)
@@ -240,6 +292,9 @@ public partial class SettingsView : UserControl
         }
     }
 
+    /// <summary>
+    /// 修改端口号后保存配置并请求重启应用。
+    /// </summary>
     private void BtnChangePort_Click(object sender, EventArgs e)
     {
         if (port.Value == MacroDeck.Configuration.HostPort)
@@ -252,18 +307,27 @@ public partial class SettingsView : UserControl
         MacroDeck.RequestRestart();
     }
 
+    /// <summary>
+    /// 开机自启动选项变更时保存配置。
+    /// </summary>
     private void CheckStartWindows_CheckedChanged(object sender, EventArgs e)
     {
         MacroDeck.Configuration.AutoStart = checkStartWindows.Checked;
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
     }
 
+    /// <summary>
+    /// 自动更新选项变更时保存配置。
+    /// </summary>
     private void CheckAutoUpdate_CheckedChanged(object sender, EventArgs e)
     {
         MacroDeck.Configuration.AutoUpdates = checkAutoUpdate.Checked;
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
     }
 
+    /// <summary>
+    /// 手动检查更新，显示加载动画，根据结果弹出对话框。
+    /// </summary>
     private async void BtnCheckUpdates_Click(object sender, EventArgs e)
     {
         btnCheckUpdates.Enabled = false;
@@ -304,12 +368,18 @@ public partial class SettingsView : UserControl
         }
     }
 
+    /// <summary>
+    /// 打开开源许可证对话框。
+    /// </summary>
     private void BtnLicenses_Click(object sender, EventArgs e)
     {
         using var licensesDialog = new LicensesDialog();
         licensesDialog.ShowDialog();
     }
 
+    /// <summary>
+    /// 语言选择变更时，保存配置并刷新界面翻译。
+    /// </summary>
     private void Language_SelectedIndexChanged(object sender, EventArgs e)
     {
         MacroDeck.Configuration.Language = language.Text;
@@ -318,6 +388,9 @@ public partial class SettingsView : UserControl
         UpdateTranslation();
     }
 
+    /// <summary>
+    /// 字体选择变更时保存配置并提示重启。
+    /// </summary>
     private void Font_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (font.Text == MacroDeck.Configuration.FontFamily)
@@ -329,6 +402,9 @@ public partial class SettingsView : UserControl
         SaveFontAndNotifyRestart();
     }
 
+    /// <summary>
+    /// 字体大小变更时保存配置并提示重启。
+    /// </summary>
     private void FontSize_ValueChanged(object sender, EventArgs e)
     {
         var value = (float)fontSize.Value;
@@ -341,6 +417,9 @@ public partial class SettingsView : UserControl
         SaveFontAndNotifyRestart();
     }
 
+    /// <summary>
+    /// 粗体选项变更时保存配置并提示重启。
+    /// </summary>
     private void CheckBold_CheckedChanged(object sender, EventArgs e)
     {
         if (checkBold.Checked == MacroDeck.Configuration.FontBold)
@@ -352,6 +431,10 @@ public partial class SettingsView : UserControl
         SaveFontAndNotifyRestart();
     }
 
+    /// <summary>
+    /// 保存字体配置，实时刷新所有打开窗体的字体，并显示提示信息。
+    /// 自定义绘制控件需重启后完全生效。
+    /// </summary>
     private void SaveFontAndNotifyRestart()
     {
         MacroDeck.Configuration.Save(ApplicationPaths.MainConfigFilePath);
@@ -365,6 +448,9 @@ public partial class SettingsView : UserControl
         lblFontRestartHint.Visible = true;
     }
 
+    /// <summary>
+    /// 备份失败时停止加载动画并弹出错误提示。
+    /// </summary>
     private void BackupManager_BackupFailed(object sender, BackupFailedEventArgs e)
     {
         Invoke(() =>
@@ -377,6 +463,9 @@ public partial class SettingsView : UserControl
         });
     }
 
+    /// <summary>
+    /// 备份成功时停止加载动画，弹出提示并刷新备份列表。
+    /// </summary>
     private void BackupManager_BackupSaved(object sender, EventArgs e)
     {
         Invoke(() =>
@@ -393,17 +482,26 @@ public partial class SettingsView : UserControl
         });
     }
 
+    /// <summary>
+    /// 点击"创建备份"按钮，启动加载动画并异步创建备份。
+    /// </summary>
     private void BtnCreateBackup_Click(object sender, EventArgs e)
     {
         btnCreateBackup.Spinner = true;
         Task.Run(() => { BackupManager.CreateBackup(); });
     }
 
+    /// <summary>
+    /// 备份删除成功后刷新备份列表。
+    /// </summary>
     private void BackupManager_DeleteSuccess(object sender, EventArgs e)
     {
         LoadBackups();
     }
 
+    /// <summary>
+    /// 打开 GitHub 项目页面。
+    /// </summary>
     private void BtnGitHub_Click(object sender, EventArgs e)
     {
         var p = new Process
@@ -416,6 +514,9 @@ public partial class SettingsView : UserControl
         p.Start();
     }
 
+    /// <summary>
+    /// 应用 SSL 配置：校验证书和密钥，保存配置并请求重启。
+    /// </summary>
     private void BtnApplySslConfiguration_Click(object sender, EventArgs e)
     {
         if (checkEnableSsl.Checked)
@@ -458,6 +559,9 @@ public partial class SettingsView : UserControl
         MacroDeck.RequestRestart();
     }
 
+    /// <summary>
+    /// 生成自签名 SSL 证书，异步生成后填充到文本框中。
+    /// </summary>
     private void BtnGenerateCertificate_Click(object sender, EventArgs e)
     {
         btnGenerateCertificate.Spinner = true;
