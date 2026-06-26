@@ -62,7 +62,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.logOutput.Location = new System.Drawing.Point(2, 79);
             this.logOutput.Name = "logOutput";
             this.logOutput.ReadOnly = true;
-            this.logOutput.Size = new System.Drawing.Size(796, 343);
+            this.logOutput.Size = new System.Drawing.Size(796, 323);
             this.logOutput.TabIndex = 1;
             this.logOutput.Text = "";
             //
