@@ -54,7 +54,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.creatorFilter.Width = 224;
             this.creatorFilter.Dock = DockStyle.Left;
             this.creatorFilter.TabIndex = 17;
-            this.creatorFilter.Cursor = = Cursors.Hand;
+            this.creatorFilter.Cursor = Cursors.Hand;
 
             //
             // variablesPanel
