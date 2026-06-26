@@ -10,14 +10,14 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
     partial class ActionConfiguratorPluginItem
     {
         /// <summary>
-        /// Erforderliche Designervariable.
+        /// 必需的窗体设计器变量。
         /// </summary>
         private IContainer components = null;
 
         /// <summary>
-        /// Verwendete Ressourcen bereinigen.
+        /// 释放正在使用的非托管资源，并可选释放托管资源。
         /// </summary>
-        /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        /// <param name="disposing">True 表示同时释放托管资源和非托管资源；False 表示仅释放非托管资源。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -27,11 +27,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             base.Dispose(disposing);
         }
 
-        #region Vom Komponenten-Designer generierter Code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Erforderliche Methode für die Designerunterstützung.
-        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        /// 设计器支持所需的方法，请勿在代码编辑器中修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -42,9 +41,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             ((ISupportInitialize)(this.pluginIcon)).BeginInit();
             ((ISupportInitialize)(this.chevron)).BeginInit();
             this.SuspendLayout();
-            //
             // pluginIcon
-            //
             this.pluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
             this.pluginIcon.Cursor = Cursors.Hand;
             this.pluginIcon.Location = new Point(33, 5);
@@ -52,9 +49,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.pluginIcon.Size = new Size(30, 30);
             this.pluginIcon.TabIndex = 0;
             this.pluginIcon.TabStop = false;
-            //
             // pluginName
-            //
             this.pluginName.Cursor = Cursors.Hand;
             this.pluginName.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
             this.pluginName.Location = new Point(69, 3);
@@ -64,9 +59,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.pluginName.Text = "label1";
             this.pluginName.TextAlign = ContentAlignment.MiddleLeft;
             this.pluginName.UseMnemonic = false;
-            //
             // lblCountActions
-            //
             this.lblCountActions.Cursor = Cursors.Hand;
             this.lblCountActions.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblCountActions.Location = new Point(69, 18);
@@ -76,9 +69,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.lblCountActions.Text = "label1";
             this.lblCountActions.TextAlign = ContentAlignment.MiddleLeft;
             this.lblCountActions.UseMnemonic = false;
-            //
             // chevron
-            //
             this.chevron.BackgroundImage = Resources.Chevron_Right;
             this.chevron.BackgroundImageLayout = ImageLayout.Stretch;
             this.chevron.Cursor = Cursors.Hand;
@@ -87,10 +78,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.chevron.Size = new Size(20, 20);
             this.chevron.TabIndex = 3;
             this.chevron.TabStop = false;
-            //
             // ActionConfiguratorPluginItem
-            //
-
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.chevron);
@@ -107,14 +95,25 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             ((ISupportInitialize)(this.pluginIcon)).EndInit();
             ((ISupportInitialize)(this.chevron)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
+        /// <summary>
+        /// 插件图标控件。
+        /// </summary>
         private PictureBox pluginIcon;
+        /// <summary>
+        /// 插件名称标签。
+        /// </summary>
         private Label pluginName;
+        /// <summary>
+        /// 动作数量标签。
+        /// </summary>
         private Label lblCountActions;
+        /// <summary>
+        /// 展开/折叠箭头控件。
+        /// </summary>
         private PictureBox chevron;
     }
 }
