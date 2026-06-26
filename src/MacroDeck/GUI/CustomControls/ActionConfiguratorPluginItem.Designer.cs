@@ -62,6 +62,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.pluginName.Size = new Size(203, 20);
             this.pluginName.TabIndex = 1;
             this.pluginName.Text = "label1";
+            this.pluginName.TextAlign = ContentAlignment.MiddleLeft;
             this.pluginName.UseMnemonic = false;
             //
             // lblCountActions
