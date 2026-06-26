@@ -59,10 +59,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.logOutput.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.logOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logOutput.ForeColor = System.Drawing.Color.White;
-            this.logOutput.Location = new System.Drawing.Point(2, 79);
+            this.logOutput.Location = new System.Drawing.Point(10, 79);
             this.logOutput.Name = "logOutput";
             this.logOutput.ReadOnly = true;
-            this.logOutput.Size = new System.Drawing.Size(796, 323);
+            this.logOutput.Size = new System.Drawing.Size(780, 323);
             this.logOutput.TabIndex = 1;
             this.logOutput.Text = "";
             //
