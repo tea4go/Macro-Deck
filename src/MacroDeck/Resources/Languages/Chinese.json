@@ -361,5 +361,12 @@
     "LicensesInfo": "Macro Deck 使用了一些优秀的免费开源软件，其中部分要求附带其许可证。感谢所有创造这些优秀软件的人！",
     "Font": "字体",
     "Bold": "粗体",
-    "FontPartialRestartHint": "字体已应用。部分元素（图标、托盘菜单）将在重启后生效。"
+    "FontPartialRestartHint": "字体已应用。部分元素（图标、托盘菜单）将在重启后生效。",
+    "DebugConsoleClear": "清除",
+    "DebugConsoleOpenUserDirectory": "打开用户目录",
+    "DebugConsoleLogLevel": "日志级别:",
+    "DebugConsoleExportOutput": "导出输出",
+    "DebugConsoleFilter": "过滤:",
+    "DebugConsoleTestNotification": "测试通知",
+    "DebugConsoleOpenLogs": "打开日志"
 }

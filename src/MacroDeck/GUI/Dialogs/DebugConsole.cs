@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using Serilog;
+using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Notifications;
 using SuchByte.MacroDeck.Plugins;
@@ -45,6 +46,7 @@ public partial class DebugConsole : Form
     public DebugConsole()
     {
         InitializeComponent();
+        ApplyLanguage();
         if (!string.IsNullOrWhiteSpace(Settings.Default.DebugConsoleFilters))
         {
             filter.Text = Settings.Default.DebugConsoleFilters;
@@ -67,6 +69,19 @@ public partial class DebugConsole : Form
         if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
         LayoutHelper.AdjustAllLabelHeights(this);
         LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
+    }
+
+    private void ApplyLanguage()
+    {
+        btnClear.Text = LanguageManager.Strings.DebugConsoleClear;
+        btnRestartMacroDeck.Text = LanguageManager.Strings.Restart;
+        btnExit.Text = LanguageManager.Strings.Exit;
+        btnOpenUser.Text = LanguageManager.Strings.DebugConsoleOpenUserDirectory;
+        label1.Text = LanguageManager.Strings.DebugConsoleLogLevel;
+        btnExportOutput.Text = LanguageManager.Strings.DebugConsoleExportOutput;
+        label3.Text = LanguageManager.Strings.DebugConsoleFilter;
+        btnTestNotification.Text = LanguageManager.Strings.DebugConsoleTestNotification;
+        btnOpenLogs.Text = LanguageManager.Strings.DebugConsoleOpenLogs;
     }
 
     private void Filter_TextChanged(object sender, EventArgs e)

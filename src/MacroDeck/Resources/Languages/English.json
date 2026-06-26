@@ -326,5 +326,12 @@
   "Deny": "Deny",
   "VersionBuild": "Build",
   "OpenExtensionManager": "Open Extension Manager",
-  "OpenSettings": "Open settings"
+  "OpenSettings": "Open settings",
+  "DebugConsoleClear": "Clear",
+  "DebugConsoleOpenUserDirectory": "Open user directory",
+  "DebugConsoleLogLevel": "Log level:",
+  "DebugConsoleExportOutput": "Export output",
+  "DebugConsoleFilter": "Filter:",
+  "DebugConsoleTestNotification": "Test notification",
+  "DebugConsoleOpenLogs": "Open logs"
 }

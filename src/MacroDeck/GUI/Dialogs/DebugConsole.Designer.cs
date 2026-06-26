@@ -330,7 +330,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnOpenLogs.Name = "btnOpenLogs";
             this.btnOpenLogs.Progress = 0;
             this.btnOpenLogs.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
-            this.btnOpenLogs.AutoSize = true;
+            this.btnOpenLogs.Size = new System.Drawing.Size(80, 27);
             this.btnOpenLogs.TabIndex = 14;
             this.btnOpenLogs.Text = "Open logs";
             this.btnOpenLogs.UseMnemonic = false;

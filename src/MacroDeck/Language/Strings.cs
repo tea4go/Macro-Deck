@@ -439,4 +439,12 @@ public class Strings
     public string Font = "Font";
     public string Bold = "Bold";
     public string FontPartialRestartHint = "Font applied. Some elements (icons, tray menu) take effect after restart.";
+
+    public string DebugConsoleClear = "Clear";
+    public string DebugConsoleOpenUserDirectory = "Open user directory";
+    public string DebugConsoleLogLevel = "Log level:";
+    public string DebugConsoleExportOutput = "Export output";
+    public string DebugConsoleFilter = "Filter:";
+    public string DebugConsoleTestNotification = "Test notification";
+    public string DebugConsoleOpenLogs = "Open logs";
 }
