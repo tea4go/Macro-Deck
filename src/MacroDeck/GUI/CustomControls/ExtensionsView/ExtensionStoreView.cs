@@ -219,6 +219,7 @@ public partial class ExtensionStoreView : UserControl
 
     private async void ExtensionStoreView_Load(object sender, EventArgs e)
     {
+        FontManager.Apply(this);
         await LoadExtensions();
     }
 

@@ -278,7 +278,6 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             boxProfiles.Icon = null;
             boxProfiles.Location = new Point(292, 6);
             boxProfiles.Name = "boxProfiles";
-            boxProfiles.Padding = new Padding(8, 2, 8, 2);
             boxProfiles.SelectedIndex = -1;
             boxProfiles.SelectedItem = null;
             boxProfiles.Size = new Size(285, 30);

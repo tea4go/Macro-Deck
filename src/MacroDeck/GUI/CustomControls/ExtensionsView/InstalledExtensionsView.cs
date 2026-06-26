@@ -325,6 +325,7 @@ public partial class InstalledExtensionsView : UserControl
 
     private void InstalledExtensionsView_Load(object sender, EventArgs e)
     {
+        FontManager.Apply(this);
         ListInstalledExtensions();
         UpdateUpdateLabelInfo();
         ExtensionStoreHelper.OnUpdateCheckFinished += UpdateCheckFinished;
