@@ -49,7 +49,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.creatorFilter.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left)));
             this.creatorFilter.AutoScroll = true;
             //this.creatorFilter.BackColor = Color.FromArgb(255, 255, 255);
-            this.creatorFilter.Location = new Point(0, 53);
+            this.creatorFilter.Location = new Point(10, 53);
             this.creatorFilter.Name = "creatorFilter";
             this.creatorFilter.Width = 224;
             this.creatorFilter.Dock = DockStyle.Left;

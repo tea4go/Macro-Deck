@@ -64,6 +64,7 @@ public partial class VariablesView : UserControl
 
             var creatorCheckBox = new CheckBox
             {
+
                 Checked = !filterModel.HiddenCreators.Contains(creator),
                 Text = creator,
                 Name = creator,
