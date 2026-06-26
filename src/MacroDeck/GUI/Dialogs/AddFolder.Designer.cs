@@ -1,7 +1,10 @@
 using System.ComponentModel;
 using SuchByte.MacroDeck.GUI.CustomControls;
+#pragma warning disable CS0618 // Designer 中使用旧版 ComboBox，待设计器迁移
 using ComboBox = SuchByte.MacroDeck.GUI.CustomControls.ComboBox;
+#pragma warning restore CS0618
 
+#pragma warning disable CS0618 // Designer 中使用旧版 ComboBox，待设计器迁移
 namespace SuchByte.MacroDeck.GUI.Dialogs
 {
     partial class AddFolder

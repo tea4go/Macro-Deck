@@ -13,7 +13,9 @@ public partial class ConditionItem : UserControl, IActionConditionItem
     public PluginAction? Action { get; set; } = new ConditionAction();
 
     public event EventHandler OnRemoveClick;
+#pragma warning disable CS0067 // 接口要求的事件，外部订阅者通过 ActionItem 绑定
     public event EventHandler OnEditClick;
+#pragma warning restore CS0067
     public event EventHandler OnMoveUpClick;
     public event EventHandler OnMoveDownClick;
 

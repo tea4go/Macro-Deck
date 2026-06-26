@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using SuchByte.MacroDeck.GUI.CustomControls.InitialSetup;
 using SuchByte.MacroDeck.Language;
@@ -24,9 +24,9 @@ public partial class SetupPage5 : UserControl
 
         try
         {
-            using var wc = new WebClient();
-            var jsonString = wc.DownloadString("https://macrodeck.org/files/packagemanager/iconpacks.php?target-api=" +
-                MacroDeck.PluginApiVersion);
+            using var httpClient = new HttpClient();
+            var jsonString = httpClient.GetStringAsync("https://macrodeck.org/files/packagemanager/iconpacks.php?target-api=" +
+                MacroDeck.PluginApiVersion).GetAwaiter().GetResult();
             var jsonArray = JArray.Parse(jsonString);
             foreach (JObject jsonObject in jsonArray)
             {

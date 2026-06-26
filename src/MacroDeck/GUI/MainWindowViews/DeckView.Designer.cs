@@ -669,9 +669,11 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         private ToolStripMenuItem actionButtonContextMenuItemSimulateLongPressRelease;
         private ToolStripSeparator toolStripSeparator3;
         private Panel qrCodeBox;
+#pragma warning disable CS0169 // 设计器保留字段，当前未使用
         private ButtonPrimary buttonPrimary1;
         private ButtonPrimary buttonPrimary2;
         private ButtonPrimary buttonPrimary3;
+#pragma warning restore CS0169
         private FlowLayoutPanel networkInformationPanel;
         private CheckBox checkQrAndNetwork;
         private Label lblNetworkInterfaces;

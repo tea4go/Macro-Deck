@@ -16,7 +16,7 @@ public class IconGrid : Panel
 {
     private const int ItemSize = 100;
     private const int Spacing = 6;
-    private const int Margin = 3;
+    private new const int Margin = 3;
     private const int CellSize = ItemSize + Spacing;
 
     private sealed class CachedImage

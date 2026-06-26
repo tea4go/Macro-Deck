@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <UseWPF>true</UseWPF>
@@ -49,8 +49,6 @@
     <PackageReference Include="Dax-FCTB" />
     <PackageReference Include="Magick.NET-Q16-x64" />
     <PackageReference Include="Magick.NET.SystemDrawing" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
-    <PackageReference Include="Microsoft.Win32.Registry" />
     <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="QRCoder" />
     <PackageReference Include="Serilog" />
@@ -59,10 +57,6 @@
     <PackageReference Include="Serilog.Sinks.File" />
     <PackageReference Include="Sentry.Serilog" />
     <PackageReference Include="sqlite-net-pcl" />
-    <PackageReference Include="System.Collections" />
-    <PackageReference Include="System.Drawing.Common" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" />
   </ItemGroup>
 
   <ItemGroup>

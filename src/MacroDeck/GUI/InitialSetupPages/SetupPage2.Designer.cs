@@ -1,6 +1,7 @@
 
 using System;
 using System.ComponentModel;
+#pragma warning disable CS0618 // Designer 中使用旧版 ComboBox，待设计器迁移
 using System.Drawing;
 using System.Windows.Forms;
 using ComboBox = SuchByte.MacroDeck.GUI.CustomControls.ComboBox;
@@ -9,12 +10,12 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
 {
     partial class SetupPage2
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -29,8 +30,8 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
@@ -48,9 +49,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             ((ISupportInitialize)(this.port)).BeginInit();
             this.groupInfo.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // lblConfigureNetwork
-            // 
+            //
             this.lblConfigureNetwork.Font = new Font("Tahoma", 24F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblConfigureNetwork.ForeColor = Color.White;
             this.lblConfigureNetwork.ImageAlign = ContentAlignment.BottomCenter;
@@ -61,9 +62,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.lblConfigureNetwork.Text = "Configure your network settings\r\n";
             this.lblConfigureNetwork.TextAlign = ContentAlignment.TopCenter;
             this.lblConfigureNetwork.UseMnemonic = false;
-            // 
+            //
             // adapter
-            // 
+            //
             this.adapter.BackColor = Color.FromArgb(55, 55, 55);
             this.adapter.BorderRadius = 8;
             this.adapter.Cursor = Cursors.Hand;
@@ -76,9 +77,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.adapter.Size = new Size(359, 24);
             this.adapter.TabIndex = 4;
             this.adapter.SelectedIndexChanged += new EventHandler(this.Adapter_SelectedIndexChanged);
-            // 
+            //
             // lblNetworkAdapter
-            // 
+            //
             this.lblNetworkAdapter.AutoSize = true;
             this.lblNetworkAdapter.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblNetworkAdapter.ForeColor = Color.White;
@@ -88,9 +89,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.lblNetworkAdapter.TabIndex = 5;
             this.lblNetworkAdapter.Text = "Network adapter:";
             this.lblNetworkAdapter.UseMnemonic = false;
-            // 
+            //
             // iPAddress
-            // 
+            //
             this.iPAddress.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.iPAddress.ForeColor = Color.White;
             this.iPAddress.Location = new Point(141, 152);
@@ -99,9 +100,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.iPAddress.TabIndex = 6;
             this.iPAddress.UseMnemonic = false;
             this.iPAddress.Click += new EventHandler(this.lblIpAddress_Click);
-            // 
+            //
             // lblIpAddress
-            // 
+            //
             this.lblIpAddress.AutoSize = true;
             this.lblIpAddress.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblIpAddress.ForeColor = Color.White;
@@ -111,9 +112,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.lblIpAddress.TabIndex = 7;
             this.lblIpAddress.Text = "IP address:";
             this.lblIpAddress.UseMnemonic = false;
-            // 
+            //
             // lblPort
-            // 
+            //
             this.lblPort.AutoSize = true;
             this.lblPort.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblPort.ForeColor = Color.White;
@@ -123,9 +124,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.lblPort.TabIndex = 8;
             this.lblPort.Text = "Port:";
             this.lblPort.UseMnemonic = false;
-            // 
+            //
             // port
-            // 
+            //
             this.port.BackColor = Color.FromArgb(55, 55, 55);
             this.port.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.port.ForeColor = Color.White;
@@ -149,9 +150,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             0,
             0});
             this.port.ValueChanged += new EventHandler(this.port_ValueChanged);
-            // 
+            //
             // groupInfo
-            // 
+            //
             this.groupInfo.Controls.Add(this.lblInfo);
             this.groupInfo.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.groupInfo.ForeColor = Color.White;
@@ -161,9 +162,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.groupInfo.TabIndex = 10;
             this.groupInfo.TabStop = false;
             this.groupInfo.Text = "Info";
-            // 
+            //
             // lblInfo
-            // 
+            //
             this.lblInfo.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblInfo.Location = new Point(6, 26);
             this.lblInfo.Name = "lblInfo";
@@ -171,9 +172,9 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = resources.GetString("lblInfo.Text");
             this.lblInfo.UseMnemonic = false;
-            // 
+            //
             // SetupPage2
-            // 
+            //
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.BackColor = Color.FromArgb(45, 45, 45);
             this.Controls.Add(this.groupInfo);

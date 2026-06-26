@@ -214,7 +214,7 @@ public static class PluginManager
                 }
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             // 加载失败时创建 DisabledPlugin 并进入安全模式
             if (asm != null)

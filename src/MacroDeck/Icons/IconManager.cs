@@ -1,7 +1,7 @@
 using System.Drawing.Imaging;
 using System.IO;
 using System.IO.Compression;
-using System.Net;
+using System.Net.Http;
 using Newtonsoft.Json;
 using Serilog;
 using SuchByte.MacroDeck.ExtensionStore;
@@ -441,9 +441,9 @@ public class IconManager
                 {
                     try
                     {
-                        using var wc = new WebClient();
-                        wc.DownloadString(
-                            $"https://macrodeck.org/extensionstore/extensionstore.php?action=count-download&package-id={extensionManifestModel.PackageId}");
+                        using var httpClient = new HttpClient();
+                        httpClient.GetStringAsync(
+                            $"https://macrodeck.org/extensionstore/extensionstore.php?action=count-download&package-id={extensionManifestModel.PackageId}").GetAwaiter().GetResult();
                     }
                     catch
                     {

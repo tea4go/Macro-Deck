@@ -10,7 +10,9 @@ public partial class DelayItem : UserControl, IActionConditionItem
     public PluginAction? Action { get; set; }
 
     public event EventHandler OnRemoveClick;
+#pragma warning disable CS0067 // 接口要求的事件，DelayItem 当前不使用编辑功能
     public event EventHandler OnEditClick;
+#pragma warning restore CS0067
     public event EventHandler OnMoveUpClick;
     public event EventHandler OnMoveDownClick;
 

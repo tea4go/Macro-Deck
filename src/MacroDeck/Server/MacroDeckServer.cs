@@ -24,9 +24,6 @@ public static class MacroDeckServer
     /// <summary>设备连接状态变化事件</summary>
     public static event EventHandler? OnDeviceConnectionStateChanged;
 
-    /// <summary>服务器状态变化事件</summary>
-    public static event EventHandler? OnServerStateChanged;
-
     /// <summary>文件夹变化事件</summary>
     public static event EventHandler? OnFolderChanged;
 

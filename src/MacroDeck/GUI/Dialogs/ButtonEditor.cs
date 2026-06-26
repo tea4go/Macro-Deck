@@ -612,13 +612,15 @@ public partial class ButtonEditor : DialogForm
         using var hotkeySelector = new HotkeySelector();
         if (hotkeySelector.ShowDialog() == DialogResult.OK)
         {
+            var modifierKeys = hotkeySelector.ModifierKeys;
+            var key = hotkeySelector.Key;
             hotkey.Text
-                = hotkeySelector.ModifierKeys.ToString().Replace("Control", "CTRL").Replace("None", string.Empty)
+                = modifierKeys.ToString().Replace("Control", "CTRL").Replace("None", string.Empty)
                     .Replace(", ", " + ") +
-                (!hotkeySelector.ModifierKeys.ToString().Equals("None") ? " + " : string.Empty) +
-                hotkeySelector.Key;
-            actionButtonEdited.ModifierKeyCodes = hotkeySelector.ModifierKeys;
-            actionButtonEdited.KeyCode = hotkeySelector.Key;
+                (!modifierKeys.ToString().Equals("None") ? " + " : string.Empty) +
+                key;
+            actionButtonEdited.ModifierKeyCodes = modifierKeys;
+            actionButtonEdited.KeyCode = key;
         }
     }
 

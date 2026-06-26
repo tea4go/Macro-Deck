@@ -16,7 +16,7 @@ public class ExtensionGrid : Panel
     private const int CardWidth = 300;
     private const int CardHeight = 150;
     private const int Spacing = 12;
-    private const int Margin = 12;
+    private new const int Margin = 12;
     private const int CellW = CardWidth + Spacing;
     private const int CellH = CardHeight + Spacing;
 
