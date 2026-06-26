@@ -93,6 +93,8 @@ namespace SuchByte.MacroDeck.GUI
             lblVersion.Text = "2.0.0";
             lblVersion.TextAlign = ContentAlignment.MiddleLeft;
             lblVersion.UseMnemonic = false;
+            lblVersion.Cursor = Cursors.Hand;
+            lblVersion.Click += LblVersion_Click;
             //
             // contentPanel
             //

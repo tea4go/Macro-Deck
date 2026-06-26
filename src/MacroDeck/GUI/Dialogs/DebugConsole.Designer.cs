@@ -50,24 +50,24 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnTestNotification = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
             this.btnOpenLogs = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
             this.SuspendLayout();
-            // 
+            //
             // logOutput
-            // 
-            this.logOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.logOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logOutput.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.logOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logOutput.ForeColor = System.Drawing.Color.White;
-            this.logOutput.Location = new System.Drawing.Point(2, 69);
+            this.logOutput.Location = new System.Drawing.Point(2, 79);
             this.logOutput.Name = "logOutput";
             this.logOutput.ReadOnly = true;
             this.logOutput.Size = new System.Drawing.Size(796, 343);
             this.logOutput.TabIndex = 1;
             this.logOutput.Text = "";
-            // 
+            //
             // btnClear
-            // 
+            //
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClear.BorderRadius = 8;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -88,9 +88,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.UseWindowsAccentColor = true;
             this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
-            // 
+            //
             // btnRestartMacroDeck
-            // 
+            //
             this.btnRestartMacroDeck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRestartMacroDeck.BorderRadius = 8;
             this.btnRestartMacroDeck.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -111,9 +111,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnRestartMacroDeck.UseVisualStyleBackColor = false;
             this.btnRestartMacroDeck.UseWindowsAccentColor = true;
             this.btnRestartMacroDeck.Click += new System.EventHandler(this.BtnRestartMacroDeck_Click);
-            // 
+            //
             // btnExit
-            // 
+            //
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExit.BorderRadius = 8;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -134,9 +134,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.UseWindowsAccentColor = true;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
+            //
             // btnOpenUser
-            // 
+            //
             this.btnOpenUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnOpenUser.BorderRadius = 8;
             this.btnOpenUser.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -157,9 +157,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnOpenUser.UseVisualStyleBackColor = false;
             this.btnOpenUser.UseWindowsAccentColor = true;
             this.btnOpenUser.Click += new System.EventHandler(this.BtnOpenUser_Click);
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(7, 37);
             this.label1.Name = "label1";
@@ -168,9 +168,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.label1.Text = "Log level:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.UseMnemonic = false;
-            // 
+            //
             // logLevel
-            // 
+            //
             this.logLevel.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.logLevel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -178,15 +178,14 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.logLevel.Icon = null;
             this.logLevel.Location = new System.Drawing.Point(108, 37);
             this.logLevel.Name = "logLevel";
-            this.logLevel.Padding = new System.Windows.Forms.Padding(8, 2, 8, 2);
             this.logLevel.SelectedIndex = -1;
             this.logLevel.SelectedItem = null;
             this.logLevel.Size = new System.Drawing.Size(169, 26);
             this.logLevel.TabIndex = 7;
             this.logLevel.SelectedIndexChanged += new System.EventHandler(this.LogLevel_SelectedIndexChanged);
-            // 
+            //
             // btnExportOutput
-            // 
+            //
             this.btnExportOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExportOutput.BorderRadius = 8;
             this.btnExportOutput.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -207,9 +206,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnExportOutput.UseVisualStyleBackColor = false;
             this.btnExportOutput.UseWindowsAccentColor = true;
             this.btnExportOutput.Click += new System.EventHandler(this.BtnExportOutput_Click);
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(368, 37);
@@ -219,9 +218,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.label3.Text = "Filter:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.UseMnemonic = false;
-            // 
+            //
             // filter
-            // 
+            //
             this.filter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filter.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.filter.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -241,9 +240,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.filter.Size = new System.Drawing.Size(315, 25);
             this.filter.TabIndex = 10;
             this.filter.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
+            //
             // btnAddFilter
-            // 
+            //
             this.btnAddFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddFilter.BorderRadius = 8;
             this.btnAddFilter.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -263,17 +262,17 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnAddFilter.UseVisualStyleBackColor = false;
             this.btnAddFilter.UseWindowsAccentColor = true;
             this.btnAddFilter.Click += new System.EventHandler(this.BtnAddFilter_Click);
-            // 
+            //
             // filtersList
-            // 
+            //
             this.filtersList.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.filtersList.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.filtersList.Name = "filtersList";
             this.filtersList.ShowImageMargin = false;
             this.filtersList.Size = new System.Drawing.Size(36, 4);
-            // 
+            //
             // btnRemoveFilters
-            // 
+            //
             this.btnRemoveFilters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveFilters.BorderRadius = 8;
             this.btnRemoveFilters.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -293,9 +292,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnRemoveFilters.UseVisualStyleBackColor = false;
             this.btnRemoveFilters.UseWindowsAccentColor = false;
             this.btnRemoveFilters.Click += new System.EventHandler(this.btnRemoveFilters_Click);
-            // 
+            //
             // btnTestNotification
-            // 
+            //
             this.btnTestNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTestNotification.BorderRadius = 8;
             this.btnTestNotification.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -331,7 +330,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnOpenLogs.Name = "btnOpenLogs";
             this.btnOpenLogs.Progress = 0;
             this.btnOpenLogs.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
-            this.btnOpenLogs.Size = new System.Drawing.Size(80, 27);
+            this.btnOpenLogs.AutoSize = true;
             this.btnOpenLogs.TabIndex = 14;
             this.btnOpenLogs.Text = "Open logs";
             this.btnOpenLogs.UseMnemonic = false;

@@ -299,6 +299,28 @@ public partial class MainWindow : Form
     }
 
     /// <summary>
+    /// 当版本标签被点击时，打开或激活调试控制台日志窗口。
+    /// 如果调试控制台已打开则将其置前，否则启动新的控制台实例。
+    /// </summary>
+    /// <param name="sender">触发事件的对象</param>
+    /// <param name="e">事件参数</param>
+    private void LblVersion_Click(object? sender, EventArgs e)
+    {
+        if (DebugConsole.Current != null && !DebugConsole.Current.IsDisposed)
+        {
+            DebugConsole.Current.Activate();
+            if (DebugConsole.Current.WindowState == FormWindowState.Minimized)
+            {
+                DebugConsole.Current.WindowState = FormWindowState.Normal;
+            }
+        }
+        else
+        {
+            DebugConsole.Launch();
+        }
+    }
+
+    /// <summary>
     /// 当客户端连接状态变更时更新已连接客户端数量标签。
     /// 使用 Invoke 确保在 UI 线程上执行更新操作。
     /// </summary>
