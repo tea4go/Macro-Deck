@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using Serilog.Core;
 using Serilog.Events;
@@ -8,16 +10,18 @@ namespace SuchByte.MacroDeck.Logging;
 
 /// <summary>
 /// Serilog 日志接收器，将日志事件转发到调试控制台窗口。
-/// 当没有调试控制台打开时为空操作，因此可以永久保留在日志管道中。
+/// 当没有调试控制台打开时，日志被写入环形缓冲区；窗口打开后通过 <see cref="Replay"/> 回放。
 /// </summary>
 public class DebugConsoleSink : ILogEventSink
 {
+    /// <summary>环形缓冲最大条目数，超出后丢弃最早条目</summary>
+    private const int BufferCapacity = 1000;
+
+    private static readonly object BufferLock = new();
+    private static readonly Queue<BufferedEntry> Buffer = new();
+
     private readonly ITextFormatter _formatter;
 
-    /// <summary>
-    /// 构造函数，指定日志格式化器
-    /// </summary>
-    /// <param name="formatter">日志文本格式化器</param>
     public DebugConsoleSink(ITextFormatter formatter)
     {
         _formatter = formatter;
@@ -25,11 +29,44 @@ public class DebugConsoleSink : ILogEventSink
 
     /// <summary>
     /// 发送日志事件到调试控制台。
-    /// 如果当前没有打开的调试控制台，则直接返回。
-    /// 提取日志来源（Source 属性）并根据日志级别设置显示颜色。
+    /// 若当前没有调试控制台（窗口未开），写入静态环形缓冲区；否则直接转发。
     /// </summary>
-    /// <param name="logEvent">日志事件</param>
     public void Emit(LogEvent logEvent)
+    {
+        using var writer = new StringWriter();
+        _formatter.Format(logEvent, writer);
+        var text = writer.ToString();
+
+        var source = logEvent.Properties.TryGetValue("Source", out var value) &&
+            value is ScalarValue { Value: string name }
+                ? name
+                : "MacroDeck";
+
+        var color = ColorForLevel(logEvent.Level);
+
+        var console = DebugConsole.Current;
+        if (console is null)
+        {
+            lock (BufferLock)
+            {
+                Buffer.Enqueue(new BufferedEntry(text, source, color));
+                while (Buffer.Count > BufferCapacity)
+                {
+                    Buffer.Dequeue();
+                }
+            }
+            return;
+        }
+
+        console.AppendText(text, source, color);
+    }
+
+    /// <summary>
+    /// 将缓冲区中的所有日志回放到当前调试控制台，并清空缓冲区。
+    /// 应在窗口句柄已创建后调用（如 <see cref="DebugConsole.OnLoad"/>）。
+    /// 若当前没有调试控制台，则不做任何操作。
+    /// </summary>
+    public static void Replay()
     {
         var console = DebugConsole.Current;
         if (console is null)
@@ -37,23 +74,19 @@ public class DebugConsoleSink : ILogEventSink
             return;
         }
 
-        using var writer = new StringWriter();
-        _formatter.Format(logEvent, writer);
+        BufferedEntry[] snapshot;
+        lock (BufferLock)
+        {
+            snapshot = Buffer.ToArray();
+            Buffer.Clear();
+        }
 
-        // 从日志属性中提取来源，默认为 "MacroDeck"
-        var source = logEvent.Properties.TryGetValue("Source", out var value) &&
-            value is ScalarValue { Value: string name }
-                ? name
-                : "MacroDeck";
-
-        console.AppendText(writer.ToString(), source, ColorForLevel(logEvent.Level));
+        foreach (var entry in snapshot)
+        {
+            console.AppendText(entry.Text, entry.Source, entry.Color);
+        }
     }
 
-    /// <summary>
-    /// 根据日志级别返回对应的显示颜色
-    /// </summary>
-    /// <param name="level">日志级别</param>
-    /// <returns>显示颜色</returns>
     private static Color ColorForLevel(LogEventLevel level)
     {
         return level switch
@@ -66,5 +99,19 @@ public class DebugConsoleSink : ILogEventSink
             LogEventLevel.Verbose => Color.DarkGray,
             _ => Color.White
         };
+    }
+
+    private readonly struct BufferedEntry
+    {
+        public BufferedEntry(string text, string source, Color color)
+        {
+            Text = text;
+            Source = source;
+            Color = color;
+        }
+
+        public string Text { get; }
+        public string Source { get; }
+        public Color Color { get; }
     }
 }

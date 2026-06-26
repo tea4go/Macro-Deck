@@ -69,6 +69,7 @@ public partial class DebugConsole : Form
         if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
         LayoutHelper.AdjustAllLabelHeights(this);
         LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
+        DebugConsoleSink.Replay();
     }
 
     private void ApplyLanguage()
