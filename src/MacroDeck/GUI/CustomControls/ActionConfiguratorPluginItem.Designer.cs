@@ -9,12 +9,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 {
     partial class ActionConfiguratorPluginItem
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -29,8 +29,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
@@ -42,9 +42,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             ((ISupportInitialize)(this.pluginIcon)).BeginInit();
             ((ISupportInitialize)(this.chevron)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // pluginIcon
-            // 
+            //
             this.pluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
             this.pluginIcon.Cursor = Cursors.Hand;
             this.pluginIcon.Location = new Point(33, 5);
@@ -52,9 +52,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.pluginIcon.Size = new Size(30, 30);
             this.pluginIcon.TabIndex = 0;
             this.pluginIcon.TabStop = false;
-            // 
+            //
             // pluginName
-            // 
+            //
             this.pluginName.Cursor = Cursors.Hand;
             this.pluginName.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
             this.pluginName.Location = new Point(69, 3);
@@ -63,9 +63,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.pluginName.TabIndex = 1;
             this.pluginName.Text = "label1";
             this.pluginName.UseMnemonic = false;
-            // 
+            //
             // lblCountActions
-            // 
+            //
             this.lblCountActions.Cursor = Cursors.Hand;
             this.lblCountActions.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblCountActions.Location = new Point(69, 18);
@@ -75,9 +75,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.lblCountActions.Text = "label1";
             this.lblCountActions.TextAlign = ContentAlignment.MiddleLeft;
             this.lblCountActions.UseMnemonic = false;
-            // 
+            //
             // chevron
-            // 
+            //
             this.chevron.BackgroundImage = Resources.Chevron_Right;
             this.chevron.BackgroundImageLayout = ImageLayout.Stretch;
             this.chevron.Cursor = Cursors.Hand;
@@ -86,10 +86,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.chevron.Size = new Size(20, 20);
             this.chevron.TabIndex = 3;
             this.chevron.TabStop = false;
-            // 
+            //
             // ActionConfiguratorPluginItem
-            // 
-            
+            //
+
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.chevron);

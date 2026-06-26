@@ -39,6 +39,9 @@ public partial class ActionConfigurator : DialogForm
 
         foreach (Control control in pluginsList.Controls)
         {
+            // 宽度自适应：填满容器宽度（扣除控件自身的水平边距）
+            control.Width = pluginsList.ClientSize.Width - control.Margin.Horizontal -2;
+
             if (control is ActionConfiguratorPluginItem pluginItem)
                 pluginItem.AdjustLayout();
             else if (control is ActionConfiguratorActionItem actionItem)

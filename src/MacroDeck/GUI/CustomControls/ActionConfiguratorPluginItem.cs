@@ -2,6 +2,7 @@
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
+using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -60,6 +61,16 @@ public partial class ActionConfiguratorPluginItem : RoundedUserControl
     /// </summary>
     public void AdjustLayout()
     {
+        // 插件名称字体：配置字号 + 3，始终粗体
+        var baseFont = pluginName.Font;
+        var nameFontSize = FontManager.FontSize + 3;
+        pluginName.Font = new Font(
+            FontManager.FontFamily,
+            nameFontSize,
+            FontStyle.Bold,
+            baseFont.Unit,
+            baseFont.GdiCharSet);
+
         // 计算各标签在当前字体下的最小高度
         var nameTextHeight = TextRenderer.MeasureText("Ay", pluginName.Font).Height + 4;
         var countTextHeight = TextRenderer.MeasureText("Ay", lblCountActions.Font).Height + 4;
