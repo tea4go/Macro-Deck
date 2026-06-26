@@ -6,12 +6,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
 {
     partial class SettingsView
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -30,8 +30,8 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
@@ -108,9 +108,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             ((ISupportInitialize)btnGitHub).BeginInit();
             ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
+            //
             // verticalTabControl
-            // 
+            //
             verticalTabControl.Alignment = TabAlignment.Left;
             verticalTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             verticalTabControl.Controls.Add(tabGeneral);
@@ -129,18 +129,18 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             verticalTabControl.Size = new Size(1131, 534);
             verticalTabControl.SizeMode = TabSizeMode.Fixed;
             verticalTabControl.TabIndex = 12;
-            // 
+            //
             // tabGeneral
-            // 
+            //
             tabGeneral.BackColor = Color.FromArgb(45, 45, 45);
-            tabGeneral.Controls.Add(language);
-            tabGeneral.Controls.Add(lblLanguage);
             tabGeneral.Controls.Add(font);
             tabGeneral.Controls.Add(lblFont);
             tabGeneral.Controls.Add(fontSize);
             tabGeneral.Controls.Add(lblFontSize);
             tabGeneral.Controls.Add(checkBold);
             tabGeneral.Controls.Add(lblFontRestartHint);
+            tabGeneral.Controls.Add(language);
+            tabGeneral.Controls.Add(lblLanguage);
             tabGeneral.Controls.Add(checkStartWindows);
             tabGeneral.Controls.Add(checkSendErrorReports);
             tabGeneral.Controls.Add(lblBehaviour);
@@ -153,16 +153,16 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabGeneral.Size = new Size(923, 526);
             tabGeneral.TabIndex = 0;
             tabGeneral.Text = "General";
-            // 
+            //
             // language
-            // 
+            //
             language.BackColor = Color.FromArgb(65, 65, 65);
             language.Cursor = Cursors.Hand;
             language.DropDownStyle = ComboBoxStyle.DropDownList;
             language.Font = new Font("Tahoma", 12F);
             language.ForeColor = Color.White;
             language.Icon = null;
-            language.Location = new Point(12, 222);
+            language.Location = new Point(12, 356);
             language.Name = "language";
             language.Padding = new Padding(8, 2, 8, 2);
             language.SelectedIndex = -1;
@@ -170,13 +170,13 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             language.Size = new Size(253, 31);
             language.TabIndex = 4;
             language.SelectedIndexChanged += Language_SelectedIndexChanged;
-            // 
+            //
             // lblLanguage
-            // 
+            //
             lblLanguage.AutoSize = true;
             lblLanguage.Font = new Font("Tahoma", 14.25F);
             lblLanguage.ForeColor = Color.Gray;
-            lblLanguage.Location = new Point(3, 198);
+            lblLanguage.Location = new Point(3, 332);
             lblLanguage.Name = "lblLanguage";
             lblLanguage.Size = new Size(93, 23);
             lblLanguage.TabIndex = 3;
@@ -191,7 +191,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             font.Font = new Font("Tahoma", 12F);
             font.ForeColor = Color.White;
             font.Icon = null;
-            font.Location = new Point(12, 286);
+            font.Location = new Point(12, 222);
             font.Name = "font";
             font.Padding = new Padding(8, 2, 8, 2);
             font.SelectedIndex = -1;
@@ -205,7 +205,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblFont.AutoSize = true;
             lblFont.Font = new Font("Tahoma", 14.25F);
             lblFont.ForeColor = Color.Gray;
-            lblFont.Location = new Point(3, 262);
+            lblFont.Location = new Point(3, 198);
             lblFont.Name = "lblFont";
             lblFont.Size = new Size(50, 23);
             lblFont.TabIndex = 5;
@@ -220,7 +220,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             fontSize.Font = new Font("Tahoma", 12F);
             fontSize.ForeColor = Color.White;
             fontSize.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
-            fontSize.Location = new Point(277, 286);
+            fontSize.Location = new Point(277, 222);
             fontSize.Maximum = new decimal(new int[] { 72, 0, 0, 0 });
             fontSize.Minimum = new decimal(new int[] { 6, 0, 0, 0 });
             fontSize.Name = "fontSize";
@@ -234,7 +234,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblFontSize.AutoSize = true;
             lblFontSize.Font = new Font("Tahoma", 14.25F);
             lblFontSize.ForeColor = Color.Gray;
-            lblFontSize.Location = new Point(277, 262);
+            lblFontSize.Location = new Point(277, 198);
             lblFontSize.Name = "lblFontSize";
             lblFontSize.Size = new Size(50, 23);
             lblFontSize.TabIndex = 7;
@@ -244,7 +244,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // checkBold
             //
             checkBold.AutoSize = true;
-            checkBold.Location = new Point(13, 326);
+            checkBold.Location = new Point(13, 262);
             checkBold.Name = "checkBold";
             checkBold.Size = new Size(70, 23);
             checkBold.TabIndex = 9;
@@ -257,7 +257,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblFontRestartHint.AutoSize = true;
             lblFontRestartHint.Font = new Font("Tahoma", 9.75F);
             lblFontRestartHint.ForeColor = Color.FromArgb(222, 170, 27);
-            lblFontRestartHint.Location = new Point(13, 356);
+            lblFontRestartHint.Location = new Point(13, 292);
             lblFontRestartHint.Name = "lblFontRestartHint";
             lblFontRestartHint.Size = new Size(0, 0);
             lblFontRestartHint.TabIndex = 10;
@@ -288,7 +288,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkSendErrorReports.CheckedChanged += CheckSendErrorReports_CheckedChanged;
             //
             // lblBehaviour
-            // 
+            //
             lblBehaviour.AutoSize = true;
             lblBehaviour.Font = new Font("Tahoma", 14.25F);
             lblBehaviour.ForeColor = Color.Gray;
@@ -298,9 +298,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblBehaviour.TabIndex = 1;
             lblBehaviour.Text = "Behavior";
             lblBehaviour.UseMnemonic = false;
-            // 
+            //
             // lblGeneral
-            // 
+            //
             lblGeneral.AutoSize = true;
             lblGeneral.Font = new Font("Tahoma", 15.75F);
             lblGeneral.Location = new Point(3, 0);
@@ -309,9 +309,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblGeneral.TabIndex = 0;
             lblGeneral.Text = "General";
             lblGeneral.UseMnemonic = false;
-            // 
+            //
             // tabConnection
-            // 
+            //
             tabConnection.AutoScroll = true;
             tabConnection.BackColor = Color.FromArgb(45, 45, 45);
             tabConnection.Controls.Add(checkAutoStartUsb);
@@ -336,9 +336,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabConnection.Size = new Size(923, 526);
             tabConnection.TabIndex = 3;
             tabConnection.Text = "Connection";
-            // 
+            //
             // checkAutoStartUsb
-            // 
+            //
             checkAutoStartUsb.AutoSize = true;
             checkAutoStartUsb.Font = new Font("Tahoma", 12F);
             checkAutoStartUsb.Location = new Point(14, 560);
@@ -348,9 +348,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkAutoStartUsb.Text = "Automatically wake screen and start Macro Deck Client when connected";
             checkAutoStartUsb.UseMnemonic = false;
             checkAutoStartUsb.UseVisualStyleBackColor = true;
-            // 
+            //
             // checkEnableAdb
-            // 
+            //
             checkEnableAdb.AutoSize = true;
             checkEnableAdb.Font = new Font("Tahoma", 12F);
             checkEnableAdb.Location = new Point(14, 534);
@@ -360,9 +360,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkEnableAdb.Text = "Enable Android Debug Bridge (Required for Android USB connection)";
             checkEnableAdb.UseMnemonic = false;
             checkEnableAdb.UseVisualStyleBackColor = true;
-            // 
+            //
             // label5
-            // 
+            //
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 14.25F);
             label5.ForeColor = Color.Gray;
@@ -372,9 +372,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label5.TabIndex = 25;
             label5.Text = "USB";
             label5.UseMnemonic = false;
-            // 
+            //
             // btnApplySslConfiguration
-            // 
+            //
             btnApplySslConfiguration.BorderRadius = 8;
             btnApplySslConfiguration.Cursor = Cursors.Hand;
             btnApplySslConfiguration.FlatAppearance.BorderSize = 0;
@@ -418,9 +418,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnGenerateCertificate.UseWindowsAccentColor = true;
             btnGenerateCertificate.WriteProgress = true;
             btnGenerateCertificate.Click += BtnGenerateCertificate_Click;
-            // 
+            //
             // label4
-            // 
+            //
             label4.Font = new Font("Tahoma", 11.25F);
             label4.Location = new Point(12, 344);
             label4.Name = "label4";
@@ -449,9 +449,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             keyPemTextBox.Size = new Size(600, 90);
             keyPemTextBox.TabIndex = 21;
             keyPemTextBox.TextAlignment = HorizontalAlignment.Left;
-            // 
+            //
             // label3
-            // 
+            //
             label3.Font = new Font("Tahoma", 11.25F);
             label3.Location = new Point(12, 224);
             label3.Name = "label3";
@@ -480,9 +480,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             certPemTextBox.Size = new Size(600, 90);
             certPemTextBox.TabIndex = 19;
             certPemTextBox.TextAlignment = HorizontalAlignment.Left;
-            // 
+            //
             // checkEnableSsl
-            // 
+            //
             checkEnableSsl.AutoSize = true;
             checkEnableSsl.Font = new Font("Tahoma", 12F);
             checkEnableSsl.Location = new Point(12, 193);
@@ -492,9 +492,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkEnableSsl.Text = "Enable SSL";
             checkEnableSsl.UseMnemonic = false;
             checkEnableSsl.UseVisualStyleBackColor = true;
-            // 
+            //
             // labelSsl
-            // 
+            //
             labelSsl.AutoSize = true;
             labelSsl.Font = new Font("Tahoma", 14.25F);
             labelSsl.ForeColor = Color.Gray;
@@ -504,9 +504,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             labelSsl.TabIndex = 13;
             labelSsl.Text = "SSL";
             labelSsl.UseMnemonic = false;
-            // 
+            //
             // btnChangePort
-            // 
+            //
             btnChangePort.BorderRadius = 8;
             btnChangePort.Cursor = Cursors.Hand;
             btnChangePort.FlatAppearance.BorderSize = 0;
@@ -527,9 +527,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnChangePort.UseWindowsAccentColor = true;
             btnChangePort.WriteProgress = true;
             btnChangePort.Click += BtnChangePort_Click;
-            // 
+            //
             // port
-            // 
+            //
             port.BackColor = Color.FromArgb(65, 65, 65);
             port.BorderStyle = BorderStyle.FixedSingle;
             port.Font = new Font("Tahoma", 11.25F);
@@ -540,9 +540,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             port.Size = new Size(107, 26);
             port.TabIndex = 9;
             port.Value = new decimal(new int[] { 8191, 0, 0, 0 });
-            // 
+            //
             // lblPort
-            // 
+            //
             lblPort.AutoSize = true;
             lblPort.Font = new Font("Tahoma", 14.25F);
             lblPort.ForeColor = Color.Gray;
@@ -552,9 +552,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblPort.TabIndex = 8;
             lblPort.Text = "Port";
             lblPort.UseMnemonic = false;
-            // 
+            //
             // lblConnection
-            // 
+            //
             lblConnection.AutoSize = true;
             lblConnection.Font = new Font("Tahoma", 15.75F);
             lblConnection.Location = new Point(3, 0);
@@ -563,9 +563,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblConnection.TabIndex = 1;
             lblConnection.Text = "Connection";
             lblConnection.UseMnemonic = false;
-            // 
+            //
             // tabUpdater
-            // 
+            //
             tabUpdater.BackColor = Color.FromArgb(45, 45, 45);
             tabUpdater.Controls.Add(label2);
             tabUpdater.Controls.Add(checkAutoUpdate);
@@ -581,9 +581,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabUpdater.Size = new Size(923, 526);
             tabUpdater.TabIndex = 1;
             tabUpdater.Text = "Updates";
-            // 
+            //
             // label2
-            // 
+            //
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 14.25F);
             label2.ForeColor = Color.Gray;
@@ -593,9 +593,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label2.TabIndex = 18;
             label2.Text = "Behavior";
             label2.UseMnemonic = false;
-            // 
+            //
             // checkAutoUpdate
-            // 
+            //
             checkAutoUpdate.AutoSize = true;
             checkAutoUpdate.Location = new Point(13, 89);
             checkAutoUpdate.Name = "checkAutoUpdate";
@@ -604,9 +604,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkAutoUpdate.Text = "Automatically check for updates";
             checkAutoUpdate.UseMnemonic = false;
             checkAutoUpdate.UseVisualStyleBackColor = true;
-            // 
+            //
             // checkInstallBetaVersions
-            // 
+            //
             checkInstallBetaVersions.AutoSize = true;
             checkInstallBetaVersions.Location = new Point(13, 118);
             checkInstallBetaVersions.Name = "checkInstallBetaVersions";
@@ -615,9 +615,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkInstallBetaVersions.Text = "Install Beta versions";
             checkInstallBetaVersions.UseMnemonic = false;
             checkInstallBetaVersions.UseVisualStyleBackColor = true;
-            // 
+            //
             // btnCheckUpdates
-            // 
+            //
             btnCheckUpdates.BorderRadius = 8;
             btnCheckUpdates.Cursor = Cursors.Hand;
             btnCheckUpdates.FlatAppearance.BorderSize = 0;
@@ -638,9 +638,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCheckUpdates.UseWindowsAccentColor = true;
             btnCheckUpdates.WriteProgress = true;
             btnCheckUpdates.Click += BtnCheckUpdates_Click;
-            // 
+            //
             // lblInstalledVersion
-            // 
+            //
             lblInstalledVersion.Location = new Point(501, 243);
             lblInstalledVersion.Name = "lblInstalledVersion";
             lblInstalledVersion.Size = new Size(229, 19);
@@ -648,9 +648,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblInstalledVersion.Text = "2.0.0";
             lblInstalledVersion.TextAlign = ContentAlignment.MiddleLeft;
             lblInstalledVersion.UseMnemonic = false;
-            // 
+            //
             // lblInstalledVersionLabel
-            // 
+            //
             lblInstalledVersionLabel.Location = new Point(266, 243);
             lblInstalledVersionLabel.Name = "lblInstalledVersionLabel";
             lblInstalledVersionLabel.Size = new Size(229, 19);
@@ -658,9 +658,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblInstalledVersionLabel.Text = "Installed Version:";
             lblInstalledVersionLabel.TextAlign = ContentAlignment.MiddleRight;
             lblInstalledVersionLabel.UseMnemonic = false;
-            // 
+            //
             // lblUpdates
-            // 
+            //
             lblUpdates.AutoSize = true;
             lblUpdates.Font = new Font("Tahoma", 15.75F);
             lblUpdates.Location = new Point(3, 0);
@@ -669,9 +669,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblUpdates.TabIndex = 2;
             lblUpdates.Text = "Updates";
             lblUpdates.UseMnemonic = false;
-            // 
+            //
             // tabBackups
-            // 
+            //
             tabBackups.BackColor = Color.FromArgb(45, 45, 45);
             tabBackups.Controls.Add(btnCreateBackup);
             tabBackups.Controls.Add(backupsPanel);
@@ -682,9 +682,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabBackups.Size = new Size(923, 526);
             tabBackups.TabIndex = 4;
             tabBackups.Text = "Backups";
-            // 
+            //
             // btnCreateBackup
-            // 
+            //
             btnCreateBackup.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCreateBackup.BorderRadius = 8;
             btnCreateBackup.Cursor = Cursors.Hand;
@@ -706,17 +706,17 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCreateBackup.UseWindowsAccentColor = true;
             btnCreateBackup.WriteProgress = true;
             btnCreateBackup.Click += BtnCreateBackup_Click;
-            // 
+            //
             // backupsPanel
-            // 
+            //
             backupsPanel.AutoScroll = true;
             backupsPanel.Location = new Point(3, 28);
             backupsPanel.Name = "backupsPanel";
             backupsPanel.Size = new Size(917, 459);
             backupsPanel.TabIndex = 4;
-            // 
+            //
             // lblBackups
-            // 
+            //
             lblBackups.AutoSize = true;
             lblBackups.Font = new Font("Tahoma", 15.75F);
             lblBackups.Location = new Point(3, 0);
@@ -725,9 +725,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblBackups.TabIndex = 3;
             lblBackups.Text = "Backups";
             lblBackups.UseMnemonic = false;
-            // 
+            //
             // tabAbout
-            // 
+            //
             tabAbout.BackColor = Color.FromArgb(45, 45, 45);
             tabAbout.Controls.Add(lblDotnetVersion);
             tabAbout.Controls.Add(label6);
@@ -751,9 +751,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabAbout.Size = new Size(923, 526);
             tabAbout.TabIndex = 2;
             tabAbout.Text = "About";
-            // 
+            //
             // lblDotnetVersion
-            // 
+            //
             lblDotnetVersion.AutoSize = true;
             lblDotnetVersion.Location = new Point(564, 491);
             lblDotnetVersion.Name = "lblDotnetVersion";
@@ -761,9 +761,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblDotnetVersion.TabIndex = 20;
             lblDotnetVersion.Text = "0";
             lblDotnetVersion.UseMnemonic = false;
-            // 
+            //
             // label6
-            // 
+            //
             label6.AutoSize = true;
             label6.Location = new Point(332, 491);
             label6.Name = "label6";
@@ -771,9 +771,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label6.TabIndex = 19;
             label6.Text = "Runtime:";
             label6.UseMnemonic = false;
-            // 
+            //
             // btnGitHub
-            // 
+            //
             btnGitHub.BackColor = Color.Transparent;
             btnGitHub.BackgroundImage = Resources.GitHub_Mark_Light;
             btnGitHub.BackgroundImageLayout = ImageLayout.Stretch;
@@ -785,9 +785,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnGitHub.TabIndex = 18;
             btnGitHub.TabStop = false;
             btnGitHub.Click += BtnGitHub_Click;
-            // 
+            //
             // label1
-            // 
+            //
             label1.Font = new Font("Tahoma", 11.25F);
             label1.Location = new Point(219, 226);
             label1.Name = "label1";
@@ -796,9 +796,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label1.Text = "Licensed under Apache-2.0";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.UseMnemonic = false;
-            // 
+            //
             // lblTranslationBy
-            // 
+            //
             lblTranslationBy.Font = new Font("Tahoma", 11.25F);
             lblTranslationBy.Location = new Point(219, 164);
             lblTranslationBy.Name = "lblTranslationBy";
@@ -807,9 +807,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblTranslationBy.Text = "English translation by Macro Deck";
             lblTranslationBy.TextAlign = ContentAlignment.MiddleCenter;
             lblTranslationBy.UseMnemonic = false;
-            // 
+            //
             // btnLicenses
-            // 
+            //
             btnLicenses.BorderRadius = 8;
             btnLicenses.Cursor = Cursors.Hand;
             btnLicenses.FlatAppearance.BorderSize = 0;
@@ -830,9 +830,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnLicenses.UseWindowsAccentColor = true;
             btnLicenses.WriteProgress = true;
             btnLicenses.Click += BtnLicenses_Click;
-            // 
+            //
             // lblPluginAPIVersion
-            // 
+            //
             lblPluginAPIVersion.AutoSize = true;
             lblPluginAPIVersion.Location = new Point(564, 434);
             lblPluginAPIVersion.Name = "lblPluginAPIVersion";
@@ -840,9 +840,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblPluginAPIVersion.TabIndex = 12;
             lblPluginAPIVersion.Text = "20";
             lblPluginAPIVersion.UseMnemonic = false;
-            // 
+            //
             // lblWebsocketAPIVersion
-            // 
+            //
             lblWebsocketAPIVersion.AutoSize = true;
             lblWebsocketAPIVersion.Location = new Point(564, 407);
             lblWebsocketAPIVersion.Name = "lblWebsocketAPIVersion";
@@ -850,9 +850,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblWebsocketAPIVersion.TabIndex = 11;
             lblWebsocketAPIVersion.Text = "20";
             lblWebsocketAPIVersion.UseMnemonic = false;
-            // 
+            //
             // lblPluginAPILabel
-            // 
+            //
             lblPluginAPILabel.AutoSize = true;
             lblPluginAPILabel.Location = new Point(332, 434);
             lblPluginAPILabel.Name = "lblPluginAPILabel";
@@ -860,9 +860,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblPluginAPILabel.TabIndex = 10;
             lblPluginAPILabel.Text = "Plugin API version:";
             lblPluginAPILabel.UseMnemonic = false;
-            // 
+            //
             // lblWebSocketAPILabel
-            // 
+            //
             lblWebSocketAPILabel.AutoSize = true;
             lblWebSocketAPILabel.Location = new Point(332, 407);
             lblWebSocketAPILabel.Name = "lblWebSocketAPILabel";
@@ -870,9 +870,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblWebSocketAPILabel.TabIndex = 9;
             lblWebSocketAPILabel.Text = "Websocket API version:";
             lblWebSocketAPILabel.UseMnemonic = false;
-            // 
+            //
             // lblInstalledPlugins
-            // 
+            //
             lblInstalledPlugins.AutoSize = true;
             lblInstalledPlugins.Location = new Point(564, 461);
             lblInstalledPlugins.Name = "lblInstalledPlugins";
@@ -880,9 +880,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblInstalledPlugins.TabIndex = 7;
             lblInstalledPlugins.Text = "0";
             lblInstalledPlugins.UseMnemonic = false;
-            // 
+            //
             // lblInstalledPluginsLabel
-            // 
+            //
             lblInstalledPluginsLabel.AutoSize = true;
             lblInstalledPluginsLabel.Location = new Point(332, 461);
             lblInstalledPluginsLabel.Name = "lblInstalledPluginsLabel";
@@ -890,9 +890,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblInstalledPluginsLabel.TabIndex = 4;
             lblInstalledPluginsLabel.Text = "Installed plugins:";
             lblInstalledPluginsLabel.UseMnemonic = false;
-            // 
+            //
             // lblDeveloped
-            // 
+            //
             lblDeveloped.Font = new Font("Tahoma", 11.25F);
             lblDeveloped.Location = new Point(219, 206);
             lblDeveloped.Name = "lblDeveloped";
@@ -901,9 +901,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblDeveloped.Text = "Developed by Manuel Mayer (SuchByte) in Germany";
             lblDeveloped.TextAlign = ContentAlignment.MiddleCenter;
             lblDeveloped.UseMnemonic = false;
-            // 
+            //
             // lblMacroDeck
-            // 
+            //
             lblMacroDeck.Font = new Font("Tahoma", 21.75F);
             lblMacroDeck.ForeColor = Color.LightGray;
             lblMacroDeck.Location = new Point(3, 3);
@@ -913,9 +913,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblMacroDeck.Text = "Macro Deck";
             lblMacroDeck.TextAlign = ContentAlignment.MiddleCenter;
             lblMacroDeck.UseMnemonic = false;
-            // 
+            //
             // pictureBox1
-            // 
+            //
             pictureBox1.BackgroundImage = Resources.Icon;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(3, 47);
@@ -923,9 +923,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             pictureBox1.Size = new Size(200, 187);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
+            //
             // tabIcons
-            // 
+            //
             tabIcons.ColorDepth = ColorDepth.Depth4Bit;
             tabIcons.ImageStream = (ImageListStreamer)resources.GetObject("tabIcons.ImageStream");
             tabIcons.TransparentColor = Color.Transparent;
@@ -934,9 +934,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabIcons.Images.SetKeyName(2, "Update.png");
             tabIcons.Images.SetKeyName(3, "Backup-Restore.png");
             tabIcons.Images.SetKeyName(4, "Informationpng.png");
-            // 
+            //
             // SettingsView
-            // 
+            //
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
