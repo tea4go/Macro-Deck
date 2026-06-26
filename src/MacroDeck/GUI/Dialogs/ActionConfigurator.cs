@@ -35,6 +35,19 @@ public partial class ActionConfigurator : DialogForm
     {
         Application.DoEvents();
         AddPlugins();
+        FontManager.Apply(this);
+
+        foreach (Control control in pluginsList.Controls)
+        {
+            if (control is ActionConfiguratorPluginItem pluginItem)
+                pluginItem.AdjustLayout();
+            else if (control is ActionConfiguratorActionItem actionItem)
+                actionItem.AdjustLayout();
+        }
+
+        // 触发 FlowLayoutPanel 重新计算滚动布局
+        pluginsList.PerformLayout();
+
         if (Action is null)
         {
             return;

@@ -43,9 +43,9 @@ namespace SuchByte.MacroDeck.GUI
             this.configurationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedPluginIcon)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // btnApply
-            // 
+            //
             this.btnApply.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
             this.btnApply.BorderRadius = 8;
             this.btnApply.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -64,9 +64,9 @@ namespace SuchByte.MacroDeck.GUI
             this.btnApply.UseMnemonic = false;
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
@@ -76,9 +76,9 @@ namespace SuchByte.MacroDeck.GUI
             this.label2.TabIndex = 2;
             this.label2.Text = "Action";
             this.label2.UseMnemonic = false;
-            // 
+            //
             // labelDescription
-            // 
+            //
             this.labelDescription.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDescription.ForeColor = System.Drawing.Color.White;
             this.labelDescription.Location = new System.Drawing.Point(335, 105);
@@ -86,18 +86,18 @@ namespace SuchByte.MacroDeck.GUI
             this.labelDescription.Size = new System.Drawing.Size(854, 58);
             this.labelDescription.TabIndex = 3;
             this.labelDescription.UseMnemonic = false;
-            // 
+            //
             // configurationPanel
-            // 
+            //
             this.configurationPanel.Controls.Add(this.lblSelectToBegin);
             this.configurationPanel.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.configurationPanel.Location = new System.Drawing.Point(332, 166);
             this.configurationPanel.Name = "configurationPanel";
             this.configurationPanel.Size = new System.Drawing.Size(857, 424);
             this.configurationPanel.TabIndex = 9;
-            // 
+            //
             // lblSelectToBegin
-            // 
+            //
             this.lblSelectToBegin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSelectToBegin.Location = new System.Drawing.Point(0, 0);
             this.lblSelectToBegin.Name = "lblSelectToBegin";
@@ -106,9 +106,9 @@ namespace SuchByte.MacroDeck.GUI
             this.lblSelectToBegin.Text = "Select a plugin and a action to begin";
             this.lblSelectToBegin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblSelectToBegin.UseMnemonic = false;
-            // 
+            //
             // pluginSearch
-            // 
+            //
             this.pluginSearch.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.pluginSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pluginSearch.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -130,37 +130,37 @@ namespace SuchByte.MacroDeck.GUI
             this.pluginSearch.TabStop = false;
             this.pluginSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.pluginSearch.TextChanged += new System.EventHandler(this.PluginSearch_TextChanged);
-            // 
+            //
             // pluginsList
-            // 
+            //
             this.pluginsList.AutoScroll = true;
             this.pluginsList.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.pluginsList.Location = new System.Drawing.Point(11, 55);
             this.pluginsList.Name = "pluginsList";
             this.pluginsList.Size = new System.Drawing.Size(310, 566);
             this.pluginsList.TabIndex = 11;
-            // 
+            //
             // selectedPluginIcon
-            // 
+            //
             this.selectedPluginIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.selectedPluginIcon.Location = new System.Drawing.Point(335, 43);
             this.selectedPluginIcon.Name = "selectedPluginIcon";
-            this.selectedPluginIcon.Size = new System.Drawing.Size(50, 50);
+            this.selectedPluginIcon.AutoSize = true;
             this.selectedPluginIcon.TabIndex = 12;
             this.selectedPluginIcon.TabStop = false;
-            // 
+            //
             // lblSelectedActionName
-            // 
+            //
             this.lblSelectedActionName.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSelectedActionName.Location = new System.Drawing.Point(391, 43);
             this.lblSelectedActionName.Name = "lblSelectedActionName";
-            this.lblSelectedActionName.Size = new System.Drawing.Size(798, 50);
+            this.lblSelectedActionName.AutoSize = true;
             this.lblSelectedActionName.TabIndex = 13;
-            this.lblSelectedActionName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSelectedActionName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblSelectedActionName.UseMnemonic = false;
-            // 
+            //
             // ActionConfigurator
-            // 
+            //
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             this.ClientSize = new System.Drawing.Size(1200, 635);
