@@ -34,14 +34,28 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         /// </summary>
         private void InitializeComponent()
         {
+            this.creatorFilter = new FlowLayoutPanel();
+
             this.variablesPanel = new FlowLayoutPanel();
             this.lblCreator = new Label();
             this.lblValue = new Label();
             this.lblType = new Label();
             this.lblName = new Label();
             this.btnCreateVariable = new ButtonPrimary();
-            this.creatorFilter = new FlowLayoutPanel();
             this.SuspendLayout();
+            //
+            // creatorFilter
+            //
+            this.creatorFilter.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left)));
+            this.creatorFilter.AutoScroll = true;
+            //this.creatorFilter.BackColor = Color.FromArgb(255, 255, 255);
+            this.creatorFilter.Location = new Point(0, 53);
+            this.creatorFilter.Name = "creatorFilter";
+            this.creatorFilter.Width = 224;
+            this.creatorFilter.Dock = DockStyle.Left;
+            this.creatorFilter.TabIndex = 17;
+            this.creatorFilter.Cursor = = Cursors.Hand;
+
             //
             // variablesPanel
             //
@@ -51,6 +65,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.variablesPanel.AutoScroll = true;
             this.variablesPanel.Location = new Point(240, 53);
             this.variablesPanel.Name = "variablesPanel";
+           // this.variablesPanel.Dock = DockStyle.Left;
             this.variablesPanel.Size = new Size(897, 451);
             this.variablesPanel.TabIndex = 11;
             //
@@ -120,16 +135,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.btnCreateVariable.UseVisualStyleBackColor = false;
             this.btnCreateVariable.UseWindowsAccentColor = true;
             this.btnCreateVariable.Click += new EventHandler(this.BtnCreateVariable_Click);
-            //
-            // creatorFilter
-            //
-            this.creatorFilter.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom)
-                                                         | AnchorStyles.Left)));
-            this.creatorFilter.AutoScroll = true;
-            this.creatorFilter.Location = new Point(0, 53);
-            this.creatorFilter.Name = "creatorFilter";
-            this.creatorFilter.Size = new Size(334, 551);
-            this.creatorFilter.TabIndex = 17;
+
             //
             // VariablesView
             //
