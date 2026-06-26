@@ -1,6 +1,6 @@
 schema_version: 1
-module_path: ci_cd
-title: CI/CD 流水线与发布配置
+module_path: docs
+title: GitHub 协作与 CI/CD 配置
 scope:
     - .github/
 source_files: []

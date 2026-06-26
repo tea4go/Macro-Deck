@@ -3,26 +3,30 @@ schema_version: 1
 locale: zh-CN
 branch: main
 nodes_managed: true
-exported_at: "2026-06-24T05:55:18Z"
+exported_at: "2026-06-26T12:31:53Z"
 modules:
     "":
-        dir_name: Macro Deck 桌面自动化核心平台
-        title: Macro Deck 桌面自动化核心平台
+        dir_name: Macro Deck 桌面自动化平台
+        title: Macro Deck 桌面自动化平台
         scope:
-            - '**'
-        source_files:
-            - src/MacroDeck/Configuration/MainConfiguration.cs
-            - src/MacroDeck/StartupConfig/ApplicationPaths.cs
-            - src/MacroDeck/StartupConfig/StartParameters.cs
-            - src/MacroDeck/StartupConfig/LoggingConfig.cs
-            - src/MacroDeck/MacroDeck.cs
-            - src/MacroDeck/Program.cs
+            - README.md
+            - .gitignore
+            - .gitattributes
+            - Directory.Build.props
+            - Directory.Packages.props
+            - Macro-Deck.slnx
+            - Macro-Deck.slnx.DotSettings
+            - run_win.bat
+            - run_win.ps1
+            - test-macrodeck.ps1
+            - 自动化测试.md
+        source_files: []
         children:
-            - ci_cd
+            - docs
         depends_on: []
         related_to: []
     build_system:
-        dir_name: 构建与发布系统_2
+        dir_name: 构建与发布系统_3
         title: 构建与发布系统
         scope: []
         source_files:
@@ -37,17 +41,8 @@ modules:
         children: []
         depends_on: []
         related_to: []
-    ci_cd:
-        dir_name: CI_CD 流水线与发布配置
-        title: CI/CD 流水线与发布配置
-        scope:
-            - .github/
-        source_files: []
-        children: []
-        depends_on: []
-        related_to: []
     configuration_system:
-        dir_name: 配置系统架构与运行时管理
+        dir_name: 配置系统架构与运行时管理_2
         title: 配置系统架构与运行时管理
         scope: []
         source_files:
@@ -62,20 +57,29 @@ modules:
         depends_on: []
         related_to: []
     dependency_management:
-        dir_name: NuGet 集中式依赖管理与插件 API 分发_2
+        dir_name: NuGet 集中式依赖管理与插件 API 分发_3
         title: NuGet 集中式依赖管理与插件 API 分发
         scope: []
         source_files:
             - Directory.Packages.props
             - Directory.Build.props
             - src/MacroDeck/MacroDeck.csproj
-            - src/MacroDeck/MacroDeck.nuspec
             - tests/MacroDeck.Tests/MacroDeck.Tests.csproj
+            - src/MacroDeck/MacroDeck.nuspec
+        children: []
+        depends_on: []
+        related_to: []
+    docs:
+        dir_name: GitHub 协作与 CI_CD 配置
+        title: GitHub 协作与 CI/CD 配置
+        scope:
+            - .github/
+        source_files: []
         children: []
         depends_on: []
         related_to: []
     error_handling:
-        dir_name: 错误处理与日志记录体系_2
+        dir_name: 错误处理与日志记录体系_3
         title: 错误处理与日志记录体系
         scope: []
         source_files:
@@ -88,31 +92,31 @@ modules:
         depends_on: []
         related_to: []
     frontend_style:
-        dir_name: Windows Forms 自定义深色主题与圆角控件体系_2
+        dir_name: Windows Forms 自定义深色主题与圆角控件体系_3
         title: Windows Forms 自定义深色主题与圆角控件体系
         scope: []
         source_files:
             - src/MacroDeck/GUI/Colors.cs
-            - src/MacroDeck/GUI/CustomControls/ButtonPrimary.cs
             - src/MacroDeck/GUI/CustomControls/RoundedButton.cs
+            - src/MacroDeck/GUI/CustomControls/ButtonPrimary.cs
             - src/MacroDeck/GUI/CustomControls/RoundedPanel.cs
             - src/MacroDeck/GUI/CustomControls/RoundedTextBox.cs
-            - src/MacroDeck/GUI/CustomControls/ComboBox.cs
-            - src/MacroDeck/GUI/MainWindow.Designer.cs
-            - src/MacroDeck/GUI/CustomControls/Form.Designer.cs
+            - src/MacroDeck/GUI/CustomControls/Form.cs
+            - src/MacroDeck/wwwroot/client/index.html
         children: []
         depends_on: []
         related_to: []
     logging_system:
-        dir_name: 基于 Serilog 的集中式日志与错误追踪系统_2
+        dir_name: 基于 Serilog 的集中式日志与错误追踪系统_3
         title: 基于 Serilog 的集中式日志与错误追踪系统
         scope: []
         source_files:
             - src/MacroDeck/Logging/MacroDeckLogger.cs
-            - src/MacroDeck/StartupConfig/LoggingConfig.cs
             - src/MacroDeck/Logging/SentryConfiguration.cs
+            - src/MacroDeck/StartupConfig/LoggingConfig.cs
             - src/MacroDeck/Logging/DebugConsoleSink.cs
             - src/MacroDeck/Logging/PluginSourceEnricher.cs
+            - src/MacroDeck/Program.cs
         children: []
         depends_on: []
         related_to: []

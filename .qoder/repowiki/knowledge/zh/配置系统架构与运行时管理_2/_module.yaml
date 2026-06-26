@@ -1,14 +1,14 @@
 schema_version: 1
-module_path: ""
-title: Macro Deck 桌面自动化核心平台
-scope:
-    - '**'
+module_path: configuration_system
+title: 配置系统架构与运行时管理
+scope: []
 source_files:
     - src/MacroDeck/Configuration/MainConfiguration.cs
     - src/MacroDeck/StartupConfig/ApplicationPaths.cs
     - src/MacroDeck/StartupConfig/StartParameters.cs
-    - src/MacroDeck/StartupConfig/LoggingConfig.cs
     - src/MacroDeck/MacroDeck.cs
-    - src/MacroDeck/Program.cs
+    - src/MacroDeck/Models/ISerializableConfiguration.cs
+    - src/MacroDeck/Profiles/ProfileManager.cs
+    - src/MacroDeck/Device/DeviceConfiguration.cs
 depends_on: []
 related_to: []

@@ -3,13 +3,13 @@ module_path: build_system
 title: 构建与发布系统
 scope: []
 source_files:
-    - .github/workflows/build-push-windows.yml
-    - .github/workflows/create-release.yml
-    - .github/workflows/publish-nuget.yml
-    - .github/workflows/pull-web-client.yml
-    - setup/Macro Deck.iss
-    - src/MacroDeck/MacroDeck.csproj
+    - .github/workflows/ci.yml
+    - .github/workflows/tests.yml
+    - .github/workflows/build-local.yml
     - Directory.Build.props
     - Directory.Packages.props
+    - src/MacroDeck/MacroDeck.csproj
+    - setup/Macro Deck.iss
+    - CI流程说明.md
 depends_on: []
 related_to: []

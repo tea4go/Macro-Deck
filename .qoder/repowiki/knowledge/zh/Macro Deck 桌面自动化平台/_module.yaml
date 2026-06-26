@@ -1,0 +1,18 @@
+schema_version: 1
+module_path: ""
+title: Macro Deck 桌面自动化平台
+scope:
+    - README.md
+    - .gitignore
+    - .gitattributes
+    - Directory.Build.props
+    - Directory.Packages.props
+    - Macro-Deck.slnx
+    - Macro-Deck.slnx.DotSettings
+    - run_win.bat
+    - run_win.ps1
+    - test-macrodeck.ps1
+    - 自动化测试.md
+source_files: []
+depends_on: []
+related_to: []

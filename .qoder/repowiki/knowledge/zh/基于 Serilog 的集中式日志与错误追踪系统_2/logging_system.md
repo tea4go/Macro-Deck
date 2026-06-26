@@ -1,66 +1,77 @@
-## 1. 核心框架与架构
-Macro Deck 采用 **Serilog** 作为统一的日志记录框架，通过 `LoggingConfig` 在应用启动早期进行全局配置。系统采用了**结构化日志（Structured Logging）**模式，支持将日志事件路由到多个 Sink（输出端），并集成了远程错误追踪服务。
+## 1. 核心架构与框架
+Macro Deck 采用 **Serilog** 作为统一的日志记录框架，结合 **Sentry** 进行生产环境下的错误追踪与异常上报。系统通过 `LoggingConfig` 在应用启动早期（`Program.cs`）初始化全局静态日志器 `Log.Logger`，确保从应用程序生命周期的最开始就有日志输出。
 
 ### 关键组件
-- **`MacroDeckLogger`**: 应用程序的全局日志门面（Facade）。它封装了 Serilog 的 API，提供了静态方法供全项目调用，并管理日志级别的动态切换。
-- **`LoggingConfig`**: 负责构建 `ILogger` 实例，定义日志的输出模板、最低级别以及各个 Sink 的配置。
-- **`PluginSourceEnricher`**: 自定义的 Serilog Enricher，用于自动识别日志来源是“Macro Deck 核心”还是“第三方插件”，并在日志事件中附加 `Source` 属性。
-- **`DebugConsoleSink`**: 自定义 Sink，将日志实时转发至 GUI 界面中的“调试控制台”窗口，方便开发者在不查看文件的情况下监控运行时状态。
-- **`SentryConfiguration`**: 集成 Sentry 进行错误追踪和崩溃报告，包含严格的隐私过滤和来源白名单机制。
+- **Serilog**: 负责结构化日志的记录、格式化与多路分发（Console, File, Debug UI, Sentry）。
+- **Sentry (Serilog Sink)**: 负责将核心模块的 Error/Fatal 级别日志及未处理异常上报至云端监控平台。
+- **MacroDeckLogger**: 封装的统一日志 API，提供面向核心代码和插件开发的便捷方法，并管理运行时日志级别。
 
-## 2. 日志输出与路由策略
-日志事件会被同时分发到以下三个主要目的地：
+## 2. 日志路由与接收器 (Sinks)
+日志通过 `LoggingConfig.CreateLogger()` 配置，主要分发到以下四个目的地：
 
-1. **控制台 (Console)**: 
-   - 使用 `AnsiConsoleTheme.Code` 主题，提供带颜色的高亮输出。
-   - 适用于开发环境和容器化部署时的即时观察。
-2. **滚动文件 (Rolling File)**:
-   - 路径: `ApplicationPaths.LogsDirectoryPath/log.txt`。
-   - 策略: 按天滚动 (`RollingInterval.Day`)，单文件大小限制为 50MB。
-   - 用途: 持久化存储，用于事后排查和历史审计。
-3. **GUI 调试控制台 (Debug Console)**:
-   - 通过 `DebugConsoleSink` 实现。
-   - 仅当 `DebugConsole` 窗口打开时生效，根据日志级别（Error, Warning, Info 等）显示不同颜色。
-4. **Sentry (条件触发)**:
-   - 仅在 CI/CD 注入了有效的 DSN 且用户未禁用错误报告时启用。
-   - 仅上报 `Error` 及以上级别的事件。
+1. **控制台 (Console)**:
+   - 使用 `AnsiConsoleTheme.Code` 主题，便于开发调试。
+   - 输出模板：`[{Timestamp:HH:mm:ss} {Level:u3}] [{Source}] {Message:lj}{NewLine}{Exception}`。
+2. **文件 (File)**:
+   - 路径：`ApplicationPaths.LogsDirectoryPath/log.txt`。
+   - 策略：按天滚动 (`RollingInterval.Day`)，单文件最大 50MB。
+3. **调试控制台 (DebugConsoleSink)**:
+   - 自定义 Sink，将日志实时转发至 GUI 中的 `DebugConsole` 窗口。
+   - 根据日志级别（Fatal/Error=红色, Warning=橙色, Info=白色等）着色显示。
+   - 若未打开调试窗口则自动静默，无性能损耗。
+4. **Sentry (Conditional)**:
+   - 仅在 DSN 已配置且 `SentryConfiguration.Enabled` 为真时启用。
+   - 通过 `Conditional` 包装，仅发送符合 `ShouldSend` 规则的事件。
 
-## 3. 结构化字段与 enrichers
-系统通过 `PluginSourceEnricher` 确保每条日志都包含明确的来源标识：
-- **`Source`**: 如果日志来自插件，则该字段为插件名称；否则为 `"MacroDeck"`。
-- **`Plugin`**: 内部属性，用于标记该事件是否由插件产生（Sentry 利用此属性过滤掉插件产生的错误）。
-- **`Exception`**: 异常堆栈信息会被自动捕获并格式化。
+## 3. 结构化字段与上下文增强
+系统通过自定义 Enricher 和 Context 策略，确保日志具备清晰的来源标识：
 
-输出模板统一为：
-`[{Timestamp:HH:mm:ss} {Level:u3}] [{Source}] {Message:lj}{NewLine}{Exception}`
+- **PluginSourceEnricher**: 为每条日志添加 `Source` 属性。
+  - 如果日志包含 `Plugin` 属性，`Source` 设为插件名称。
+  - 否则，`Source` 默认为 `"MacroDeck"`。
+- **核心与插件隔离**:
+  - **核心日志**: 通过 `Log.ForContext(SourceContextPropertyName, "SuchByte.MacroDeck")` 记录，携带标准的 `SourceContext`。
+  - **插件日志**: 通过 `Log.ForContext("Plugin", plugin.Name)` 记录，携带 `Plugin` 属性。
+  - **Sentry 过滤**: `SentryConfiguration` 严格排除带有 `Plugin` 属性的日志，且仅允许 `SourceContext` 以 `SuchByte.MacroDeck` 开头的事件上报，防止插件错误污染核心监控数据。
 
-## 4. 日志级别管理
-`MacroDeckLogger` 维护了一个全局可变的 `LogLevel` 枚举（Trace, Info, Warning, Error, Nothing）：
-- **默认行为**: 如果附加了调试器（Debugger.IsAttached），默认级别为 `Trace`；否则为 `Info`。
-- **动态调整**: 修改 `MacroDeckLogger.LogLevel` 会实时更新 Serilog 的 `LoggingLevelSwitch`，无需重启应用。
-- **框架噪音抑制**: 在 `LoggingConfig` 中显式将 `Microsoft`、`System` 等命名空间的日志级别提升至 `Warning` 或 `Information`，以减少底层框架产生的冗余日志。
+## 4. 隐私保护与数据清理
+在上报 Sentry 前，`SentryConfiguration` 执行严格的隐私清洗：
+- **BeforeSend/Breadcrumb 处理器**: 移除 `ServerName`。
+- **Scrub 方法**: 将日志消息、异常堆栈、文件名中的 Windows 用户路径替换为 `%USERPROFILE%`，用户名替换为 `[user]`。
+- **PII 禁用**: 设置 `SendDefaultPii = false`。
 
-## 5. 隐私保护与 Sentry 集成
-为了符合隐私规范，Sentry 集成实施了严格的数据清洗策略：
-- **来源白名单**: `SentryConfiguration.ShouldSend` 仅允许 `SourceContext` 以 `SuchByte.MacroDeck` 开头的事件上报。**插件产生的错误不会被发送到 Sentry**，以保护第三方开发者的隐私并避免噪音。
-- **数据脱敏 (Scrubbing)**: 在 `BeforeSend` 和 `BeforeBreadcrumb` 钩子中，系统会自动替换以下敏感信息：
-  - Windows 用户配置文件路径 (`%USERPROFILE%`)
-  - 当前用户名 (`[user]`)
-  - 服务器名称被置空。
-- **环境标识**: 自动区分 `debug` 和 `release` 环境，并附加程序集版本号作为 Release 标签。
+## 5. 开发者规范
 
-## 6. 开发者规范
-1. **统一入口**: 所有代码必须通过 `SuchByte.MacroDeck.Logging.MacroDeckLogger` 进行日志记录，禁止直接实例化 Serilog Logger。
-2. **结构化模板**: 使用消息模板而非字符串拼接。例如：
-   ```csharp
-   // 推荐
-   MacroDeckLogger.Information("Connected to {Host}", hostName);
-   // 不推荐
-   MacroDeckLogger.Information($"Connected to {hostName}");
-   ```
-3. **插件日志**: 插件开发者应使用带有 `MacroDeckPlugin` 参数的重载方法，以便系统自动标记来源：
-   ```csharp
-   MacroDeckLogger.Error(this, ex, "Failed to process action");
-   ```
-4. **异常处理**: 记录错误时务必传入 `Exception` 对象，以便 Sentry 和文件日志能捕获完整的堆栈跟踪。
-5. **清理机制**: 系统会自动删除 30 天前的日志文件（见 `MacroDeckLogger.CleanUpLogsDir`），开发者无需手动管理磁盘空间。
+### 5.1 核心代码日志记录
+请使用 `SuchByte.MacroDeck.Logging.MacroDeckLogger` 静态类：
+```csharp
+// 信息级日志
+MacroDeckLogger.Information("Application started on port {Port}", port);
+
+// 错误级日志（带异常）
+try { ... } 
+catch (Exception ex) {
+    MacroDeckLogger.Error(ex, "Failed to connect to device {DeviceId}", deviceId);
+}
+```
+
+### 5.2 插件开发日志记录
+插件应通过传入 `MacroDeckPlugin` 实例来记录日志，以便自动标记来源：
+```csharp
+public class MyPlugin : MacroDeckPlugin {
+    public override void OnLoad() {
+        MacroDeckLogger.Information(this, "Plugin loaded successfully");
+    }
+}
+```
+
+### 5.3 日志级别建议
+- **Verbose/Debug**: 仅在开发或排查具体问题时使用，生产环境默认关闭。
+- **Information**: 记录关键业务流程（如设备连接、配置加载）。
+- **Warning**: 记录非致命异常或降级行为。
+- **Error/Fatal**: 记录导致功能失效的异常，这类日志会被 Sentry 捕获。
+
+### 5.4 注意事项
+- **避免敏感信息**: 尽管有自动清洗，仍应避免在日志中明文记录密码、Token 或个人身份信息。
+- **结构化参数**: 优先使用消息模板参数（如 `{UserId}`）而非字符串拼接，以便 Serilog 进行结构化索引。
+- **运行时调整**: 可通过 `MacroDeckLogger.LogLevel` 属性在运行时动态调整最低日志级别。
