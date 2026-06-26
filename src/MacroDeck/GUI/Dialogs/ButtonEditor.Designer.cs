@@ -554,7 +554,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             listStateBinding.Name = "listStateBinding";
             listStateBinding.SelectedIndex = -1;
             listStateBinding.SelectedItem = null;
-            listStateBinding.Size = new Size(253, 26);
+            listStateBinding.Size = new Size(253, 32);
             listStateBinding.TabIndex = 27;
             listStateBinding.SelectedIndexChanged += ListStateBinding_SelectedIndexChanged;
             //
