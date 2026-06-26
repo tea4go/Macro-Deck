@@ -6,12 +6,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
 {
     partial class VariablesView
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -28,8 +28,8 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
@@ -42,20 +42,20 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.btnCreateVariable = new ButtonPrimary();
             this.creatorFilter = new FlowLayoutPanel();
             this.SuspendLayout();
-            // 
+            //
             // variablesPanel
-            // 
-            this.variablesPanel.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom) 
-                                                           | AnchorStyles.Left) 
+            //
+            this.variablesPanel.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
+                                                           | AnchorStyles.Left)
                                                           | AnchorStyles.Right)));
             this.variablesPanel.AutoScroll = true;
             this.variablesPanel.Location = new Point(240, 53);
             this.variablesPanel.Name = "variablesPanel";
             this.variablesPanel.Size = new Size(897, 451);
             this.variablesPanel.TabIndex = 11;
-            // 
+            //
             // lblCreator
-            // 
+            //
             this.lblCreator.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblCreator.Location = new Point(860, 0);
             this.lblCreator.Name = "lblCreator";
@@ -64,9 +64,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.lblCreator.Text = "Creator";
             this.lblCreator.TextAlign = ContentAlignment.MiddleLeft;
             this.lblCreator.UseMnemonic = false;
-            // 
+            //
             // lblValue
-            // 
+            //
             this.lblValue.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblValue.Location = new Point(596, 0);
             this.lblValue.Name = "lblValue";
@@ -75,9 +75,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.lblValue.Text = "Value";
             this.lblValue.TextAlign = ContentAlignment.MiddleLeft;
             this.lblValue.UseMnemonic = false;
-            // 
+            //
             // lblType
-            // 
+            //
             this.lblType.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblType.Location = new Point(476, 0);
             this.lblType.Name = "lblType";
@@ -86,9 +86,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.lblType.Text = "Type";
             this.lblType.TextAlign = ContentAlignment.MiddleLeft;
             this.lblType.UseMnemonic = false;
-            // 
+            //
             // lblName
-            // 
+            //
             this.lblName.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblName.Location = new Point(247, 0);
             this.lblName.Name = "lblName";
@@ -97,9 +97,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.lblName.Text = "Name";
             this.lblName.TextAlign = ContentAlignment.MiddleLeft;
             this.lblName.UseMnemonic = false;
-            // 
+            //
             // btnCreateVariable
-            // 
+            //
             this.btnCreateVariable.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
             this.btnCreateVariable.BorderRadius = 8;
             this.btnCreateVariable.Cursor = Cursors.Hand;
@@ -109,7 +109,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.btnCreateVariable.ForeColor = Color.White;
             this.btnCreateVariable.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnCreateVariable.Icon = null;
-            this.btnCreateVariable.Location = new Point(1014, 510);
+            this.btnCreateVariable.Location = new Point(1000, 480);
             this.btnCreateVariable.Name = "btnCreateVariable";
             this.btnCreateVariable.Progress = 0;
             this.btnCreateVariable.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -120,19 +120,19 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             this.btnCreateVariable.UseVisualStyleBackColor = false;
             this.btnCreateVariable.UseWindowsAccentColor = true;
             this.btnCreateVariable.Click += new EventHandler(this.BtnCreateVariable_Click);
-            // 
+            //
             // creatorFilter
-            // 
-            this.creatorFilter.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom) 
+            //
+            this.creatorFilter.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom)
                                                          | AnchorStyles.Left)));
             this.creatorFilter.AutoScroll = true;
             this.creatorFilter.Location = new Point(0, 53);
             this.creatorFilter.Name = "creatorFilter";
-            this.creatorFilter.Size = new Size(234, 451);
+            this.creatorFilter.Size = new Size(334, 551);
             this.creatorFilter.TabIndex = 17;
-            // 
+            //
             // VariablesView
-            // 
+            //
             this.AutoScaleDimensions = new SizeF(96F, 96F);
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.BackColor = Color.FromArgb(45, 45, 45);

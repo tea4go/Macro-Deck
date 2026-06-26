@@ -3,6 +3,7 @@ using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Properties;
+using SuchByte.MacroDeck.Utils;
 using SuchByte.MacroDeck.Variables;
 
 namespace SuchByte.MacroDeck.GUI.MainWindowViews;
@@ -67,7 +68,7 @@ public partial class VariablesView : UserControl
                 Text = creator,
                 Name = creator,
                 AutoSize = false,
-                Size = new Size(creatorFilter.Width - 30, 20)
+                Size = new Size(creatorFilter.Width - 30, 40)
             };
             creatorFilter.Controls.Add(creatorCheckBox);
             creatorCheckBox.CheckedChanged += CreatorCheckBox_CheckedChanged;
@@ -110,6 +111,8 @@ public partial class VariablesView : UserControl
     {
         LoadCreators();
         LoadVariables();
+        // 动态创建的 VariableItem 在 LoadVariables 中添加，需补调 FontManager.Apply
+        FontManager.Apply(variablesPanel);
         VariableManager.OnVariableChanged += VariableChanged;
         VariableManager.OnVariableRemoved += VariableRemoved;
     }
@@ -158,6 +161,8 @@ public partial class VariablesView : UserControl
             // 新变量，创建控件
             var newVariableItem = new VariableItem(variable);
             variablesPanel.Controls.Add(newVariableItem);
+            // 动态创建的 VariableItem 需补调 FontManager.Apply
+            FontManager.Apply(newVariableItem);
             LoadCreators();
         }
         else
