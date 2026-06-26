@@ -270,6 +270,7 @@ public partial class DebugConsole : Form
 
     private void btnTestNotification_Click(object sender, EventArgs e)
     {
+        Logger.Information("Test notification triggered");
         NotificationManager.SystemNotification("Test", $"Test notification sent at {DateTime.Now.ToString()}", true);
     }
 }
