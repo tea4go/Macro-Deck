@@ -427,6 +427,8 @@ public partial class DebugConsole : Form
     /// </summary>
     private void btnTestNotification_Click(object sender, EventArgs e)
     {
+        Logger.Verbose("[测试] ============================================================");
+
         Logger.Verbose("[测试] Verbose 级别日志 —— 最详细的追踪信息");
         Logger.Debug("[测试] Debug 级别日志 —— 调试诊断信息");
         Logger.Information("[测试] Information 级别日志 —— 常规运行信息");
