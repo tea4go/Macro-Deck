@@ -322,7 +322,7 @@ public class SaveVariableToFileAction : PluginAction
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to save variable value to file");
+            Logger.Error(ex, "保存变量值到文件失败");
         }
     }
 
@@ -412,7 +412,7 @@ public class ReadVariableFromFileAction : PluginAction
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to read variable value from file");
+            Logger.Error(ex, "从文件读取变量值失败");
         }
     }
 

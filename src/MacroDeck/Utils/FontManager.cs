@@ -53,7 +53,7 @@ public static class FontManager
 
         if (!string.Equals(family, DefaultFontFamily, StringComparison.OrdinalIgnoreCase) && !IsFontInstalled(family))
         {
-            Logger.Warning("Configured font \"{Font}\" is not installed, falling back to {Default}", family,
+            Logger.Warning("配置的字体 \"{Font}\" 未安装，回退到 {Default}", family,
                 DefaultFontFamily);
             family = DefaultFontFamily;
         }
@@ -83,7 +83,7 @@ public static class FontManager
             }
             catch (Exception ex)
             {
-                Logger.Warning(ex, "Failed to refresh font for form {Form}", form.Name);
+                Logger.Warning(ex, "为窗体 {Form} 刷新字体失败", form.Name);
             }
         }
     }
@@ -137,7 +137,7 @@ public static class FontManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to set application default font");
+            Logger.Error(ex, "设置应用程序默认字体失败");
         }
     }
 
@@ -175,7 +175,7 @@ public static class FontManager
             }
             catch (Exception ex)
             {
-                Logger.Warning(ex, "Failed to apply font to control {Control}", control.Name);
+                Logger.Warning(ex, "为控件 {Control} 应用字体失败", control.Name);
             }
         }
 

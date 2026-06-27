@@ -145,7 +145,7 @@ public class SoftwareClientMessage : IDeviceMessage
                 DeviceManager.GetMacroDeckDevice(macroDeckClient.ClientId).Configuration.WakeLockMethod),
             SupportButtonReleaseLongPress = true
         });
-        Logger.Debug("{Configuration}", configurationObject.ToString());
+        Logger.Debug("配置内容：{Configuration}", configurationObject.ToString());
         MacroDeckServer.Send(macroDeckClient, configurationObject);
     }
 

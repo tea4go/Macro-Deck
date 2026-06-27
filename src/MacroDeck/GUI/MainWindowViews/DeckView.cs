@@ -1080,17 +1080,17 @@ public partial class DeckView : UserControl
         ProfileManager.CurrentProfile.ButtonBackground = checkButtonBackground.Checked;
         ProfileManager.Save();
         Logger.Information(
-            string.Format("Updated profile settings of {0}:", ProfileManager.CurrentProfile.DisplayName) +
+            string.Format("已更新配置文件 {0} 的设置：", ProfileManager.CurrentProfile.DisplayName) +
             Environment.NewLine +
-            string.Format("Rows: {0}", ProfileManager.CurrentProfile.Rows) +
+            string.Format("行数：{0}", ProfileManager.CurrentProfile.Rows) +
             Environment.NewLine +
-            string.Format("Columns: {0}", ProfileManager.CurrentProfile.Columns) +
+            string.Format("列数：{0}", ProfileManager.CurrentProfile.Columns) +
             Environment.NewLine +
-            string.Format("ButtonSpacing: {0}", ProfileManager.CurrentProfile.ButtonSpacing) +
+            string.Format("按钮间距：{0}", ProfileManager.CurrentProfile.ButtonSpacing) +
             Environment.NewLine +
-            string.Format("ButtonRadius: {0}", ProfileManager.CurrentProfile.ButtonRadius) +
+            string.Format("按钮圆角：{0}", ProfileManager.CurrentProfile.ButtonRadius) +
             Environment.NewLine +
-            string.Format("ButtonBackground: {0}", ProfileManager.CurrentProfile.ButtonBackground));
+            string.Format("按钮背景：{0}", ProfileManager.CurrentProfile.ButtonBackground));
         UpdateButtons(true);
         foreach (var macroDeckClient in MacroDeckServer.Clients.FindAll(macroDeckClient =>
             macroDeckClient.Profile.ProfileId.Equals(ProfileManager.CurrentProfile.ProfileId)))

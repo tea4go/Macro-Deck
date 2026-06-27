@@ -21,7 +21,7 @@ public class MacroDeckPipeServer
     /// </summary>
     public static void Initialize()
     {
-        Logger.Information("Initializing pipe server");
+        Logger.Information("正在初始化命名管道服务器");
         Task.Run(async () => await HandleConnections().ConfigureAwait(false));
     }
 
@@ -44,7 +44,7 @@ public class MacroDeckPipeServer
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Failed to handle pipe connection");
+                Logger.Error(ex, "处理管道连接失败");
             }
             finally
             {

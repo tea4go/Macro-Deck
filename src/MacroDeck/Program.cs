@@ -97,7 +97,7 @@ internal class Program
     private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
         Logger.Error(e.ExceptionObject as Exception,
-            "Unhandled domain exception: {ExceptionObject}",
+            "未处理的 AppDomain 异常：{ExceptionObject}",
             e.ExceptionObject);
     }
 
@@ -106,6 +106,6 @@ internal class Program
     /// </summary>
     private static void ApplicationThreadException(object sender, ThreadExceptionEventArgs e)
     {
-        Logger.Error(e.Exception, "Unhandled thread exception");
+        Logger.Error(e.Exception, "未处理的线程异常");
     }
 }

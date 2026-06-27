@@ -36,7 +36,7 @@ public static class MacroDeckLogger
         {
             _logLevel = value;
             LevelSwitch.MinimumLevel = ToLogEventLevel(value);
-            Logger.Information("Set log level to {LogLevel}", _logLevel);
+            Logger.Information("日志级别已设置为 {LogLevel}", _logLevel);
         }
     }
 

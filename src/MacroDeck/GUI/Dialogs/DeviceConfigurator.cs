@@ -85,7 +85,7 @@ public partial class DeviceConfigurator : DialogForm
 
     private void CheckAutoConnect_CheckedChanged(object sender, EventArgs e)
     {
-        Logger.Debug($"Set auto connect to {checkAutoConnect.Checked}");
+        Logger.Debug($"已将自动连接设置为 {checkAutoConnect.Checked}");
         if (_macroDeckDevice == null || !_macroDeckDevice.Available)
         {
             return;
@@ -101,7 +101,7 @@ public partial class DeviceConfigurator : DialogForm
     {
         if (radioKeepAwakeNever.Checked)
         {
-            Logger.Debug("Set keepWake to never");
+            Logger.Debug("屏幕常亮设置为：从不");
             if (_macroDeckDevice == null || !_macroDeckDevice.Available)
             {
                 return;
@@ -118,7 +118,7 @@ public partial class DeviceConfigurator : DialogForm
     {
         if (radioKeepAwakeConnected.Checked)
         {
-            Logger.Debug("Set keepWake to connected");
+            Logger.Debug("屏幕常亮设置为：连接时");
             if (_macroDeckDevice == null || !_macroDeckDevice.Available)
             {
                 return;
@@ -135,7 +135,7 @@ public partial class DeviceConfigurator : DialogForm
     {
         if (radioKeepAwakeAlways.Checked)
         {
-            Logger.Debug("Set keepWake to always");
+            Logger.Debug("屏幕常亮设置为：始终");
             if (_macroDeckDevice == null || !_macroDeckDevice.Available)
             {
                 return;

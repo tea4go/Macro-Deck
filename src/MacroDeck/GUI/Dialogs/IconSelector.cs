@@ -120,7 +120,7 @@ public partial class IconSelector : DialogForm
 
         Task.Run(() =>
         {
-            Logger.Information($"Starting importing {openFileDialog.FileNames.Length} icon(s)");
+            Logger.Information($"开始导入 {openFileDialog.FileNames.Length} 个图标");
 
             // Decoding and resizing are CPU-bound and independent per file, so process the files
             // in parallel. The results are collected thread-safely and added below on this thread.
@@ -131,11 +131,11 @@ public partial class IconSelector : DialogForm
                 try
                 {
                     loaded.Add(LoadImportImage(file, pixels));
-                    Logger.Debug("Image loaded");
+                    Logger.Debug("图像已加载");
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(ex, "Failed to load image {File}", file);
+                    Logger.Error(ex, "加载图像 {File} 失败", file);
                 }
             });
 
@@ -146,12 +146,12 @@ public partial class IconSelector : DialogForm
 
             if (iconPack == null)
             {
-                Logger.Error("Icon pack was null");
+                Logger.Error("图标包为空");
                 SpinnerDialog.SetVisisble(false, this);
                 return;
             }
 
-            Logger.Information($"Adding {icons.Count} icons to {iconPack.Name}");
+            Logger.Information($"正在向图标包 {iconPack.Name} 添加 {icons.Count} 个图标");
             var gifIcons = new List<Image>();
             gifIcons.AddRange(icons.FindAll(x => x.RawFormat.ToString().ToLower() == "gif").ToArray());
             var convertGifToStatic = false;
@@ -165,7 +165,7 @@ public partial class IconSelector : DialogForm
                             MessageBoxButtons.YesNo) ==
                         DialogResult.Yes;
                 });
-                Logger.Information("Convert gif to static? " + convertGifToStatic);
+                Logger.Information("是否将 GIF 转换为静态图像：" + convertGifToStatic);
             }
 
             foreach (var icon in icons)
@@ -183,7 +183,7 @@ public partial class IconSelector : DialogForm
             }
 
             Invoke(() => LoadIcons(iconPack, true));
-            Logger.Information("Icons successfully imported");
+            Logger.Information("图标导入成功");
             SpinnerDialog.SetVisisble(false, this);
         });
     }

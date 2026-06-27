@@ -52,17 +52,17 @@ public class AdbServerHelper
 
         if (!File.Exists(AdbPath))
         {
-            Logger.Warning("Cannot start adb server at {AdbPath}: File not found", AdbPath);
+            Logger.Warning("无法在 {AdbPath} 启动 ADB 服务器：找不到文件", AdbPath);
             return;
         }
 
-        Logger.Information("Starting ADB server using {AdbPath}", AdbPath);
+        Logger.Information("正在使用 {AdbPath} 启动 ADB 服务器", AdbPath);
 
         _adbServer = new AdbServer();
         var result = await _adbServer.StartServerAsync(AdbPath, false);
         if (result != StartServerResult.Started && result != StartServerResult.AlreadyRunning)
         {
-            Logger.Information("Unable to start ADB server");
+            Logger.Information("无法启动 ADB 服务器");
         }
 
         // 启动设备监视器，监听设备连接和断开事件
@@ -135,7 +135,7 @@ public class AdbServerHelper
             return adbServerEndpoint;
         }
 
-        Logger.Information("Endpoint was null");
+        Logger.Information("ADB 服务器端点为空");
         return null;
     }
 
@@ -144,7 +144,7 @@ public class AdbServerHelper
     /// </summary>
     private static void Monitor_DeviceDisconnected(object sender, DeviceDataEventArgs e)
     {
-        Logger.Information("{DeviceName} disconnected", e.Device.Name);
+        Logger.Information("设备 {DeviceName} 已断开连接", e.Device.Name);
     }
 
     /// <summary>
@@ -159,7 +159,7 @@ public class AdbServerHelper
             return;
         }
 
-        Logger.Information("{DeviceName} connected", e.Device.Name);
+        Logger.Information("设备 {DeviceName} 已连接", e.Device.Name);
         await RunForDevice(e.Device.Serial,
             async (adbDeviceClient, deviceData) =>
             {
@@ -184,7 +184,7 @@ public class AdbServerHelper
             return true;
         }
 
-        Logger.Information("Device {DeviceSerial} is still not online - {DeviceState}", device.Serial, device.State);
+        Logger.Information("设备 {DeviceSerial} 仍未上线 - {DeviceState}", device.Serial, device.State);
         return false;
 
         async Task WaitForDeviceOnline()
@@ -277,11 +277,11 @@ public class AdbServerHelper
                 $"tcp:{MacroDeck.Configuration.HostPort}",
                 true);
 
-            Logger.Information("Started reverse forward on {DeviceName}", device.Name);
+            Logger.Information("已在设备 {DeviceName} 上启用反向端口转发", device.Name);
         }
         catch (Exception ex)
         {
-            Logger.Warning(ex, "Unable to start reverse forward on {DeviceName}", device.Name);
+            Logger.Warning(ex, "无法在设备 {DeviceName} 上启用反向端口转发", device.Name);
         }
     }
 }

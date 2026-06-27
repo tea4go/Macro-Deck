@@ -42,14 +42,14 @@ public class DebugConsoleSink : ILogEventSink
                 ? name
                 : "MacroDeck";
 
-        var color = ColorForLevel(logEvent.Level);
+        var colors = ColorForLevel(logEvent.Level);
 
         var console = DebugConsole.Current;
         if (console is null)
         {
             lock (BufferLock)
             {
-                Buffer.Enqueue(new BufferedEntry(text, source, color));
+                Buffer.Enqueue(new BufferedEntry(text, source, colors));
                 while (Buffer.Count > BufferCapacity)
                 {
                     Buffer.Dequeue();
@@ -58,7 +58,7 @@ public class DebugConsoleSink : ILogEventSink
             return;
         }
 
-        console.AppendText(text, source, color);
+        console.AppendText(text, source, colors);
     }
 
     /// <summary>
@@ -83,35 +83,75 @@ public class DebugConsoleSink : ILogEventSink
 
         foreach (var entry in snapshot)
         {
-            console.AppendText(entry.Text, entry.Source, entry.Color);
+            console.AppendText(entry.Text, entry.Source, entry.Colors);
         }
     }
 
-    private static Color ColorForLevel(LogEventLevel level)
+    /// <summary>
+    /// 存储日志级别对应的背景色与前景（文字）色对。
+    /// </summary>
+    public readonly struct LevelColors
+    {
+        public Color Background { get; }
+        public Color Foreground { get; }
+
+        public LevelColors(Color background, Color foreground)
+        {
+            Background = background;
+            Foreground = foreground;
+        }
+
+        /// <summary>是否有有效的背景色（非 Empty 且不透明）</summary>
+        public bool HasBackground => Background != Color.Empty && Background.A > 0;
+    }
+
+    /// <summary>
+    /// 根据 Serilog 日志级别返回对应的背景色与前景色组合。
+    /// 背景色用于在调试控制台中标记整行条目的严重程度；前景色控制文字颜色以确保可读性。
+    /// </summary>
+    private static LevelColors ColorForLevel(LogEventLevel level)
     {
         return level switch
         {
-            LogEventLevel.Fatal => Color.FromArgb(255, 99, 99),
-            LogEventLevel.Error => Color.FromArgb(255, 99, 99),
-            LogEventLevel.Warning => Color.Orange,
-            LogEventLevel.Information => Color.White,
-            LogEventLevel.Debug => Color.Gray,
-            LogEventLevel.Verbose => Color.DarkGray,
-            _ => Color.White
+            // 致命错误：深红背景 + 亮红文字，最高视觉优先级
+            LogEventLevel.Fatal => new LevelColors(
+                Color.FromArgb(120, 15, 15),
+                Color.FromArgb(255, 85, 85)),
+            // 一般错误：暗红背景 + 柔和红色文字，与 Fatal 区分
+            LogEventLevel.Error => new LevelColors(
+                Color.FromArgb(90, 20, 20),
+                Color.FromArgb(255, 105, 105)),
+            // 警告：暗金背景 + 金黄色文字，醒目且柔和
+            LogEventLevel.Warning => new LevelColors(
+                Color.FromArgb(90, 65, 10),
+                Color.FromArgb(255, 195, 60)),
+            // 信息：暗绿背景 + 白色文字，常规信息清晰可读
+            LogEventLevel.Information => new LevelColors(
+                Color.FromArgb(25, 55, 25),
+                Color.White),
+            // 调试：暗灰背景 + 浅灰色文字，与 Info 区分
+            LogEventLevel.Debug => new LevelColors(
+                Color.FromArgb(45, 45, 45),
+                Color.FromArgb(170, 170, 170)),
+            // 详细：无背景 + 暗灰色文字，最低优先级
+            LogEventLevel.Verbose => new LevelColors(
+                Color.Empty,
+                Color.FromArgb(100, 100, 100)),
+            _ => new LevelColors(Color.Empty, Color.White)
         };
     }
 
     private readonly struct BufferedEntry
     {
-        public BufferedEntry(string text, string source, Color color)
+        public BufferedEntry(string text, string source, LevelColors colors)
         {
             Text = text;
             Source = source;
-            Color = color;
+            Colors = colors;
         }
 
         public string Text { get; }
         public string Source { get; }
-        public Color Color { get; }
+        public LevelColors Colors { get; }
     }
 }

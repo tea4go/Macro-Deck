@@ -64,7 +64,7 @@ public class FolderSwitcher : PluginAction
     /// <param name="actionButton">触发源动作按钮</param>
     public override void Trigger(string clientId, ActionButton.ActionButton actionButton)
     {
-        Logger.Debug("Switch folder triggered by {ClientId}", clientId);
+        Logger.Debug("客户端 {ClientId} 触发了切换文件夹", clientId);
         switch (clientId)
         {
             // ClientID -1 or "" = Macro Deck software itself
@@ -122,7 +122,7 @@ public class GoToParentFolder : PluginAction
     {
         try
         {
-            Logger.Debug("Go to parent folder triggered by {ClientId}", clientId);
+            Logger.Debug("客户端 {ClientId} 触发了返回上级文件夹", clientId);
             switch (clientId)
             {
                 // ClientID -1 or "" = Macro Deck software itself
@@ -186,7 +186,7 @@ public class GoToRootFolder : PluginAction
     {
         try
         {
-            Logger.Debug("Go to root folder triggered by {ClientId}", clientId);
+            Logger.Debug("客户端 {ClientId} 触发了返回根文件夹", clientId);
             switch (clientId)
             {
                 // ClientID -1 or "" = Macro Deck software itself

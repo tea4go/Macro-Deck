@@ -60,7 +60,7 @@ public static class MacroDeckServer
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to start server");
+            Logger.Error(ex, "启动服务器失败");
 
             using var msgBox = new GUI.CustomControls.MessageBox();
             msgBox.ShowDialog(LanguageManager.Strings.Error,
@@ -132,7 +132,7 @@ public static class MacroDeckServer
         }
 
         Clients.Remove(macroDeckClient);
-        Logger.Information("{ClientId} connection closed", macroDeckClient.ClientId);
+        Logger.Information("{ClientId} 的连接已关闭", macroDeckClient.ClientId);
         OnDeviceConnectionStateChanged?.Invoke(macroDeckClient, EventArgs.Empty);
     }
 
@@ -142,7 +142,7 @@ public static class MacroDeckServer
     /// <param name="macroDeckClient">要关闭的客户端</param>
     public static void CloseClient(MacroDeckClient macroDeckClient)
     {
-        Logger.Information("Close connection to {ClientId}", macroDeckClient.ClientId);
+        Logger.Information("关闭与 {ClientId} 的连接", macroDeckClient.ClientId);
         Task.Run(async () => await WebSocketHandler.Close(macroDeckClient.SessionId));
     }
 
@@ -166,7 +166,7 @@ public static class MacroDeckServer
             return;
         }
 
-        Logger.Debug("Received method: {Method}", method);
+        Logger.Debug("收到方法调用：{Method}", method);
 
         switch (method)
         {
@@ -183,7 +183,7 @@ public static class MacroDeckServer
 
                 macroDeckClient.SetClientId(responseObject["Client-Id"].ToString());
 
-                Logger.Information("Connection request from {ClientId}", macroDeckClient.ClientId);
+                Logger.Information("收到来自 {ClientId} 的连接请求", macroDeckClient.ClientId);
 
                 Enum.TryParse(responseObject["Device-Type"].ToString(), out DeviceType deviceType);
                 macroDeckClient.DeviceType = deviceType;
@@ -233,7 +233,7 @@ public static class MacroDeckServer
                 macroDeckClient.DeviceMessage.Connected(macroDeckClient);
 
                 OnDeviceConnectionStateChanged?.Invoke(macroDeckClient, EventArgs.Empty);
-                Logger.Information("{ClientId} connected", macroDeckClient.ClientId);
+                Logger.Information("{ClientId} 已连接", macroDeckClient.ClientId);
                 break;
 
             case JsonMethod.BUTTON_PRESS:
@@ -273,7 +273,7 @@ public static class MacroDeckServer
                 }
                 catch (Exception ex)
                 {
-                    Logger.Warning(ex, "Action button long press release caused an exception");
+                    Logger.Warning(ex, "处理按钮长按释放事件时发生异常");
                 }
 
                 break;

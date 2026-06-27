@@ -91,7 +91,7 @@ public class ApplicationPaths
     /// <summary>检查所有必要的目录是否存在，若不存在则创建。</summary> 
     private static void CheckPaths() 
     { 
-        Logger.Information("Checking paths..."); 
+        Logger.Information("正在检查路径…"); 
  
         void CheckCreatePath(string? path) 
         { 
@@ -108,11 +108,11 @@ public class ApplicationPaths
             try 
             { 
                 Directory.CreateDirectory(path); 
-                Logger.Information("Created {Path}", path); 
+                Logger.Information("已创建目录：{Path}", path);
             } 
             catch (Exception ex) 
             { 
-                Logger.Error(ex, "Failed to create {Path}", path); 
+                Logger.Error(ex, "创建目录失败：{Path}", path); 
             } 
         } 
  
@@ -126,7 +126,7 @@ public class ApplicationPaths
         CheckCreatePath(TempDirectoryPath); 
         CheckCreatePath(ProfilesDirectoryPath); 
  
-        Logger.Information("Checking paths done"); 
+        Logger.Information("路径检查完成");
     } 
  
     /// <summary>清理临时目录中的所有文件和子目录。</summary> 
@@ -151,7 +151,7 @@ public class ApplicationPaths
                 } 
                 catch (Exception ex) 
                 { 
-                    Logger.Warning(ex, "Failed to delete temp file"); 
+                    Logger.Warning(ex, "删除临时文件失败"); 
                 } 
             } 
  
@@ -163,7 +163,7 @@ public class ApplicationPaths
                 } 
                 catch (Exception ex) 
                 { 
-                    Logger.Warning(ex, "Failed to delete temp dir"); 
+                    Logger.Warning(ex, "删除临时目录失败"); 
                 } 
             } 
         } 

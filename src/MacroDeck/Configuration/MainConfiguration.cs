@@ -124,11 +124,11 @@ public class MainConfiguration
             using JsonWriter writer = new JsonTextWriter(sw);
             serializer.Serialize(writer, this);
 
-            Logger.Information("Configuration saved");
+            Logger.Information("配置已保存");
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to save configuration");
+            Logger.Error(ex, "保存配置失败");
         }
     }
 

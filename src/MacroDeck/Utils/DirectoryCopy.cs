@@ -23,7 +23,7 @@ public static class DirectoryCopy
 
         if (!dir.Exists)
         {
-            throw new DirectoryNotFoundException("Source directory does not exist or could not be found: " +
+            throw new DirectoryNotFoundException("源目录不存在或无法找到：" +
                 sourceDirName);
         }
 

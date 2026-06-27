@@ -44,11 +44,11 @@ public class ReadVariableFromFileActionConfigViewModel : ISerializableConfigView
         try
         {
             SetConfig();
-            Logger.Information("config saved");
+            Logger.Information("配置已保存");
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while saving config");
+            Logger.Error(ex, "保存配置时发生错误");
         }
 
         return true;

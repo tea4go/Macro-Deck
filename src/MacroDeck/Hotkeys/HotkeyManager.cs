@@ -91,7 +91,7 @@ public class HotkeyManager : NativeWindow
         }
 
         RegisterHotKey(formHandle, hotkeyId, modifierKeyCode, (int)key);
-        Logger.Information("Registered hotkey #{HotkeyId} ({Key}) with modifier(s): {Modifiers}",
+        Logger.Information("已注册热键 #{HotkeyId}（{Key}），修饰键：{Modifiers}",
             hotkeyId,
             key.ToString(),
             modifierKeys.ToString());
@@ -127,7 +127,7 @@ public class HotkeyManager : NativeWindow
         var hotkeyId = Hotkeys[actionButton];
         UnregisterHotKey(formHandle, hotkeyId);
         Hotkeys.Remove(actionButton);
-        Logger.Information("Unregistered hotkey #{HotkeyId}", hotkeyId);
+        Logger.Information("已注销热键 #{HotkeyId}", hotkeyId);
     }
 
 

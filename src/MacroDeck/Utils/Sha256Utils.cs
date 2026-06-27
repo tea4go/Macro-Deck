@@ -46,7 +46,7 @@ public static class Sha256Utils
 
         if (sha256.Hash == null)
         {
-            throw new InvalidOperationException("Hash was null");
+            throw new InvalidOperationException("哈希值为空");
         }
 
         stream.Position = 0;

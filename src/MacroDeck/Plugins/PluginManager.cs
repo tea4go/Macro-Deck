@@ -64,7 +64,7 @@ public static class PluginManager
             return;
         }
 
-        Logger.Information("Loading plugins...");
+        Logger.Information("正在加载插件…");
         _loaded = true;
         Plugins.Clear();
         PluginsUpdateAvailable.Clear();
@@ -142,7 +142,7 @@ public static class PluginManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Error while deserializing manifest for {Directory}", directory);
+                Logger.Error(ex, "反序列化目录 {Directory} 的插件清单时发生错误", directory);
             }
         }
 
@@ -178,7 +178,7 @@ public static class PluginManager
         try
         {
             asm = Assembly.LoadFrom(Path.Combine(pluginDirectory, extensionManifest.Dll));
-            Logger.Information("Loading plugin {PluginName}", asm.GetName().Name);
+            Logger.Information("正在加载插件 {PluginName}", asm.GetName().Name);
 
             foreach (var type in asm.GetTypes())
             {
@@ -210,7 +210,7 @@ public static class PluginManager
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(ex, "Error while loading plugin");
+                    Logger.Error(ex, "加载插件时发生错误");
                 }
             }
         }
@@ -230,7 +230,7 @@ public static class PluginManager
                 PluginDirectories[disabledPlugin] = pluginDirectory;
 
                 MacroDeck.SafeMode = true;
-                Logger.Warning("Cannot load {PluginName} version {PluginVersion}. Macro Deck was started in safe mode.",
+                Logger.Warning("无法加载插件 {PluginName}（版本 {PluginVersion}），Macro Deck 已进入安全模式。",
                     disabledPlugin.Name,
                     disabledPlugin.Version);
                 return disabledPlugin;
@@ -331,7 +331,7 @@ public static class PluginManager
                 // 创建删除标记文件，下次启动时删除
                 var deleteMarkerFile = Path.Combine(PluginDirectories[plugin], DeleteMarkerFileName);
                 File.Create(deleteMarkerFile);
-                Logger.Information("{PluginName} deleted", name);
+                Logger.Information("插件 {PluginName} 已标记删除", name);
             }
             catch (Exception ex)
             {
@@ -366,7 +366,7 @@ public static class PluginManager
     internal static void InstallPlugin(string directory, string packageName)
     {
         var update = Directory.Exists(Path.Combine(ApplicationPaths.PluginsDirectoryPath, packageName));
-        Logger.Information("{InstallAction} {PackageName}", update ? "Updating" : "Installing", packageName);
+        Logger.Information("{InstallAction} 插件包 {PackageName}", update ? "正在更新" : "正在安装", packageName);
         Assembly asm = null;
         var error = false;
         var extensionManifest = new ExtensionManifestModel();

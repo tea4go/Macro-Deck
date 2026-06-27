@@ -55,7 +55,7 @@ public class DeviceManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "devices.json is corrupted and will be reset");
+            Logger.Error(ex, "devices.json 已损坏，将重置");
             try
             {
                 File.Delete(ApplicationPaths.DevicesFilePath);
@@ -98,7 +98,7 @@ public class DeviceManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while saving known devices");
+            Logger.Error(ex, "保存已知设备列表时发生错误");
         }
     }
 

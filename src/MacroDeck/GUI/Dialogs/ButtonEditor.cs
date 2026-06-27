@@ -182,7 +182,7 @@ public partial class ButtonEditor : DialogForm
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while updating label");
+            Logger.Error(ex, "更新标签时发生错误");
         }
     }
 
@@ -225,7 +225,7 @@ public partial class ButtonEditor : DialogForm
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while refreshing label");
+            Logger.Error(ex, "刷新标签时发生错误");
         }
 
         labelText.TextChanged += LabelChanged;
@@ -288,7 +288,7 @@ public partial class ButtonEditor : DialogForm
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while refreshing icon");
+            Logger.Error(ex, "刷新图标时发生错误");
         }
     }
 

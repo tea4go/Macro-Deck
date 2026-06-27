@@ -155,7 +155,7 @@ public class ExtensionStoreHelper
                     NotificationManager.RemoveNotification(_updateNotification);
                     UpdateAllPackages();
                 };
-                _updateNotification = NotificationManager.SystemNotification("Extension Store",
+                _updateNotification = NotificationManager.SystemNotification("扩展商店",
                     LanguageManager.Strings.UpdatesAvailable,
                     true,
                     icon: Resources.Macro_Deck_2021_update,
@@ -227,12 +227,12 @@ public class ExtensionStoreHelper
                 return false;
             }
 
-            Logger.Information("Update available for {PackageId}", packageId);
+            Logger.Information("{PackageId} 有可用更新", packageId);
             return true;
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to check for updates for {PackageId}", packageId);
+            Logger.Error(ex, "检查 {PackageId} 的更新失败", packageId);
         }
 
         return false;

@@ -129,7 +129,7 @@ public static class VariableManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while updating variable {VariableName}", variable.Name);
+            Logger.Error(ex, "更新变量 {VariableName} 时发生错误", variable.Name);
         }
 
         OnVariableChanged?.Invoke(variable, EventArgs.Empty);
@@ -192,7 +192,7 @@ public static class VariableManager
     {
         _database.Delete(new Variable { Name = name });
         OnVariableRemoved?.Invoke(name, EventArgs.Empty);
-        Logger.Debug("Deleted variable {VariableName}", name);
+        Logger.Debug("已删除变量 {VariableName}", name);
     }
 
     [Obsolete("Use TemplateManager.RenderTemplate")]
@@ -203,12 +203,12 @@ public static class VariableManager
 
     internal static void Initialize()
     {
-        Logger.Information("Initialize variables database...");
+        Logger.Information("正在初始化变量数据库…");
         _database = new SQLiteConnection(ApplicationPaths.VariablesFilePath);
 
         _database.CreateTable<Variable>();
         _database.Table<Variable>().Where(x => x.Name == "").Delete();
-        Logger.Information("{VariableCount} variables found", ListVariables.Count());
+        Logger.Information("发现 {VariableCount} 个变量", ListVariables.Count());
     }
 
     internal static void Close()

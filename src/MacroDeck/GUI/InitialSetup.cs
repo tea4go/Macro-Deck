@@ -179,7 +179,7 @@ public partial class InitialSetup : DialogForm
         }
         catch (Exception ex)
         {
-            Logger.Warning(ex, "Not able to set system language");
+            Logger.Warning(ex, "无法设置系统语言");
         }
     }
 

@@ -125,13 +125,13 @@ public partial class DebugConsole : Form
     }
 
     /// <summary>
-    /// 向日志输出区域追加文本，支持按发送者筛选和自定义颜色。
+    /// 向日志输出区域追加文本，支持按发送者筛选和自定义背景色与前景色。
     /// 该方法会将操作投递到控制台自身的 UI 线程上执行，确保线程安全。
     /// </summary>
     /// <param name="text">要追加的日志文本内容</param>
     /// <param name="sender">日志发送者名称（如 "Macro Deck" 或插件名），用于筛选匹配</param>
-    /// <param name="color">文本显示颜色</param>
-    public void AppendText(string text, string sender, Color color)
+    /// <param name="colors">日志级别对应的背景色与前景（文字）色组合</param>
+    public void AppendText(string text, string sender, DebugConsoleSink.LevelColors colors)
     {
         // 控件已释放或句柄未创建时直接丢弃消息
         if (IsDisposed || !IsHandleCreated)
@@ -164,12 +164,18 @@ public partial class DebugConsole : Form
                         }
                     }
 
-                    // 将光标定位到文本末尾，设置颜色后追加文本，然后滚动到最新位置
+                    // 将光标定位到文本末尾，设置背景色与前景色后追加文本，然后滚动到最新位置
                     logOutput.SelectionStart = logOutput.TextLength;
                     logOutput.SelectionLength = 0;
 
-                    logOutput.SelectionColor = color;
+                    if (colors.HasBackground)
+                    {
+                        logOutput.SelectionBackColor = colors.Background;
+                    }
+                    logOutput.SelectionColor = colors.Foreground;
                     logOutput.AppendText(text);
+                    // 恢复默认颜色设置
+                    logOutput.SelectionBackColor = logOutput.BackColor;
                     logOutput.SelectionColor = logOutput.ForeColor;
                     logOutput.ScrollToCaret();
                 }
@@ -241,7 +247,7 @@ public partial class DebugConsole : Form
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Could not determine the newest log file");
+            Logger.Error(ex, "无法确定最新的日志文件");
         }
 
         // 如果找到了日志文件，使用 tail_ansi -f 实时跟踪；否则回退到打开日志目录
@@ -261,7 +267,7 @@ public partial class DebugConsole : Form
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Could not start tail4go. Please ensure tail4go is installed and available in PATH.");
+                Logger.Error(ex, "无法启动 tail4go，请确保 tail4go 已安装并位于 PATH 中");
             }
         }
         else
@@ -279,7 +285,7 @@ public partial class DebugConsole : Form
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Could not open logs directory");
+                Logger.Error(ex, "无法打开日志目录");
             }
         }
     }
@@ -312,11 +318,11 @@ public partial class DebugConsole : Form
             try
             {
                 logOutput.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                Logger.Information("Successfully exported debug console output to: " + saveFileDialog.FileName);
+                Logger.Information("调试控制台输出已成功导出到：" + saveFileDialog.FileName);
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Error while exporting debug console output");
+                Logger.Error(ex, "导出调试控制台输出时发生错误");
             }
         }
     }
@@ -366,7 +372,7 @@ public partial class DebugConsole : Form
     /// </summary>
     private void btnTestNotification_Click(object sender, EventArgs e)
     {
-        Logger.Information("Test notification triggered");
-        NotificationManager.SystemNotification("Test", $"Test notification sent at {DateTime.Now.ToString()}", true);
+        Logger.Information("已触发测试通知");
+        NotificationManager.SystemNotification("测试", $"测试通知，发送时间：{DateTime.Now.ToString()}", true);
     }
 }

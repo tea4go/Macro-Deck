@@ -43,7 +43,7 @@ public static class LanguageManager
         }
 
         // 从嵌入资源加载语言文件
-        Logger.Information("Loading language files...");
+        Logger.Information("正在加载语言文件…");
         var assembly = typeof(Strings).Assembly;
         foreach (var manifestResource in assembly.GetManifestResourceNames())
         {
@@ -56,7 +56,7 @@ public static class LanguageManager
                     continue;
                 }
 
-                Logger.Information("Loading ${ManifestResource}...", manifestResource);
+                Logger.Information("正在加载 ${ManifestResource}…", manifestResource);
                 using var resourceStream = assembly.GetManifestResourceStream(manifestResource);
 
                 var serializer = new JsonSerializer();
@@ -80,7 +80,7 @@ public static class LanguageManager
             }
             catch (Exception ex)
             {
-                Logger.Warning(ex, "Failed to load language resource");
+                Logger.Warning(ex, "加载语言资源失败");
             }
         }
 
@@ -105,11 +105,11 @@ public static class LanguageManager
             using JsonWriter writer = new JsonTextWriter(sw);
             serializer.Serialize(writer, _strings);
 
-            Logger.Information("{Language} saved", _strings.__Language__);
+            Logger.Information("已保存语言：{Language}", _strings.__Language__);
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to save {Language}", _strings.__Language__);
+            Logger.Error(ex, "保存语言 {Language} 失败", _strings.__Language__);
         }
     }
 
@@ -132,7 +132,7 @@ public static class LanguageManager
     /// <param name="language">要设置的语言字符串实例</param>
     public static void SetLanguage(Strings language)
     {
-        Logger.Information("Set language to {Language}", language.__Language__);
+        Logger.Information("已切换语言为 {Language}", language.__Language__);
         _strings = language;
         LanguageChanged?.Invoke(language, EventArgs.Empty);
     }

@@ -110,7 +110,7 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (config) restore failed");
+                Logger.Error(ex, "备份（主配置）恢复失败");
             }
         }
 
@@ -132,7 +132,7 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (profiles) restore failed");
+                Logger.Error(ex, "备份（配置文件）恢复失败");
             }
         }
 
@@ -148,7 +148,7 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (devices) restore failed");
+                Logger.Error(ex, "备份（设备）恢复失败");
             }
         }
 
@@ -164,7 +164,7 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (variables) restore failed");
+                Logger.Error(ex, "备份（变量）恢复失败");
             }
         }
 
@@ -187,7 +187,7 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (plugins) restore failed");
+                Logger.Error(ex, "备份（插件）恢复失败");
             }
         }
 
@@ -209,7 +209,7 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (plugin configs) restore failed");
+                Logger.Error(ex, "备份（插件配置）恢复失败");
             }
         }
 
@@ -232,7 +232,7 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (plugin credentials) restore failed");
+                Logger.Error(ex, "备份（插件凭据）恢复失败");
             }
         }
 
@@ -255,13 +255,13 @@ public class BackupManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup (icon packs) restore failed");
+                Logger.Error(ex, "备份（图标包）恢复失败");
             }
         }
 
-        Logger.Information("Backup successfully restored");
+        Logger.Information("备份恢复成功");
         using var msgBox = new MessageBox();
-        msgBox.ShowDialog("Backup restored", "Backup successfully restored", MessageBoxButtons.OK);
+        msgBox.ShowDialog("备份已恢复", "备份恢复成功", MessageBoxButtons.OK);
     }
 
     /// <summary>
@@ -296,7 +296,7 @@ public class BackupManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Backup restoration failed");
+            Logger.Error(ex, "备份恢复操作失败");
         }
 
         try
@@ -315,7 +315,7 @@ public class BackupManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Backup restoration failed");
+            Logger.Error(ex, "备份恢复操作失败");
         }
     }
 
@@ -333,7 +333,7 @@ public class BackupManager
 
         BackupInProgress = true;
         var backupFileName = $"backup_{DateTime.Now:yy-MM-dd_HH-mm-ss}.zip";
-        Logger.Information("Starting creation of backup: {BackupFileName}", backupFileName);
+        Logger.Information("开始创建备份：{BackupFileName}", backupFileName);
 
         var tempBackupPath = Path.Combine(ApplicationPaths.TempDirectoryPath, backupFileName);
         try
@@ -351,12 +351,12 @@ public class BackupManager
             // 将临时目录中的文件打包为 ZIP
             CreateBackup(backupFileName, tempBackupPath);
 
-            Logger.Information("Backup successfully created: {BackupFileName}", backupFileName);
+            Logger.Information("备份创建成功：{BackupFileName}", backupFileName);
             BackupSaved?.Invoke(null, EventArgs.Empty);
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Backup creation failed");
+            Logger.Error(ex, "备份创建失败");
             BackupFailed?.Invoke(null, new BackupFailedEventArgs { Message = ex.Message });
         }
         finally
@@ -445,12 +445,12 @@ public class BackupManager
             try
             {
                 File.Delete(fileName);
-                Logger.Information("Backup successfully deleted: {FileName}", fileName);
+                Logger.Information("备份删除成功：{FileName}", fileName);
                 DeleteSuccess?.Invoke(null, EventArgs.Empty);
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Backup deletion failed");
+                Logger.Error(ex, "备份删除失败");
             }
         }
     }

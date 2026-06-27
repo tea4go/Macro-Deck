@@ -359,7 +359,7 @@ public partial class SettingsView : UserControl
                 "Make sure you have a internet connection",
                 MessageBoxButtons.OK);
 
-            Logger.Error(ex, "Failed to check for updates");
+            Logger.Error(ex, "检查更新失败");
         }
         finally
         {

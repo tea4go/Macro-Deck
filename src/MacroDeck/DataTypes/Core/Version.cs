@@ -47,13 +47,13 @@ public partial struct Version
     {
         if (string.IsNullOrWhiteSpace(versionString))
         {
-            throw new FormatException("Version string was empty");
+            throw new FormatException("版本字符串为空");
         }
 
         var match = VersionRegex().Match(versionString);
         if (!match.Success)
         {
-            throw new FormatException("Invalid version string");
+            throw new FormatException("版本字符串无效");
         }
 
         var major = int.Parse(match.Groups["major"].Value);

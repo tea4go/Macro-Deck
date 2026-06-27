@@ -135,7 +135,7 @@ public partial class ExtensionStoreDownloaderItem : RoundedUserControl
         {
             Finished();
             Logger.Error(
-                $"Download of {ApiV2Extension.Name} failed: {ApiV2Extension.PackageId ?? "unknown.zip"} not found");
+                $"下载 {ApiV2Extension.Name} 失败：找不到 {ApiV2Extension.PackageId ?? "unknown.zip"}");
             return;
         }
 
@@ -143,15 +143,15 @@ public partial class ExtensionStoreDownloaderItem : RoundedUserControl
         if (!expectedFileHash.Equals(hash))
         {
             Finished();
-            Logger.Error($"Checksum of {ApiV2Extension.Name} not matching!" +
+            Logger.Error($"{ApiV2Extension.Name} 的校验和不匹配！" +
                 Environment.NewLine +
-                $"Checksum on server: {expectedFileHash}" +
+                $"服务器校验和：{expectedFileHash}" +
                 Environment.NewLine +
-                $"Checksum of downloaded file: {hash}");
+                $"已下载文件的校验和：{hash}");
             return;
         }
 
-        Logger.Information($"Start installation of {ApiV2Extension.Name} version latest");
+        Logger.Information($"开始安装 {ApiV2Extension.Name}（最新版本）");
 
 
         ExtensionManifestModel extensionManifestModel;
@@ -162,7 +162,7 @@ public partial class ExtensionStoreDownloaderItem : RoundedUserControl
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while deserializing ExtensionManifest for {ExtensionName}", ApiV2Extension.Name);
+            Logger.Error(ex, "反序列化扩展 {ExtensionName} 的清单时发生错误", ApiV2Extension.Name);
             Finished();
             return;
         }
@@ -181,7 +181,7 @@ public partial class ExtensionStoreDownloaderItem : RoundedUserControl
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(ex, "Error while installing {ExtensionName}", ApiV2Extension.Name);
+                    Logger.Error(ex, "安装扩展 {ExtensionName} 时发生错误", ApiV2Extension.Name);
                     Finished();
                     return;
                 }
@@ -194,7 +194,7 @@ public partial class ExtensionStoreDownloaderItem : RoundedUserControl
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(ex, "Error while installing {ExtensionName}", ApiV2Extension.Name);
+                    Logger.Error(ex, "安装扩展 {ExtensionName} 时发生错误", ApiV2Extension.Name);
                     Finished();
                     return;
                 }

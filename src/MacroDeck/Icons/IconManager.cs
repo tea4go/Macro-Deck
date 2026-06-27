@@ -59,7 +59,7 @@ public class IconManager
     private static void LoadIconPacks()
     {
         IconPacks.Clear();
-        Logger.Information("Loading icon packs...");
+        Logger.Information("正在加载图标包…");
         foreach (var iconPackDir in Directory.GetDirectories(ApplicationPaths.IconPackDirectoryPath))
         {
             LoadIconPack(iconPackDir);
@@ -70,7 +70,7 @@ public class IconManager
             CreateIconPack("My Icons", Environment.UserName, "1.0.0");
         }
 
-        Logger.Information("Loaded {IconPackCount} icon packs", IconPacks.Count);
+        Logger.Information("已加载 {IconPackCount} 个图标包", IconPacks.Count);
     }
 
     /// <summary>
@@ -137,7 +137,7 @@ public class IconManager
             }
             catch (Exception ex)
             {
-                Logger.Warning(ex, "Failed to load icon");
+                Logger.Warning(ex, "加载图标失败");
             }
         }
 
@@ -245,7 +245,7 @@ public class IconManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to add icon to icon pack");
+            Logger.Error(ex, "向图标包添加图标失败");
         }
 
         return null;
@@ -284,7 +284,7 @@ public class IconManager
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while exporting icon pack");
+            Logger.Error(ex, "导出图标包时发生错误");
         }
     }
 
@@ -311,7 +311,7 @@ public class IconManager
         }
         catch (Exception ex)
         {
-            Logger.Warning(ex, "Unable to delete icon pack");
+            Logger.Warning(ex, "无法删除图标包");
         }
     }
 
@@ -376,11 +376,11 @@ public class IconManager
             using JsonWriter writer = new JsonTextWriter(sw);
             serializer.Serialize(writer, extensionManifestModel);
 
-            Logger.Information("ExtensionManifest saved");
+            Logger.Information("扩展清单已保存");
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to save ExtensionManifest");
+            Logger.Error(ex, "保存扩展清单失败");
         }
     }
 
@@ -421,13 +421,13 @@ public class IconManager
             var extensionManifestModel = ExtensionManifestModel.FromZipFilePath(location);
             if (extensionManifestModel == null)
             {
-                Logger.Error("{Location} does not contain a manifest file!", location);
+                Logger.Error("{Location} 不包含清单文件！", location);
                 return null;
             }
 
             if (extensionManifestModel.Type != ExtensionType.IconPack)
             {
-                Logger.Error("{PackageId} is not a icon pack!", extensionManifestModel.PackageId);
+                Logger.Error("{PackageId} 不是图标包！", extensionManifestModel.PackageId);
                 return null;
             }
 
@@ -478,18 +478,18 @@ public class IconManager
                         x.PackageId.Equals(extensionManifestModel.PackageId)));
                 }
 
-                Logger.Information("Successfully installed {PackageId}", extensionManifestModel.PackageId);
+                Logger.Information("已成功安装 {PackageId}", extensionManifestModel.PackageId);
                 var iconPack = GetIconPackByName(extensionManifestModel.Name);
                 InstallationFinished?.Invoke(iconPack, EventArgs.Empty);
                 return iconPack;
             }
 
-            Logger.Error("{PackageId} is maybe corruped", extensionManifestModel.PackageId);
+            Logger.Error("{PackageId} 可能已损坏", extensionManifestModel.PackageId);
             return null;
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while installing icon pack from zip");
+            Logger.Error(ex, "从 ZIP 安装图标包时发生错误");
         }
 
         return null;

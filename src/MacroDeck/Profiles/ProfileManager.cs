@@ -285,7 +285,7 @@ public static class ProfileManager
     /// </summary>
     internal static void Load()
     {
-        Logger.Information("Loading profiles...");
+        Logger.Information("正在加载配置文件…");
         Profiles = [];
 
         MigrateLegacyDatabase();
@@ -302,7 +302,7 @@ public static class ProfileManager
                     NullValueHandling = NullValueHandling.Ignore,
                     Error = (sender, args) =>
                     {
-                        Logger.Error(args.ErrorContext.Error, "Error while deserializing profile {File}", file);
+                        Logger.Error(args.ErrorContext.Error, "反序列化配置文件 {File} 时发生错误", file);
                         args.ErrorContext.Handled = true;
                     },
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -322,7 +322,7 @@ public static class ProfileManager
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Failed to load profile from {File}", file);
+                Logger.Error(ex, "从 {File} 加载配置文件失败", file);
             }
         }
 
@@ -388,7 +388,7 @@ public static class ProfileManager
             }
         }
 
-        Logger.Information("Loaded {ProfileCount} profiles", Profiles.Count);
+        Logger.Information("已加载 {ProfileCount} 个配置文件", Profiles.Count);
     }
 
     /// <summary>
@@ -424,7 +424,7 @@ public static class ProfileManager
                             Error = (sender, args) =>
                             {
                                 Logger.Error(args.ErrorContext.Error,
-                                    "Error while serializing profile {ProfileId}",
+                                    "序列化配置文件 {ProfileId} 时发生错误",
                                     profileId);
                                 args.ErrorContext.Handled = true;
                             },
@@ -434,7 +434,7 @@ public static class ProfileManager
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(ex, "Failed to serialize profile {ProfileId}", profileId);
+                    Logger.Error(ex, "序列化配置文件 {ProfileId} 失败", profileId);
                     continue;
                 }
 
@@ -455,13 +455,13 @@ public static class ProfileManager
                     }
                     catch (Exception ex)
                     {
-                        Logger.Warning(ex, "Failed to delete orphaned profile file {File}", file);
+                        Logger.Warning(ex, "删除孤立的配置文件 {File} 失败", file);
                     }
                 }
             }
         }
 
-        Logger.Debug("Saved {ProfileCount} profiles", Profiles.Count);
+        Logger.Debug("已保存 {ProfileCount} 个配置文件", Profiles.Count);
         ProfilesSaved?.Invoke(Profiles, EventArgs.Empty);
     }
 
@@ -485,7 +485,7 @@ public static class ProfileManager
             return;
         }
 
-        Logger.Information("Migrating profiles from legacy SQLite database...");
+        Logger.Information("正在从旧版 SQLite 数据库迁移配置文件…");
 
         try
         {
@@ -505,7 +505,7 @@ public static class ProfileManager
                         NullValueHandling = NullValueHandling.Ignore,
                         Error = (sender, args) =>
                         {
-                            Logger.Error(args.ErrorContext.Error, "Error while deserializing legacy profile entry");
+                            Logger.Error(args.ErrorContext.Error, "反序列化旧版配置文件条目时发生错误");
                             args.ErrorContext.Handled = true;
                         },
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -529,20 +529,20 @@ public static class ProfileManager
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(ex, "Failed to migrate legacy profile entry");
+                    Logger.Error(ex, "迁移旧版配置文件条目失败");
                 }
             }
 
             var migratedDbPath = legacyPath + ".migrated";
             File.Move(legacyPath, migratedDbPath, overwrite: true);
             Logger.Information(
-                "Migrated {Count} profiles from SQLite to JSON files. Legacy database renamed to {MigratedPath}",
+                "已将 {Count} 个配置文件从 SQLite 迁移到 JSON 文件，旧数据库已重命名为 {MigratedPath}",
                 migrated,
                 migratedDbPath);
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to migrate legacy profiles database");
+            Logger.Error(ex, "迁移旧版配置文件数据库失败");
         }
     }
 
@@ -576,7 +576,7 @@ public static class ProfileManager
 
         macroDeckProfile.Folders.Add(newFolder);
 
-        Logger.Information("Created folder {FolderName} in {ProfileName}", displayName, macroDeckProfile.DisplayName);
+        Logger.Information("已在配置文件 {ProfileName} 中创建文件夹 {FolderName}", displayName, macroDeckProfile.DisplayName);
 
         Save();
 
@@ -643,7 +643,7 @@ public static class ProfileManager
             folders.Childs.Remove(folder.FolderId);
         }
 
-        Logger.Information("Delete {FolderName} in {ProfileName}", folder.DisplayName, macroDeckProfile.DisplayName);
+        Logger.Information("已在配置文件 {ProfileName} 中删除文件夹 {FolderName}", folder.DisplayName, macroDeckProfile.DisplayName);
 
         macroDeckProfile.Folders.Remove(folder);
         Save();
@@ -693,7 +693,7 @@ public static class ProfileManager
 
         ProfileCreated?.Invoke(newProfile, EventArgs.Empty);
 
-        Logger.Information("Created profile {ProfileName}", displayName);
+        Logger.Information("已创建配置文件 {ProfileName}", displayName);
 
         return newProfile;
     }
@@ -727,7 +727,7 @@ public static class ProfileManager
             DeviceManager.SetProfile(macroDeckDevice, Profiles[0]);
         }
 
-        Logger.Information("Delete profile {ProfileName}", macroDeckProfile.DisplayName);
+        Logger.Information("已删除配置文件 {ProfileName}", macroDeckProfile.DisplayName);
 
         macroDeckProfile.Dispose();
 

@@ -30,7 +30,7 @@ internal class NetworkUtils
         }
         catch (Exception ex)
         {
-            Logger.Warning(ex, "Error while searching for network interfaces");
+            Logger.Warning(ex, "搜索网络接口时发生错误");
         }
 
         return networkInterfaces.ToArray();

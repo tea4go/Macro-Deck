@@ -50,7 +50,7 @@ public class PluginCredentials
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while adding plugin credential");
+            Logger.Error(ex, "添加插件凭据时发生错误");
         }
     }
 
@@ -134,7 +134,7 @@ public class PluginCredentials
                 }
                 catch
                 {
-                    Logger.Warning("Unable to decrypt credentials for {PluginName}. Perhaps the machine GUID changed?",
+                    Logger.Warning("无法解密插件 {PluginName} 的凭据，可能机器 GUID 已变更",
                         plugin.Name);
                 }
             }

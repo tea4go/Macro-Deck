@@ -57,7 +57,7 @@ public partial class UpdateAvailableDialog : DialogForm
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to download and install update");
+            Logger.Error(ex, "下载并安装更新失败");
 
             using var msgBox = new CustomControls.MessageBox();
             msgBox.ShowDialog(LanguageManager.Strings.Error,

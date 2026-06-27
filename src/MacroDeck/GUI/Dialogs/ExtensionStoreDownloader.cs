@@ -69,7 +69,7 @@ public partial class ExtensionStoreDownloader : DialogForm
                             _pluginsToInstall);
                         btnDone.Visible = true;
                     });
-                    Logger.Information($"*** Installation of {_pluginsToInstall} package(s) done ***");
+                    Logger.Information($"*** 已完成 {_pluginsToInstall} 个扩展包的安装 ***");
                 }
             };
             Invoke(() => downloadList.Controls.Add(extensionStoreDownloaderItem));

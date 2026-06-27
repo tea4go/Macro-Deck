@@ -104,7 +104,7 @@ public partial class ExtensionStoreView : UserControl
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Error while loading extensions from the extension store");
+            Logger.Error(ex, "从扩展商店加载扩展时发生错误");
         }
         finally
         {

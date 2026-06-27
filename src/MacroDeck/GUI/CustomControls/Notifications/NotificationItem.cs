@@ -14,7 +14,7 @@ public partial class NotificationItem : RoundedUserControl
 
     public void ClearAdditionalControls()
     {
-        Logger.Debug("Clear");
+        Logger.Debug("清空");
         if (InvokeRequired)
         {
             Invoke(() => ClearAdditionalControls());

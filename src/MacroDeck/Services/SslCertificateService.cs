@@ -35,11 +35,11 @@ public static class SslCertificateService
             return;
         }
 
-        Logger.Information("No SSL certificate configured – generating self-signed certificate");
+        Logger.Information("未配置 SSL 证书，正在生成自签名证书");
         // 生成并保存自签名证书
         var (certPem, keyPem) = SelfSignedCertificateGenerator.Generate();
         SaveCertificate(certPem, keyPem);
-        Logger.Information("Self-signed certificate generated and saved");
+        Logger.Information("自签名证书已生成并保存");
     }
 
     /// <summary>
@@ -70,7 +70,7 @@ public static class SslCertificateService
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to load SSL certificate");
+            Logger.Error(ex, "加载 SSL 证书失败");
             return null;
         }
     }

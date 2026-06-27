@@ -131,9 +131,9 @@ public class MacroDeck : NativeWindow
             DebugConsole.Launch();
         }
 
-        Logger.Information("Macro Deck {Version}", Version);
-        Logger.Information("Path: {ExecutablePath}", ApplicationPaths.ExecutablePath);
-        Logger.Information("Start parameters: {StartParameters}",
+        Logger.Information("Macro Deck 版本：{Version}", Version);
+        Logger.Information("可执行文件路径：{ExecutablePath}", ApplicationPaths.ExecutablePath);
+        Logger.Information("启动参数：{StartParameters}",
             string.Join(" ", StartParameters.ToArray(StartParameters)));
 
         // 清理过期的日志文件
@@ -212,7 +212,7 @@ public class MacroDeck : NativeWindow
         StartUpTimeStopWatch.Stop();
 
         var startTook = StartUpTimeStopWatch.Elapsed.TotalMilliseconds;
-        Logger.Information("Macro Deck startup finished (took {StartupDurationMs}ms)", startTook);
+        Logger.Information("Macro Deck 启动完成（耗时 {StartupDurationMs} 毫秒）", startTook);
 
         // 触发加载完成事件
         OnMacroDeckLoaded?.Invoke(null, EventArgs.Empty);
@@ -246,10 +246,10 @@ public class MacroDeck : NativeWindow
         };
         btnOpenSettings.Click += (o, args) => { MainWindow?.SetView(new SettingsView(2)); };
 
-        NotificationManager.SystemNotification("Macro Deck Updater",
+        NotificationManager.SystemNotification("Macro Deck 更新提示",
             string.Format(LanguageManager.Strings.VersionXIsNowAvailable,
                 e.Version,
-                e.IsBeta == true ? "Beta" : "Release"),
+                e.IsBeta == true ? "测试版" : "正式版"),
             true,
             new List<Control> { btnOpenSettings },
             Resources.Macro_Deck_2021_update);
@@ -282,16 +282,16 @@ public class MacroDeck : NativeWindow
         }
         catch (Exception ex)
         {
-            Logger.Warning(ex, "Error while searching for network interfaces");
+            Logger.Warning(ex, "搜索网络接口时发生错误");
         }
 
         if (foundNetworkInterfaces == 0)
         {
-            Logger.Error("No network interfaces were found");
+            Logger.Error("未找到任何网络接口");
         }
         else
         {
-            Logger.Information("Found network interfaces:\n{NetworkInterfaces}", sb);
+            Logger.Information("已发现网络接口：\n{NetworkInterfaces}", sb);
         }
     }
 
@@ -301,7 +301,7 @@ public class MacroDeck : NativeWindow
     /// </summary>
     private static void StartInitialSetup()
     {
-        Logger.Information("Entering initial setup wizard...");
+        Logger.Information("进入初始设置向导…");
         using var initialSetup = new InitialSetup();
         Application.Run(initialSetup);
         if (initialSetup.DialogResult == DialogResult.OK)
@@ -383,7 +383,7 @@ public class MacroDeck : NativeWindow
         var arguments = (_mainWindow is { IsDisposed: false } ? "--show " : "") +
             parameters +
             $" --ignore-pid-check {Process.GetCurrentProcess().Id}";
-        Logger.Information("Restart Macro Deck with arguments: {Arguments}", arguments);
+        Logger.Information("使用以下参数重启 Macro Deck：{Arguments}", arguments);
         var p = new Process
         {
             StartInfo = new ProcessStartInfo(ApplicationPaths.ExecutablePath)

@@ -109,7 +109,7 @@ public class UpdateService : IDisposable
                 await httpClient.GetFromJsonAsync<UpdateApiCheckResult>(checkUrl, cancellationToken);
             if (result?.NewerVersionAvailable == null)
             {
-                throw new InvalidOperationException("Result was null");
+                throw new InvalidOperationException("更新检查结果为空");
             }
 
             if (!result.NewerVersionAvailable.Value && VersionInfo == result.Version)
@@ -117,7 +117,7 @@ public class UpdateService : IDisposable
                 return null;
             }
 
-            UpdateAvailable?.Invoke(this, result.Version ?? throw new InvalidOperationException("Version was null"));
+            UpdateAvailable?.Invoke(this, result.Version ?? throw new InvalidOperationException("版本信息为空"));
 
             VersionInfo = result.Version;
             return result.Version;
@@ -191,7 +191,7 @@ public class UpdateService : IDisposable
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Failed to automatically check for updates");
+                Logger.Error(ex, "自动检查更新失败");
             }
 
             // 每次检查后等待 30 分钟
@@ -213,12 +213,12 @@ public class UpdateService : IDisposable
     {
         if (string.IsNullOrWhiteSpace(path))
         {
-            throw new InvalidOperationException("The path was empty");
+            throw new InvalidOperationException("路径为空");
         }
 
         if (!File.Exists(path))
         {
-            throw new FileNotFoundException("The update file was not found");
+            throw new FileNotFoundException("未找到更新文件");
         }
 
         // 打开文件流并计算 SHA-256 哈希值
@@ -245,7 +245,7 @@ public class UpdateService : IDisposable
     {
         if (string.IsNullOrWhiteSpace(url))
         {
-            throw new InvalidOperationException("Download url was empty");
+            throw new InvalidOperationException("下载链接为空");
         }
 
         // 将文件保存到临时目录，文件名包含版本号以便区分

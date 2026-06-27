@@ -48,7 +48,7 @@ public partial class ExtensionZipInstallerView : UserControl
         catch (Exception)
         {
             btnInstall.Enabled = false;
-            Logger.Error("Invalid or corrupt zip archive provided for installation");
+            Logger.Error("提供的 ZIP 安装包无效或已损坏");
         }
     }
 
@@ -73,7 +73,7 @@ public partial class ExtensionZipInstallerView : UserControl
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to install archived plugin {ZipPath}", txtZipPath.Text);
+            Logger.Error(ex, "安装插件压缩包失败：{ZipPath}", txtZipPath.Text);
         }
     }
 
