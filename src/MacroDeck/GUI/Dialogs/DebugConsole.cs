@@ -422,11 +422,18 @@ public partial class DebugConsole : Form
     }
 
     /// <summary>
-    /// 发送一条测试系统通知，用于验证通知功能是否正常工作。
+    /// 发送每个日志级别各一条测试日志，用于验证日志颜色和格式配置；
+    /// 同时发送一条系统通知验证通知功能。
     /// </summary>
     private void btnTestNotification_Click(object sender, EventArgs e)
     {
-        Logger.Information("已触发测试通知");
-        NotificationManager.SystemNotification("测试", $"测试通知，发送时间：{DateTime.Now.ToString()}", true);
+        Logger.Verbose("[测试] Verbose 级别日志 —— 最详细的追踪信息");
+        Logger.Debug("[测试] Debug 级别日志 —— 调试诊断信息");
+        Logger.Information("[测试] Information 级别日志 —— 常规运行信息");
+        Logger.Warning("[测试] Warning 级别日志 —— 警告需要注意");
+        Logger.Error("[测试] Error 级别日志 —— 发生了一般错误");
+        Logger.Fatal("[测试] Fatal 级别日志 —— 致命错误需要立即处理");
+
+        NotificationManager.SystemNotification("测试", $"测试通知，发送时间：{DateTime.Now}", true);
     }
 }
