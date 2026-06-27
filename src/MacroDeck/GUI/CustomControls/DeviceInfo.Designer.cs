@@ -110,7 +110,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.lblIdLabel.ForeColor = Color.White;
             this.lblIdLabel.Location = new Point(5, 40);
             this.lblIdLabel.Name = "lblIdLabel";
-            this.lblIdLabel.Size = new Size(77, 19);
+            this.lblIdLabel.Size = new Size(77, 30);
             this.lblIdLabel.TabIndex = 3;
             this.lblIdLabel.Text = "Client ID:";
             this.lblIdLabel.UseMnemonic = false;
@@ -121,21 +121,21 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.lblId.ForeColor = Color.White;
             this.lblId.Location = new Point(119, 40);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new Size(194, 23);
+            this.lblId.Size = new Size(194, 30);
             this.lblId.TabIndex = 4;
             this.lblId.UseMnemonic = false;
             //
             // checkBlockConnection
             //
-            this.checkBlockConnection.CheckAlign = ContentAlignment.TopLeft;
+            this.checkBlockConnection.CheckAlign = ContentAlignment.MiddleLeft;
             this.checkBlockConnection.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.checkBlockConnection.ForeColor = Color.White;
             this.checkBlockConnection.Location = new Point(5, 5);
             this.checkBlockConnection.Name = "checkBlockConnection";
-            this.checkBlockConnection.Size = new Size(167, 20);
+            this.checkBlockConnection.Size = new Size(167, 40);
             this.checkBlockConnection.TabIndex = 5;
             this.checkBlockConnection.Text = "Block connection";
-            this.checkBlockConnection.TextAlign = ContentAlignment.TopLeft;
+            this.checkBlockConnection.TextAlign = ContentAlignment.MiddleLeft;
             this.checkBlockConnection.UseMnemonic = false;
             this.checkBlockConnection.UseVisualStyleBackColor = true;
             this.checkBlockConnection.CheckedChanged += new EventHandler(this.CheckBlockConnection_CheckedChanged);
