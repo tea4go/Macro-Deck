@@ -264,6 +264,8 @@ public partial class SettingsView : UserControl
         {
             var backupItem = new BackupItem(macroDeckBackupInfo);
             backupsPanel.Controls.Add(backupItem);
+            // 动态创建的 BackupItem 需补调 FontManager.Apply
+            FontManager.Apply(backupItem);
         }
     }
 

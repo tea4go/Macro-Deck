@@ -44,7 +44,6 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             // 
             // lblFileName
             // 
-            this.lblFileName.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblFileName.Location = new Point(8, 4);
             this.lblFileName.Name = "lblFileName";
             this.lblFileName.Size = new Size(484, 42);
