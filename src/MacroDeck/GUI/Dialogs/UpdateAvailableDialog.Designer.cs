@@ -36,20 +36,20 @@
             lblShowChangeNotes = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
-            // 
+            //
             // lblSize
-            // 
+            //
             lblSize.Font = new Font("Tahoma", 12F);
-            lblSize.Location = new Point(158, 97);
+            lblSize.Location = new Point(128, 90);
             lblSize.Name = "lblSize";
             lblSize.Size = new Size(309, 19);
             lblSize.TabIndex = 18;
             lblSize.Text = "0,00MB";
             lblSize.TextAlign = ContentAlignment.MiddleCenter;
             lblSize.UseMnemonic = false;
-            // 
+            //
             // btnInstall
-            // 
+            //
             btnInstall.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnInstall.BorderRadius = 8;
             btnInstall.Cursor = Cursors.Hand;
@@ -71,9 +71,9 @@
             btnInstall.UseWindowsAccentColor = true;
             btnInstall.WriteProgress = false;
             btnInstall.Click += BtnInstall_Click;
-            // 
+            //
             // lblVersion
-            // 
+            //
             lblVersion.Font = new Font("Tahoma", 15.75F);
             lblVersion.Location = new Point(64, 4);
             lblVersion.Name = "lblVersion";
@@ -82,9 +82,9 @@
             lblVersion.Text = "Version {0} is now available";
             lblVersion.TextAlign = ContentAlignment.MiddleCenter;
             lblVersion.UseMnemonic = false;
-            // 
+            //
             // pictureBox2
-            // 
+            //
             pictureBox2.BackgroundImage = Properties.Resources.Macro_Deck_2021_update;
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox2.Location = new Point(8, 86);
@@ -92,23 +92,23 @@
             pictureBox2.Size = new Size(100, 100);
             pictureBox2.TabIndex = 15;
             pictureBox2.TabStop = false;
-            // 
+            //
             // lblInstalledVersion
-            // 
+            //
             lblInstalledVersion.Font = new Font("Tahoma", 12F);
-            lblInstalledVersion.Location = new Point(158, 116);
+            lblInstalledVersion.Location = new Point(128, 120);
             lblInstalledVersion.Name = "lblInstalledVersion";
             lblInstalledVersion.Size = new Size(309, 19);
             lblInstalledVersion.TabIndex = 19;
             lblInstalledVersion.Text = "Installed version: 2.0.0";
             lblInstalledVersion.TextAlign = ContentAlignment.MiddleCenter;
             lblInstalledVersion.UseMnemonic = false;
-            // 
+            //
             // lblShowChangeNotes
-            // 
+            //
             lblShowChangeNotes.AutoSize = true;
             lblShowChangeNotes.LinkColor = Color.DeepSkyBlue;
-            lblShowChangeNotes.Location = new Point(255, 160);
+            lblShowChangeNotes.Location = new Point(128, 150);
             lblShowChangeNotes.Name = "lblShowChangeNotes";
             lblShowChangeNotes.Size = new Size(115, 16);
             lblShowChangeNotes.TabIndex = 20;
@@ -116,9 +116,9 @@
             lblShowChangeNotes.Text = "View change notes";
             lblShowChangeNotes.TextAlign = ContentAlignment.MiddleCenter;
             lblShowChangeNotes.LinkClicked += LblShowChangeNotes_LinkClicked;
-            // 
+            //
             // UpdateAvailableDialog
-            // 
+            //
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 272);
