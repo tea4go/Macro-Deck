@@ -435,7 +435,6 @@ public partial class DebugConsole : Form
         Logger.Warning("[测试] Warning 级别日志 —— 警告需要注意");
         Logger.Error("[测试] Error 级别日志 —— 发生了一般错误");
         Logger.Fatal("[测试] Fatal 级别日志 —— 致命错误需要立即处理");
-        Logger.Verbose("[测试] ============================================================");
 
         NotificationManager.SystemNotification("测试", $"测试通知，发送时间：{DateTime.Now}", true);
     }
