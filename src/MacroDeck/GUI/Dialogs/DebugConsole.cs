@@ -84,6 +84,9 @@ public partial class DebugConsole : Form
 
         // 启用键预览以捕获 Ctrl+加号/减号/等号 调整日志区字体大小
         KeyPreview = true;
+
+        // 禁用日志自动折行，避免长日志行被截断换行
+        logOutput.WordWrap = false;
     }
 
     protected override void OnLoad(EventArgs e)
