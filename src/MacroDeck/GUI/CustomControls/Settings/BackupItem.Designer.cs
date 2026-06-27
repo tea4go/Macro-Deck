@@ -9,12 +9,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
 {
     partial class BackupItem
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -29,8 +29,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
@@ -41,9 +41,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnDelete = new ButtonPrimary();
             this.btnRestore = new ButtonPrimary();
             this.SuspendLayout();
-            // 
+            //
             // lblFileName
-            // 
+            //
             this.lblFileName.Location = new Point(8, 4);
             this.lblFileName.Name = "lblFileName";
             this.lblFileName.Size = new Size(484, 42);
@@ -51,9 +51,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.lblFileName.Text = "label1";
             this.lblFileName.TextAlign = ContentAlignment.MiddleLeft;
             this.lblFileName.UseMnemonic = false;
-            // 
+            //
             // lblDateCreated
-            // 
+            //
             this.lblDateCreated.Location = new Point(498, 4);
             this.lblDateCreated.Name = "lblDateCreated";
             this.lblDateCreated.Size = new Size(194, 42);
@@ -61,9 +61,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.lblDateCreated.Text = "label1";
             this.lblDateCreated.TextAlign = ContentAlignment.MiddleRight;
             this.lblDateCreated.UseMnemonic = false;
-            // 
+            //
             // lblSize
-            // 
+            //
             this.lblSize.Location = new Point(698, 4);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new Size(89, 42);
@@ -71,9 +71,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.lblSize.Text = "label1";
             this.lblSize.TextAlign = ContentAlignment.MiddleRight;
             this.lblSize.UseMnemonic = false;
-            // 
+            //
             // btnDelete
-            // 
+            //
             this.btnDelete.BorderRadius = 8;
             this.btnDelete.Cursor = Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
@@ -92,9 +92,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.UseWindowsAccentColor = false;
             this.btnDelete.Click += new EventHandler(this.btnDelete_Click);
-            // 
+            //
             // btnRestore
-            // 
+            //
             this.btnRestore.BorderRadius = 8;
             this.btnRestore.Cursor = Cursors.Hand;
             this.btnRestore.FlatAppearance.BorderSize = 0;
@@ -113,10 +113,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnRestore.UseVisualStyleBackColor = false;
             this.btnRestore.UseWindowsAccentColor = true;
             this.btnRestore.Click += new EventHandler(this.BtnRestore_Click);
-            // 
+            //
             // BackupItem
-            // 
-            
+            //
+
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.btnRestore);
