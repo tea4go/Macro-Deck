@@ -218,11 +218,11 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.btnConfigure.ForeColor = Color.White;
             this.btnConfigure.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnConfigure.Icon = null;
-            this.btnConfigure.Location = new Point(5, 30);
+            this.btnConfigure.Location = new Point(420, 30);
             this.btnConfigure.Name = "btnConfigure";
             this.btnConfigure.Progress = 0;
             this.btnConfigure.ProgressColor = Color.FromArgb(0, 46, 94);
-            this.btnConfigure.Size = new Size(183, 27);
+            this.btnConfigure.Size = new Size(100, 27);
             this.btnConfigure.TabIndex = 13;
             this.btnConfigure.Text = "Device settings";
             this.btnConfigure.UseMnemonic = false;
