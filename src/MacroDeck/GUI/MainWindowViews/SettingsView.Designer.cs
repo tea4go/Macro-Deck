@@ -641,9 +641,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             //
             // lblInstalledVersion
             //
-            lblInstalledVersion.Location = new Point(501, 195);
+            lblInstalledVersion.Location = new Point(400, 175);
             lblInstalledVersion.Name = "lblInstalledVersion";
-            lblInstalledVersion.Size = new Size(229, 19);
+            lblInstalledVersion.Size = new Size(229, 39);
             lblInstalledVersion.TabIndex = 8;
             lblInstalledVersion.Text = "2.0.0";
             lblInstalledVersion.TextAlign = ContentAlignment.MiddleLeft;
@@ -651,9 +651,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             //
             // lblInstalledVersionLabel
             //
-            lblInstalledVersionLabel.Location = new Point(266, 195);
+            lblInstalledVersionLabel.Location = new Point(176, 175);
             lblInstalledVersionLabel.Name = "lblInstalledVersionLabel";
-            lblInstalledVersionLabel.Size = new Size(229, 19);
+            lblInstalledVersionLabel.Size = new Size(229, 39);
             lblInstalledVersionLabel.TabIndex = 7;
             lblInstalledVersionLabel.Text = "Installed Version:";
             lblInstalledVersionLabel.TextAlign = ContentAlignment.MiddleRight;

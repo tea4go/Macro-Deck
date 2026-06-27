@@ -75,7 +75,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // lblIf
             // 
-            this.lblIf.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            this.lblIf.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             this.lblIf.ImageAlign = ContentAlignment.MiddleLeft;
             this.lblIf.Location = new Point(9, 2);
             this.lblIf.Name = "lblIf";
@@ -255,7 +255,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // lblElse
             // 
             this.lblElse.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
-            this.lblElse.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            this.lblElse.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             this.lblElse.Location = new Point(3, 33);
             this.lblElse.Name = "lblElse";
             this.lblElse.Size = new Size(148, 33);

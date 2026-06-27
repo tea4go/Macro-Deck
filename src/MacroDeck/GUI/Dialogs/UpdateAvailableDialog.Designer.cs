@@ -40,9 +40,9 @@
             // lblSize
             //
             lblSize.Font = new Font("Tahoma", 12F);
-            lblSize.Location = new Point(112, 90);
+            lblSize.Location = new Point(128, 90);
             lblSize.Name = "lblSize";
-            lblSize.Size = new Size(400, 19);
+            lblSize.Size = new Size(309, 19);
             lblSize.TabIndex = 18;
             lblSize.Text = "0,00MB";
             lblSize.TextAlign = ContentAlignment.MiddleCenter;
@@ -96,9 +96,9 @@
             // lblInstalledVersion
             //
             lblInstalledVersion.Font = new Font("Tahoma", 12F);
-            lblInstalledVersion.Location = new Point(112, 120);
+            lblInstalledVersion.Location = new Point(102, 120);
             lblInstalledVersion.Name = "lblInstalledVersion";
-            lblInstalledVersion.Size = new Size(400, 19);
+            lblInstalledVersion.Size = new Size(400, 32);
             lblInstalledVersion.TabIndex = 19;
             lblInstalledVersion.Text = "Installed version: 2.0.0";
             lblInstalledVersion.TextAlign = ContentAlignment.MiddleCenter;
