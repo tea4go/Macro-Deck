@@ -40,9 +40,9 @@
             // lblSize
             //
             lblSize.Font = new Font("Tahoma", 12F);
-            lblSize.Location = new Point(128, 90);
+            lblSize.Location = new Point(112, 90);
             lblSize.Name = "lblSize";
-            lblSize.Size = new Size(309, 19);
+            lblSize.Size = new Size(400, 19);
             lblSize.TabIndex = 18;
             lblSize.Text = "0,00MB";
             lblSize.TextAlign = ContentAlignment.MiddleCenter;
@@ -59,7 +59,7 @@
             btnInstall.ForeColor = Color.White;
             btnInstall.HoverColor = Color.FromArgb(0, 89, 184);
             btnInstall.Icon = null;
-            btnInstall.Location = new Point(171, 220);
+            btnInstall.Location = new Point(230, 220);
             btnInstall.Name = "btnInstall";
             btnInstall.Progress = 0;
             btnInstall.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -96,9 +96,9 @@
             // lblInstalledVersion
             //
             lblInstalledVersion.Font = new Font("Tahoma", 12F);
-            lblInstalledVersion.Location = new Point(128, 120);
+            lblInstalledVersion.Location = new Point(112, 120);
             lblInstalledVersion.Name = "lblInstalledVersion";
-            lblInstalledVersion.Size = new Size(309, 19);
+            lblInstalledVersion.Size = new Size(400, 19);
             lblInstalledVersion.TabIndex = 19;
             lblInstalledVersion.Text = "Installed version: 2.0.0";
             lblInstalledVersion.TextAlign = ContentAlignment.MiddleCenter;
