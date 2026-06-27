@@ -225,42 +225,62 @@ public partial class DebugConsole : Form
     }
 
     /// <summary>
-    /// 打开最新的日志文件；如果无法确定最新文件则回退到打开日志目录。
-    /// 使用系统默认程序打开目标文件或目录。
+    /// 找到最新的日志文件并使用 tail4go -f 命令实时跟踪日志输出。
+    /// 如果无法找到日志文件则回退到打开日志目录。
     /// </summary>
     private void BtnOpenLogs_Click(object sender, EventArgs e)
     {
-        // 默认打开日志目录，尝试定位最近修改的日志文件直接打开
-        var target = ApplicationPaths.LogsDirectoryPath;
+        // 尝试定位最近修改的日志文件
+        string? logFilePath = null;
         try
         {
             var newest = new DirectoryInfo(ApplicationPaths.LogsDirectoryPath).GetFiles()
                 .OrderByDescending(f => f.LastWriteTime)
                 .FirstOrDefault();
-            if (newest != null)
-            {
-                target = newest.FullName;
-            }
+            logFilePath = newest?.FullName;
         }
         catch (Exception ex)
         {
             Logger.Error(ex, "Could not determine the newest log file");
         }
 
-        try
+        // 如果找到了日志文件，使用 tail_ansi -f 实时跟踪；否则回退到打开日志目录
+        if (logFilePath != null)
         {
-            var p = new Process
+            try
             {
-                StartInfo = new ProcessStartInfo(target)
+                var p = new Process
                 {
-                    UseShellExecute = true
-                }
-            };
-            p.Start();
+                    StartInfo = new ProcessStartInfo("tail_ansi")
+                    {
+                        Arguments = $"-f \"{logFilePath}\"",
+                        UseShellExecute = true
+                    }
+                };
+                p.Start();
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, "Could not start tail4go. Please ensure tail4go is installed and available in PATH.");
+            }
         }
-        catch (Exception ex)
+        else
         {
-            Logger.Error(ex, "Could not open logs");
+            try
+            {
+                var p = new Process
+                {
+                    StartInfo = new ProcessStartInfo(ApplicationPaths.LogsDirectoryPath)
+                    {
+                        UseShellExecute = true
+                    }
+                };
+                p.Start();
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, "Could not open logs directory");
+            }
         }
     }
 
