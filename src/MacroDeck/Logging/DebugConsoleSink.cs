@@ -42,14 +42,14 @@ public class DebugConsoleSink : ILogEventSink
                 ? name
                 : "MacroDeck";
 
-        var colors = ColorForLevel(logEvent.Level);
+        var color = ColorForLevel(logEvent.Level);
 
         var console = DebugConsole.Current;
         if (console is null)
         {
             lock (BufferLock)
             {
-                Buffer.Enqueue(new BufferedEntry(text, source, colors));
+                Buffer.Enqueue(new BufferedEntry(text, source, color));
                 while (Buffer.Count > BufferCapacity)
                 {
                     Buffer.Dequeue();
@@ -58,7 +58,7 @@ public class DebugConsoleSink : ILogEventSink
             return;
         }
 
-        console.AppendText(text, source, colors.Foreground);
+        console.AppendText(text, source, color);
     }
 
     /// <summary>
@@ -83,33 +83,15 @@ public class DebugConsoleSink : ILogEventSink
 
         foreach (var entry in snapshot)
         {
-            console.AppendText(entry.Text, entry.Source, entry.Colors.Foreground);
+            console.AppendText(entry.Text, entry.Source, entry.Color);
         }
     }
 
     /// <summary>
-    /// 存储日志级别对应的背景色与前景（文字）色对。
+    /// 根据 Serilog 日志级别返回对应的文字颜色。
+    /// 颜色用于在调试控制台中区分不同严重程度的日志条目。
     /// </summary>
-    public readonly struct LevelColors
-    {
-        public Color Background { get; }
-        public Color Foreground { get; }
-
-        public LevelColors(Color background, Color foreground)
-        {
-            Background = background;
-            Foreground = foreground;
-        }
-
-        /// <summary>是否有有效的背景色（非 Empty 且不透明）</summary>
-        public bool HasBackground => Background != Color.Empty && Background.A > 0;
-    }
-
-    /// <summary>
-    /// 根据 Serilog 日志级别返回对应的背景色与前景色组合。
-    /// 背景色用于在调试控制台中标记整行条目的严重程度；前景色控制文字颜色以确保可读性。
-    /// </summary>
-    private static LevelColors ColorForLevel(LogEventLevel level)
+    private static Color ColorForLevel(LogEventLevel level)
     {
         return level switch
         {
@@ -125,15 +107,15 @@ public class DebugConsoleSink : ILogEventSink
 
     private readonly struct BufferedEntry
     {
-        public BufferedEntry(string text, string source, LevelColors colors)
+        public BufferedEntry(string text, string source, Color color)
         {
             Text = text;
             Source = source;
-            Colors = colors;
+            Color = color;
         }
 
         public string Text { get; }
         public string Source { get; }
-        public LevelColors Colors { get; }
+        public Color Color { get; }
     }
 }
