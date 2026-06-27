@@ -59,10 +59,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.logOutput.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
             this.logOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logOutput.ForeColor = System.Drawing.Color.White;
-            this.logOutput.Location = new System.Drawing.Point(10, 79);
+            this.logOutput.Location = new System.Drawing.Point(10, 43);
             this.logOutput.Name = "logOutput";
             this.logOutput.ReadOnly = true;
-            this.logOutput.Size = new System.Drawing.Size(780, 323);
+            this.logOutput.Size = new System.Drawing.Size(780, 358);
             this.logOutput.TabIndex = 1;
             this.logOutput.Text = "";
             //
@@ -77,7 +77,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(673, 416);
+            this.btnClear.Location = new System.Drawing.Point(673, 410);
             this.btnClear.Name = "btnClear";
             this.btnClear.Progress = 0;
             this.btnClear.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -100,7 +100,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnRestartMacroDeck.ForeColor = System.Drawing.Color.White;
             this.btnRestartMacroDeck.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnRestartMacroDeck.Icon = null;
-            this.btnRestartMacroDeck.Location = new System.Drawing.Point(133, 416);
+            this.btnRestartMacroDeck.Location = new System.Drawing.Point(133, 410);
             this.btnRestartMacroDeck.Name = "btnRestartMacroDeck";
             this.btnRestartMacroDeck.Progress = 0;
             this.btnRestartMacroDeck.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -123,7 +123,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnExit.Icon = null;
-            this.btnExit.Location = new System.Drawing.Point(5, 416);
+            this.btnExit.Location = new System.Drawing.Point(5, 410);
             this.btnExit.Name = "btnExit";
             this.btnExit.Progress = 0;
             this.btnExit.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -146,7 +146,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnOpenUser.ForeColor = System.Drawing.Color.White;
             this.btnOpenUser.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnOpenUser.Icon = null;
-            this.btnOpenUser.Location = new System.Drawing.Point(261, 416);
+            this.btnOpenUser.Location = new System.Drawing.Point(261, 410);
             this.btnOpenUser.Name = "btnOpenUser";
             this.btnOpenUser.Progress = 0;
             this.btnOpenUser.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -161,7 +161,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // label1
             //
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(7, 37);
+            this.label1.Location = new System.Drawing.Point(7, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 26);
             this.label1.TabIndex = 6;
@@ -176,7 +176,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.logLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.logLevel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.logLevel.Icon = null;
-            this.logLevel.Location = new System.Drawing.Point(108, 37);
+            this.logLevel.Location = new System.Drawing.Point(108, 7);
             this.logLevel.Name = "logLevel";
             this.logLevel.SelectedIndex = -1;
             this.logLevel.SelectedItem = null;
@@ -195,7 +195,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnExportOutput.ForeColor = System.Drawing.Color.White;
             this.btnExportOutput.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnExportOutput.Icon = null;
-            this.btnExportOutput.Location = new System.Drawing.Point(545, 416);
+            this.btnExportOutput.Location = new System.Drawing.Point(545, 410);
             this.btnExportOutput.Name = "btnExportOutput";
             this.btnExportOutput.Progress = 0;
             this.btnExportOutput.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -211,7 +211,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             //
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(368, 37);
+            this.label3.Location = new System.Drawing.Point(368, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 26);
             this.label3.TabIndex = 9;
@@ -226,7 +226,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.filter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.filter.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.filter.Icon = null;
-            this.filter.Location = new System.Drawing.Point(424, 38);
+            this.filter.Location = new System.Drawing.Point(424, 5);
             this.filter.MaxCharacters = 32767;
             this.filter.Multiline = false;
             this.filter.Name = "filter";
@@ -252,7 +252,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnAddFilter.ForeColor = System.Drawing.Color.White;
             this.btnAddFilter.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnAddFilter.Icon = global::SuchByte.MacroDeck.Properties.Resources.Create_Hover;
-            this.btnAddFilter.Location = new System.Drawing.Point(741, 38);
+            this.btnAddFilter.Location = new System.Drawing.Point(741, 5);
             this.btnAddFilter.Name = "btnAddFilter";
             this.btnAddFilter.Progress = 0;
             this.btnAddFilter.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -282,7 +282,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnRemoveFilters.ForeColor = System.Drawing.Color.White;
             this.btnRemoveFilters.HoverColor = System.Drawing.Color.FromArgb(152, 0, 0);
             this.btnRemoveFilters.Icon = global::SuchByte.MacroDeck.Properties.Resources.Delete_Hover;
-            this.btnRemoveFilters.Location = new System.Drawing.Point(770, 38);
+            this.btnRemoveFilters.Location = new System.Drawing.Point(770, 5);
             this.btnRemoveFilters.Name = "btnRemoveFilters";
             this.btnRemoveFilters.Progress = 0;
             this.btnRemoveFilters.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -304,7 +304,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnTestNotification.ForeColor = System.Drawing.Color.White;
             this.btnTestNotification.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnTestNotification.Icon = null;
-            this.btnTestNotification.Location = new System.Drawing.Point(389, 416);
+            this.btnTestNotification.Location = new System.Drawing.Point(389, 410);
             this.btnTestNotification.Name = "btnTestNotification";
             this.btnTestNotification.Progress = 0;
             this.btnTestNotification.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
@@ -326,7 +326,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             this.btnOpenLogs.ForeColor = System.Drawing.Color.White;
             this.btnOpenLogs.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
             this.btnOpenLogs.Icon = null;
-            this.btnOpenLogs.Location = new System.Drawing.Point(283, 36);
+            this.btnOpenLogs.Location = new System.Drawing.Point(283, 5);
             this.btnOpenLogs.Name = "btnOpenLogs";
             this.btnOpenLogs.Progress = 0;
             this.btnOpenLogs.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
