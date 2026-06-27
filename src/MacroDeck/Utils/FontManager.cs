@@ -151,13 +151,33 @@ public static class FontManager
     /// <param name="root">要处理的根控件（通常是窗体自身）</param>
     public static void Apply(Control root)
     {
-        ApplyRecursive(root);
+        Logger.Information("开始应用字体到控件树：{RootType}（Name={RootName}）",
+            root.GetType().Name, root.Name ?? "(无名)");
+        Logger.Information(
+            "当前字体配置：Family={Family}, Size={Size}, Bold={Bold}, IsDefault={IsDefault}",
+            FontFamily, FontSize, FontBold, IsDefault());
+
+        var controlCount = 0;
+        var changedCount = 0;
+        ApplyRecursive(root, 0, ref controlCount, ref changedCount);
+
+        Logger.Information("字体应用完成：共处理 {Total} 个控件，{Changed} 个发生变更",
+            controlCount, changedCount);
     }
 
-    private static void ApplyRecursive(Control control)
+    private static void ApplyRecursive(Control control, int depth, ref int totalCount, ref int changedCount)
     {
-        if (control.Tag as string != "no-font")
+        var indent = new string(' ', depth * 2);
+        var controlName = string.IsNullOrEmpty(control.Name) ? "(无名)" : control.Name;
+
+        if (control.Tag as string == "no-font")
         {
+            Logger.Information("{Indent}跳过（no-font）：{Name}（{Type}）",
+                indent, controlName, control.GetType().Name);
+        }
+        else
+        {
+            totalCount++;
             try
             {
                 // 缓存首次处理时的原始字体，后续始终基于它重算（保证幂等、可还原）
@@ -168,21 +188,66 @@ public static class FontManager
                 }
 
                 var target = IsDefault() ? original : BuildFont(original);
-                if (!control.Font.Equals(target))
+                var changed = !control.Font.Equals(target);
+
+                Logger.Information(
+                    "{Indent}{Name}（{Type}）: 当前=[{Current}] 目标=[{Target}] 缓存=[{Cached}] {Flag}",
+                    indent,
+                    controlName,
+                    control.GetType().Name,
+                    FormatFont(control.Font),
+                    FormatFont(target),
+                    FormatFont(original),
+                    changed ? "→ 变更" : "（未变）");
+
+                if (changed)
                 {
                     control.Font = target;
+                    changedCount++;
                 }
             }
             catch (Exception ex)
             {
-                Logger.Warning(ex, "为控件 {Control} 应用字体失败", control.Name);
+                Logger.Warning(ex, "{Indent}为控件 {Name} 应用字体失败", indent, controlName);
             }
         }
 
         foreach (Control child in control.Controls)
         {
-            ApplyRecursive(child);
+            ApplyRecursive(child, depth + 1, ref totalCount, ref changedCount);
         }
+    }
+
+    private static string FormatFont(Font font)
+    {
+        if (font == null)
+        {
+            return "(null)";
+        }
+
+        var styleParts = new List<string>();
+        if (font.Bold)
+        {
+            styleParts.Add("Bold");
+        }
+
+        if (font.Italic)
+        {
+            styleParts.Add("Italic");
+        }
+
+        if (font.Underline)
+        {
+            styleParts.Add("Underline");
+        }
+
+        if (font.Strikeout)
+        {
+            styleParts.Add("Strikeout");
+        }
+
+        var style = styleParts.Count == 0 ? "Regular" : string.Join(",", styleParts);
+        return $"{font.Name} {font.Size}F {style}";
     }
 
     /// <summary>
