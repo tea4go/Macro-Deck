@@ -587,7 +587,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 14.25F);
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(3, 63);
+            label2.Location = new Point(3, 50);
             label2.Name = "label2";
             label2.Size = new Size(82, 23);
             label2.TabIndex = 18;
@@ -597,7 +597,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // checkAutoUpdate
             //
             checkAutoUpdate.AutoSize = true;
-            checkAutoUpdate.Location = new Point(13, 89);
+            checkAutoUpdate.Location = new Point(13, 90);
             checkAutoUpdate.Name = "checkAutoUpdate";
             checkAutoUpdate.Size = new Size(253, 23);
             checkAutoUpdate.TabIndex = 17;
@@ -608,7 +608,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // checkInstallBetaVersions
             //
             checkInstallBetaVersions.AutoSize = true;
-            checkInstallBetaVersions.Location = new Point(13, 118);
+            checkInstallBetaVersions.Location = new Point(13, 120);
             checkInstallBetaVersions.Name = "checkInstallBetaVersions";
             checkInstallBetaVersions.Size = new Size(169, 23);
             checkInstallBetaVersions.TabIndex = 16;
@@ -626,7 +626,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCheckUpdates.ForeColor = Color.White;
             btnCheckUpdates.HoverColor = Color.FromArgb(0, 89, 184);
             btnCheckUpdates.Icon = null;
-            btnCheckUpdates.Location = new Point(354, 265);
+            btnCheckUpdates.Location = new Point(354, 230);
             btnCheckUpdates.Name = "btnCheckUpdates";
             btnCheckUpdates.Progress = 0;
             btnCheckUpdates.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -641,7 +641,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             //
             // lblInstalledVersion
             //
-            lblInstalledVersion.Location = new Point(501, 243);
+            lblInstalledVersion.Location = new Point(501, 195);
             lblInstalledVersion.Name = "lblInstalledVersion";
             lblInstalledVersion.Size = new Size(229, 19);
             lblInstalledVersion.TabIndex = 8;
@@ -651,7 +651,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             //
             // lblInstalledVersionLabel
             //
-            lblInstalledVersionLabel.Location = new Point(266, 243);
+            lblInstalledVersionLabel.Location = new Point(266, 195);
             lblInstalledVersionLabel.Name = "lblInstalledVersionLabel";
             lblInstalledVersionLabel.Size = new Size(229, 19);
             lblInstalledVersionLabel.TabIndex = 7;
@@ -679,7 +679,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabBackups.ForeColor = Color.White;
             tabBackups.Location = new Point(204, 4);
             tabBackups.Name = "tabBackups";
-            tabBackups.Size = new Size(923, 526);
+            tabBackups.Size = new Size(1423, 526);
             tabBackups.TabIndex = 4;
             tabBackups.Text = "Backups";
             //
@@ -694,7 +694,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCreateBackup.ForeColor = Color.White;
             btnCreateBackup.HoverColor = Color.FromArgb(0, 89, 184);
             btnCreateBackup.Icon = null;
-            btnCreateBackup.Location = new Point(770, 493);
+            btnCreateBackup.Location = new Point(1268, 491);
             btnCreateBackup.Name = "btnCreateBackup";
             btnCreateBackup.Progress = 0;
             btnCreateBackup.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -709,10 +709,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             //
             // backupsPanel
             //
+            backupsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             backupsPanel.AutoScroll = true;
+            backupsPanel.BackColor = Color.FromArgb(45, 45, 45);
             backupsPanel.Location = new Point(3, 28);
             backupsPanel.Name = "backupsPanel";
-            backupsPanel.Size = new Size(917, 459);
+            backupsPanel.Size = new Size(1417, 458);
             backupsPanel.TabIndex = 4;
             //
             // lblBackups

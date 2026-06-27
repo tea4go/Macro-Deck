@@ -40,6 +40,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.lblSize = new Label();
             this.btnDelete = new ButtonPrimary();
             this.btnRestore = new ButtonPrimary();
+            this.btnOpenFolder = new ButtonPrimary();
             this.SuspendLayout();
             //
             // lblFileName
@@ -56,7 +57,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             //
             this.lblDateCreated.Location = new Point(498, 4);
             this.lblDateCreated.Name = "lblDateCreated";
-            this.lblDateCreated.Size = new Size(194, 42);
+            this.lblDateCreated.Size = new Size(234, 42);
             this.lblDateCreated.TabIndex = 1;
             this.lblDateCreated.Text = "label1";
             this.lblDateCreated.TextAlign = ContentAlignment.MiddleRight;
@@ -64,7 +65,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             //
             // lblSize
             //
-            this.lblSize.Location = new Point(698, 4);
+            this.lblSize.Location = new Point(798, 4);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new Size(89, 42);
             this.lblSize.TabIndex = 2;
@@ -82,7 +83,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnDelete.ForeColor = Color.White;
             this.btnDelete.HoverColor = Color.FromArgb(150, 0, 0);
             this.btnDelete.Icon = Resources.Delete_Hover;
-            this.btnDelete.Location = new Point(847, 8);
+            this.btnDelete.Location = new Point(1096, 8);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Progress = 0;
             this.btnDelete.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -92,6 +93,27 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.UseWindowsAccentColor = false;
             this.btnDelete.Click += new EventHandler(this.btnDelete_Click);
+            //
+            // btnOpenFolder
+            //
+            this.btnOpenFolder.BorderRadius = 8;
+            this.btnOpenFolder.Cursor = Cursors.Hand;
+            this.btnOpenFolder.FlatAppearance.BorderSize = 0;
+            this.btnOpenFolder.FlatStyle = FlatStyle.Flat;
+            this.btnOpenFolder.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            this.btnOpenFolder.ForeColor = Color.White;
+            this.btnOpenFolder.HoverColor = Color.FromArgb(0, 89, 184);
+            this.btnOpenFolder.Icon = Resources.Harddisk;
+            this.btnOpenFolder.Location = new Point(1010, 8);
+            this.btnOpenFolder.Name = "btnOpenFolder";
+            this.btnOpenFolder.Progress = 0;
+            this.btnOpenFolder.ProgressColor = Color.FromArgb(0, 46, 94);
+            this.btnOpenFolder.Size = new Size(35, 35);
+            this.btnOpenFolder.TabIndex = 5;
+            this.btnOpenFolder.UseMnemonic = false;
+            this.btnOpenFolder.UseVisualStyleBackColor = false;
+            this.btnOpenFolder.UseWindowsAccentColor = false;
+            this.btnOpenFolder.Click += new EventHandler(this.BtnOpenFolder_Click);
             //
             // btnRestore
             //
@@ -103,7 +125,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.btnRestore.ForeColor = Color.White;
             this.btnRestore.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnRestore.Icon = Resources.Backup_Restore;
-            this.btnRestore.Location = new Point(806, 8);
+            this.btnRestore.Location = new Point(1053, 8);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Progress = 0;
             this.btnRestore.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -121,6 +143,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnOpenFolder);
             this.Controls.Add(this.lblSize);
             this.Controls.Add(this.lblDateCreated);
             this.Controls.Add(this.lblFileName);
@@ -128,7 +151,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
             this.ForeColor = Color.White;
             this.Name = "BackupItem";
             this.Padding = new Padding(5, 4, 5, 4);
-            this.Size = new Size(890, 50);
+            this.Size = new Size(1136, 50);
             this.Load += new EventHandler(this.BackupItem_Load);
             this.ResumeLayout(false);
 
@@ -141,5 +164,6 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Settings
         private Label lblSize;
         private ButtonPrimary btnDelete;
         private ButtonPrimary btnRestore;
+        private ButtonPrimary btnOpenFolder;
     }
 }

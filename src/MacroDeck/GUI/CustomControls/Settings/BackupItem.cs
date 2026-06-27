@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using SuchByte.MacroDeck.Backup;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Language;
+using SuchByte.MacroDeck.StartupConfig;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Settings;
 
@@ -56,6 +58,29 @@ public partial class BackupItem : RoundedUserControl
             DialogResult.Yes)
         {
             BackupManager.DeleteBackup(macroDeckBackupInfo.FileName);
+        }
+    }
+
+    private void BtnOpenFolder_Click(object? sender, EventArgs e)
+    {
+        var fullPath = Path.Combine(ApplicationPaths.BackupsDirectoryPath, macroDeckBackupInfo.FileName);
+        if (!File.Exists(fullPath))
+        {
+            return;
+        }
+
+        try
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "explorer.exe",
+                Arguments = $"/select,\"{fullPath}\"",
+                UseShellExecute = true
+            });
+        }
+        catch (Exception ex)
+        {
+            Serilog.Log.Warning(ex, "打开备份目录失败：{FileName}", macroDeckBackupInfo.FileName);
         }
     }
 }
