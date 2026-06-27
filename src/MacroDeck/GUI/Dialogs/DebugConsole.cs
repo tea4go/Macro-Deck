@@ -65,6 +65,10 @@ public partial class DebugConsole : Form
     public DebugConsole()
     {
         InitializeComponent();
+
+        // 设置日志输出区使用等宽中文字体，便于对齐阅读
+        logOutput.Font = new Font("Microsoft YaHei Mono", logOutput.Font.Size, FontStyle.Regular);
+
         ApplyLanguage();
         if (!string.IsNullOrWhiteSpace(Settings.Default.DebugConsoleFilters))
         {
@@ -103,8 +107,8 @@ public partial class DebugConsole : Form
     /// </summary>
     protected override void OnKeyDown(KeyEventArgs e)
     {
-        // Ctrl+Shift+= → 加号键，放大日志字体
-        if (e.Control && e.Shift && e.KeyCode == Keys.Oemplus)
+        // Ctrl+= → 加号键，放大日志字体
+        if (e.Control && e.KeyCode == Keys.Oemplus)
         {
             AdjustLogFontSize(2);
             e.Handled = true;
@@ -121,8 +125,8 @@ public partial class DebugConsole : Form
             return;
         }
 
-        // Ctrl+= → 等号键（与加号同一键位），恢复初始字体大小
-        if (e.Control && e.KeyCode == Keys.Oemplus)
+        // Ctrl+0 → 数字零键，恢复初始字体大小
+        if (e.Control && e.KeyCode == Keys.D0)
         {
             logOutput.Font = new Font(logOutput.Font.FontFamily, _originalLogFontSize, logOutput.Font.Style);
             e.Handled = true;

@@ -16,7 +16,7 @@ namespace SuchByte.MacroDeck.StartupConfig;
 public static class LoggingConfig 
 { 
     private const string OutputTemplate = 
-        "[{Timestamp:HH:mm:ss} {Level:u3}] [{Source}] {Message:lj}{NewLine}{Exception}"; 
+        "[{Timestamp:HH:mm:ss} {Level:u3}] [{Source}][{SourceFile}:{SourceLine}] {Message:lj}{NewLine}{Exception}"; 
  
     /// <summary> 
     /// 构建应用程序级别的 Serilog 日志记录器。 
@@ -26,7 +26,8 @@ public static class LoggingConfig
     public static ILogger CreateLogger() 
     { 
         var loggerConfiguration = new LoggerConfiguration() 
-            .Enrich.With<PluginSourceEnricher>() 
+            .Enrich.With<PluginSourceEnricher>()
+            .Enrich.With<CallerInfoEnricher>() 
             .MinimumLevel.ControlledBy(MacroDeckLogger.LevelSwitch) 
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning) 
             .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information) 

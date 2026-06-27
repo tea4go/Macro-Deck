@@ -89,19 +89,26 @@ public class DebugConsoleSink : ILogEventSink
 
     /// <summary>
     /// 根据 Serilog 日志级别返回对应的文字颜色。
-    /// 颜色用于在调试控制台中区分不同严重程度的日志条目。
+    /// 配色针对深色背景（~#1E1E1E）优化，以柔和暖色调为主，减少视觉疲劳。
+    /// 严格按 Fatal > Error > Warning > Info > Debug > Verbose 递减视觉权重。
     /// </summary>
     private static Color ColorForLevel(LogEventLevel level)
     {
         return level switch
         {
-            LogEventLevel.Fatal => Color.FromArgb(255, 99, 99),
-            LogEventLevel.Error => Color.FromArgb(255, 99, 99),
-            LogEventLevel.Warning => Color.Orange,
-            LogEventLevel.Information => Color.White,
-            LogEventLevel.Debug => Color.Gray,
-            LogEventLevel.Verbose => Color.DarkGray,
-            _ => Color.White
+            // 致命错误：暖珊瑚红，最高视觉优先级，与 Error 明显区分
+            LogEventLevel.Fatal => Color.FromArgb(255, 107, 107),
+            // 一般错误：柔和鲑鱼红，比 Fatal 亮度更高、饱和度更低
+            LogEventLevel.Error => Color.FromArgb(255, 138, 128),
+            // 警告：温暖琥珀色，醒目但不刺痛
+            LogEventLevel.Warning => Color.FromArgb(255, 213, 79),
+            // 信息：柔和米白，长时间阅读不刺眼
+            LogEventLevel.Information => Color.FromArgb(235, 235, 235),
+            // 调试：中等灰色，低调可读
+            LogEventLevel.Debug => Color.FromArgb(158, 158, 158),
+            // 详细：浅暗灰，最低优先级但确保深色背景下可见
+            LogEventLevel.Verbose => Color.FromArgb(135, 135, 135),
+            _ => Color.FromArgb(235, 235, 235)
         };
     }
 
