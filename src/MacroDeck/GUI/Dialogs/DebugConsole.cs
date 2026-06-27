@@ -304,14 +304,14 @@ public partial class DebugConsole : Form
             Logger.Error(ex, "无法确定最新的日志文件");
         }
 
-        // 如果找到了日志文件，使用 tail_ansi -f 实时跟踪；否则回退到打开日志目录
+        // 如果找到了日志文件，使用 tail4go -f 实时跟踪；否则回退到打开日志目录
         if (logFilePath != null)
         {
             try
             {
                 var p = new Process
                 {
-                    StartInfo = new ProcessStartInfo("tail_ansi")
+                    StartInfo = new ProcessStartInfo("tail4go")
                     {
                         Arguments = $"-f \"{logFilePath}\"",
                         UseShellExecute = true
