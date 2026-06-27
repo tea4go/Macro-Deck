@@ -10,18 +10,18 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 {
     partial class DeviceInfo
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
         protected override void Dispose(bool disposing)
         {
-            
+
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -31,8 +31,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
@@ -52,27 +52,27 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             ((ISupportInitialize)(this.btnRemove)).BeginInit();
             ((ISupportInitialize)(this.btnChangeDisplayName)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // lblDisplayName
-            // 
+            //
             this.lblDisplayName.AutoSize = true;
             this.lblDisplayName.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblDisplayName.ForeColor = Color.White;
-            this.lblDisplayName.Location = new Point(3, 132);
+            this.lblDisplayName.Location = new Point(3, 119);
             this.lblDisplayName.Name = "lblDisplayName";
             this.lblDisplayName.Size = new Size(110, 19);
             this.lblDisplayName.TabIndex = 0;
             this.lblDisplayName.Text = "Display name:";
             this.lblDisplayName.UseMnemonic = false;
-            // 
+            //
             // displayName
-            // 
+            //
             this.displayName.BackColor = Color.FromArgb(65, 65, 65);
             this.displayName.Cursor = Cursors.Hand;
             this.displayName.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.displayName.ForeColor = Color.White;
             this.displayName.Icon = null;
-            this.displayName.Location = new Point(119, 128);
+            this.displayName.Location = new Point(119, 115);
             this.displayName.MaxCharacters = 32767;
             this.displayName.Multiline = false;
             this.displayName.Name = "displayName";
@@ -86,9 +86,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.displayName.Size = new Size(299, 27);
             this.displayName.TabIndex = 1;
             this.displayName.TextAlignment = HorizontalAlignment.Left;
-            // 
+            //
             // btnRemove
-            // 
+            //
             this.btnRemove.BackColor = Color.Transparent;
             this.btnRemove.BackgroundImage = Resources.Delete_Normal;
             this.btnRemove.BackgroundImageLayout = ImageLayout.Stretch;
@@ -96,41 +96,41 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.btnRemove.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.btnRemove.ForeColor = Color.White;
             this.btnRemove.HoverImage = Resources.Delete_Hover;
-            this.btnRemove.Location = new Point(507, 2);
+            this.btnRemove.Location = new Point(500, 5);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new Size(25, 25);
             this.btnRemove.TabIndex = 2;
             this.btnRemove.TabStop = false;
             this.btnRemove.Click += new EventHandler(this.BtnRemove_Click);
-            // 
+            //
             // lblIdLabel
-            // 
+            //
             this.lblIdLabel.AutoSize = true;
             this.lblIdLabel.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblIdLabel.ForeColor = Color.White;
-            this.lblIdLabel.Location = new Point(5, 70);
+            this.lblIdLabel.Location = new Point(5, 50);
             this.lblIdLabel.Name = "lblIdLabel";
             this.lblIdLabel.Size = new Size(77, 19);
             this.lblIdLabel.TabIndex = 3;
             this.lblIdLabel.Text = "Client ID:";
             this.lblIdLabel.UseMnemonic = false;
-            // 
+            //
             // lblId
-            // 
+            //
             this.lblId.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblId.ForeColor = Color.White;
-            this.lblId.Location = new Point(119, 67);
+            this.lblId.Location = new Point(119, 50);
             this.lblId.Name = "lblId";
             this.lblId.Size = new Size(194, 23);
             this.lblId.TabIndex = 4;
             this.lblId.UseMnemonic = false;
-            // 
+            //
             // checkBlockConnection
-            // 
+            //
             this.checkBlockConnection.CheckAlign = ContentAlignment.TopLeft;
             this.checkBlockConnection.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.checkBlockConnection.ForeColor = Color.White;
-            this.checkBlockConnection.Location = new Point(334, 5);
+            this.checkBlockConnection.Location = new Point(5, 5);
             this.checkBlockConnection.Name = "checkBlockConnection";
             this.checkBlockConnection.Size = new Size(167, 49);
             this.checkBlockConnection.TabIndex = 5;
@@ -139,32 +139,32 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.checkBlockConnection.UseMnemonic = false;
             this.checkBlockConnection.UseVisualStyleBackColor = true;
             this.checkBlockConnection.CheckedChanged += new EventHandler(this.CheckBlockConnection_CheckedChanged);
-            // 
+            //
             // lblStatusLabel
-            // 
+            //
             this.lblStatusLabel.AutoSize = true;
             this.lblStatusLabel.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblStatusLabel.ForeColor = Color.White;
-            this.lblStatusLabel.Location = new Point(5, 101);
+            this.lblStatusLabel.Location = new Point(5, 85);
             this.lblStatusLabel.Name = "lblStatusLabel";
             this.lblStatusLabel.Size = new Size(58, 19);
             this.lblStatusLabel.TabIndex = 6;
             this.lblStatusLabel.Text = "Status:";
             this.lblStatusLabel.UseMnemonic = false;
-            // 
+            //
             // lblStatus
-            // 
+            //
             this.lblStatus.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblStatus.ForeColor = Color.White;
-            this.lblStatus.Location = new Point(119, 101);
+            this.lblStatus.Location = new Point(119, 85);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new Size(226, 23);
             this.lblStatus.TabIndex = 7;
             this.lblStatus.Text = "?";
             this.lblStatus.UseMnemonic = false;
-            // 
+            //
             // btnChangeDisplayName
-            // 
+            //
             this.btnChangeDisplayName.BackColor = Color.Transparent;
             this.btnChangeDisplayName.BackgroundImage = Resources.Edit_Normal;
             this.btnChangeDisplayName.BackgroundImageLayout = ImageLayout.Stretch;
@@ -178,38 +178,37 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.btnChangeDisplayName.TabIndex = 8;
             this.btnChangeDisplayName.TabStop = false;
             this.btnChangeDisplayName.Click += new EventHandler(this.BtnChangeDisplayName_Click);
-            // 
+            //
             // profiles
-            // 
+            //
             this.profiles.BackColor = Color.FromArgb(65, 65, 65);
             this.profiles.Cursor = Cursors.Hand;
             this.profiles.DropDownStyle = ComboBoxStyle.DropDownList;
             this.profiles.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.profiles.ForeColor = Color.White;
             this.profiles.Icon = null;
-            this.profiles.Location = new Point(119, 159);
+            this.profiles.Location = new Point(119, 155);
             this.profiles.Name = "profiles";
-            this.profiles.Padding = new Padding(8, 2, 8, 2);
             this.profiles.SelectedIndex = -1;
             this.profiles.SelectedItem = null;
             this.profiles.Size = new Size(299, 28);
             this.profiles.TabIndex = 9;
             this.profiles.SelectedIndexChanged += new EventHandler(this.Profiles_SelectedIndexChanged);
-            // 
+            //
             // lblProfile
-            // 
+            //
             this.lblProfile.AutoSize = true;
             this.lblProfile.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblProfile.ForeColor = Color.White;
-            this.lblProfile.Location = new Point(5, 163);
+            this.lblProfile.Location = new Point(5, 160);
             this.lblProfile.Name = "lblProfile";
             this.lblProfile.Size = new Size(60, 19);
             this.lblProfile.TabIndex = 10;
             this.lblProfile.Text = "Profile:";
             this.lblProfile.UseMnemonic = false;
-            // 
+            //
             // btnConfigure
-            // 
+            //
             this.btnConfigure.BackColor = Color.FromArgb(0, 123, 255);
             this.btnConfigure.BorderRadius = 8;
             this.btnConfigure.Cursor = Cursors.Hand;
@@ -219,7 +218,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.btnConfigure.ForeColor = Color.White;
             this.btnConfigure.HoverColor = Color.FromArgb(0, 89, 184);
             this.btnConfigure.Icon = null;
-            this.btnConfigure.Location = new Point(5, 33);
+            this.btnConfigure.Location = new Point(5, 30);
             this.btnConfigure.Name = "btnConfigure";
             this.btnConfigure.Progress = 0;
             this.btnConfigure.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -229,10 +228,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.btnConfigure.UseMnemonic = false;
             this.btnConfigure.UseVisualStyleBackColor = false;
             this.btnConfigure.Click += new EventHandler(this.BtnConfigure_Click);
-            // 
+            //
             // DeviceInfo
-            // 
-            
+            //
+
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.BackColor = Color.FromArgb(35, 35, 35);
             this.Controls.Add(this.btnConfigure);
@@ -249,7 +248,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             this.Controls.Add(this.lblDisplayName);
             this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             this.Name = "DeviceInfo";
-            this.Size = new Size(534, 194);
+            this.Size = new Size(534, 204);
             this.Load += new EventHandler(this.DeviceInfo_Load);
             ((ISupportInitialize)(this.btnRemove)).EndInit();
             ((ISupportInitialize)(this.btnChangeDisplayName)).EndInit();

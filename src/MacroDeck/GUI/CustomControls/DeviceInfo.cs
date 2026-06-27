@@ -65,7 +65,7 @@ public partial class DeviceInfo : RoundedUserControl
                 profiles.Enabled = true;
                 break;
             default:
-                btnConfigure.Visible = false;
+                btnConfigure.Visible = _macroDeckDevice.Available;
                 profiles.Enabled = true;
                 break;
         }
