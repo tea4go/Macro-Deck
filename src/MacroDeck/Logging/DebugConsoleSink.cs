@@ -58,7 +58,7 @@ public class DebugConsoleSink : ILogEventSink
             return;
         }
 
-        console.AppendText(text, source, colors);
+        console.AppendText(text, source, colors.Foreground);
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ public class DebugConsoleSink : ILogEventSink
 
         foreach (var entry in snapshot)
         {
-            console.AppendText(entry.Text, entry.Source, entry.Colors);
+            console.AppendText(entry.Text, entry.Source, entry.Colors.Foreground);
         }
     }
 
@@ -113,31 +113,13 @@ public class DebugConsoleSink : ILogEventSink
     {
         return level switch
         {
-            // 致命错误：深红背景 + 亮红文字，最高视觉优先级
-            LogEventLevel.Fatal => new LevelColors(
-                Color.FromArgb(120, 15, 15),
-                Color.FromArgb(255, 85, 85)),
-            // 一般错误：暗红背景 + 柔和红色文字，与 Fatal 区分
-            LogEventLevel.Error => new LevelColors(
-                Color.FromArgb(90, 20, 20),
-                Color.FromArgb(255, 105, 105)),
-            // 警告：暗金背景 + 金黄色文字，醒目且柔和
-            LogEventLevel.Warning => new LevelColors(
-                Color.FromArgb(90, 65, 10),
-                Color.FromArgb(255, 195, 60)),
-            // 信息：暗绿背景 + 白色文字，常规信息清晰可读
-            LogEventLevel.Information => new LevelColors(
-                Color.FromArgb(25, 55, 25),
-                Color.White),
-            // 调试：暗灰背景 + 浅灰色文字，与 Info 区分
-            LogEventLevel.Debug => new LevelColors(
-                Color.FromArgb(45, 45, 45),
-                Color.FromArgb(170, 170, 170)),
-            // 详细：无背景 + 暗灰色文字，最低优先级
-            LogEventLevel.Verbose => new LevelColors(
-                Color.Empty,
-                Color.FromArgb(100, 100, 100)),
-            _ => new LevelColors(Color.Empty, Color.White)
+            LogEventLevel.Fatal => Color.FromArgb(255, 99, 99),
+            LogEventLevel.Error => Color.FromArgb(255, 99, 99),
+            LogEventLevel.Warning => Color.Orange,
+            LogEventLevel.Information => Color.White,
+            LogEventLevel.Debug => Color.Gray,
+            LogEventLevel.Verbose => Color.DarkGray,
+            _ => Color.White
         };
     }
 

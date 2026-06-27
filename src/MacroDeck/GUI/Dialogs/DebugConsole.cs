@@ -35,6 +35,9 @@ public partial class DebugConsole : Form
     /// </summary>
     private Size _originalClientSize;
 
+    /// <summary>日志输出区初始字体大小（磅），用于 Ctrl+= 恢复默认字号</summary>
+    private float _originalLogFontSize;
+
     /// <summary>
     /// 在独立的 UI 线程上启动调试控制台窗口。
     /// 独立线程确保控制台不受主应用程序启动过程的影响，始终保持响应。
@@ -77,6 +80,9 @@ public partial class DebugConsole : Form
         FormClosed += DebugConsole_FormClosed;
         filtersList.ItemClicked += FiltersList_ItemClicked;
         filter.TextChanged += Filter_TextChanged;
+
+        // 启用键预览以捕获 Ctrl+加号/减号/等号 调整日志区字体大小
+        KeyPreview = true;
     }
 
     protected override void OnLoad(EventArgs e)
@@ -87,6 +93,56 @@ public partial class DebugConsole : Form
         LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
         // 重放自调试控制台打开以来缓存的所有日志事件
         DebugConsoleSink.Replay();
+
+        // 记录日志输出区的初始字体大小，作为 Ctrl+= 恢复的目标值
+        _originalLogFontSize = logOutput.Font.Size;
+    }
+
+    /// <summary>
+    /// 处理键盘快捷键：Ctrl+加号放大日志字体，Ctrl+减号缩小，Ctrl+= 恢复初始大小。
+    /// </summary>
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        // Ctrl+Shift+= → 加号键，放大日志字体
+        if (e.Control && e.Shift && e.KeyCode == Keys.Oemplus)
+        {
+            AdjustLogFontSize(2);
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+            return;
+        }
+
+        // Ctrl+- → 减号键，缩小日志字体
+        if (e.Control && e.KeyCode == Keys.OemMinus)
+        {
+            AdjustLogFontSize(-2);
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+            return;
+        }
+
+        // Ctrl+= → 等号键（与加号同一键位），恢复初始字体大小
+        if (e.Control && e.KeyCode == Keys.Oemplus)
+        {
+            logOutput.Font = new Font(logOutput.Font.FontFamily, _originalLogFontSize, logOutput.Font.Style);
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+            return;
+        }
+
+        base.OnKeyDown(e);
+    }
+
+    /// <summary>
+    /// 按指定增量调整日志输出区的字体大小，限制在 6～32 磅范围内。
+    /// </summary>
+    /// <param name="delta">字体磅数增量，正数放大，负数缩小</param>
+    private void AdjustLogFontSize(float delta)
+    {
+        float newSize = logOutput.Font.Size + delta;
+        if (newSize < 6f) newSize = 6f;
+        if (newSize > 32f) newSize = 32f;
+        logOutput.Font = new Font(logOutput.Font.FontFamily, newSize, logOutput.Font.Style);
     }
 
     /// <summary>
@@ -125,13 +181,13 @@ public partial class DebugConsole : Form
     }
 
     /// <summary>
-    /// 向日志输出区域追加文本，支持按发送者筛选和自定义背景色与前景色。
+    /// 向日志输出区域追加文本，支持按发送者筛选和自定义颜色。
     /// 该方法会将操作投递到控制台自身的 UI 线程上执行，确保线程安全。
     /// </summary>
     /// <param name="text">要追加的日志文本内容</param>
     /// <param name="sender">日志发送者名称（如 "Macro Deck" 或插件名），用于筛选匹配</param>
-    /// <param name="colors">日志级别对应的背景色与前景（文字）色组合</param>
-    public void AppendText(string text, string sender, DebugConsoleSink.LevelColors colors)
+    /// <param name="color">文本显示颜色</param>
+    public void AppendText(string text, string sender, Color color)
     {
         // 控件已释放或句柄未创建时直接丢弃消息
         if (IsDisposed || !IsHandleCreated)
@@ -164,18 +220,12 @@ public partial class DebugConsole : Form
                         }
                     }
 
-                    // 将光标定位到文本末尾，设置背景色与前景色后追加文本，然后滚动到最新位置
+                    // 将光标定位到文本末尾，设置颜色后追加文本，然后滚动到最新位置
                     logOutput.SelectionStart = logOutput.TextLength;
                     logOutput.SelectionLength = 0;
 
-                    if (colors.HasBackground)
-                    {
-                        logOutput.SelectionBackColor = colors.Background;
-                    }
-                    logOutput.SelectionColor = colors.Foreground;
+                    logOutput.SelectionColor = color;
                     logOutput.AppendText(text);
-                    // 恢复默认颜色设置
-                    logOutput.SelectionBackColor = logOutput.BackColor;
                     logOutput.SelectionColor = logOutput.ForeColor;
                     logOutput.ScrollToCaret();
                 }
