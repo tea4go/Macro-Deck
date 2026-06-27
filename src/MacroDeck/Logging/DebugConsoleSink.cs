@@ -96,19 +96,19 @@ public class DebugConsoleSink : ILogEventSink
     {
         return level switch
         {
-            // 致命错误：暖珊瑚红，最高视觉优先级，与 Error 明显区分
-            LogEventLevel.Fatal => Color.FromArgb(255, 107, 107),
+            // 致命错误：亮珊瑚红，最高视觉优先级，与 Error 明显区分
+            LogEventLevel.Fatal => Color.FromArgb(255, 90, 90),
             // 一般错误：柔和鲑鱼红，比 Fatal 亮度更高、饱和度更低
-            LogEventLevel.Error => Color.FromArgb(255, 138, 128),
+            LogEventLevel.Error => Color.FromArgb(255, 120, 110),
             // 警告：温暖琥珀色，醒目但不刺痛
-            LogEventLevel.Warning => Color.FromArgb(255, 213, 79),
+            LogEventLevel.Warning => Color.FromArgb(255, 230, 100),
             // 信息：柔和米白，长时间阅读不刺眼
-            LogEventLevel.Information => Color.FromArgb(235, 235, 235),
-            // 调试：中等灰色，低调可读
-            LogEventLevel.Debug => Color.FromArgb(158, 158, 158),
-            // 详细：浅暗灰，最低优先级但确保深色背景下可见
-            LogEventLevel.Verbose => Color.FromArgb(135, 135, 135),
-            _ => Color.FromArgb(235, 235, 235)
+            LogEventLevel.Information => Color.FromArgb(240, 240, 240),
+            // 调试：亮灰色，在 #1E1E1E 背景下清晰可读
+            LogEventLevel.Debug => Color.FromArgb(200, 200, 200),
+            // 详细：中灰色，最低优先级但确保深色背景下肉眼轻松可辨
+            LogEventLevel.Verbose => Color.FromArgb(180, 180, 180),
+            _ => Color.FromArgb(240, 240, 240)
         };
     }
 

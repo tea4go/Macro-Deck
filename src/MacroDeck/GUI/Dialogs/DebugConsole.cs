@@ -66,9 +66,6 @@ public partial class DebugConsole : Form
     {
         InitializeComponent();
 
-        // 设置日志输出区使用等宽中文字体，便于对齐阅读
-        logOutput.Font = new Font("Microsoft YaHei Mono", logOutput.Font.Size, FontStyle.Regular);
-
         ApplyLanguage();
         if (!string.IsNullOrWhiteSpace(Settings.Default.DebugConsoleFilters))
         {
@@ -93,12 +90,16 @@ public partial class DebugConsole : Form
     {
         base.OnLoad(e);
         if (_originalClientSize.IsEmpty) _originalClientSize = ClientSize;
+
+        // 设置日志输出区使用等宽中文字体（必须在 base.OnLoad 之后，避免被 FontManager.Apply 覆盖）
+        logOutput.Font = new Font("Microsoft YaHei Mono", logOutput.Font.Size, FontStyle.Regular);
+
         LayoutHelper.AdjustAllLabelHeights(this);
         LayoutHelper.AdjustFormToFitControls(this, _originalClientSize);
         // 重放自调试控制台打开以来缓存的所有日志事件
         DebugConsoleSink.Replay();
 
-        // 记录日志输出区的初始字体大小，作为 Ctrl+= 恢复的目标值
+        // 记录日志输出区的初始字体大小，作为 Ctrl+0 恢复的目标值
         _originalLogFontSize = logOutput.Font.Size;
     }
 
@@ -427,14 +428,13 @@ public partial class DebugConsole : Form
     /// </summary>
     private void btnTestNotification_Click(object sender, EventArgs e)
     {
-        Logger.Verbose("[测试] ============================================================");
-
-        Logger.Verbose("[测试] Verbose 级别日志 —— 最详细的追踪信息");
-        Logger.Debug("[测试] Debug 级别日志 —— 调试诊断信息");
-        Logger.Information("[测试] Information 级别日志 —— 常规运行信息");
-        Logger.Warning("[测试] Warning 级别日志 —— 警告需要注意");
-        Logger.Error("[测试] Error 级别日志 —— 发生了一般错误");
-        Logger.Fatal("[测试] Fatal 级别日志 —— 致命错误需要立即处理");
+        Logger.Information("============================================================");
+        Logger.Verbose("Verbose 级别日志 —— 最详细的追踪信息");
+        Logger.Debug("Debug 级别日志 —— 调试诊断信息");
+        Logger.Information("Information 级别日志 —— 常规运行信息");
+        Logger.Warning("Warning 级别日志 —— 警告需要注意");
+        Logger.Error("Error 级别日志 —— 发生了一般错误");
+        Logger.Fatal("Fatal 级别日志 —— 致命错误需要立即处理");
 
         NotificationManager.SystemNotification("测试", $"测试通知，发送时间：{DateTime.Now}", true);
     }
