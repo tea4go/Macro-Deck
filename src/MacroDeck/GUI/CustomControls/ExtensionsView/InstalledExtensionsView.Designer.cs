@@ -37,122 +37,123 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtSearch = new RoundedTextBox();
-            this.installedExtensionsGrid = new ExtensionGrid();
-            this.btnCheckUpdates = new ButtonPrimary();
-            this.lblUpdateState = new Label();
-            this.btnAddViaZip = new ButtonPrimary();
-            this.SuspendLayout();
-            //
+            txtSearch = new RoundedTextBox();
+            installedExtensionsGrid = new ExtensionGrid();
+            btnCheckUpdates = new ButtonPrimary();
+            lblUpdateState = new Label();
+            btnAddViaZip = new ButtonPrimary();
+            SuspendLayout();
+            // 
             // txtSearch
-            //
-            this.txtSearch.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right)));
-            this.txtSearch.BackColor = Color.FromArgb(65, 65, 65);
-            this.txtSearch.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.txtSearch.ForeColor = Color.White;
-            this.txtSearch.Icon = null;
-            this.txtSearch.Location = new Point(4, 6);
-            this.txtSearch.MaxCharacters = 32767;
-            this.txtSearch.Multiline = false;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Padding = new Padding(8, 5, 8, 5);
-            this.txtSearch.PasswordChar = false;
-            this.txtSearch.PlaceHolderColor = Color.Gray;
-            this.txtSearch.PlaceHolderText = "Search installed extensions…";
-            this.txtSearch.ReadOnly = false;
-            this.txtSearch.ScrollBars = ScrollBars.None;
-            this.txtSearch.SelectionStart = 0;
-            this.txtSearch.Size = new Size(1130, 30);
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.TextAlignment = HorizontalAlignment.Left;
-            this.txtSearch.TextChanged += new EventHandler(this.TxtSearch_TextChanged);
-            //
+            // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtSearch.BackColor = Color.FromArgb(65, 65, 65);
+            txtSearch.Font = new Font("Tahoma", 9F);
+            txtSearch.ForeColor = Color.White;
+            txtSearch.Icon = null;
+            txtSearch.Location = new Point(0, 10);
+            txtSearch.Margin = new Padding(0, 0, 0, 0);
+            txtSearch.MaxCharacters = 32767;
+            txtSearch.Multiline = false;
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = false;
+            txtSearch.PlaceHolderColor = Color.Gray;
+            txtSearch.PlaceHolderText = "Search installed extensions…";
+            txtSearch.ReadOnly = false;
+            txtSearch.ScrollBars = ScrollBars.None;
+            txtSearch.SelectionStart = 0;
+            txtSearch.Size = new Size(1130, 23);
+            txtSearch.TabIndex = 0;
+            txtSearch.TextAlignment = HorizontalAlignment.Left;
+            txtSearch.TextChanged += TxtSearch_TextChanged;
+            // 
             // installedExtensionsGrid
-            //
-            this.installedExtensionsGrid.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-                                                                    | AnchorStyles.Left)
-                                                                   | AnchorStyles.Right)));
-            this.installedExtensionsGrid.BackColor = Color.FromArgb(45, 45, 45);
-            this.installedExtensionsGrid.Location = new Point(0, 42);
-            this.installedExtensionsGrid.Name = "installedExtensionsGrid";
-            this.installedExtensionsGrid.Size = new Size(1137, 414);
-            this.installedExtensionsGrid.TabIndex = 1;
-            //
+            // 
+            installedExtensionsGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            installedExtensionsGrid.AutoScroll = true;
+            installedExtensionsGrid.AutoScrollMinSize = new Size(0, 24);
+            installedExtensionsGrid.BackColor = Color.FromArgb(45, 45, 45);
+            installedExtensionsGrid.Location = new Point(0, 49);
+            installedExtensionsGrid.Name = "installedExtensionsGrid";
+            installedExtensionsGrid.Size = new Size(1137, 360);
+            installedExtensionsGrid.TabIndex = 1;
+            // 
             // btnCheckUpdates
-            //
-            this.btnCheckUpdates.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
-            this.btnCheckUpdates.BorderRadius = 8;
-            this.btnCheckUpdates.Cursor = Cursors.Hand;
-            this.btnCheckUpdates.FlatAppearance.BorderSize = 0;
-            this.btnCheckUpdates.FlatStyle = FlatStyle.Flat;
-            this.btnCheckUpdates.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.btnCheckUpdates.ForeColor = Color.White;
-            this.btnCheckUpdates.HoverColor = Color.Empty;
-            this.btnCheckUpdates.Icon = null;
-            this.btnCheckUpdates.Location = new Point(230, 462);
-            this.btnCheckUpdates.Name = "btnCheckUpdates";
-            this.btnCheckUpdates.Progress = 0;
-            this.btnCheckUpdates.ProgressColor = Color.FromArgb(0, 103, 225);
-            this.btnCheckUpdates.Size = new Size(191, 30);
-            this.btnCheckUpdates.TabIndex = 3;
-            this.btnCheckUpdates.Text = "Check updates";
-            this.btnCheckUpdates.UseMnemonic = false;
-            this.btnCheckUpdates.UseVisualStyleBackColor = true;
-            this.btnCheckUpdates.UseWindowsAccentColor = true;
-            this.btnCheckUpdates.Click += new EventHandler(this.BtnCheckUpdates_Click);
-            //
+            // 
+            btnCheckUpdates.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCheckUpdates.BorderRadius = 8;
+            btnCheckUpdates.Cursor = Cursors.Hand;
+            btnCheckUpdates.FlatAppearance.BorderSize = 0;
+            btnCheckUpdates.FlatStyle = FlatStyle.Flat;
+            btnCheckUpdates.Font = new Font("Tahoma", 9.75F);
+            btnCheckUpdates.ForeColor = Color.White;
+            btnCheckUpdates.HoverColor = Color.Empty;
+            btnCheckUpdates.Icon = null;
+            btnCheckUpdates.Location = new Point(230, 437);
+            btnCheckUpdates.Name = "btnCheckUpdates";
+            btnCheckUpdates.Progress = 0;
+            btnCheckUpdates.ProgressColor = Color.FromArgb(0, 103, 225);
+            btnCheckUpdates.Size = new Size(191, 37);
+            btnCheckUpdates.TabIndex = 3;
+            btnCheckUpdates.Text = "Check updates";
+            btnCheckUpdates.UseMnemonic = false;
+            btnCheckUpdates.UseVisualStyleBackColor = true;
+            btnCheckUpdates.UseWindowsAccentColor = true;
+            btnCheckUpdates.WriteProgress = true;
+            btnCheckUpdates.Click += BtnCheckUpdates_Click;
+            // 
             // lblUpdateState
-            //
-            this.lblUpdateState.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
-            this.lblUpdateState.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblUpdateState.ForeColor = Color.Silver;
-            this.lblUpdateState.Location = new Point(4, 463);
-            this.lblUpdateState.Name = "lblUpdateState";
-            this.lblUpdateState.Size = new Size(220, 30);
-            this.lblUpdateState.TabIndex = 4;
-            this.lblUpdateState.Text = "All extensions are up-to-date";
-            this.lblUpdateState.TextAlign = ContentAlignment.MiddleLeft;
-            this.lblUpdateState.UseMnemonic = false;
-            //
+            // 
+            lblUpdateState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblUpdateState.Font = new Font("Tahoma", 9.75F);
+            lblUpdateState.ForeColor = Color.Silver;
+            lblUpdateState.Location = new Point(4, 442);
+            lblUpdateState.Name = "lblUpdateState";
+            lblUpdateState.Size = new Size(220, 30);
+            lblUpdateState.TabIndex = 4;
+            lblUpdateState.Text = "All extensions are up-to-date";
+            lblUpdateState.TextAlign = ContentAlignment.MiddleLeft;
+            lblUpdateState.UseMnemonic = false;
+            // 
             // btnAddViaZip
-            //
-            this.btnAddViaZip.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
-            this.btnAddViaZip.BorderRadius = 8;
-            this.btnAddViaZip.Cursor = Cursors.Hand;
-            this.btnAddViaZip.FlatAppearance.BorderSize = 0;
-            this.btnAddViaZip.FlatStyle = FlatStyle.Flat;
-            this.btnAddViaZip.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.btnAddViaZip.ForeColor = Color.White;
-            this.btnAddViaZip.HoverColor = Color.Empty;
-            this.btnAddViaZip.Icon = null;
-            this.btnAddViaZip.Location = new Point(942, 463);
-            this.btnAddViaZip.Name = "btnAddViaZip";
-            this.btnAddViaZip.Progress = 0;
-            this.btnAddViaZip.ProgressColor = Color.FromArgb(0, 103, 225);
-            this.btnAddViaZip.Size = new Size(192, 29);
-            this.btnAddViaZip.TabIndex = 5;
-            this.btnAddViaZip.Text = "Install from file";
-            this.btnAddViaZip.UseVisualStyleBackColor = true;
-            this.btnAddViaZip.UseWindowsAccentColor = true;
-            this.btnAddViaZip.Click += new EventHandler(this.BtnAddViaZip_Click);
-            //
+            // 
+            btnAddViaZip.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddViaZip.BorderRadius = 8;
+            btnAddViaZip.Cursor = Cursors.Hand;
+            btnAddViaZip.FlatAppearance.BorderSize = 0;
+            btnAddViaZip.FlatStyle = FlatStyle.Flat;
+            btnAddViaZip.Font = new Font("Tahoma", 9.75F);
+            btnAddViaZip.ForeColor = Color.White;
+            btnAddViaZip.HoverColor = Color.Empty;
+            btnAddViaZip.Icon = null;
+            btnAddViaZip.Location = new Point(926, 438);
+            btnAddViaZip.Name = "btnAddViaZip";
+            btnAddViaZip.Progress = 0;
+            btnAddViaZip.ProgressColor = Color.FromArgb(0, 103, 225);
+            btnAddViaZip.Size = new Size(192, 37);
+            btnAddViaZip.TabIndex = 5;
+            btnAddViaZip.Text = "Install from file";
+            btnAddViaZip.UseVisualStyleBackColor = true;
+            btnAddViaZip.UseWindowsAccentColor = true;
+            btnAddViaZip.WriteProgress = true;
+            btnAddViaZip.Click += BtnAddViaZip_Click;
+            // 
             // InstalledExtensionsView
-            //
-
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(45, 45, 45);
-            this.Controls.Add(this.btnAddViaZip);
-            this.Controls.Add(this.lblUpdateState);
-            this.Controls.Add(this.btnCheckUpdates);
-            this.Controls.Add(this.installedExtensionsGrid);
-            this.Controls.Add(this.txtSearch);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.ForeColor = Color.White;
-            this.Name = "InstalledExtensionsView";
-            this.Size = new Size(1137, 495);
-            this.Load += new EventHandler(this.InstalledExtensionsView_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            Controls.Add(btnAddViaZip);
+            Controls.Add(lblUpdateState);
+            Controls.Add(btnCheckUpdates);
+            Controls.Add(installedExtensionsGrid);
+            Controls.Add(txtSearch);
+            Font = new Font("Tahoma", 9F);
+            ForeColor = Color.White;
+            Name = "InstalledExtensionsView";
+            Size = new Size(1137, 495);
+            Load += InstalledExtensionsView_Load;
+            ResumeLayout(false);
 
         }
 
