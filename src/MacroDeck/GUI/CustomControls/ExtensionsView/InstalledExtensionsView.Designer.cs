@@ -47,11 +47,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtSearch.AutoScroll = true;
             txtSearch.BackColor = Color.FromArgb(65, 65, 65);
             txtSearch.Font = new Font("Tahoma", 9F);
             txtSearch.ForeColor = Color.White;
             txtSearch.Icon = null;
-            txtSearch.Location = new Point(0, 10);
+            txtSearch.Location = new Point(10, 10);
             txtSearch.Margin = new Padding(0, 0, 0, 0);
             txtSearch.MaxCharacters = 32767;
             txtSearch.Multiline = false;
@@ -62,7 +63,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView
             txtSearch.ReadOnly = false;
             txtSearch.ScrollBars = ScrollBars.None;
             txtSearch.SelectionStart = 0;
-            txtSearch.Size = new Size(1130, 23);
+            txtSearch.Size = new Size(1113, 23);
             txtSearch.TabIndex = 0;
             txtSearch.TextAlignment = HorizontalAlignment.Left;
             txtSearch.TextChanged += TxtSearch_TextChanged;
