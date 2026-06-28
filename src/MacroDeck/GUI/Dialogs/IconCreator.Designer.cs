@@ -49,9 +49,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             preview.BackColor = Color.FromArgb(55, 55, 55);
             preview.BackgroundImageLayout = ImageLayout.Stretch;
-            preview.Location = new Point(12, 31);
+            preview.Location = new Point(18, 46);
+            preview.Margin = new Padding(4, 4, 4, 4);
             preview.Name = "preview";
-            preview.Size = new Size(250, 250);
+            preview.Size = new Size(375, 375);
             preview.TabIndex = 3;
             // 
             // Layers
@@ -61,10 +62,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Layers.Font = new Font("Tahoma", 14.25F);
             Layers.ForeColor = Color.White;
             Layers.FormattingEnabled = true;
-            Layers.ItemHeight = 23;
-            Layers.Location = new Point(268, 53);
+            Layers.Location = new Point(402, 115);
+            Layers.Margin = new Padding(4, 4, 4, 4);
             Layers.Name = "Layers";
-            Layers.Size = new Size(194, 186);
+            Layers.Size = new Size(290, 212);
             Layers.TabIndex = 4;
             // 
             // btnAddLayer
@@ -76,9 +77,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnAddLayer.Font = new Font("Tahoma", 9.75F);
             btnAddLayer.ForeColor = Color.White;
             btnAddLayer.HoverImage = Properties.Resources.Create_Hover;
-            btnAddLayer.Location = new Point(409, 245);
+            btnAddLayer.Location = new Point(614, 368);
+            btnAddLayer.Margin = new Padding(4, 4, 4, 4);
             btnAddLayer.Name = "btnAddLayer";
-            btnAddLayer.Size = new Size(25, 25);
+            btnAddLayer.Size = new Size(38, 38);
             btnAddLayer.TabIndex = 5;
             btnAddLayer.TabStop = false;
             btnAddLayer.Click += BtnAddLayer_Click;
@@ -92,9 +94,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnRemoveLayer.Font = new Font("Tahoma", 9.75F);
             btnRemoveLayer.ForeColor = Color.White;
             btnRemoveLayer.HoverImage = Properties.Resources.Delete_Hover;
-            btnRemoveLayer.Location = new Point(437, 245);
+            btnRemoveLayer.Location = new Point(656, 368);
+            btnRemoveLayer.Margin = new Padding(4, 4, 4, 4);
             btnRemoveLayer.Name = "btnRemoveLayer";
-            btnRemoveLayer.Size = new Size(25, 25);
+            btnRemoveLayer.Size = new Size(38, 38);
             btnRemoveLayer.TabIndex = 6;
             btnRemoveLayer.TabStop = false;
             btnRemoveLayer.Click += BtnRemoveLayer_Click;
@@ -103,9 +106,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblLayers.AutoSize = true;
             lblLayers.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            lblLayers.Location = new Point(268, 31);
+            lblLayers.Location = new Point(402, 46);
+            lblLayers.Margin = new Padding(4, 0, 4, 0);
             lblLayers.Name = "lblLayers";
-            lblLayers.Size = new Size(62, 19);
+            lblLayers.Size = new Size(91, 29);
             lblLayers.TabIndex = 7;
             lblLayers.Text = "Layers";
             lblLayers.UseMnemonic = false;
@@ -120,11 +124,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnAddImage.ForeColor = Color.White;
             btnAddImage.HoverColor = Color.Empty;
             btnAddImage.Icon = null;
-            btnAddImage.Location = new Point(12, 287);
+            btnAddImage.Location = new Point(18, 430);
+            btnAddImage.Margin = new Padding(4, 4, 4, 4);
             btnAddImage.Name = "btnAddImage";
             btnAddImage.Progress = 0;
             btnAddImage.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnAddImage.Size = new Size(128, 23);
+            btnAddImage.Size = new Size(192, 56);
             btnAddImage.TabIndex = 8;
             btnAddImage.Text = "Add image";
             btnAddImage.UseMnemonic = false;
@@ -143,11 +148,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.ForeColor = Color.White;
             btnOk.HoverColor = Color.Empty;
             btnOk.Icon = null;
-            btnOk.Location = new Point(388, 354);
+            btnOk.Location = new Point(571, 503);
+            btnOk.Margin = new Padding(4, 4, 4, 4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnOk.Size = new Size(75, 25);
+            btnOk.Size = new Size(112, 56);
             btnOk.TabIndex = 9;
             btnOk.Text = "Ok";
             btnOk.UseMnemonic = false;
@@ -166,11 +172,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnBackgroundColor.ForeColor = Color.White;
             btnBackgroundColor.HoverColor = Color.Empty;
             btnBackgroundColor.Icon = null;
-            btnBackgroundColor.Location = new Point(12, 321);
+            btnBackgroundColor.Location = new Point(18, 482);
+            btnBackgroundColor.Margin = new Padding(4, 4, 4, 4);
             btnBackgroundColor.Name = "btnBackgroundColor";
             btnBackgroundColor.Progress = 0;
             btnBackgroundColor.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnBackgroundColor.Size = new Size(128, 23);
+            btnBackgroundColor.Size = new Size(192, 56);
             btnBackgroundColor.TabIndex = 10;
             btnBackgroundColor.Text = "Background color";
             btnBackgroundColor.UseMnemonic = false;
@@ -181,9 +188,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // IconCreator
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(475, 391);
+            ClientSize = new Size(712, 586);
             Controls.Add(btnBackgroundColor);
             Controls.Add(btnOk);
             Controls.Add(btnAddImage);
@@ -192,7 +199,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Controls.Add(btnAddLayer);
             Controls.Add(Layers);
             Controls.Add(preview);
+            Margin = new Padding(6, 9, 6, 9);
             Name = "IconCreator";
+            Padding = new Padding(3, 3, 3, 3);
             Text = "Icon creator";
             Load += IconCreator_Load;
             ((ISupportInitialize)btnAddLayer).EndInit();

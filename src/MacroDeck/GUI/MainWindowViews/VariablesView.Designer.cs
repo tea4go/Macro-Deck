@@ -34,127 +34,120 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         /// </summary>
         private void InitializeComponent()
         {
-            this.creatorFilter = new FlowLayoutPanel();
-
-            this.variablesPanel = new FlowLayoutPanel();
-            this.lblCreator = new Label();
-            this.lblValue = new Label();
-            this.lblType = new Label();
-            this.lblName = new Label();
-            this.btnCreateVariable = new ButtonPrimary();
-            this.SuspendLayout();
-            //
+            creatorFilter = new FlowLayoutPanel();
+            variablesPanel = new FlowLayoutPanel();
+            lblCreator = new Label();
+            lblValue = new Label();
+            lblType = new Label();
+            lblName = new Label();
+            btnCreateVariable = new ButtonPrimary();
+            SuspendLayout();
+            // 
             // creatorFilter
-            //
-            this.creatorFilter.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left)));
-            this.creatorFilter.AutoScroll = true;
-            //this.creatorFilter.BackColor = Color.FromArgb(255, 255, 255);
-            this.creatorFilter.Location = new Point(10, 53);
-            this.creatorFilter.Name = "creatorFilter";
-            this.creatorFilter.Width = 224;
-            this.creatorFilter.Dock = DockStyle.Left;
-            this.creatorFilter.TabIndex = 17;
-            this.creatorFilter.Cursor = Cursors.Hand;
-
-            //
+            // 
+            creatorFilter.AutoScroll = true;
+            creatorFilter.Cursor = Cursors.Hand;
+            creatorFilter.Dock = DockStyle.Left;
+            creatorFilter.Location = new Point(0, 0);
+            creatorFilter.Name = "creatorFilter";
+            creatorFilter.Size = new Size(224, 540);
+            creatorFilter.TabIndex = 17;
+            // 
             // variablesPanel
-            //
-            this.variablesPanel.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-                                                           | AnchorStyles.Left)
-                                                          | AnchorStyles.Right)));
-            this.variablesPanel.AutoScroll = true;
-            this.variablesPanel.Location = new Point(240, 53);
-            this.variablesPanel.Name = "variablesPanel";
-           // this.variablesPanel.Dock = DockStyle.Left;
-            this.variablesPanel.Size = new Size(897, 451);
-            this.variablesPanel.TabIndex = 11;
-            //
+            // 
+            variablesPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            variablesPanel.AutoScroll = true;
+            variablesPanel.Location = new Point(240, 53);
+            variablesPanel.Name = "variablesPanel";
+            variablesPanel.Size = new Size(897, 402);
+            variablesPanel.TabIndex = 11;
+            // 
             // lblCreator
-            //
-            this.lblCreator.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblCreator.Location = new Point(860, 0);
-            this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new Size(163, 50);
-            this.lblCreator.TabIndex = 15;
-            this.lblCreator.Text = "Creator";
-            this.lblCreator.TextAlign = ContentAlignment.MiddleLeft;
-            this.lblCreator.UseMnemonic = false;
-            //
+            // 
+            lblCreator.Font = new Font("Tahoma", 12F);
+            lblCreator.Location = new Point(860, 0);
+            lblCreator.Name = "lblCreator";
+            lblCreator.Size = new Size(163, 50);
+            lblCreator.TabIndex = 15;
+            lblCreator.Text = "Creator";
+            lblCreator.TextAlign = ContentAlignment.MiddleLeft;
+            lblCreator.UseMnemonic = false;
+            // 
             // lblValue
-            //
-            this.lblValue.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblValue.Location = new Point(596, 0);
-            this.lblValue.Name = "lblValue";
-            this.lblValue.Size = new Size(258, 50);
-            this.lblValue.TabIndex = 14;
-            this.lblValue.Text = "Value";
-            this.lblValue.TextAlign = ContentAlignment.MiddleLeft;
-            this.lblValue.UseMnemonic = false;
-            //
+            // 
+            lblValue.Font = new Font("Tahoma", 12F);
+            lblValue.Location = new Point(596, 0);
+            lblValue.Name = "lblValue";
+            lblValue.Size = new Size(258, 50);
+            lblValue.TabIndex = 14;
+            lblValue.Text = "Value";
+            lblValue.TextAlign = ContentAlignment.MiddleLeft;
+            lblValue.UseMnemonic = false;
+            // 
             // lblType
-            //
-            this.lblType.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblType.Location = new Point(476, 0);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new Size(114, 50);
-            this.lblType.TabIndex = 13;
-            this.lblType.Text = "Type";
-            this.lblType.TextAlign = ContentAlignment.MiddleLeft;
-            this.lblType.UseMnemonic = false;
-            //
+            // 
+            lblType.Font = new Font("Tahoma", 12F);
+            lblType.Location = new Point(476, 0);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(114, 50);
+            lblType.TabIndex = 13;
+            lblType.Text = "Type";
+            lblType.TextAlign = ContentAlignment.MiddleLeft;
+            lblType.UseMnemonic = false;
+            // 
             // lblName
-            //
-            this.lblName.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblName.Location = new Point(247, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new Size(223, 50);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "Name";
-            this.lblName.TextAlign = ContentAlignment.MiddleLeft;
-            this.lblName.UseMnemonic = false;
-            //
+            // 
+            lblName.Font = new Font("Tahoma", 12F);
+            lblName.Location = new Point(247, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(223, 50);
+            lblName.TabIndex = 12;
+            lblName.Text = "Name";
+            lblName.TextAlign = ContentAlignment.MiddleLeft;
+            lblName.UseMnemonic = false;
+            // 
             // btnCreateVariable
-            //
-            this.btnCreateVariable.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
-            this.btnCreateVariable.BorderRadius = 8;
-            this.btnCreateVariable.Cursor = Cursors.Hand;
-            this.btnCreateVariable.FlatAppearance.BorderSize = 0;
-            this.btnCreateVariable.FlatStyle = FlatStyle.Flat;
-            this.btnCreateVariable.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.btnCreateVariable.ForeColor = Color.White;
-            this.btnCreateVariable.HoverColor = Color.FromArgb(0, 89, 184);
-            this.btnCreateVariable.Icon = null;
-            this.btnCreateVariable.Location = new Point(1000, 480);
-            this.btnCreateVariable.Name = "btnCreateVariable";
-            this.btnCreateVariable.Progress = 0;
-            this.btnCreateVariable.ProgressColor = Color.FromArgb(0, 46, 94);
-            this.btnCreateVariable.Size = new Size(120, 27);
-            this.btnCreateVariable.TabIndex = 16;
-            this.btnCreateVariable.Text = "Create variable";
-            this.btnCreateVariable.UseMnemonic = false;
-            this.btnCreateVariable.UseVisualStyleBackColor = false;
-            this.btnCreateVariable.UseWindowsAccentColor = true;
-            this.btnCreateVariable.Click += new EventHandler(this.BtnCreateVariable_Click);
-
-            //
+            // 
+            btnCreateVariable.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCreateVariable.BorderRadius = 8;
+            btnCreateVariable.Cursor = Cursors.Hand;
+            btnCreateVariable.FlatAppearance.BorderSize = 0;
+            btnCreateVariable.FlatStyle = FlatStyle.Flat;
+            btnCreateVariable.Font = new Font("Tahoma", 9.75F);
+            btnCreateVariable.ForeColor = Color.White;
+            btnCreateVariable.HoverColor = Color.FromArgb(0, 89, 184);
+            btnCreateVariable.Icon = null;
+            btnCreateVariable.Location = new Point(905, 480);
+            btnCreateVariable.Name = "btnCreateVariable";
+            btnCreateVariable.Progress = 0;
+            btnCreateVariable.ProgressColor = Color.FromArgb(0, 46, 94);
+            btnCreateVariable.Size = new Size(215, 37);
+            btnCreateVariable.TabIndex = 16;
+            btnCreateVariable.Text = "Create variable";
+            btnCreateVariable.UseMnemonic = false;
+            btnCreateVariable.UseVisualStyleBackColor = false;
+            btnCreateVariable.UseWindowsAccentColor = true;
+            btnCreateVariable.WriteProgress = true;
+            btnCreateVariable.Click += BtnCreateVariable_Click;
+            // 
             // VariablesView
-            //
-            this.AutoScaleDimensions = new SizeF(96F, 96F);
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(45, 45, 45);
-            this.Controls.Add(this.creatorFilter);
-            this.Controls.Add(this.btnCreateVariable);
-            this.Controls.Add(this.lblCreator);
-            this.Controls.Add(this.lblValue);
-            this.Controls.Add(this.lblType);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.variablesPanel);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.ForeColor = Color.White;
-            this.Name = "VariablesView";
-            this.Size = new Size(1137, 540);
-            this.Load += new EventHandler(this.VariablesPage_Load);
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            Controls.Add(creatorFilter);
+            Controls.Add(btnCreateVariable);
+            Controls.Add(lblCreator);
+            Controls.Add(lblValue);
+            Controls.Add(lblType);
+            Controls.Add(lblName);
+            Controls.Add(variablesPanel);
+            Font = new Font("Tahoma", 9F);
+            ForeColor = Color.White;
+            Name = "VariablesView";
+            Size = new Size(1137, 540);
+            Load += VariablesPage_Load;
+            ResumeLayout(false);
 
         }
 

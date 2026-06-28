@@ -51,7 +51,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             devicesList.AutoScroll = true;
             devicesList.Location = new Point(3, 61);
             devicesList.Name = "devicesList";
-            devicesList.Size = new Size(570, 478);
+            devicesList.Size = new Size(1025, 950);
             devicesList.TabIndex = 12;
             // 
             // lblKnownDevices
@@ -59,7 +59,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblKnownDevices.AutoSize = true;
             lblKnownDevices.Font = new Font("Tahoma", 14.25F);
             lblKnownDevices.ForeColor = Color.White;
-            lblKnownDevices.Location = new Point(3, 3);
+            lblKnownDevices.Location = new Point(9, 14);
             lblKnownDevices.Name = "lblKnownDevices";
             lblKnownDevices.Size = new Size(204, 35);
             lblKnownDevices.TabIndex = 13;
@@ -71,7 +71,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblBehaviour.AutoSize = true;
             lblBehaviour.Font = new Font("Tahoma", 14.25F);
             lblBehaviour.ForeColor = Color.White;
-            lblBehaviour.Location = new Point(583, 3);
+            lblBehaviour.Location = new Point(1058, 14);
             lblBehaviour.Name = "lblBehaviour";
             lblBehaviour.Size = new Size(141, 35);
             lblBehaviour.TabIndex = 14;
@@ -84,9 +84,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             panel1.Controls.Add(radioBlockNew);
             panel1.Controls.Add(radioAllowAll);
             panel1.Controls.Add(radioAskNewConnections);
-            panel1.Location = new Point(583, 65);
+            panel1.Location = new Point(1052, 65);
             panel1.Name = "panel1";
-            panel1.Size = new Size(537, 135);
+            panel1.Size = new Size(810, 135);
             panel1.TabIndex = 15;
             // 
             // radioBlockNew
@@ -145,7 +145,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             Controls.Add(devicesList);
             Font = new Font("Tahoma", 9F);
             Name = "DeviceManagerView";
-            Size = new Size(1123, 542);
+            Size = new Size(1865, 1014);
             Load += DeviceManagerPage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
