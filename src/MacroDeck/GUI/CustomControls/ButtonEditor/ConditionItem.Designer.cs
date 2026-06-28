@@ -75,7 +75,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // lblIf
             // 
-            this.lblIf.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            this.lblIf.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblIf.ImageAlign = ContentAlignment.MiddleLeft;
             this.lblIf.Location = new Point(9, 2);
             this.lblIf.Name = "lblIf";
@@ -255,7 +255,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // lblElse
             // 
             this.lblElse.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
-            this.lblElse.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            this.lblElse.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblElse.Location = new Point(3, 33);
             this.lblElse.Name = "lblElse";
             this.lblElse.Size = new Size(148, 33);
@@ -336,7 +336,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // addItemContextMenu
             // 
             this.addItemContextMenu.BackColor = Color.FromArgb(45, 45, 45);
-            this.addItemContextMenu.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            this.addItemContextMenu.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.addItemContextMenu.Items.AddRange(new ToolStripItem[] {
             this.menuItemAction,
             this.menuItemDelay});
@@ -365,7 +365,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             this.template.BackColor = Color.FromArgb(65, 65, 65);
             this.template.Cursor = Cursors.Hand;
-            this.template.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            this.template.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.template.Icon = null;
             this.template.Location = new Point(3, 31);
             this.template.MaxCharacters = 32767;
@@ -416,7 +416,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.Controls.Add(this.lblIf);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            this.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.ForeColor = Color.White;
             this.Margin = new Padding(0, 3, 0, 3);
             this.MaximumSize = new Size(850, 0);
