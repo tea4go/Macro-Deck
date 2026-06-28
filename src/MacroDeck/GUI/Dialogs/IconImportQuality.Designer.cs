@@ -53,11 +53,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.ForeColor = Color.White;
             btnOk.HoverColor = Color.Empty;
             btnOk.Icon = null;
-            btnOk.Location = new Point(288, 188);
+            btnOk.Location = new Point(408, 282);
+            btnOk.Margin = new Padding(4, 4, 4, 4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnOk.Size = new Size(75, 25);
+            btnOk.Size = new Size(136, 56);
             btnOk.TabIndex = 3;
             btnOk.Text = "Ok";
             btnOk.UseMnemonic = false;
@@ -69,9 +70,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // qualityLowest
             // 
             qualityLowest.AutoSize = true;
-            qualityLowest.Location = new Point(12, 144);
+            qualityLowest.Location = new Point(18, 216);
+            qualityLowest.Margin = new Padding(4, 4, 4, 4);
             qualityLowest.Name = "qualityLowest";
-            qualityLowest.Size = new Size(113, 20);
+            qualityLowest.Size = new Size(174, 28);
             qualityLowest.TabIndex = 4;
             qualityLowest.Text = "Lowest (100px)";
             qualityLowest.UseMnemonic = false;
@@ -81,9 +83,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 12F);
-            label1.Location = new Point(44, 12);
+            label1.Location = new Point(66, 18);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(59, 19);
+            label1.Size = new Size(86, 29);
             label1.TabIndex = 5;
             label1.Text = "Quality";
             label1.UseMnemonic = false;
@@ -91,9 +94,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // qualityLow
             // 
             qualityLow.AutoSize = true;
-            qualityLow.Location = new Point(12, 118);
+            qualityLow.Location = new Point(18, 177);
+            qualityLow.Margin = new Padding(4, 4, 4, 4);
             qualityLow.Name = "qualityLow";
-            qualityLow.Size = new Size(96, 20);
+            qualityLow.Size = new Size(147, 28);
             qualityLow.TabIndex = 6;
             qualityLow.Text = "Low (150px)";
             qualityLow.UseMnemonic = false;
@@ -103,9 +107,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             qualityNormal.AutoSize = true;
             qualityNormal.Checked = true;
-            qualityNormal.Location = new Point(12, 92);
+            qualityNormal.Location = new Point(18, 138);
+            qualityNormal.Margin = new Padding(4, 4, 4, 4);
             qualityNormal.Name = "qualityNormal";
-            qualityNormal.Size = new Size(114, 20);
+            qualityNormal.Size = new Size(175, 28);
             qualityNormal.TabIndex = 7;
             qualityNormal.TabStop = true;
             qualityNormal.Text = "Normal (200px)";
@@ -114,9 +119,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // qualityHigh
             // 
             qualityHigh.AutoSize = true;
-            qualityHigh.Location = new Point(12, 66);
+            qualityHigh.Location = new Point(18, 99);
+            qualityHigh.Margin = new Padding(4, 4, 4, 4);
             qualityHigh.Name = "qualityHigh";
-            qualityHigh.Size = new Size(98, 20);
+            qualityHigh.Size = new Size(152, 28);
             qualityHigh.TabIndex = 8;
             qualityHigh.Text = "High (350px)";
             qualityHigh.UseMnemonic = false;
@@ -125,9 +131,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // qualityOriginal
             // 
             qualityOriginal.AutoSize = true;
-            qualityOriginal.Location = new Point(12, 40);
+            qualityOriginal.Location = new Point(18, 60);
+            qualityOriginal.Margin = new Padding(4, 4, 4, 4);
             qualityOriginal.Name = "qualityOriginal";
-            qualityOriginal.Size = new Size(69, 20);
+            qualityOriginal.Size = new Size(104, 28);
             qualityOriginal.TabIndex = 9;
             qualityOriginal.Text = "Original";
             qualityOriginal.UseMnemonic = false;
@@ -135,18 +142,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // lblInfo
             // 
-            lblInfo.Location = new Point(148, 40);
+            lblInfo.Location = new Point(222, 60);
+            lblInfo.Margin = new Padding(4, 0, 4, 0);
             lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(215, 145);
+            lblInfo.Size = new Size(322, 218);
             lblInfo.TabIndex = 10;
             lblInfo.Text = "High quality icons can lead to an increase of memory usage and loading times especially when using many big animated gifs.\r\n\r\nFor gifs it is recommended to use the low or the lowest preset.";
             lblInfo.UseMnemonic = false;
             // 
             // IconImportQuality
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(376, 224);
+            ClientSize = new Size(564, 371);
             Controls.Add(lblInfo);
             Controls.Add(qualityOriginal);
             Controls.Add(qualityHigh);
@@ -155,7 +163,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Controls.Add(label1);
             Controls.Add(qualityLowest);
             Controls.Add(btnOk);
+            Margin = new Padding(6, 9, 6, 9);
             Name = "IconImportQuality";
+            Padding = new Padding(3, 3, 3, 3);
             Text = "Icon import";
             ResumeLayout(false);
             PerformLayout();

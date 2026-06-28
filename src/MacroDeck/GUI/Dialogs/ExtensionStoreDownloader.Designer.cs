@@ -48,11 +48,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnDone.ForeColor = Color.White;
             btnDone.HoverColor = Color.Empty;
             btnDone.Icon = null;
-            btnDone.Location = new Point(183, 358);
+            btnDone.Location = new Point(274, 537);
+            btnDone.Margin = new Padding(4, 4, 4, 4);
             btnDone.Name = "btnDone";
             btnDone.Progress = 0;
             btnDone.ProgressColor = Color.FromArgb(0, 103, 225);
-            btnDone.Size = new Size(231, 30);
+            btnDone.Size = new Size(346, 56);
             btnDone.TabIndex = 3;
             btnDone.Text = "Done";
             btnDone.UseMnemonic = false;
@@ -65,31 +66,35 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // downloadList
             // 
             downloadList.AutoScroll = true;
-            downloadList.Location = new Point(6, 27);
+            downloadList.Location = new Point(9, 40);
+            downloadList.Margin = new Padding(4, 4, 4, 4);
             downloadList.Name = "downloadList";
-            downloadList.Size = new Size(607, 325);
+            downloadList.Size = new Size(910, 488);
             downloadList.TabIndex = 6;
             // 
             // lblPackagesToDownload
             // 
             lblPackagesToDownload.Font = new Font("Tahoma", 9.75F);
             lblPackagesToDownload.ForeColor = Color.Silver;
-            lblPackagesToDownload.Location = new Point(6, 1);
+            lblPackagesToDownload.Location = new Point(9, 2);
+            lblPackagesToDownload.Margin = new Padding(4, 0, 4, 0);
             lblPackagesToDownload.Name = "lblPackagesToDownload";
-            lblPackagesToDownload.Size = new Size(245, 23);
+            lblPackagesToDownload.Size = new Size(368, 34);
             lblPackagesToDownload.TabIndex = 7;
             lblPackagesToDownload.TextAlign = ContentAlignment.MiddleLeft;
             lblPackagesToDownload.UseMnemonic = false;
             // 
             // ExtensionStoreDownloader
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(618, 392);
+            ClientSize = new Size(927, 614);
             Controls.Add(lblPackagesToDownload);
             Controls.Add(downloadList);
             Controls.Add(btnDone);
+            Margin = new Padding(6, 9, 6, 9);
             Name = "ExtensionStoreDownloader";
+            Padding = new Padding(3, 3, 3, 3);
             ShowIcon = true;
             Text = "Extension Store Downloader";
             Load += ExtensionStoreDownloader_Load;

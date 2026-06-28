@@ -52,11 +52,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.ForeColor = Color.White;
             btnOk.HoverColor = Color.Empty;
             btnOk.Icon = null;
-            btnOk.Location = new Point(212, 99);
+            btnOk.Location = new Point(318, 148);
+            btnOk.Margin = new Padding(4, 4, 4, 4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnOk.Size = new Size(75, 25);
+            btnOk.Size = new Size(112, 56);
             btnOk.TabIndex = 5;
             btnOk.Text = "Ok";
             btnOk.UseMnemonic = false;
@@ -69,9 +70,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblName.AutoSize = true;
             lblName.ForeColor = Color.White;
-            lblName.Location = new Point(12, 28);
+            lblName.Location = new Point(18, 42);
+            lblName.Margin = new Padding(4, 0, 4, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(45, 16);
+            lblName.Size = new Size(69, 24);
             lblName.TabIndex = 4;
             lblName.Text = "Name:";
             lblName.UseMnemonic = false;
@@ -82,18 +84,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             iconPackName.Font = new Font("Tahoma", 9F);
             iconPackName.ForeColor = Color.White;
             iconPackName.Icon = null;
-            iconPackName.Location = new Point(80, 26);
+            iconPackName.Location = new Point(120, 39);
+            iconPackName.Margin = new Padding(4, 4, 4, 4);
             iconPackName.MaxCharacters = 32767;
             iconPackName.Multiline = false;
             iconPackName.Name = "iconPackName";
-            iconPackName.Padding = new Padding(8, 5, 8, 5);
+            iconPackName.Padding = new Padding(12, 8, 12, 8);
             iconPackName.PasswordChar = false;
             iconPackName.PlaceHolderColor = Color.Gray;
             iconPackName.PlaceHolderText = "";
             iconPackName.ReadOnly = false;
             iconPackName.ScrollBars = ScrollBars.None;
             iconPackName.SelectionStart = 0;
-            iconPackName.Size = new Size(180, 25);
+            iconPackName.Size = new Size(310, 39);
             iconPackName.TabIndex = 3;
             iconPackName.TextAlignment = HorizontalAlignment.Left;
             // 
@@ -101,9 +104,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblAuthor.AutoSize = true;
             lblAuthor.ForeColor = Color.White;
-            lblAuthor.Location = new Point(12, 57);
+            lblAuthor.Location = new Point(18, 102);
+            lblAuthor.Margin = new Padding(4, 0, 4, 0);
             lblAuthor.Name = "lblAuthor";
-            lblAuthor.Size = new Size(50, 16);
+            lblAuthor.Size = new Size(76, 24);
             lblAuthor.TabIndex = 7;
             lblAuthor.Text = "Author:";
             lblAuthor.UseMnemonic = false;
@@ -114,18 +118,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             author.Font = new Font("Tahoma", 9F);
             author.ForeColor = Color.White;
             author.Icon = null;
-            author.Location = new Point(80, 55);
+            author.Location = new Point(120, 98);
+            author.Margin = new Padding(4, 4, 4, 4);
             author.MaxCharacters = 32767;
             author.Multiline = false;
             author.Name = "author";
-            author.Padding = new Padding(8, 5, 8, 5);
+            author.Padding = new Padding(12, 8, 12, 8);
             author.PasswordChar = false;
             author.PlaceHolderColor = Color.Gray;
             author.PlaceHolderText = "";
             author.ReadOnly = false;
             author.ScrollBars = ScrollBars.None;
             author.SelectionStart = 0;
-            author.Size = new Size(180, 25);
+            author.Size = new Size(310, 39);
             author.TabIndex = 6;
             author.TextAlignment = HorizontalAlignment.Left;
             // 
@@ -135,18 +140,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             version.Font = new Font("Tahoma", 9F);
             version.ForeColor = Color.White;
             version.Icon = null;
-            version.Location = new Point(80, 84);
+            version.Location = new Point(120, 155);
+            version.Margin = new Padding(4, 4, 4, 4);
             version.MaxCharacters = 32767;
             version.Multiline = false;
             version.Name = "version";
-            version.Padding = new Padding(8, 5, 8, 5);
+            version.Padding = new Padding(12, 8, 12, 8);
             version.PasswordChar = false;
             version.PlaceHolderColor = Color.Gray;
             version.PlaceHolderText = "";
             version.ReadOnly = false;
             version.ScrollBars = ScrollBars.None;
             version.SelectionStart = 0;
-            version.Size = new Size(89, 25);
+            version.Size = new Size(134, 39);
             version.TabIndex = 8;
             version.TextAlignment = HorizontalAlignment.Left;
             // 
@@ -154,18 +160,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblVersion.AutoSize = true;
             lblVersion.ForeColor = Color.White;
-            lblVersion.Location = new Point(12, 86);
+            lblVersion.Location = new Point(18, 158);
+            lblVersion.Margin = new Padding(4, 0, 4, 0);
             lblVersion.Name = "lblVersion";
-            lblVersion.Size = new Size(55, 16);
+            lblVersion.Size = new Size(83, 24);
             lblVersion.TabIndex = 9;
             lblVersion.Text = "Version:";
             lblVersion.UseMnemonic = false;
             // 
             // CreateIconPack
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(299, 133);
+            ClientSize = new Size(448, 217);
             Controls.Add(lblVersion);
             Controls.Add(version);
             Controls.Add(lblAuthor);
@@ -173,7 +180,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Controls.Add(btnOk);
             Controls.Add(lblName);
             Controls.Add(iconPackName);
+            Margin = new Padding(6, 9, 6, 9);
             Name = "CreateIconPack";
+            Padding = new Padding(3, 3, 3, 3);
             Text = "Create icon pack";
             ResumeLayout(false);
             PerformLayout();

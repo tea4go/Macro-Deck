@@ -35,215 +35,229 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            this.folderName = new SuchByte.MacroDeck.GUI.CustomControls.RoundedTextBox();
-            this.lblFolderName = new System.Windows.Forms.Label();
-            this.btnCreateFolder = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
-            this.groupAutomaticallySwitchFolder = new System.Windows.Forms.GroupBox();
-            this.applicationDeviceSettings = new System.Windows.Forms.Panel();
-            this.btnReloadApplications = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
-            this.devicesList = new System.Windows.Forms.CheckedListBox();
-            this.lblDevices = new System.Windows.Forms.Label();
-            this.applicationList = new SuchByte.MacroDeck.GUI.CustomControls.ComboBox();
-            this.lblApplication = new System.Windows.Forms.Label();
-            this.radioOnFocus = new System.Windows.Forms.RadioButton();
-            this.radioNever = new System.Windows.Forms.RadioButton();
-            this.groupAutomaticallySwitchFolder.SuspendLayout();
-            this.applicationDeviceSettings.SuspendLayout();
-            this.SuspendLayout();
-            //
+            folderName = new RoundedTextBox();
+            lblFolderName = new Label();
+            btnCreateFolder = new ButtonPrimary();
+            groupAutomaticallySwitchFolder = new GroupBox();
+            applicationDeviceSettings = new Panel();
+            btnReloadApplications = new ButtonPrimary();
+            devicesList = new CheckedListBox();
+            lblDevices = new Label();
+            applicationList = new ComboBox();
+            lblApplication = new Label();
+            radioOnFocus = new RadioButton();
+            radioNever = new RadioButton();
+            groupAutomaticallySwitchFolder.SuspendLayout();
+            applicationDeviceSettings.SuspendLayout();
+            SuspendLayout();
+            // 
             // folderName
-            //
-            this.folderName.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
-            this.folderName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.folderName.ForeColor = System.Drawing.Color.White;
-            this.folderName.Icon = null;
-            this.folderName.Location = new System.Drawing.Point(128, 9);
-            this.folderName.Multiline = false;
-            this.folderName.Name = "folderName";
-            this.folderName.Padding = new System.Windows.Forms.Padding(8, 5, 8, 5);
-            this.folderName.PasswordChar = false;
-            this.folderName.Size = new System.Drawing.Size(273, 25);
-            this.folderName.TabIndex = 0;
-            //
+            // 
+            folderName.BackColor = Color.FromArgb(65, 65, 65);
+            folderName.Font = new Font("Tahoma", 9F);
+            folderName.ForeColor = Color.White;
+            folderName.Icon = null;
+            folderName.Location = new Point(195, 9);
+            folderName.MaxCharacters = 32767;
+            folderName.Multiline = false;
+            folderName.Name = "folderName";
+            folderName.Padding = new Padding(8, 5, 8, 5);
+            folderName.PasswordChar = false;
+            folderName.PlaceHolderColor = Color.Gray;
+            folderName.PlaceHolderText = "";
+            folderName.ReadOnly = false;
+            folderName.ScrollBars = ScrollBars.None;
+            folderName.SelectionStart = 0;
+            folderName.Size = new Size(310, 33);
+            folderName.TabIndex = 0;
+            folderName.TextAlignment = HorizontalAlignment.Left;
+            // 
             // lblFolderName
-            //
-            this.lblFolderName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFolderName.ForeColor = System.Drawing.Color.White;
-            this.lblFolderName.Location = new System.Drawing.Point(11, 9);
-            this.lblFolderName.Name = "lblFolderName";
-            this.lblFolderName.Size = new System.Drawing.Size(111, 23);
-            this.lblFolderName.TabIndex = 1;
-            this.lblFolderName.Text = "Folder name:";
-            this.lblFolderName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblFolderName.UseMnemonic = false;
-            //
+            // 
+            lblFolderName.AutoSize = true;
+            lblFolderName.Font = new Font("Tahoma", 12F);
+            lblFolderName.ForeColor = Color.White;
+            lblFolderName.Location = new Point(11, 9);
+            lblFolderName.Name = "lblFolderName";
+            lblFolderName.Size = new Size(154, 29);
+            lblFolderName.TabIndex = 1;
+            lblFolderName.Text = "Folder name:";
+            lblFolderName.TextAlign = ContentAlignment.MiddleLeft;
+            lblFolderName.UseMnemonic = false;
+            // 
             // btnCreateFolder
-            //
-            this.btnCreateFolder.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
-            this.btnCreateFolder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreateFolder.FlatAppearance.BorderSize = 0;
-            this.btnCreateFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateFolder.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateFolder.ForeColor = System.Drawing.Color.White;
-            this.btnCreateFolder.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
-            this.btnCreateFolder.Icon = null;
-            this.btnCreateFolder.Location = new System.Drawing.Point(381, 333);
-            this.btnCreateFolder.Name = "btnCreateFolder";
-            this.btnCreateFolder.Progress = 0;
-            this.btnCreateFolder.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
-            this.btnCreateFolder.Size = new System.Drawing.Size(75, 25);
-            this.btnCreateFolder.TabIndex = 2;
-            this.btnCreateFolder.Text = "Ok";
-            this.btnCreateFolder.UseMnemonic = false;
-            this.btnCreateFolder.UseVisualStyleBackColor = false;
-            this.btnCreateFolder.Click += new System.EventHandler(this.BtnCreateFolder_Click);
-            //
+            // 
+            btnCreateFolder.BorderRadius = 8;
+            btnCreateFolder.Cursor = Cursors.Hand;
+            btnCreateFolder.FlatAppearance.BorderSize = 0;
+            btnCreateFolder.FlatStyle = FlatStyle.Flat;
+            btnCreateFolder.Font = new Font("Tahoma", 9.75F);
+            btnCreateFolder.ForeColor = Color.White;
+            btnCreateFolder.HoverColor = Color.FromArgb(0, 89, 184);
+            btnCreateFolder.Icon = null;
+            btnCreateFolder.Location = new Point(369, 366);
+            btnCreateFolder.Name = "btnCreateFolder";
+            btnCreateFolder.Progress = 0;
+            btnCreateFolder.ProgressColor = Color.FromArgb(0, 46, 94);
+            btnCreateFolder.Size = new Size(121, 46);
+            btnCreateFolder.TabIndex = 2;
+            btnCreateFolder.Text = "Ok";
+            btnCreateFolder.UseMnemonic = false;
+            btnCreateFolder.UseVisualStyleBackColor = false;
+            btnCreateFolder.UseWindowsAccentColor = true;
+            btnCreateFolder.WriteProgress = true;
+            btnCreateFolder.Click += BtnCreateFolder_Click;
+            // 
             // groupAutomaticallySwitchFolder
-            //
-            this.groupAutomaticallySwitchFolder.Controls.Add(this.applicationDeviceSettings);
-            this.groupAutomaticallySwitchFolder.Controls.Add(this.radioOnFocus);
-            this.groupAutomaticallySwitchFolder.Controls.Add(this.radioNever);
-            this.groupAutomaticallySwitchFolder.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupAutomaticallySwitchFolder.ForeColor = System.Drawing.Color.White;
-            this.groupAutomaticallySwitchFolder.Location = new System.Drawing.Point(12, 52);
-            this.groupAutomaticallySwitchFolder.Name = "groupAutomaticallySwitchFolder";
-            this.groupAutomaticallySwitchFolder.Size = new System.Drawing.Size(444, 275);
-            this.groupAutomaticallySwitchFolder.TabIndex = 3;
-            this.groupAutomaticallySwitchFolder.TabStop = false;
-            this.groupAutomaticallySwitchFolder.Text = "Automatically switch to folder";
-            //
+            // 
+            groupAutomaticallySwitchFolder.Controls.Add(applicationDeviceSettings);
+            groupAutomaticallySwitchFolder.Controls.Add(radioOnFocus);
+            groupAutomaticallySwitchFolder.Controls.Add(radioNever);
+            groupAutomaticallySwitchFolder.Font = new Font("Tahoma", 12F);
+            groupAutomaticallySwitchFolder.ForeColor = Color.White;
+            groupAutomaticallySwitchFolder.Location = new Point(12, 52);
+            groupAutomaticallySwitchFolder.Name = "groupAutomaticallySwitchFolder";
+            groupAutomaticallySwitchFolder.Size = new Size(493, 308);
+            groupAutomaticallySwitchFolder.TabIndex = 3;
+            groupAutomaticallySwitchFolder.TabStop = false;
+            groupAutomaticallySwitchFolder.Text = "Automatically switch to folder";
+            // 
             // applicationDeviceSettings
-            //
-            this.applicationDeviceSettings.Controls.Add(this.btnReloadApplications);
-            this.applicationDeviceSettings.Controls.Add(this.devicesList);
-            this.applicationDeviceSettings.Controls.Add(this.lblDevices);
-            this.applicationDeviceSettings.Controls.Add(this.applicationList);
-            this.applicationDeviceSettings.Controls.Add(this.lblApplication);
-            this.applicationDeviceSettings.Enabled = false;
-            this.applicationDeviceSettings.Location = new System.Drawing.Point(6, 54);
-            this.applicationDeviceSettings.Name = "applicationDeviceSettings";
-            this.applicationDeviceSettings.Size = new System.Drawing.Size(432, 215);
-            this.applicationDeviceSettings.TabIndex = 2;
-            //
+            // 
+            applicationDeviceSettings.Controls.Add(btnReloadApplications);
+            applicationDeviceSettings.Controls.Add(devicesList);
+            applicationDeviceSettings.Controls.Add(lblDevices);
+            applicationDeviceSettings.Controls.Add(applicationList);
+            applicationDeviceSettings.Controls.Add(lblApplication);
+            applicationDeviceSettings.Enabled = false;
+            applicationDeviceSettings.Location = new Point(6, 94);
+            applicationDeviceSettings.Name = "applicationDeviceSettings";
+            applicationDeviceSettings.Size = new Size(481, 208);
+            applicationDeviceSettings.TabIndex = 2;
+            // 
             // btnReloadApplications
-            //
-            this.btnReloadApplications.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
-            this.btnReloadApplications.BackgroundImage = global::SuchByte.MacroDeck.Properties.Resources.reload;
-            this.btnReloadApplications.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReloadApplications.BorderRadius = 8;
-            this.btnReloadApplications.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReloadApplications.FlatAppearance.BorderSize = 0;
-            this.btnReloadApplications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReloadApplications.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnReloadApplications.ForeColor = System.Drawing.Color.White;
-            this.btnReloadApplications.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
-            this.btnReloadApplications.Icon = global::SuchByte.MacroDeck.Properties.Resources.reload;
-            this.btnReloadApplications.Location = new System.Drawing.Point(404, 2);
-            this.btnReloadApplications.Name = "btnReloadApplications";
-            this.btnReloadApplications.Progress = 0;
-            this.btnReloadApplications.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
-            this.btnReloadApplications.Size = new System.Drawing.Size(25, 25);
-            this.btnReloadApplications.TabIndex = 6;
-            this.btnReloadApplications.UseMnemonic = false;
-            this.btnReloadApplications.UseVisualStyleBackColor = false;
-            this.btnReloadApplications.Click += new System.EventHandler(this.BtnReloadApplications_Click);
-            //
+            // 
+            btnReloadApplications.BackgroundImage = Properties.Resources.reload;
+            btnReloadApplications.BackgroundImageLayout = ImageLayout.Stretch;
+            btnReloadApplications.BorderRadius = 8;
+            btnReloadApplications.Cursor = Cursors.Hand;
+            btnReloadApplications.FlatAppearance.BorderSize = 0;
+            btnReloadApplications.FlatStyle = FlatStyle.Flat;
+            btnReloadApplications.Font = new Font("Tahoma", 9.75F);
+            btnReloadApplications.ForeColor = Color.White;
+            btnReloadApplications.HoverColor = Color.FromArgb(0, 89, 184);
+            btnReloadApplications.Icon = Properties.Resources.reload;
+            btnReloadApplications.Location = new Point(438, 5);
+            btnReloadApplications.Name = "btnReloadApplications";
+            btnReloadApplications.Progress = 0;
+            btnReloadApplications.ProgressColor = Color.FromArgb(0, 46, 94);
+            btnReloadApplications.Size = new Size(38, 37);
+            btnReloadApplications.TabIndex = 6;
+            btnReloadApplications.UseMnemonic = false;
+            btnReloadApplications.UseVisualStyleBackColor = false;
+            btnReloadApplications.UseWindowsAccentColor = true;
+            btnReloadApplications.WriteProgress = true;
+            btnReloadApplications.Click += BtnReloadApplications_Click;
+            // 
             // devicesList
-            //
-            this.devicesList.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
-            this.devicesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.devicesList.ForeColor = System.Drawing.Color.White;
-            this.devicesList.FormattingEnabled = true;
-            this.devicesList.Location = new System.Drawing.Point(6, 75);
-            this.devicesList.Name = "devicesList";
-            this.devicesList.Size = new System.Drawing.Size(420, 132);
-            this.devicesList.TabIndex = 5;
-            //
+            // 
+            devicesList.BackColor = Color.FromArgb(65, 65, 65);
+            devicesList.BorderStyle = BorderStyle.None;
+            devicesList.ForeColor = Color.White;
+            devicesList.FormattingEnabled = true;
+            devicesList.Location = new Point(6, 84);
+            devicesList.Name = "devicesList";
+            devicesList.Size = new Size(472, 99);
+            devicesList.TabIndex = 5;
+            // 
             // lblDevices
-            //
-            this.lblDevices.AutoSize = true;
-            this.lblDevices.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDevices.ForeColor = System.Drawing.Color.White;
-            this.lblDevices.Location = new System.Drawing.Point(3, 54);
-            this.lblDevices.Name = "lblDevices";
-            this.lblDevices.Size = new System.Drawing.Size(58, 18);
-            this.lblDevices.TabIndex = 4;
-            this.lblDevices.Text = "Devices";
-            this.lblDevices.UseMnemonic = false;
-            //
+            // 
+            lblDevices.AutoSize = true;
+            lblDevices.Font = new Font("Tahoma", 11.25F);
+            lblDevices.ForeColor = Color.White;
+            lblDevices.Location = new Point(3, 46);
+            lblDevices.Name = "lblDevices";
+            lblDevices.Size = new Size(89, 28);
+            lblDevices.TabIndex = 4;
+            lblDevices.Text = "Devices";
+            lblDevices.UseMnemonic = false;
+            // 
             // applicationList
-            //
-            this.applicationList.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
-            this.applicationList.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.applicationList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.applicationList.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.applicationList.ForeColor = System.Drawing.Color.White;
-            this.applicationList.FormattingEnabled = true;
-            this.applicationList.Location = new System.Drawing.Point(102, 1);
-            this.applicationList.Name = "applicationList";
-            this.applicationList.Size = new System.Drawing.Size(296, 24);
-            this.applicationList.TabIndex = 3;
-            //
+            // 
+            applicationList.BackColor = Color.FromArgb(65, 65, 65);
+            applicationList.BorderRadius = 0;
+            applicationList.Cursor = Cursors.Hand;
+            applicationList.DropDownStyle = ComboBoxStyle.DropDownList;
+            applicationList.Font = new Font("Tahoma", 11.25F);
+            applicationList.ForeColor = Color.White;
+            applicationList.FormattingEnabled = true;
+            applicationList.Location = new Point(102, 9);
+            applicationList.Margin = new Padding(0, 0, 0, 0);
+            applicationList.Name = "applicationList";
+            applicationList.Size = new Size(320, 27);
+            applicationList.TabIndex = 3;
+            // 
             // lblApplication
-            //
-            this.lblApplication.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblApplication.ForeColor = System.Drawing.Color.White;
-            this.lblApplication.Location = new System.Drawing.Point(3, 2);
-            this.lblApplication.Name = "lblApplication";
-            this.lblApplication.Size = new System.Drawing.Size(93, 24);
-            this.lblApplication.TabIndex = 2;
-            this.lblApplication.Text = "Application:";
-            this.lblApplication.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblApplication.UseMnemonic = false;
-            //
+            // 
+            lblApplication.Font = new Font("Tahoma", 11.25F);
+            lblApplication.ForeColor = Color.White;
+            lblApplication.Location = new Point(3, 6);
+            lblApplication.Name = "lblApplication";
+            lblApplication.Size = new Size(93, 24);
+            lblApplication.TabIndex = 2;
+            lblApplication.Text = "Application:";
+            lblApplication.TextAlign = ContentAlignment.MiddleLeft;
+            lblApplication.UseMnemonic = false;
+            // 
             // radioOnFocus
-            //
-            this.radioOnFocus.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioOnFocus.Location = new System.Drawing.Point(108, 26);
-            this.radioOnFocus.Name = "radioOnFocus";
-            this.radioOnFocus.Size = new System.Drawing.Size(160, 22);
-            this.radioOnFocus.TabIndex = 1;
-            this.radioOnFocus.Text = "On application focus";
-            this.radioOnFocus.UseMnemonic = false;
-            this.radioOnFocus.UseVisualStyleBackColor = true;
-            this.radioOnFocus.CheckedChanged += new System.EventHandler(this.RadioOnFocus_CheckedChanged);
-            this.radioOnFocus.Cursor = Cursors.Hand;
-            //
+            // 
+            radioOnFocus.AutoSize = true;
+            radioOnFocus.Cursor = Cursors.Hand;
+            radioOnFocus.Font = new Font("Tahoma", 11.25F);
+            radioOnFocus.Location = new Point(143, 47);
+            radioOnFocus.Name = "radioOnFocus";
+            radioOnFocus.Size = new Size(242, 32);
+            radioOnFocus.TabIndex = 1;
+            radioOnFocus.Text = "On application focus";
+            radioOnFocus.UseMnemonic = false;
+            radioOnFocus.UseVisualStyleBackColor = true;
+            radioOnFocus.CheckedChanged += RadioOnFocus_CheckedChanged;
+            // 
             // radioNever
-            //
-            this.radioNever.Checked = true;
-            this.radioNever.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioNever.Location = new System.Drawing.Point(16, 26);
-            this.radioNever.Name = "radioNever";
-            this.radioNever.Size = new System.Drawing.Size(96, 22);
-            this.radioNever.TabIndex = 0;
-            this.radioNever.TabStop = true;
-            this.radioNever.Text = "Never";
-            this.radioNever.UseMnemonic = false;
-            this.radioNever.UseVisualStyleBackColor = true;
-            this.radioNever.CheckedChanged += new System.EventHandler(this.RadioOnFocus_CheckedChanged);
-            this.radioNever.Cursor = Cursors.Hand;
-            //
+            // 
+            radioNever.AutoSize = true;
+            radioNever.Checked = true;
+            radioNever.Cursor = Cursors.Hand;
+            radioNever.Font = new Font("Tahoma", 11.25F);
+            radioNever.Location = new Point(16, 47);
+            radioNever.Name = "radioNever";
+            radioNever.Size = new Size(95, 32);
+            radioNever.TabIndex = 0;
+            radioNever.TabStop = true;
+            radioNever.Text = "Never";
+            radioNever.UseMnemonic = false;
+            radioNever.UseVisualStyleBackColor = true;
+            radioNever.CheckedChanged += RadioOnFocus_CheckedChanged;
+            // 
             // AddFolder
-            //
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
-            this.ClientSize = new System.Drawing.Size(468, 368);
-            this.Controls.Add(this.groupAutomaticallySwitchFolder);
-            this.Controls.Add(this.btnCreateFolder);
-            this.Controls.Add(this.lblFolderName);
-            this.Controls.Add(this.folderName);
-            this.Name = "AddFolder";
-            this.Text = "Macro Deck :: Create folder";
-            this.Load += new System.EventHandler(this.AddFolder_Load);
-            this.Controls.SetChildIndex(this.folderName, 0);
-            this.Controls.SetChildIndex(this.lblFolderName, 0);
-            this.Controls.SetChildIndex(this.btnCreateFolder, 0);
-            this.Controls.SetChildIndex(this.groupAutomaticallySwitchFolder, 0);
-            this.groupAutomaticallySwitchFolder.ResumeLayout(false);
-            this.applicationDeviceSettings.ResumeLayout(false);
-            this.applicationDeviceSettings.PerformLayout();
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            ClientSize = new Size(524, 426);
+            Controls.Add(groupAutomaticallySwitchFolder);
+            Controls.Add(btnCreateFolder);
+            Controls.Add(lblFolderName);
+            Controls.Add(folderName);
+            Name = "AddFolder";
+            Text = "Macro Deck :: Create folder";
+            Load += AddFolder_Load;
+            groupAutomaticallySwitchFolder.ResumeLayout(false);
+            groupAutomaticallySwitchFolder.PerformLayout();
+            applicationDeviceSettings.ResumeLayout(false);
+            applicationDeviceSettings.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -36,161 +36,157 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblNewConnectionRequest = new System.Windows.Forms.Label();
-            this.lblClientId = new System.Windows.Forms.Label();
-            this.lblType = new System.Windows.Forms.Label();
-            this.type = new System.Windows.Forms.Label();
-            this.clientId = new System.Windows.Forms.Label();
-            this.btnAccept = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
-            this.btnDeny = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
-            this.checkBlockThisDevice = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            lblNewConnectionRequest = new Label();
+            lblClientId = new Label();
+            lblType = new Label();
+            type = new Label();
+            clientId = new Label();
+            btnAccept = new ButtonPrimary();
+            btnDeny = new ButtonPrimary();
+            checkBlockThisDevice = new CheckBox();
+            ((ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::SuchByte.MacroDeck.Properties.Resources.Macro_Deck_2021;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Image = Properties.Resources.Macro_Deck_2021;
+            pictureBox1.Location = new Point(16, 27);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(53, 53);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // lblNewConnectionRequest
             // 
-            this.lblNewConnectionRequest.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNewConnectionRequest.Location = new System.Drawing.Point(75, 27);
-            this.lblNewConnectionRequest.Name = "lblNewConnectionRequest";
-            this.lblNewConnectionRequest.Size = new System.Drawing.Size(451, 53);
-            this.lblNewConnectionRequest.TabIndex = 3;
-            this.lblNewConnectionRequest.Text = "New connection request";
-            this.lblNewConnectionRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblNewConnectionRequest.Font = new Font("Tahoma", 21.75F);
+            lblNewConnectionRequest.Location = new Point(75, 27);
+            lblNewConnectionRequest.Name = "lblNewConnectionRequest";
+            lblNewConnectionRequest.Size = new Size(451, 53);
+            lblNewConnectionRequest.TabIndex = 3;
+            lblNewConnectionRequest.Text = "New connection request";
+            lblNewConnectionRequest.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblClientId
             // 
-            this.lblClientId.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblClientId.Location = new System.Drawing.Point(32, 127);
-            this.lblClientId.Name = "lblClientId";
-            this.lblClientId.Size = new System.Drawing.Size(165, 27);
-            this.lblClientId.TabIndex = 4;
-            this.lblClientId.Text = "Client Id";
-            this.lblClientId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblClientId.AutoSize = true;
+            lblClientId.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            lblClientId.Location = new Point(32, 127);
+            lblClientId.Name = "lblClientId";
+            lblClientId.Size = new Size(116, 29);
+            lblClientId.TabIndex = 4;
+            lblClientId.Text = "Client Id";
+            lblClientId.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblType
             // 
-            this.lblType.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblType.Location = new System.Drawing.Point(32, 181);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(165, 27);
-            this.lblType.TabIndex = 6;
-            this.lblType.Text = "Type";
-            this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblType.AutoSize = true;
+            lblType.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            lblType.Location = new Point(32, 181);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(71, 29);
+            lblType.TabIndex = 6;
+            lblType.Text = "Type";
+            lblType.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // type
             // 
-            this.type.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.type.Location = new System.Drawing.Point(203, 181);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(307, 27);
-            this.type.TabIndex = 9;
-            this.type.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            type.Font = new Font("Tahoma", 12F);
+            type.Location = new Point(203, 181);
+            type.Name = "type";
+            type.Size = new Size(307, 27);
+            type.TabIndex = 9;
+            type.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // clientId
             // 
-            this.clientId.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clientId.Location = new System.Drawing.Point(203, 127);
-            this.clientId.Name = "clientId";
-            this.clientId.Size = new System.Drawing.Size(307, 27);
-            this.clientId.TabIndex = 7;
-            this.clientId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            clientId.Font = new Font("Tahoma", 12F);
+            clientId.Location = new Point(203, 127);
+            clientId.Name = "clientId";
+            clientId.Size = new Size(307, 27);
+            clientId.TabIndex = 7;
+            clientId.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnAccept
             // 
-            this.btnAccept.BorderRadius = 8;
-            this.btnAccept.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAccept.FlatAppearance.BorderSize = 0;
-            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccept.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAccept.ForeColor = System.Drawing.Color.White;
-            this.btnAccept.HoverColor = System.Drawing.Color.Empty;
-            this.btnAccept.Icon = null;
-            this.btnAccept.Location = new System.Drawing.Point(167, 256);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Progress = 0;
-            this.btnAccept.ProgressColor = System.Drawing.Color.FromArgb(0, 103, 205);
-            this.btnAccept.Size = new System.Drawing.Size(209, 60);
-            this.btnAccept.TabIndex = 10;
-            this.btnAccept.Text = "Accept";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.UseWindowsAccentColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.BtnAccept_Click);
+            btnAccept.BorderRadius = 8;
+            btnAccept.Cursor = Cursors.Hand;
+            btnAccept.FlatAppearance.BorderSize = 0;
+            btnAccept.FlatStyle = FlatStyle.Flat;
+            btnAccept.Font = new Font("Tahoma", 14.25F);
+            btnAccept.ForeColor = Color.White;
+            btnAccept.HoverColor = Color.Empty;
+            btnAccept.Icon = null;
+            btnAccept.Location = new Point(167, 256);
+            btnAccept.Name = "btnAccept";
+            btnAccept.Progress = 0;
+            btnAccept.ProgressColor = Color.FromArgb(0, 103, 205);
+            btnAccept.Size = new Size(209, 60);
+            btnAccept.TabIndex = 10;
+            btnAccept.Text = "Accept";
+            btnAccept.UseVisualStyleBackColor = true;
+            btnAccept.UseWindowsAccentColor = true;
+            btnAccept.WriteProgress = true;
+            btnAccept.Click += BtnAccept_Click;
             // 
             // btnDeny
             // 
-            this.btnDeny.BorderRadius = 8;
-            this.btnDeny.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeny.FlatAppearance.BorderSize = 0;
-            this.btnDeny.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeny.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeny.ForeColor = System.Drawing.Color.White;
-            this.btnDeny.HoverColor = System.Drawing.Color.Empty;
-            this.btnDeny.Icon = null;
-            this.btnDeny.Location = new System.Drawing.Point(167, 322);
-            this.btnDeny.Name = "btnDeny";
-            this.btnDeny.Progress = 0;
-            this.btnDeny.ProgressColor = System.Drawing.Color.FromArgb(0, 103, 205);
-            this.btnDeny.Size = new System.Drawing.Size(209, 60);
-            this.btnDeny.TabIndex = 11;
-            this.btnDeny.Text = "Deny";
-            this.btnDeny.UseVisualStyleBackColor = true;
-            this.btnDeny.UseWindowsAccentColor = false;
-            this.btnDeny.Click += new System.EventHandler(this.BtnDeny_Click);
+            btnDeny.BorderRadius = 8;
+            btnDeny.Cursor = Cursors.Hand;
+            btnDeny.FlatAppearance.BorderSize = 0;
+            btnDeny.FlatStyle = FlatStyle.Flat;
+            btnDeny.Font = new Font("Tahoma", 14.25F);
+            btnDeny.ForeColor = Color.White;
+            btnDeny.HoverColor = Color.Empty;
+            btnDeny.Icon = null;
+            btnDeny.Location = new Point(167, 322);
+            btnDeny.Name = "btnDeny";
+            btnDeny.Progress = 0;
+            btnDeny.ProgressColor = Color.FromArgb(0, 103, 205);
+            btnDeny.Size = new Size(209, 60);
+            btnDeny.TabIndex = 11;
+            btnDeny.Text = "Deny";
+            btnDeny.UseVisualStyleBackColor = true;
+            btnDeny.UseWindowsAccentColor = false;
+            btnDeny.WriteProgress = true;
+            btnDeny.Click += BtnDeny_Click;
             // 
             // checkBlockThisDevice
             // 
-            this.checkBlockThisDevice.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.checkBlockThisDevice.Location = new System.Drawing.Point(172, 388);
-            this.checkBlockThisDevice.Name = "checkBlockThisDevice";
-            this.checkBlockThisDevice.Size = new System.Drawing.Size(204, 42);
-            this.checkBlockThisDevice.TabIndex = 12;
-            this.checkBlockThisDevice.Text = "Block this device";
-            this.checkBlockThisDevice.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.checkBlockThisDevice.UseVisualStyleBackColor = true;
+            checkBlockThisDevice.CheckAlign = ContentAlignment.TopLeft;
+            checkBlockThisDevice.Location = new Point(172, 388);
+            checkBlockThisDevice.Name = "checkBlockThisDevice";
+            checkBlockThisDevice.Size = new Size(204, 42);
+            checkBlockThisDevice.TabIndex = 12;
+            checkBlockThisDevice.Text = "Block this device";
+            checkBlockThisDevice.TextAlign = ContentAlignment.TopLeft;
+            checkBlockThisDevice.UseVisualStyleBackColor = true;
             // 
             // NewConnectionDialog
             // 
-            this.AcceptButton = this.btnAccept;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(543, 441);
-            this.Controls.Add(this.checkBlockThisDevice);
-            this.Controls.Add(this.btnDeny);
-            this.Controls.Add(this.btnAccept);
-            this.Controls.Add(this.type);
-            this.Controls.Add(this.clientId);
-            this.Controls.Add(this.lblType);
-            this.Controls.Add(this.lblClientId);
-            this.Controls.Add(this.lblNewConnectionRequest);
-            this.Controls.Add(this.pictureBox1);
-            this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "NewConnectionDialog";
-            this.ShowIcon = true;
-            this.ShowInTaskbar = true;
-            this.Text = "Macro Deck :: New connection";
-            this.Load += new System.EventHandler(this.NewConnectionDialog_Load);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
-            this.Controls.SetChildIndex(this.lblNewConnectionRequest, 0);
-            this.Controls.SetChildIndex(this.lblClientId, 0);
-            this.Controls.SetChildIndex(this.lblType, 0);
-            this.Controls.SetChildIndex(this.clientId, 0);
-            this.Controls.SetChildIndex(this.type, 0);
-            this.Controls.SetChildIndex(this.btnAccept, 0);
-            this.Controls.SetChildIndex(this.btnDeny, 0);
-            this.Controls.SetChildIndex(this.checkBlockThisDevice, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+            AcceptButton = btnAccept;
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            ClientSize = new Size(543, 441);
+            Controls.Add(checkBlockThisDevice);
+            Controls.Add(btnDeny);
+            Controls.Add(btnAccept);
+            Controls.Add(type);
+            Controls.Add(clientId);
+            Controls.Add(lblType);
+            Controls.Add(lblClientId);
+            Controls.Add(lblNewConnectionRequest);
+            Controls.Add(pictureBox1);
+            Name = "NewConnectionDialog";
+            ShowIcon = true;
+            ShowInTaskbar = true;
+            Text = "Macro Deck :: New connection";
+            Load += NewConnectionDialog_Load;
+            ((ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

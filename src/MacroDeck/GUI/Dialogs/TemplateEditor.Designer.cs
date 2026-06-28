@@ -67,12 +67,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
     '\''
     };
             template.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*(?<range>:)\\s*(?<range>[^;]+);";
-            template.AutoScrollMinSize = new Size(25, 13);
+            template.AutoScrollMinSize = new Size(33, 20);
             template.BackBrush = null;
             template.BackColor = Color.FromArgb(65, 65, 65);
             template.CaretColor = Color.White;
-            template.CharHeight = 13;
-            template.CharWidth = 7;
+            template.CharHeight = 20;
+            template.CharWidth = 11;
             template.CommentPrefix = "{_";
             template.Cursor = Cursors.IBeam;
             template.DefaultMarkerSize = 8;
@@ -82,13 +82,14 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             template.GoToForm = null;
             template.Hotkeys = resources.GetString("template.Hotkeys");
             template.IsReplaceMode = false;
-            template.Location = new Point(12, 85);
+            template.Location = new Point(18, 150);
+            template.Margin = new Padding(4, 4, 4, 4);
             template.Name = "template";
             template.Paddings = new Padding(0);
             template.ReplaceForm = null;
             template.SelectionColor = Color.FromArgb(60, 0, 0, 255);
-            template.ServiceColors = (ServiceColors)resources.GetObject("template.ServiceColors");
-            template.Size = new Size(743, 265);
+            template.ServiceColors = null;
+            template.Size = new Size(1114, 398);
             template.TabIndex = 2;
             template.TabStop = false;
             template.Zoom = 100;
@@ -103,11 +104,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.ForeColor = Color.White;
             btnOk.HoverColor = Color.FromArgb(0, 89, 184);
             btnOk.Icon = null;
-            btnOk.Location = new Point(680, 550);
+            btnOk.Location = new Point(1020, 815);
+            btnOk.Margin = new Padding(4, 4, 4, 4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnOk.Size = new Size(75, 25);
+            btnOk.Size = new Size(112, 56);
             btnOk.TabIndex = 3;
             btnOk.TabStop = false;
             btnOk.Text = "Ok";
@@ -120,18 +122,20 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // lblResultLabel
             // 
             lblResultLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
-            lblResultLabel.Location = new Point(12, 386);
+            lblResultLabel.Location = new Point(18, 598);
+            lblResultLabel.Margin = new Padding(4, 0, 4, 0);
             lblResultLabel.Name = "lblResultLabel";
-            lblResultLabel.Size = new Size(289, 22);
+            lblResultLabel.Size = new Size(434, 33);
             lblResultLabel.TabIndex = 4;
             lblResultLabel.Text = "Result";
             lblResultLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblResult
             // 
-            lblResult.Location = new Point(12, 408);
+            lblResult.Location = new Point(18, 642);
+            lblResult.Margin = new Padding(4, 0, 4, 0);
             lblResult.Name = "lblResult";
-            lblResult.Size = new Size(501, 147);
+            lblResult.Size = new Size(981, 190);
             lblResult.TabIndex = 5;
             lblResult.UseMnemonic = false;
             // 
@@ -145,11 +149,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnVariables.ForeColor = Color.White;
             btnVariables.HoverColor = Color.FromArgb(0, 89, 184);
             btnVariables.Icon = null;
-            btnVariables.Location = new Point(9, 49);
+            btnVariables.Location = new Point(14, 74);
+            btnVariables.Margin = new Padding(4, 4, 4, 4);
             btnVariables.Name = "btnVariables";
             btnVariables.Progress = 0;
             btnVariables.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnVariables.Size = new Size(116, 30);
+            btnVariables.Size = new Size(174, 56);
             btnVariables.TabIndex = 6;
             btnVariables.Text = "Variables";
             btnVariables.UseMnemonic = false;
@@ -162,9 +167,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblTemplateEngineInfo.ActiveLinkColor = Color.FromArgb(0, 46, 94);
             lblTemplateEngineInfo.LinkColor = Color.FromArgb(0, 123, 255);
-            lblTemplateEngineInfo.Location = new Point(9, 17);
+            lblTemplateEngineInfo.Location = new Point(14, 26);
+            lblTemplateEngineInfo.Margin = new Padding(4, 0, 4, 0);
             lblTemplateEngineInfo.Name = "lblTemplateEngineInfo";
-            lblTemplateEngineInfo.Size = new Size(695, 29);
+            lblTemplateEngineInfo.Size = new Size(1042, 44);
             lblTemplateEngineInfo.TabIndex = 11;
             lblTemplateEngineInfo.TabStop = true;
             lblTemplateEngineInfo.Text = "Macro Deck uses the Cottle template engine. Click here for more information.";
@@ -176,6 +182,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             variablesContextMenu.BackColor = Color.FromArgb(45, 45, 45);
             variablesContextMenu.Font = new Font("Tahoma", 9F);
+            variablesContextMenu.ImageScalingSize = new Size(24, 24);
             variablesContextMenu.Name = "variablesContextMenu";
             variablesContextMenu.ShowImageMargin = false;
             variablesContextMenu.Size = new Size(36, 4);
@@ -190,11 +197,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnIf.ForeColor = Color.White;
             btnIf.HoverColor = Color.FromArgb(0, 89, 184);
             btnIf.Icon = null;
-            btnIf.Location = new Point(131, 49);
+            btnIf.Location = new Point(196, 74);
+            btnIf.Margin = new Padding(4, 4, 4, 4);
             btnIf.Name = "btnIf";
             btnIf.Progress = 0;
             btnIf.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnIf.Size = new Size(75, 30);
+            btnIf.Size = new Size(112, 56);
             btnIf.TabIndex = 7;
             btnIf.Text = "If";
             btnIf.UseMnemonic = false;
@@ -213,11 +221,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnAnd.ForeColor = Color.White;
             btnAnd.HoverColor = Color.FromArgb(0, 89, 184);
             btnAnd.Icon = null;
-            btnAnd.Location = new Point(212, 49);
+            btnAnd.Location = new Point(318, 74);
+            btnAnd.Margin = new Padding(4, 4, 4, 4);
             btnAnd.Name = "btnAnd";
             btnAnd.Progress = 0;
             btnAnd.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnAnd.Size = new Size(75, 30);
+            btnAnd.Size = new Size(112, 56);
             btnAnd.TabIndex = 8;
             btnAnd.Text = "And";
             btnAnd.UseMnemonic = false;
@@ -236,11 +245,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOr.ForeColor = Color.White;
             btnOr.HoverColor = Color.FromArgb(0, 89, 184);
             btnOr.Icon = null;
-            btnOr.Location = new Point(293, 49);
+            btnOr.Location = new Point(440, 74);
+            btnOr.Margin = new Padding(4, 4, 4, 4);
             btnOr.Name = "btnOr";
             btnOr.Progress = 0;
             btnOr.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnOr.Size = new Size(75, 30);
+            btnOr.Size = new Size(112, 56);
             btnOr.TabIndex = 9;
             btnOr.Text = "Or";
             btnOr.UseMnemonic = false;
@@ -259,11 +269,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnNot.ForeColor = Color.White;
             btnNot.HoverColor = Color.FromArgb(0, 89, 184);
             btnNot.Icon = null;
-            btnNot.Location = new Point(374, 49);
+            btnNot.Location = new Point(561, 74);
+            btnNot.Margin = new Padding(4, 4, 4, 4);
             btnNot.Name = "btnNot";
             btnNot.Progress = 0;
             btnNot.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnNot.Size = new Size(75, 30);
+            btnNot.Size = new Size(112, 56);
             btnNot.TabIndex = 10;
             btnNot.Text = "Not";
             btnNot.UseMnemonic = false;
@@ -274,9 +285,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // checkTrimBlankLines
             // 
-            checkTrimBlankLines.Location = new Point(18, 356);
+            checkTrimBlankLines.Location = new Point(27, 559);
+            checkTrimBlankLines.Margin = new Padding(4, 4, 4, 4);
             checkTrimBlankLines.Name = "checkTrimBlankLines";
-            checkTrimBlankLines.Size = new Size(338, 27);
+            checkTrimBlankLines.Size = new Size(507, 40);
             checkTrimBlankLines.TabIndex = 12;
             checkTrimBlankLines.Text = "Trim blank lines";
             checkTrimBlankLines.UseVisualStyleBackColor = true;
@@ -284,10 +296,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // TemplateEditor
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
-            ClientSize = new Size(766, 585);
+            ClientSize = new Size(1149, 878);
             Controls.Add(checkTrimBlankLines);
             Controls.Add(lblTemplateEngineInfo);
             Controls.Add(btnNot);
@@ -299,7 +311,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Controls.Add(lblResultLabel);
             Controls.Add(btnOk);
             Controls.Add(template);
+            Margin = new Padding(6, 9, 6, 9);
             Name = "TemplateEditor";
+            Padding = new Padding(3, 3, 3, 3);
             Text = "Edit template";
             ((ISupportInitialize)template).EndInit();
             ResumeLayout(false);

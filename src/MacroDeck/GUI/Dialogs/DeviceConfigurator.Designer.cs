@@ -33,165 +33,164 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOk = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
-            this.lblBrightness = new System.Windows.Forms.Label();
-            this.brightness = new System.Windows.Forms.TrackBar();
-            this.checkAutoConnect = new System.Windows.Forms.CheckBox();
-            this.lblKeepWake = new System.Windows.Forms.Label();
-            this.radioKeepAwakeNever = new SuchByte.MacroDeck.GUI.CustomControls.TabRadioButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioKeepAwakeConnected = new SuchByte.MacroDeck.GUI.CustomControls.TabRadioButton();
-            this.radioKeepAwakeAlways = new SuchByte.MacroDeck.GUI.CustomControls.TabRadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.brightness)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            btnOk = new ButtonPrimary();
+            lblBrightness = new Label();
+            brightness = new TrackBar();
+            checkAutoConnect = new CheckBox();
+            lblKeepWake = new Label();
+            radioKeepAwakeNever = new TabRadioButton();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            radioKeepAwakeConnected = new TabRadioButton();
+            radioKeepAwakeAlways = new TabRadioButton();
+            ((ISupportInitialize)brightness).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // btnOk
             // 
-            this.btnOk.BorderRadius = 8;
-            this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOk.FlatAppearance.BorderSize = 0;
-            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
-            this.btnOk.Icon = null;
-            this.btnOk.Location = new System.Drawing.Point(483, 156);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Progress = 0;
-            this.btnOk.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
-            this.btnOk.Size = new System.Drawing.Size(75, 25);
-            this.btnOk.TabIndex = 2;
-            this.btnOk.Text = "Ok";
-            this.btnOk.UseMnemonic = false;
-            this.btnOk.UseVisualStyleBackColor = false;
-            this.btnOk.UseWindowsAccentColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            btnOk.BorderRadius = 8;
+            btnOk.Cursor = Cursors.Hand;
+            btnOk.FlatAppearance.BorderSize = 0;
+            btnOk.FlatStyle = FlatStyle.Flat;
+            btnOk.Font = new Font("Tahoma", 9.75F);
+            btnOk.ForeColor = Color.White;
+            btnOk.HoverColor = Color.FromArgb(0, 89, 184);
+            btnOk.Icon = null;
+            btnOk.Location = new Point(425, 164);
+            btnOk.Name = "btnOk";
+            btnOk.Progress = 0;
+            btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
+            btnOk.Size = new Size(133, 49);
+            btnOk.TabIndex = 2;
+            btnOk.Text = "Ok";
+            btnOk.UseMnemonic = false;
+            btnOk.UseVisualStyleBackColor = false;
+            btnOk.UseWindowsAccentColor = true;
+            btnOk.WriteProgress = true;
+            btnOk.Click += BtnOk_Click;
             // 
             // lblBrightness
             // 
-            this.lblBrightness.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblBrightness.Location = new System.Drawing.Point(17, 27);
-            this.lblBrightness.Name = "lblBrightness";
-            this.lblBrightness.Size = new System.Drawing.Size(110, 19);
-            this.lblBrightness.TabIndex = 3;
-            this.lblBrightness.Text = "Brightness";
-            this.lblBrightness.UseMnemonic = false;
+            lblBrightness.AutoSize = true;
+            lblBrightness.Font = new Font("Tahoma", 12F);
+            lblBrightness.Location = new Point(17, 27);
+            lblBrightness.Name = "lblBrightness";
+            lblBrightness.Size = new Size(123, 29);
+            lblBrightness.TabIndex = 3;
+            lblBrightness.Text = "Brightness";
+            lblBrightness.UseMnemonic = false;
             // 
             // brightness
             // 
-            this.brightness.Location = new System.Drawing.Point(299, 27);
-            this.brightness.Minimum = 1;
-            this.brightness.Name = "brightness";
-            this.brightness.Size = new System.Drawing.Size(259, 45);
-            this.brightness.TabIndex = 4;
-            this.brightness.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.brightness.Value = 10;
-            this.brightness.Scroll += new System.EventHandler(this.Brightness_Scroll);
+            brightness.Location = new Point(299, 27);
+            brightness.Minimum = 1;
+            brightness.Name = "brightness";
+            brightness.Size = new Size(259, 69);
+            brightness.TabIndex = 4;
+            brightness.TickStyle = TickStyle.None;
+            brightness.Value = 10;
+            brightness.Scroll += Brightness_Scroll;
             // 
             // checkAutoConnect
             // 
-            this.checkAutoConnect.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkAutoConnect.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkAutoConnect.Location = new System.Drawing.Point(17, 59);
-            this.checkAutoConnect.Name = "checkAutoConnect";
-            this.checkAutoConnect.Size = new System.Drawing.Size(541, 22);
-            this.checkAutoConnect.TabIndex = 5;
-            this.checkAutoConnect.Text = "Connect automatically";
-            this.checkAutoConnect.UseMnemonic = false;
-            this.checkAutoConnect.UseVisualStyleBackColor = true;
-            this.checkAutoConnect.CheckedChanged += new System.EventHandler(this.CheckAutoConnect_CheckedChanged);
+            checkAutoConnect.AutoSize = true;
+            checkAutoConnect.CheckAlign = ContentAlignment.MiddleRight;
+            checkAutoConnect.Font = new Font("Tahoma", 12F);
+            checkAutoConnect.Location = new Point(17, 71);
+            checkAutoConnect.Name = "checkAutoConnect";
+            checkAutoConnect.Size = new Size(271, 33);
+            checkAutoConnect.TabIndex = 5;
+            checkAutoConnect.Text = "Connect automatically";
+            checkAutoConnect.UseMnemonic = false;
+            checkAutoConnect.UseVisualStyleBackColor = true;
+            checkAutoConnect.CheckedChanged += CheckAutoConnect_CheckedChanged;
             // 
             // lblKeepWake
             // 
-            this.lblKeepWake.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblKeepWake.Location = new System.Drawing.Point(17, 93);
-            this.lblKeepWake.Name = "lblKeepWake";
-            this.lblKeepWake.Size = new System.Drawing.Size(169, 19);
-            this.lblKeepWake.TabIndex = 6;
-            this.lblKeepWake.Text = "Keep awake";
-            this.lblKeepWake.UseMnemonic = false;
+            lblKeepWake.AutoSize = true;
+            lblKeepWake.Font = new Font("Tahoma", 12F);
+            lblKeepWake.Location = new Point(17, 121);
+            lblKeepWake.Name = "lblKeepWake";
+            lblKeepWake.Size = new Size(143, 29);
+            lblKeepWake.TabIndex = 6;
+            lblKeepWake.Text = "Keep awake";
+            lblKeepWake.UseMnemonic = false;
             // 
             // radioKeepAwakeNever
             // 
-            this.radioKeepAwakeNever.AutoSize = true;
-            this.radioKeepAwakeNever.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioKeepAwakeNever.Location = new System.Drawing.Point(3, 0);
-            this.radioKeepAwakeNever.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.radioKeepAwakeNever.Name = "radioKeepAwakeNever";
-            this.radioKeepAwakeNever.Size = new System.Drawing.Size(58, 20);
-            this.radioKeepAwakeNever.TabIndex = 0;
-            this.radioKeepAwakeNever.Text = "Never";
-            this.radioKeepAwakeNever.UseMnemonic = false;
-            this.radioKeepAwakeNever.UseVisualStyleBackColor = true;
-            this.radioKeepAwakeNever.CheckedChanged += new System.EventHandler(this.RadioKeepAwakeNever_CheckedChanged);
+            radioKeepAwakeNever.AutoSize = true;
+            radioKeepAwakeNever.Cursor = Cursors.Hand;
+            radioKeepAwakeNever.Location = new Point(3, 0);
+            radioKeepAwakeNever.Margin = new Padding(3, 0, 3, 0);
+            radioKeepAwakeNever.Name = "radioKeepAwakeNever";
+            radioKeepAwakeNever.Size = new Size(87, 28);
+            radioKeepAwakeNever.TabIndex = 0;
+            radioKeepAwakeNever.Text = "Never";
+            radioKeepAwakeNever.UseMnemonic = false;
+            radioKeepAwakeNever.UseVisualStyleBackColor = true;
+            radioKeepAwakeNever.CheckedChanged += RadioKeepAwakeNever_CheckedChanged;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.radioKeepAwakeNever);
-            this.flowLayoutPanel1.Controls.Add(this.radioKeepAwakeConnected);
-            this.flowLayoutPanel1.Controls.Add(this.radioKeepAwakeAlways);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(192, 93);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(366, 29);
-            this.flowLayoutPanel1.TabIndex = 7;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(radioKeepAwakeNever);
+            flowLayoutPanel1.Controls.Add(radioKeepAwakeConnected);
+            flowLayoutPanel1.Controls.Add(radioKeepAwakeAlways);
+            flowLayoutPanel1.Location = new Point(192, 121);
+            flowLayoutPanel1.Margin = new Padding(0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(385, 29);
+            flowLayoutPanel1.TabIndex = 7;
             // 
             // radioKeepAwakeConnected
             // 
-            this.radioKeepAwakeConnected.AutoSize = true;
-            this.radioKeepAwakeConnected.Checked = true;
-            this.radioKeepAwakeConnected.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioKeepAwakeConnected.Location = new System.Drawing.Point(67, 0);
-            this.radioKeepAwakeConnected.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.radioKeepAwakeConnected.Name = "radioKeepAwakeConnected";
-            this.radioKeepAwakeConnected.Size = new System.Drawing.Size(120, 20);
-            this.radioKeepAwakeConnected.TabIndex = 1;
-            this.radioKeepAwakeConnected.TabStop = true;
-            this.radioKeepAwakeConnected.Text = "When connected";
-            this.radioKeepAwakeConnected.UseMnemonic = false;
-            this.radioKeepAwakeConnected.UseVisualStyleBackColor = true;
-            this.radioKeepAwakeConnected.CheckedChanged += new System.EventHandler(this.RadioKeepAwakeConnected_CheckedChanged);
+            radioKeepAwakeConnected.AutoSize = true;
+            radioKeepAwakeConnected.Checked = true;
+            radioKeepAwakeConnected.Cursor = Cursors.Hand;
+            radioKeepAwakeConnected.Location = new Point(96, 0);
+            radioKeepAwakeConnected.Margin = new Padding(3, 0, 3, 0);
+            radioKeepAwakeConnected.Name = "radioKeepAwakeConnected";
+            radioKeepAwakeConnected.Size = new Size(183, 28);
+            radioKeepAwakeConnected.TabIndex = 1;
+            radioKeepAwakeConnected.TabStop = true;
+            radioKeepAwakeConnected.Text = "When connected";
+            radioKeepAwakeConnected.UseMnemonic = false;
+            radioKeepAwakeConnected.UseVisualStyleBackColor = true;
+            radioKeepAwakeConnected.CheckedChanged += RadioKeepAwakeConnected_CheckedChanged;
             // 
             // radioKeepAwakeAlways
             // 
-            this.radioKeepAwakeAlways.AutoSize = true;
-            this.radioKeepAwakeAlways.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioKeepAwakeAlways.Location = new System.Drawing.Point(193, 0);
-            this.radioKeepAwakeAlways.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.radioKeepAwakeAlways.Name = "radioKeepAwakeAlways";
-            this.radioKeepAwakeAlways.Size = new System.Drawing.Size(65, 20);
-            this.radioKeepAwakeAlways.TabIndex = 2;
-            this.radioKeepAwakeAlways.Text = "Always";
-            this.radioKeepAwakeAlways.UseMnemonic = false;
-            this.radioKeepAwakeAlways.UseVisualStyleBackColor = true;
-            this.radioKeepAwakeAlways.CheckedChanged += new System.EventHandler(this.RadioKeepAwakeAlways_CheckedChanged);
+            radioKeepAwakeAlways.AutoSize = true;
+            radioKeepAwakeAlways.Cursor = Cursors.Hand;
+            radioKeepAwakeAlways.Location = new Point(285, 0);
+            radioKeepAwakeAlways.Margin = new Padding(3, 0, 3, 0);
+            radioKeepAwakeAlways.Name = "radioKeepAwakeAlways";
+            radioKeepAwakeAlways.Size = new Size(97, 28);
+            radioKeepAwakeAlways.TabIndex = 2;
+            radioKeepAwakeAlways.Text = "Always";
+            radioKeepAwakeAlways.UseMnemonic = false;
+            radioKeepAwakeAlways.UseVisualStyleBackColor = true;
+            radioKeepAwakeAlways.CheckedChanged += RadioKeepAwakeAlways_CheckedChanged;
             // 
             // DeviceConfigurator
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(573, 194);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.lblKeepWake);
-            this.Controls.Add(this.checkAutoConnect);
-            this.Controls.Add(this.brightness);
-            this.Controls.Add(this.lblBrightness);
-            this.Controls.Add(this.btnOk);
-            this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "DeviceConfigurator";
-            this.Text = "DeviceConfigurator";
-            this.Load += new System.EventHandler(this.DeviceConfigurator_Load);
-            this.Controls.SetChildIndex(this.btnOk, 0);
-            this.Controls.SetChildIndex(this.lblBrightness, 0);
-            this.Controls.SetChildIndex(this.brightness, 0);
-            this.Controls.SetChildIndex(this.checkAutoConnect, 0);
-            this.Controls.SetChildIndex(this.lblKeepWake, 0);
-            this.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.brightness)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            ClientSize = new Size(573, 233);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(lblKeepWake);
+            Controls.Add(checkAutoConnect);
+            Controls.Add(brightness);
+            Controls.Add(lblBrightness);
+            Controls.Add(btnOk);
+            Name = "DeviceConfigurator";
+            Text = "DeviceConfigurator";
+            Load += DeviceConfigurator_Load;
+            ((ISupportInitialize)brightness).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -41,9 +41,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // lblVersion
             // 
             lblVersion.ForeColor = Color.White;
-            lblVersion.Location = new Point(14, 15);
+            lblVersion.Location = new Point(21, 22);
+            lblVersion.Margin = new Padding(4, 0, 4, 0);
             lblVersion.Name = "lblVersion";
-            lblVersion.Size = new Size(75, 25);
+            lblVersion.Size = new Size(112, 38);
             lblVersion.TabIndex = 14;
             lblVersion.Text = "Version:";
             lblVersion.TextAlign = ContentAlignment.MiddleLeft;
@@ -56,18 +57,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             version.Font = new Font("Tahoma", 9F);
             version.ForeColor = Color.White;
             version.Icon = null;
-            version.Location = new Point(95, 15);
+            version.Location = new Point(142, 22);
+            version.Margin = new Padding(4, 4, 4, 4);
             version.MaxCharacters = 32767;
             version.Multiline = false;
             version.Name = "version";
-            version.Padding = new Padding(8, 5, 8, 5);
+            version.Padding = new Padding(12, 8, 12, 8);
             version.PasswordChar = false;
             version.PlaceHolderColor = Color.Gray;
             version.PlaceHolderText = "";
             version.ReadOnly = false;
             version.ScrollBars = ScrollBars.None;
             version.SelectionStart = 0;
-            version.Size = new Size(89, 25);
+            version.Size = new Size(182, 39);
             version.TabIndex = 13;
             version.TextAlignment = HorizontalAlignment.Left;
             // 
@@ -81,11 +83,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.ForeColor = Color.White;
             btnOk.HoverColor = Color.FromArgb(0, 89, 184);
             btnOk.Icon = null;
-            btnOk.Location = new Point(141, 46);
+            btnOk.Location = new Point(212, 83);
+            btnOk.Margin = new Padding(4, 4, 4, 4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnOk.Size = new Size(75, 25);
+            btnOk.Size = new Size(112, 56);
             btnOk.TabIndex = 10;
             btnOk.Text = "Ok";
             btnOk.UseMnemonic = false;
@@ -96,13 +99,15 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // ExportIconPackDialog
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(220, 84);
+            ClientSize = new Size(345, 165);
             Controls.Add(lblVersion);
             Controls.Add(version);
             Controls.Add(btnOk);
+            Margin = new Padding(6, 9, 6, 9);
             Name = "ExportIconPackDialog";
+            Padding = new Padding(3, 3, 3, 3);
             Text = "Export icon pack";
             Load += ExportIconPackDialog_Load;
             ResumeLayout(false);
