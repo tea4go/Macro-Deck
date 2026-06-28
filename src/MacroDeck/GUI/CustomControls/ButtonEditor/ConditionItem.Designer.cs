@@ -93,9 +93,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.typeBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.typeBox.Icon = null;
             this.typeBox.Location = new Point(93, 2);
-            this.typeBox.Margin = new Padding(4, 5, 4, 5);
+            this.typeBox.Margin = new Padding(0, 5, 0, 5);
             this.typeBox.Name = "typeBox";
-            this.typeBox.Padding = new Padding(8, 2, 8, 2);
             this.typeBox.SelectedIndex = -1;
             this.typeBox.SelectedItem = null;
             this.typeBox.Size = new Size(115, 28);
@@ -111,9 +110,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.methodBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.methodBox.Icon = null;
             this.methodBox.Location = new Point(245, 0);
-            this.methodBox.Margin = new Padding(3, 0, 3, 0);
+            this.methodBox.Margin = new Padding(5, 0, 5, 0);
             this.methodBox.Name = "methodBox";
-            this.methodBox.Padding = new Padding(8, 2, 8, 2);
             this.methodBox.SelectedIndex = -1;
             this.methodBox.SelectedItem = null;
             this.methodBox.Size = new Size(97, 28);
@@ -130,9 +128,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.valueToCompare.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.valueToCompare.Icon = null;
             this.valueToCompare.Location = new Point(348, 0);
-            this.valueToCompare.Margin = new Padding(3, 0, 3, 0);
+            this.valueToCompare.Margin = new Padding(5, 0, 5, 0);
             this.valueToCompare.Name = "valueToCompare";
-            this.valueToCompare.Padding = new Padding(8, 2, 8, 2);
             this.valueToCompare.SelectedIndex = -1;
             this.valueToCompare.SelectedItem = null;
             this.valueToCompare.Size = new Size(166, 28);
