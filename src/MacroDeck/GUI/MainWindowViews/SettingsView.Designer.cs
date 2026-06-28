@@ -40,14 +40,14 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             ComponentResourceManager resources = new ComponentResourceManager(typeof(SettingsView));
             verticalTabControl = new VerticalTabControl();
             tabGeneral = new TabPage();
-            language = new RoundedComboBox();
-            lblLanguage = new Label();
             font = new RoundedComboBox();
             lblFont = new Label();
             fontSize = new NumericUpDown();
             lblFontSize = new Label();
             checkBold = new CheckBox();
             lblFontRestartHint = new Label();
+            language = new RoundedComboBox();
+            lblLanguage = new Label();
             checkStartWindows = new CheckBox();
             checkSendErrorReports = new CheckBox();
             lblBehaviour = new Label();
@@ -99,18 +99,18 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabIcons = new ImageList(components);
             verticalTabControl.SuspendLayout();
             tabGeneral.SuspendLayout();
+            ((ISupportInitialize)fontSize).BeginInit();
             tabConnection.SuspendLayout();
             ((ISupportInitialize)port).BeginInit();
-            ((ISupportInitialize)fontSize).BeginInit();
             tabUpdater.SuspendLayout();
             tabBackups.SuspendLayout();
             tabAbout.SuspendLayout();
             ((ISupportInitialize)btnGitHub).BeginInit();
             ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            //
+            // 
             // verticalTabControl
-            //
+            // 
             verticalTabControl.Alignment = TabAlignment.Left;
             verticalTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             verticalTabControl.Controls.Add(tabGeneral);
@@ -126,12 +126,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             verticalTabControl.Name = "verticalTabControl";
             verticalTabControl.SelectedIndex = 0;
             verticalTabControl.SelectedTabColor = Color.FromArgb(0, 103, 225);
-            verticalTabControl.Size = new Size(1131, 534);
+            verticalTabControl.Size = new Size(1131, 866);
             verticalTabControl.SizeMode = TabSizeMode.Fixed;
             verticalTabControl.TabIndex = 12;
-            //
+            // 
             // tabGeneral
-            //
+            // 
             tabGeneral.BackColor = Color.FromArgb(45, 45, 45);
             tabGeneral.Controls.Add(font);
             tabGeneral.Controls.Add(lblFont);
@@ -150,168 +150,168 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabGeneral.Location = new Point(204, 4);
             tabGeneral.Name = "tabGeneral";
             tabGeneral.Padding = new Padding(3);
-            tabGeneral.Size = new Size(923, 526);
+            tabGeneral.Size = new Size(923, 858);
             tabGeneral.TabIndex = 0;
             tabGeneral.Text = "General";
-            //
-            // language
-            //
-            language.BackColor = Color.FromArgb(65, 65, 65);
-            language.Cursor = Cursors.Hand;
-            language.DropDownStyle = ComboBoxStyle.DropDownList;
-            language.Font = new Font("Tahoma", 12F);
-            language.ForeColor = Color.White;
-            language.Icon = null;
-            language.Location = new Point(12, 356);
-            language.Name = "language";
-            language.Padding = new Padding(8, 2, 8, 2);
-            language.SelectedIndex = -1;
-            language.SelectedItem = null;
-            language.Size = new Size(253, 31);
-            language.TabIndex = 4;
-            language.SelectedIndexChanged += Language_SelectedIndexChanged;
-            //
-            // lblLanguage
-            //
-            lblLanguage.AutoSize = true;
-            lblLanguage.Font = new Font("Tahoma", 14.25F);
-            lblLanguage.ForeColor = Color.Gray;
-            lblLanguage.Location = new Point(3, 332);
-            lblLanguage.Name = "lblLanguage";
-            lblLanguage.Size = new Size(93, 23);
-            lblLanguage.TabIndex = 3;
-            lblLanguage.Text = "Language";
-            lblLanguage.UseMnemonic = false;
-            //
+            // 
             // font
-            //
+            // 
             font.BackColor = Color.FromArgb(65, 65, 65);
             font.Cursor = Cursors.Hand;
             font.DropDownStyle = ComboBoxStyle.DropDownList;
             font.Font = new Font("Tahoma", 12F);
             font.ForeColor = Color.White;
             font.Icon = null;
-            font.Location = new Point(12, 222);
+            font.Location = new Point(12, 275);
             font.Name = "font";
             font.Padding = new Padding(8, 2, 8, 2);
             font.SelectedIndex = -1;
             font.SelectedItem = null;
-            font.Size = new Size(253, 31);
+            font.Size = new Size(620, 41);
             font.TabIndex = 6;
             font.SelectedIndexChanged += Font_SelectedIndexChanged;
-            //
+            // 
             // lblFont
-            //
+            // 
             lblFont.AutoSize = true;
             lblFont.Font = new Font("Tahoma", 14.25F);
             lblFont.ForeColor = Color.Gray;
-            lblFont.Location = new Point(3, 198);
+            lblFont.Location = new Point(3, 223);
             lblFont.Name = "lblFont";
-            lblFont.Size = new Size(50, 23);
+            lblFont.Size = new Size(72, 35);
             lblFont.TabIndex = 5;
             lblFont.Text = "Font";
             lblFont.UseMnemonic = false;
-            //
+            // 
             // fontSize
-            //
+            // 
             fontSize.BackColor = Color.FromArgb(65, 65, 65);
             fontSize.BorderStyle = BorderStyle.FixedSingle;
             fontSize.DecimalPlaces = 2;
             fontSize.Font = new Font("Tahoma", 12F);
             fontSize.ForeColor = Color.White;
             fontSize.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
-            fontSize.Location = new Point(277, 222);
+            fontSize.Location = new Point(663, 277);
             fontSize.Maximum = new decimal(new int[] { 72, 0, 0, 0 });
             fontSize.Minimum = new decimal(new int[] { 6, 0, 0, 0 });
             fontSize.Name = "fontSize";
-            fontSize.Size = new Size(80, 30);
+            fontSize.Size = new Size(151, 36);
             fontSize.TabIndex = 8;
             fontSize.Value = new decimal(new int[] { 975, 0, 0, 131072 });
             fontSize.ValueChanged += FontSize_ValueChanged;
-            //
+            // 
             // lblFontSize
-            //
+            // 
             lblFontSize.AutoSize = true;
             lblFontSize.Font = new Font("Tahoma", 14.25F);
             lblFontSize.ForeColor = Color.Gray;
-            lblFontSize.Location = new Point(277, 198);
+            lblFontSize.Location = new Point(663, 223);
             lblFontSize.Name = "lblFontSize";
-            lblFontSize.Size = new Size(50, 23);
+            lblFontSize.Size = new Size(66, 35);
             lblFontSize.TabIndex = 7;
             lblFontSize.Text = "Size";
             lblFontSize.UseMnemonic = false;
-            //
+            // 
             // checkBold
-            //
+            // 
             checkBold.AutoSize = true;
-            checkBold.Location = new Point(13, 262);
+            checkBold.Location = new Point(13, 330);
             checkBold.Name = "checkBold";
-            checkBold.Size = new Size(70, 23);
+            checkBold.Size = new Size(84, 33);
             checkBold.TabIndex = 9;
             checkBold.Text = "Bold";
             checkBold.UseVisualStyleBackColor = true;
             checkBold.CheckedChanged += CheckBold_CheckedChanged;
-            //
+            // 
             // lblFontRestartHint
-            //
+            // 
             lblFontRestartHint.AutoSize = true;
             lblFontRestartHint.Font = new Font("Tahoma", 9.75F);
             lblFontRestartHint.ForeColor = Color.FromArgb(222, 170, 27);
             lblFontRestartHint.Location = new Point(13, 292);
             lblFontRestartHint.Name = "lblFontRestartHint";
-            lblFontRestartHint.Size = new Size(0, 0);
+            lblFontRestartHint.Size = new Size(0, 24);
             lblFontRestartHint.TabIndex = 10;
             lblFontRestartHint.Visible = false;
-            //
+            // 
+            // language
+            // 
+            language.BackColor = Color.FromArgb(65, 65, 65);
+            language.Cursor = Cursors.Hand;
+            language.DropDownStyle = ComboBoxStyle.DropDownList;
+            language.Font = new Font("Tahoma", 12F);
+            language.ForeColor = Color.White;
+            language.Icon = null;
+            language.Location = new Point(12, 431);
+            language.Name = "language";
+            language.Padding = new Padding(8, 2, 8, 2);
+            language.SelectedIndex = -1;
+            language.SelectedItem = null;
+            language.Size = new Size(253, 41);
+            language.TabIndex = 4;
+            language.SelectedIndexChanged += Language_SelectedIndexChanged;
+            // 
+            // lblLanguage
+            // 
+            lblLanguage.AutoSize = true;
+            lblLanguage.Font = new Font("Tahoma", 14.25F);
+            lblLanguage.ForeColor = Color.Gray;
+            lblLanguage.Location = new Point(3, 386);
+            lblLanguage.Name = "lblLanguage";
+            lblLanguage.Size = new Size(138, 35);
+            lblLanguage.TabIndex = 3;
+            lblLanguage.Text = "Language";
+            lblLanguage.UseMnemonic = false;
+            // 
             // checkStartWindows
-            //
+            // 
             checkStartWindows.AutoSize = true;
-            checkStartWindows.Location = new Point(13, 89);
+            checkStartWindows.Location = new Point(13, 133);
             checkStartWindows.Name = "checkStartWindows";
-            checkStartWindows.Size = new Size(165, 23);
+            checkStartWindows.Size = new Size(245, 33);
             checkStartWindows.TabIndex = 2;
             checkStartWindows.Text = "Start with Windows";
             checkStartWindows.UseMnemonic = false;
             checkStartWindows.UseVisualStyleBackColor = true;
             checkStartWindows.CheckedChanged += CheckStartWindows_CheckedChanged;
-            //
+            // 
             // checkSendErrorReports
-            //
+            // 
             checkSendErrorReports.AutoSize = true;
-            checkSendErrorReports.Location = new Point(13, 118);
+            checkSendErrorReports.Location = new Point(13, 175);
             checkSendErrorReports.Name = "checkSendErrorReports";
-            checkSendErrorReports.Size = new Size(165, 23);
+            checkSendErrorReports.Size = new Size(365, 33);
             checkSendErrorReports.TabIndex = 3;
             checkSendErrorReports.Text = "Send anonymous error reports";
             checkSendErrorReports.UseMnemonic = false;
             checkSendErrorReports.UseVisualStyleBackColor = true;
             checkSendErrorReports.CheckedChanged += CheckSendErrorReports_CheckedChanged;
-            //
+            // 
             // lblBehaviour
-            //
+            // 
             lblBehaviour.AutoSize = true;
             lblBehaviour.Font = new Font("Tahoma", 14.25F);
             lblBehaviour.ForeColor = Color.Gray;
-            lblBehaviour.Location = new Point(3, 63);
+            lblBehaviour.Location = new Point(3, 80);
             lblBehaviour.Name = "lblBehaviour";
-            lblBehaviour.Size = new Size(82, 23);
+            lblBehaviour.Size = new Size(125, 35);
             lblBehaviour.TabIndex = 1;
             lblBehaviour.Text = "Behavior";
             lblBehaviour.UseMnemonic = false;
-            //
+            // 
             // lblGeneral
-            //
+            // 
             lblGeneral.AutoSize = true;
             lblGeneral.Font = new Font("Tahoma", 15.75F);
             lblGeneral.Location = new Point(3, 0);
             lblGeneral.Name = "lblGeneral";
-            lblGeneral.Size = new Size(84, 25);
+            lblGeneral.Size = new Size(126, 39);
             lblGeneral.TabIndex = 0;
             lblGeneral.Text = "General";
             lblGeneral.UseMnemonic = false;
-            //
+            // 
             // tabConnection
-            //
+            // 
             tabConnection.AutoScroll = true;
             tabConnection.BackColor = Color.FromArgb(45, 45, 45);
             tabConnection.Controls.Add(checkAutoStartUsb);
@@ -333,48 +333,48 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabConnection.ForeColor = Color.White;
             tabConnection.Location = new Point(204, 4);
             tabConnection.Name = "tabConnection";
-            tabConnection.Size = new Size(923, 526);
+            tabConnection.Size = new Size(923, 858);
             tabConnection.TabIndex = 3;
             tabConnection.Text = "Connection";
-            //
+            // 
             // checkAutoStartUsb
-            //
+            // 
             checkAutoStartUsb.AutoSize = true;
             checkAutoStartUsb.Font = new Font("Tahoma", 12F);
-            checkAutoStartUsb.Location = new Point(14, 560);
+            checkAutoStartUsb.Location = new Point(14, 742);
             checkAutoStartUsb.Name = "checkAutoStartUsb";
-            checkAutoStartUsb.Size = new Size(532, 23);
+            checkAutoStartUsb.Size = new Size(805, 33);
             checkAutoStartUsb.TabIndex = 27;
             checkAutoStartUsb.Text = "Automatically wake screen and start Macro Deck Client when connected";
             checkAutoStartUsb.UseMnemonic = false;
             checkAutoStartUsb.UseVisualStyleBackColor = true;
-            //
+            // 
             // checkEnableAdb
-            //
+            // 
             checkEnableAdb.AutoSize = true;
             checkEnableAdb.Font = new Font("Tahoma", 12F);
-            checkEnableAdb.Location = new Point(14, 534);
+            checkEnableAdb.Location = new Point(14, 699);
             checkEnableAdb.Name = "checkEnableAdb";
-            checkEnableAdb.Size = new Size(520, 23);
+            checkEnableAdb.Size = new Size(766, 33);
             checkEnableAdb.TabIndex = 26;
             checkEnableAdb.Text = "Enable Android Debug Bridge (Required for Android USB connection)";
             checkEnableAdb.UseMnemonic = false;
             checkEnableAdb.UseVisualStyleBackColor = true;
-            //
+            // 
             // label5
-            //
+            // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 14.25F);
             label5.ForeColor = Color.Gray;
-            label5.Location = new Point(5, 510);
+            label5.Location = new Point(5, 642);
             label5.Name = "label5";
-            label5.Size = new Size(44, 23);
+            label5.Size = new Size(67, 35);
             label5.TabIndex = 25;
             label5.Text = "USB";
             label5.UseMnemonic = false;
-            //
+            // 
             // btnApplySslConfiguration
-            //
+            // 
             btnApplySslConfiguration.BorderRadius = 8;
             btnApplySslConfiguration.Cursor = Cursors.Hand;
             btnApplySslConfiguration.FlatAppearance.BorderSize = 0;
@@ -383,11 +383,11 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnApplySslConfiguration.ForeColor = Color.White;
             btnApplySslConfiguration.HoverColor = Color.FromArgb(0, 89, 184);
             btnApplySslConfiguration.Icon = null;
-            btnApplySslConfiguration.Location = new Point(12, 464);
+            btnApplySslConfiguration.Location = new Point(12, 562);
             btnApplySslConfiguration.Name = "btnApplySslConfiguration";
             btnApplySslConfiguration.Progress = 0;
             btnApplySslConfiguration.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnApplySslConfiguration.Size = new Size(206, 30);
+            btnApplySslConfiguration.Size = new Size(308, 37);
             btnApplySslConfiguration.TabIndex = 24;
             btnApplySslConfiguration.Text = "Apply SSL configuration";
             btnApplySslConfiguration.UseMnemonic = false;
@@ -395,9 +395,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnApplySslConfiguration.UseWindowsAccentColor = true;
             btnApplySslConfiguration.WriteProgress = true;
             btnApplySslConfiguration.Click += BtnApplySslConfiguration_Click;
-            //
+            // 
             // btnGenerateCertificate
-            //
+            // 
             btnGenerateCertificate.BorderRadius = 8;
             btnGenerateCertificate.Cursor = Cursors.Hand;
             btnGenerateCertificate.FlatAppearance.BorderSize = 0;
@@ -406,11 +406,11 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnGenerateCertificate.ForeColor = Color.White;
             btnGenerateCertificate.HoverColor = Color.FromArgb(0, 89, 184);
             btnGenerateCertificate.Icon = null;
-            btnGenerateCertificate.Location = new Point(200, 190);
+            btnGenerateCertificate.Location = new Point(555, 189);
             btnGenerateCertificate.Name = "btnGenerateCertificate";
             btnGenerateCertificate.Progress = 0;
             btnGenerateCertificate.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnGenerateCertificate.Size = new Size(220, 28);
+            btnGenerateCertificate.Size = new Size(316, 37);
             btnGenerateCertificate.TabIndex = 23;
             btnGenerateCertificate.Text = "Generate new certificate";
             btnGenerateCertificate.UseMnemonic = false;
@@ -418,24 +418,25 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnGenerateCertificate.UseWindowsAccentColor = true;
             btnGenerateCertificate.WriteProgress = true;
             btnGenerateCertificate.Click += BtnGenerateCertificate_Click;
-            //
+            // 
             // label4
-            //
+            // 
+            label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 11.25F);
-            label4.Location = new Point(12, 344);
+            label4.Location = new Point(12, 399);
             label4.Name = "label4";
-            label4.Size = new Size(159, 23);
+            label4.Size = new Size(202, 28);
             label4.TabIndex = 22;
             label4.Text = "Private Key (PEM):";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             label4.UseMnemonic = false;
-            //
+            // 
             // keyPemTextBox
-            //
+            // 
             keyPemTextBox.BackColor = Color.FromArgb(65, 65, 65);
-            keyPemTextBox.Font = new Font("Tahoma", 9F);
+            keyPemTextBox.Font = new Font("Tahoma", 9F, FontStyle.Italic);
             keyPemTextBox.Icon = null;
-            keyPemTextBox.Location = new Point(12, 368);
+            keyPemTextBox.Location = new Point(12, 446);
             keyPemTextBox.MaxCharacters = 0;
             keyPemTextBox.Multiline = true;
             keyPemTextBox.Name = "keyPemTextBox";
@@ -446,27 +447,28 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             keyPemTextBox.ReadOnly = false;
             keyPemTextBox.ScrollBars = ScrollBars.Vertical;
             keyPemTextBox.SelectionStart = 0;
-            keyPemTextBox.Size = new Size(600, 90);
+            keyPemTextBox.Size = new Size(875, 90);
             keyPemTextBox.TabIndex = 21;
             keyPemTextBox.TextAlignment = HorizontalAlignment.Left;
-            //
+            // 
             // label3
-            //
+            // 
+            label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 11.25F);
-            label3.Location = new Point(12, 224);
+            label3.Location = new Point(12, 240);
             label3.Name = "label3";
-            label3.Size = new Size(159, 23);
+            label3.Size = new Size(191, 28);
             label3.TabIndex = 20;
             label3.Text = "Certificate (PEM):";
             label3.TextAlign = ContentAlignment.MiddleLeft;
             label3.UseMnemonic = false;
-            //
+            // 
             // certPemTextBox
-            //
+            // 
             certPemTextBox.BackColor = Color.FromArgb(65, 65, 65);
-            certPemTextBox.Font = new Font("Tahoma", 9F);
+            certPemTextBox.Font = new Font("Tahoma", 9F, FontStyle.Italic);
             certPemTextBox.Icon = null;
-            certPemTextBox.Location = new Point(12, 248);
+            certPemTextBox.Location = new Point(12, 289);
             certPemTextBox.MaxCharacters = 0;
             certPemTextBox.Multiline = true;
             certPemTextBox.Name = "certPemTextBox";
@@ -477,36 +479,36 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             certPemTextBox.ReadOnly = false;
             certPemTextBox.ScrollBars = ScrollBars.Vertical;
             certPemTextBox.SelectionStart = 0;
-            certPemTextBox.Size = new Size(600, 90);
+            certPemTextBox.Size = new Size(875, 90);
             certPemTextBox.TabIndex = 19;
             certPemTextBox.TextAlignment = HorizontalAlignment.Left;
-            //
+            // 
             // checkEnableSsl
-            //
+            // 
             checkEnableSsl.AutoSize = true;
             checkEnableSsl.Font = new Font("Tahoma", 12F);
             checkEnableSsl.Location = new Point(12, 193);
             checkEnableSsl.Name = "checkEnableSsl";
-            checkEnableSsl.Size = new Size(106, 23);
+            checkEnableSsl.Size = new Size(155, 33);
             checkEnableSsl.TabIndex = 18;
             checkEnableSsl.Text = "Enable SSL";
             checkEnableSsl.UseMnemonic = false;
             checkEnableSsl.UseVisualStyleBackColor = true;
-            //
+            // 
             // labelSsl
-            //
+            // 
             labelSsl.AutoSize = true;
             labelSsl.Font = new Font("Tahoma", 14.25F);
             labelSsl.ForeColor = Color.Gray;
-            labelSsl.Location = new Point(3, 167);
+            labelSsl.Location = new Point(3, 146);
             labelSsl.Name = "labelSsl";
-            labelSsl.Size = new Size(41, 23);
+            labelSsl.Size = new Size(61, 35);
             labelSsl.TabIndex = 13;
             labelSsl.Text = "SSL";
             labelSsl.UseMnemonic = false;
-            //
+            // 
             // btnChangePort
-            //
+            // 
             btnChangePort.BorderRadius = 8;
             btnChangePort.Cursor = Cursors.Hand;
             btnChangePort.FlatAppearance.BorderSize = 0;
@@ -515,11 +517,11 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnChangePort.ForeColor = Color.White;
             btnChangePort.HoverColor = Color.FromArgb(0, 89, 184);
             btnChangePort.Icon = null;
-            btnChangePort.Location = new Point(126, 89);
+            btnChangePort.Location = new Point(173, 89);
             btnChangePort.Name = "btnChangePort";
             btnChangePort.Progress = 0;
             btnChangePort.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnChangePort.Size = new Size(46, 24);
+            btnChangePort.Size = new Size(86, 37);
             btnChangePort.TabIndex = 12;
             btnChangePort.Text = "Ok";
             btnChangePort.UseMnemonic = false;
@@ -527,9 +529,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnChangePort.UseWindowsAccentColor = true;
             btnChangePort.WriteProgress = true;
             btnChangePort.Click += BtnChangePort_Click;
-            //
+            // 
             // port
-            //
+            // 
             port.BackColor = Color.FromArgb(65, 65, 65);
             port.BorderStyle = BorderStyle.FixedSingle;
             port.Font = new Font("Tahoma", 11.25F);
@@ -537,35 +539,35 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             port.Location = new Point(13, 89);
             port.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             port.Name = "port";
-            port.Size = new Size(107, 26);
+            port.Size = new Size(154, 35);
             port.TabIndex = 9;
             port.Value = new decimal(new int[] { 8191, 0, 0, 0 });
-            //
+            // 
             // lblPort
-            //
+            // 
             lblPort.AutoSize = true;
             lblPort.Font = new Font("Tahoma", 14.25F);
             lblPort.ForeColor = Color.Gray;
-            lblPort.Location = new Point(3, 63);
+            lblPort.Location = new Point(3, 45);
             lblPort.Name = "lblPort";
-            lblPort.Size = new Size(43, 23);
+            lblPort.Size = new Size(67, 35);
             lblPort.TabIndex = 8;
             lblPort.Text = "Port";
             lblPort.UseMnemonic = false;
-            //
+            // 
             // lblConnection
-            //
+            // 
             lblConnection.AutoSize = true;
             lblConnection.Font = new Font("Tahoma", 15.75F);
             lblConnection.Location = new Point(3, 0);
             lblConnection.Name = "lblConnection";
-            lblConnection.Size = new Size(116, 25);
+            lblConnection.Size = new Size(174, 39);
             lblConnection.TabIndex = 1;
             lblConnection.Text = "Connection";
             lblConnection.UseMnemonic = false;
-            //
+            // 
             // tabUpdater
-            //
+            // 
             tabUpdater.BackColor = Color.FromArgb(45, 45, 45);
             tabUpdater.Controls.Add(label2);
             tabUpdater.Controls.Add(checkAutoUpdate);
@@ -581,43 +583,43 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabUpdater.Size = new Size(923, 526);
             tabUpdater.TabIndex = 1;
             tabUpdater.Text = "Updates";
-            //
+            // 
             // label2
-            //
+            // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 14.25F);
             label2.ForeColor = Color.Gray;
             label2.Location = new Point(3, 50);
             label2.Name = "label2";
-            label2.Size = new Size(82, 23);
+            label2.Size = new Size(125, 35);
             label2.TabIndex = 18;
             label2.Text = "Behavior";
             label2.UseMnemonic = false;
-            //
+            // 
             // checkAutoUpdate
-            //
+            // 
             checkAutoUpdate.AutoSize = true;
             checkAutoUpdate.Location = new Point(13, 90);
             checkAutoUpdate.Name = "checkAutoUpdate";
-            checkAutoUpdate.Size = new Size(253, 23);
+            checkAutoUpdate.Size = new Size(377, 33);
             checkAutoUpdate.TabIndex = 17;
             checkAutoUpdate.Text = "Automatically check for updates";
             checkAutoUpdate.UseMnemonic = false;
             checkAutoUpdate.UseVisualStyleBackColor = true;
-            //
+            // 
             // checkInstallBetaVersions
-            //
+            // 
             checkInstallBetaVersions.AutoSize = true;
-            checkInstallBetaVersions.Location = new Point(13, 120);
+            checkInstallBetaVersions.Location = new Point(13, 132);
             checkInstallBetaVersions.Name = "checkInstallBetaVersions";
-            checkInstallBetaVersions.Size = new Size(169, 23);
+            checkInstallBetaVersions.Size = new Size(254, 33);
             checkInstallBetaVersions.TabIndex = 16;
             checkInstallBetaVersions.Text = "Install Beta versions";
             checkInstallBetaVersions.UseMnemonic = false;
             checkInstallBetaVersions.UseVisualStyleBackColor = true;
-            //
+            // 
             // btnCheckUpdates
-            //
+            // 
             btnCheckUpdates.BorderRadius = 8;
             btnCheckUpdates.Cursor = Cursors.Hand;
             btnCheckUpdates.FlatAppearance.BorderSize = 0;
@@ -626,11 +628,11 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCheckUpdates.ForeColor = Color.White;
             btnCheckUpdates.HoverColor = Color.FromArgb(0, 89, 184);
             btnCheckUpdates.Icon = null;
-            btnCheckUpdates.Location = new Point(354, 230);
+            btnCheckUpdates.Location = new Point(218, 271);
             btnCheckUpdates.Name = "btnCheckUpdates";
             btnCheckUpdates.Progress = 0;
             btnCheckUpdates.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnCheckUpdates.Size = new Size(215, 32);
+            btnCheckUpdates.Size = new Size(249, 49);
             btnCheckUpdates.TabIndex = 9;
             btnCheckUpdates.Text = "Check for updates now";
             btnCheckUpdates.UseMnemonic = false;
@@ -638,40 +640,40 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCheckUpdates.UseWindowsAccentColor = true;
             btnCheckUpdates.WriteProgress = true;
             btnCheckUpdates.Click += BtnCheckUpdates_Click;
-            //
+            // 
             // lblInstalledVersion
-            //
-            lblInstalledVersion.Location = new Point(400, 175);
+            // 
+            lblInstalledVersion.Location = new Point(454, 194);
             lblInstalledVersion.Name = "lblInstalledVersion";
             lblInstalledVersion.Size = new Size(229, 39);
             lblInstalledVersion.TabIndex = 8;
             lblInstalledVersion.Text = "2.0.0";
             lblInstalledVersion.TextAlign = ContentAlignment.MiddleLeft;
             lblInstalledVersion.UseMnemonic = false;
-            //
+            // 
             // lblInstalledVersionLabel
-            //
-            lblInstalledVersionLabel.Location = new Point(176, 175);
+            // 
+            lblInstalledVersionLabel.Location = new Point(176, 194);
             lblInstalledVersionLabel.Name = "lblInstalledVersionLabel";
             lblInstalledVersionLabel.Size = new Size(229, 39);
             lblInstalledVersionLabel.TabIndex = 7;
             lblInstalledVersionLabel.Text = "Installed Version:";
             lblInstalledVersionLabel.TextAlign = ContentAlignment.MiddleRight;
             lblInstalledVersionLabel.UseMnemonic = false;
-            //
+            // 
             // lblUpdates
-            //
+            // 
             lblUpdates.AutoSize = true;
             lblUpdates.Font = new Font("Tahoma", 15.75F);
             lblUpdates.Location = new Point(3, 0);
             lblUpdates.Name = "lblUpdates";
-            lblUpdates.Size = new Size(88, 25);
+            lblUpdates.Size = new Size(133, 39);
             lblUpdates.TabIndex = 2;
             lblUpdates.Text = "Updates";
             lblUpdates.UseMnemonic = false;
-            //
+            // 
             // tabBackups
-            //
+            // 
             tabBackups.BackColor = Color.FromArgb(45, 45, 45);
             tabBackups.Controls.Add(btnCreateBackup);
             tabBackups.Controls.Add(backupsPanel);
@@ -679,12 +681,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabBackups.ForeColor = Color.White;
             tabBackups.Location = new Point(204, 4);
             tabBackups.Name = "tabBackups";
-            tabBackups.Size = new Size(1423, 526);
+            tabBackups.Size = new Size(923, 526);
             tabBackups.TabIndex = 4;
             tabBackups.Text = "Backups";
-            //
+            // 
             // btnCreateBackup
-            //
+            // 
             btnCreateBackup.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCreateBackup.BorderRadius = 8;
             btnCreateBackup.Cursor = Cursors.Hand;
@@ -694,11 +696,11 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCreateBackup.ForeColor = Color.White;
             btnCreateBackup.HoverColor = Color.FromArgb(0, 89, 184);
             btnCreateBackup.Icon = null;
-            btnCreateBackup.Location = new Point(1268, 491);
+            btnCreateBackup.Location = new Point(732, 467);
             btnCreateBackup.Name = "btnCreateBackup";
             btnCreateBackup.Progress = 0;
             btnCreateBackup.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnCreateBackup.Size = new Size(150, 30);
+            btnCreateBackup.Size = new Size(186, 54);
             btnCreateBackup.TabIndex = 5;
             btnCreateBackup.Text = "Create backup";
             btnCreateBackup.UseMnemonic = false;
@@ -706,30 +708,30 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCreateBackup.UseWindowsAccentColor = true;
             btnCreateBackup.WriteProgress = true;
             btnCreateBackup.Click += BtnCreateBackup_Click;
-            //
+            // 
             // backupsPanel
-            //
+            // 
             backupsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             backupsPanel.AutoScroll = true;
             backupsPanel.BackColor = Color.FromArgb(45, 45, 45);
-            backupsPanel.Location = new Point(3, 28);
+            backupsPanel.Location = new Point(3, 68);
             backupsPanel.Name = "backupsPanel";
-            backupsPanel.Size = new Size(1417, 458);
+            backupsPanel.Size = new Size(917, 375);
             backupsPanel.TabIndex = 4;
-            //
+            // 
             // lblBackups
-            //
+            // 
             lblBackups.AutoSize = true;
             lblBackups.Font = new Font("Tahoma", 15.75F);
-            lblBackups.Location = new Point(3, 0);
+            lblBackups.Location = new Point(3, 12);
             lblBackups.Name = "lblBackups";
-            lblBackups.Size = new Size(89, 25);
+            lblBackups.Size = new Size(134, 39);
             lblBackups.TabIndex = 3;
             lblBackups.Text = "Backups";
             lblBackups.UseMnemonic = false;
-            //
+            // 
             // tabAbout
-            //
+            // 
             tabAbout.BackColor = Color.FromArgb(45, 45, 45);
             tabAbout.Controls.Add(lblDotnetVersion);
             tabAbout.Controls.Add(label6);
@@ -750,68 +752,70 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabAbout.ForeColor = Color.White;
             tabAbout.Location = new Point(204, 4);
             tabAbout.Name = "tabAbout";
-            tabAbout.Size = new Size(923, 526);
+            tabAbout.Size = new Size(923, 858);
             tabAbout.TabIndex = 2;
             tabAbout.Text = "About";
-            //
+            // 
             // lblDotnetVersion
-            //
+            // 
             lblDotnetVersion.AutoSize = true;
-            lblDotnetVersion.Location = new Point(564, 491);
+            lblDotnetVersion.Location = new Point(664, 491);
             lblDotnetVersion.Name = "lblDotnetVersion";
-            lblDotnetVersion.Size = new Size(18, 19);
+            lblDotnetVersion.Size = new Size(26, 29);
             lblDotnetVersion.TabIndex = 20;
             lblDotnetVersion.Text = "0";
             lblDotnetVersion.UseMnemonic = false;
-            //
+            // 
             // label6
-            //
+            // 
             label6.AutoSize = true;
-            label6.Location = new Point(332, 491);
+            label6.Location = new Point(271, 491);
             label6.Name = "label6";
-            label6.Size = new Size(74, 19);
+            label6.Size = new Size(108, 29);
             label6.TabIndex = 19;
             label6.Text = "Runtime:";
             label6.UseMnemonic = false;
-            //
+            // 
             // btnGitHub
-            //
+            // 
             btnGitHub.BackColor = Color.Transparent;
             btnGitHub.BackgroundImage = Resources.GitHub_Mark_Light;
             btnGitHub.BackgroundImageLayout = ImageLayout.Stretch;
             btnGitHub.Cursor = Cursors.Hand;
             btnGitHub.HoverImage = null;
-            btnGitHub.Location = new Point(436, 63);
+            btnGitHub.Location = new Point(436, 84);
             btnGitHub.Name = "btnGitHub";
             btnGitHub.Size = new Size(50, 50);
             btnGitHub.TabIndex = 18;
             btnGitHub.TabStop = false;
             btnGitHub.Click += BtnGitHub_Click;
-            //
+            // 
             // label1
-            //
+            // 
+            label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 11.25F);
-            label1.Location = new Point(219, 226);
+            label1.Location = new Point(219, 256);
             label1.Name = "label1";
-            label1.Size = new Size(485, 18);
+            label1.Size = new Size(288, 28);
             label1.TabIndex = 15;
             label1.Text = "Licensed under Apache-2.0";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.UseMnemonic = false;
-            //
+            // 
             // lblTranslationBy
-            //
+            // 
+            lblTranslationBy.AutoSize = true;
             lblTranslationBy.Font = new Font("Tahoma", 11.25F);
             lblTranslationBy.Location = new Point(219, 164);
             lblTranslationBy.Name = "lblTranslationBy";
-            lblTranslationBy.Size = new Size(485, 18);
+            lblTranslationBy.Size = new Size(353, 28);
             lblTranslationBy.TabIndex = 14;
             lblTranslationBy.Text = "English translation by Macro Deck";
             lblTranslationBy.TextAlign = ContentAlignment.MiddleCenter;
             lblTranslationBy.UseMnemonic = false;
-            //
+            // 
             // btnLicenses
-            //
+            // 
             btnLicenses.BorderRadius = 8;
             btnLicenses.Cursor = Cursors.Hand;
             btnLicenses.FlatAppearance.BorderSize = 0;
@@ -820,11 +824,11 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnLicenses.ForeColor = Color.White;
             btnLicenses.HoverColor = Color.FromArgb(0, 89, 184);
             btnLicenses.Icon = null;
-            btnLicenses.Location = new Point(361, 297);
+            btnLicenses.Location = new Point(301, 310);
             btnLicenses.Name = "btnLicenses";
             btnLicenses.Progress = 0;
             btnLicenses.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnLicenses.Size = new Size(200, 27);
+            btnLicenses.Size = new Size(374, 37);
             btnLicenses.TabIndex = 13;
             btnLicenses.Text = "3rd party licenses";
             btnLicenses.UseMnemonic = false;
@@ -832,92 +836,93 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnLicenses.UseWindowsAccentColor = true;
             btnLicenses.WriteProgress = true;
             btnLicenses.Click += BtnLicenses_Click;
-            //
+            // 
             // lblPluginAPIVersion
-            //
+            // 
             lblPluginAPIVersion.AutoSize = true;
-            lblPluginAPIVersion.Location = new Point(564, 434);
+            lblPluginAPIVersion.Location = new Point(664, 415);
             lblPluginAPIVersion.Name = "lblPluginAPIVersion";
-            lblPluginAPIVersion.Size = new Size(27, 19);
+            lblPluginAPIVersion.Size = new Size(39, 29);
             lblPluginAPIVersion.TabIndex = 12;
             lblPluginAPIVersion.Text = "20";
             lblPluginAPIVersion.UseMnemonic = false;
-            //
+            // 
             // lblWebsocketAPIVersion
-            //
+            // 
             lblWebsocketAPIVersion.AutoSize = true;
-            lblWebsocketAPIVersion.Location = new Point(564, 407);
+            lblWebsocketAPIVersion.Location = new Point(664, 373);
             lblWebsocketAPIVersion.Name = "lblWebsocketAPIVersion";
-            lblWebsocketAPIVersion.Size = new Size(27, 19);
+            lblWebsocketAPIVersion.Size = new Size(39, 29);
             lblWebsocketAPIVersion.TabIndex = 11;
             lblWebsocketAPIVersion.Text = "20";
             lblWebsocketAPIVersion.UseMnemonic = false;
-            //
+            // 
             // lblPluginAPILabel
-            //
+            // 
             lblPluginAPILabel.AutoSize = true;
-            lblPluginAPILabel.Location = new Point(332, 434);
+            lblPluginAPILabel.Location = new Point(271, 415);
             lblPluginAPILabel.Name = "lblPluginAPILabel";
-            lblPluginAPILabel.Size = new Size(146, 19);
+            lblPluginAPILabel.Size = new Size(211, 29);
             lblPluginAPILabel.TabIndex = 10;
             lblPluginAPILabel.Text = "Plugin API version:";
             lblPluginAPILabel.UseMnemonic = false;
-            //
+            // 
             // lblWebSocketAPILabel
-            //
+            // 
             lblWebSocketAPILabel.AutoSize = true;
-            lblWebSocketAPILabel.Location = new Point(332, 407);
+            lblWebSocketAPILabel.Location = new Point(271, 373);
             lblWebSocketAPILabel.Name = "lblWebSocketAPILabel";
-            lblWebSocketAPILabel.Size = new Size(177, 19);
+            lblWebSocketAPILabel.Size = new Size(265, 29);
             lblWebSocketAPILabel.TabIndex = 9;
             lblWebSocketAPILabel.Text = "Websocket API version:";
             lblWebSocketAPILabel.UseMnemonic = false;
-            //
+            // 
             // lblInstalledPlugins
-            //
+            // 
             lblInstalledPlugins.AutoSize = true;
-            lblInstalledPlugins.Location = new Point(564, 461);
+            lblInstalledPlugins.Location = new Point(664, 455);
             lblInstalledPlugins.Name = "lblInstalledPlugins";
-            lblInstalledPlugins.Size = new Size(18, 19);
+            lblInstalledPlugins.Size = new Size(26, 29);
             lblInstalledPlugins.TabIndex = 7;
             lblInstalledPlugins.Text = "0";
             lblInstalledPlugins.UseMnemonic = false;
-            //
+            // 
             // lblInstalledPluginsLabel
-            //
+            // 
             lblInstalledPluginsLabel.AutoSize = true;
-            lblInstalledPluginsLabel.Location = new Point(332, 461);
+            lblInstalledPluginsLabel.Location = new Point(271, 455);
             lblInstalledPluginsLabel.Name = "lblInstalledPluginsLabel";
-            lblInstalledPluginsLabel.Size = new Size(131, 19);
+            lblInstalledPluginsLabel.Size = new Size(192, 29);
             lblInstalledPluginsLabel.TabIndex = 4;
             lblInstalledPluginsLabel.Text = "Installed plugins:";
             lblInstalledPluginsLabel.UseMnemonic = false;
-            //
+            // 
             // lblDeveloped
-            //
+            // 
+            lblDeveloped.AutoSize = true;
             lblDeveloped.Font = new Font("Tahoma", 11.25F);
-            lblDeveloped.Location = new Point(219, 206);
+            lblDeveloped.Location = new Point(219, 212);
             lblDeveloped.Name = "lblDeveloped";
-            lblDeveloped.Size = new Size(485, 18);
+            lblDeveloped.Size = new Size(539, 28);
             lblDeveloped.TabIndex = 2;
             lblDeveloped.Text = "Developed by Manuel Mayer (SuchByte) in Germany";
             lblDeveloped.TextAlign = ContentAlignment.MiddleCenter;
             lblDeveloped.UseMnemonic = false;
-            //
+            // 
             // lblMacroDeck
-            //
+            // 
             lblMacroDeck.Font = new Font("Tahoma", 21.75F);
             lblMacroDeck.ForeColor = Color.LightGray;
             lblMacroDeck.Location = new Point(3, 3);
             lblMacroDeck.Name = "lblMacroDeck";
-            lblMacroDeck.Size = new Size(917, 41);
+            lblMacroDeck.Size = new Size(917, 64);
             lblMacroDeck.TabIndex = 1;
             lblMacroDeck.Text = "Macro Deck";
             lblMacroDeck.TextAlign = ContentAlignment.MiddleCenter;
             lblMacroDeck.UseMnemonic = false;
-            //
+            // 
             // pictureBox1
-            //
+            // 
             pictureBox1.BackgroundImage = Resources.Icon;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(3, 47);
@@ -925,9 +930,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             pictureBox1.Size = new Size(200, 187);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            //
+            // 
             // tabIcons
-            //
+            // 
             tabIcons.ColorDepth = ColorDepth.Depth4Bit;
             tabIcons.ImageStream = (ImageListStreamer)resources.GetObject("tabIcons.ImageStream");
             tabIcons.TransparentColor = Color.Transparent;
@@ -936,16 +941,16 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabIcons.Images.SetKeyName(2, "Update.png");
             tabIcons.Images.SetKeyName(3, "Backup-Restore.png");
             tabIcons.Images.SetKeyName(4, "Informationpng.png");
-            //
+            // 
             // SettingsView
-            //
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
             Controls.Add(verticalTabControl);
             Font = new Font("Tahoma", 9F);
             Name = "SettingsView";
-            Size = new Size(1137, 540);
+            Size = new Size(1137, 872);
             Load += Settings_Load;
             verticalTabControl.ResumeLayout(false);
             tabGeneral.ResumeLayout(false);

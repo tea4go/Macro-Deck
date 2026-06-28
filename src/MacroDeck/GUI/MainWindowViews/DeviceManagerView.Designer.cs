@@ -35,124 +35,122 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         /// </summary>
         private void InitializeComponent()
         {
-            this.devicesList = new FlowLayoutPanel();
-            this.lblKnownDevices = new Label();
-            this.lblBehaviour = new Label();
-            this.panel1 = new Panel();
-            this.radioBlockNew = new RadioButton();
-            this.radioAllowAll = new RadioButton();
-            this.radioAskNewConnections = new RadioButton();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            devicesList = new FlowLayoutPanel();
+            lblKnownDevices = new Label();
+            lblBehaviour = new Label();
+            panel1 = new Panel();
+            radioBlockNew = new RadioButton();
+            radioAllowAll = new RadioButton();
+            radioAskNewConnections = new RadioButton();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // devicesList
             // 
-            this.devicesList.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom) 
-                                                       | AnchorStyles.Left)));
-            this.devicesList.AutoScroll = true;
-            this.devicesList.Location = new Point(3, 29);
-            this.devicesList.Name = "devicesList";
-            this.devicesList.Size = new Size(570, 510);
-            this.devicesList.TabIndex = 12;
+            devicesList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            devicesList.AutoScroll = true;
+            devicesList.Location = new Point(3, 61);
+            devicesList.Name = "devicesList";
+            devicesList.Size = new Size(570, 478);
+            devicesList.TabIndex = 12;
             // 
             // lblKnownDevices
             // 
-            this.lblKnownDevices.AutoSize = true;
-            this.lblKnownDevices.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblKnownDevices.ForeColor = Color.White;
-            this.lblKnownDevices.Location = new Point(3, 3);
-            this.lblKnownDevices.Name = "lblKnownDevices";
-            this.lblKnownDevices.Size = new Size(134, 23);
-            this.lblKnownDevices.TabIndex = 13;
-            this.lblKnownDevices.Text = "Known devices";
-            this.lblKnownDevices.UseMnemonic = false;
+            lblKnownDevices.AutoSize = true;
+            lblKnownDevices.Font = new Font("Tahoma", 14.25F);
+            lblKnownDevices.ForeColor = Color.White;
+            lblKnownDevices.Location = new Point(3, 3);
+            lblKnownDevices.Name = "lblKnownDevices";
+            lblKnownDevices.Size = new Size(204, 35);
+            lblKnownDevices.TabIndex = 13;
+            lblKnownDevices.Text = "Known devices";
+            lblKnownDevices.UseMnemonic = false;
             // 
             // lblBehaviour
             // 
-            this.lblBehaviour.AutoSize = true;
-            this.lblBehaviour.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblBehaviour.ForeColor = Color.White;
-            this.lblBehaviour.Location = new Point(583, 3);
-            this.lblBehaviour.Name = "lblBehaviour";
-            this.lblBehaviour.Size = new Size(93, 23);
-            this.lblBehaviour.TabIndex = 14;
-            this.lblBehaviour.Text = "Behaviour";
-            this.lblBehaviour.UseMnemonic = false;
+            lblBehaviour.AutoSize = true;
+            lblBehaviour.Font = new Font("Tahoma", 14.25F);
+            lblBehaviour.ForeColor = Color.White;
+            lblBehaviour.Location = new Point(583, 3);
+            lblBehaviour.Name = "lblBehaviour";
+            lblBehaviour.Size = new Size(141, 35);
+            lblBehaviour.TabIndex = 14;
+            lblBehaviour.Text = "Behaviour";
+            lblBehaviour.UseMnemonic = false;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left) 
-                                                  | AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.radioBlockNew);
-            this.panel1.Controls.Add(this.radioAllowAll);
-            this.panel1.Controls.Add(this.radioAskNewConnections);
-            this.panel1.Location = new Point(583, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new Size(537, 96);
-            this.panel1.TabIndex = 15;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(radioBlockNew);
+            panel1.Controls.Add(radioAllowAll);
+            panel1.Controls.Add(radioAskNewConnections);
+            panel1.Location = new Point(583, 65);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(537, 135);
+            panel1.TabIndex = 15;
             // 
             // radioBlockNew
             // 
-            this.radioBlockNew.AutoSize = true;
-            this.radioBlockNew.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.radioBlockNew.ForeColor = Color.FromArgb(192, 0, 0);
-            this.radioBlockNew.Location = new Point(3, 61);
-            this.radioBlockNew.Name = "radioBlockNew";
-            this.radioBlockNew.Size = new Size(207, 23);
-            this.radioBlockNew.TabIndex = 2;
-            this.radioBlockNew.TabStop = true;
-            this.radioBlockNew.Text = "Block all new connections";
-            this.radioBlockNew.UseMnemonic = false;
-            this.radioBlockNew.UseVisualStyleBackColor = true;
-            this.radioBlockNew.CheckedChanged += new EventHandler(this.RadioBehaviour_CheckedChanged);
+            radioBlockNew.AutoSize = true;
+            radioBlockNew.Font = new Font("Tahoma", 12F);
+            radioBlockNew.ForeColor = Color.FromArgb(192, 0, 0);
+            radioBlockNew.Location = new Point(3, 84);
+            radioBlockNew.Name = "radioBlockNew";
+            radioBlockNew.Size = new Size(308, 33);
+            radioBlockNew.TabIndex = 2;
+            radioBlockNew.TabStop = true;
+            radioBlockNew.Text = "Block all new connections";
+            radioBlockNew.UseMnemonic = false;
+            radioBlockNew.UseVisualStyleBackColor = true;
+            radioBlockNew.CheckedChanged += RadioBehaviour_CheckedChanged;
             // 
             // radioAllowAll
             // 
-            this.radioAllowAll.AutoSize = true;
-            this.radioAllowAll.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.radioAllowAll.ForeColor = Color.White;
-            this.radioAllowAll.Location = new Point(3, 32);
-            this.radioAllowAll.Name = "radioAllowAll";
-            this.radioAllowAll.Size = new Size(358, 23);
-            this.radioAllowAll.TabIndex = 1;
-            this.radioAllowAll.TabStop = true;
-            this.radioAllowAll.Text = "Allow all new connections (Not recommended)";
-            this.radioAllowAll.UseMnemonic = false;
-            this.radioAllowAll.UseVisualStyleBackColor = true;
-            this.radioAllowAll.CheckedChanged += new EventHandler(this.RadioBehaviour_CheckedChanged);
+            radioAllowAll.AutoSize = true;
+            radioAllowAll.Font = new Font("Tahoma", 12F);
+            radioAllowAll.ForeColor = Color.White;
+            radioAllowAll.Location = new Point(3, 42);
+            radioAllowAll.Name = "radioAllowAll";
+            radioAllowAll.Size = new Size(530, 33);
+            radioAllowAll.TabIndex = 1;
+            radioAllowAll.TabStop = true;
+            radioAllowAll.Text = "Allow all new connections (Not recommended)";
+            radioAllowAll.UseMnemonic = false;
+            radioAllowAll.UseVisualStyleBackColor = true;
+            radioAllowAll.CheckedChanged += RadioBehaviour_CheckedChanged;
             // 
             // radioAskNewConnections
             // 
-            this.radioAskNewConnections.AutoSize = true;
-            this.radioAskNewConnections.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.radioAskNewConnections.ForeColor = Color.White;
-            this.radioAskNewConnections.Location = new Point(3, 3);
-            this.radioAskNewConnections.Name = "radioAskNewConnections";
-            this.radioAskNewConnections.Size = new Size(198, 23);
-            this.radioAskNewConnections.TabIndex = 0;
-            this.radioAskNewConnections.TabStop = true;
-            this.radioAskNewConnections.Text = "Ask on new connections";
-            this.radioAskNewConnections.UseMnemonic = false;
-            this.radioAskNewConnections.UseVisualStyleBackColor = true;
-            this.radioAskNewConnections.CheckedChanged += new EventHandler(this.RadioBehaviour_CheckedChanged);
+            radioAskNewConnections.AutoSize = true;
+            radioAskNewConnections.Font = new Font("Tahoma", 12F);
+            radioAskNewConnections.ForeColor = Color.White;
+            radioAskNewConnections.Location = new Point(3, 3);
+            radioAskNewConnections.Name = "radioAskNewConnections";
+            radioAskNewConnections.Size = new Size(293, 33);
+            radioAskNewConnections.TabIndex = 0;
+            radioAskNewConnections.TabStop = true;
+            radioAskNewConnections.Text = "Ask on new connections";
+            radioAskNewConnections.UseMnemonic = false;
+            radioAskNewConnections.UseVisualStyleBackColor = true;
+            radioAskNewConnections.CheckedChanged += RadioBehaviour_CheckedChanged;
             // 
             // DeviceManagerView
             // 
-            
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(45, 45, 45);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblBehaviour);
-            this.Controls.Add(this.lblKnownDevices);
-            this.Controls.Add(this.devicesList);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.Name = "DeviceManagerView";
-            this.Size = new Size(1123, 542);
-            this.Load += new EventHandler(this.DeviceManagerPage_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            Controls.Add(panel1);
+            Controls.Add(lblBehaviour);
+            Controls.Add(lblKnownDevices);
+            Controls.Add(devicesList);
+            Font = new Font("Tahoma", 9F);
+            Name = "DeviceManagerView";
+            Size = new Size(1123, 542);
+            Load += DeviceManagerPage_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

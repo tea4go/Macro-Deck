@@ -31,158 +31,155 @@ namespace SuchByte.MacroDeck.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnApply = new SuchByte.MacroDeck.GUI.CustomControls.ButtonPrimary();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelDescription = new System.Windows.Forms.Label();
-            this.configurationPanel = new System.Windows.Forms.Panel();
-            this.lblSelectToBegin = new System.Windows.Forms.Label();
-            this.pluginSearch = new SuchByte.MacroDeck.GUI.CustomControls.RoundedTextBox();
-            this.pluginsList = new System.Windows.Forms.FlowLayoutPanel();
-            this.selectedPluginIcon = new System.Windows.Forms.PictureBox();
-            this.lblSelectedActionName = new System.Windows.Forms.Label();
-            this.configurationPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.selectedPluginIcon)).BeginInit();
-            this.SuspendLayout();
-            //
+            btnApply = new ButtonPrimary();
+            label2 = new Label();
+            labelDescription = new Label();
+            configurationPanel = new Panel();
+            lblSelectToBegin = new Label();
+            pluginSearch = new RoundedTextBox();
+            pluginsList = new FlowLayoutPanel();
+            selectedPluginIcon = new PictureBox();
+            lblSelectedActionName = new Label();
+            configurationPanel.SuspendLayout();
+            ((ISupportInitialize)selectedPluginIcon).BeginInit();
+            SuspendLayout();
+            // 
             // btnApply
-            //
-            this.btnApply.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
-            this.btnApply.BorderRadius = 8;
-            this.btnApply.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApply.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnApply.ForeColor = System.Drawing.Color.White;
-            this.btnApply.HoverColor = System.Drawing.Color.FromArgb(0, 89, 184);
-            this.btnApply.Icon = null;
-            this.btnApply.Location = new System.Drawing.Point(1110, 596);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Progress = 0;
-            this.btnApply.ProgressColor = System.Drawing.Color.FromArgb(0, 46, 94);
-            this.btnApply.Size = new System.Drawing.Size(75, 25);
-            this.btnApply.TabIndex = 1;
-            this.btnApply.Text = "Ok";
-            this.btnApply.UseMnemonic = false;
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
-            //
+            // 
+            btnApply.BorderRadius = 8;
+            btnApply.Cursor = Cursors.Hand;
+            btnApply.FlatStyle = FlatStyle.Flat;
+            btnApply.Font = new Font("Tahoma", 9.75F);
+            btnApply.ForeColor = Color.White;
+            btnApply.HoverColor = Color.FromArgb(0, 89, 184);
+            btnApply.Icon = null;
+            btnApply.Location = new Point(1059, 596);
+            btnApply.Name = "btnApply";
+            btnApply.Progress = 0;
+            btnApply.ProgressColor = Color.FromArgb(0, 46, 94);
+            btnApply.Size = new Size(126, 62);
+            btnApply.TabIndex = 1;
+            btnApply.Text = "Ok";
+            btnApply.UseMnemonic = false;
+            btnApply.UseVisualStyleBackColor = true;
+            btnApply.UseWindowsAccentColor = true;
+            btnApply.WriteProgress = true;
+            btnApply.Click += BtnApply_Click;
+            // 
             // label2
-            //
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(270, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Action";
-            this.label2.UseMnemonic = false;
-            //
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(270, 33);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 21);
+            label2.TabIndex = 2;
+            label2.Text = "Action";
+            label2.UseMnemonic = false;
+            // 
             // labelDescription
-            //
-            this.labelDescription.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDescription.ForeColor = System.Drawing.Color.White;
-            this.labelDescription.Location = new System.Drawing.Point(335, 105);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(854, 58);
-            this.labelDescription.TabIndex = 3;
-            this.labelDescription.UseMnemonic = false;
-            //
+            // 
+            labelDescription.Font = new Font("Tahoma", 9F);
+            labelDescription.ForeColor = Color.White;
+            labelDescription.Location = new Point(335, 105);
+            labelDescription.Name = "labelDescription";
+            labelDescription.Size = new Size(854, 58);
+            labelDescription.TabIndex = 3;
+            labelDescription.UseMnemonic = false;
+            // 
             // configurationPanel
-            //
-            this.configurationPanel.Controls.Add(this.lblSelectToBegin);
-            this.configurationPanel.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.configurationPanel.Location = new System.Drawing.Point(332, 166);
-            this.configurationPanel.Name = "configurationPanel";
-            this.configurationPanel.Size = new System.Drawing.Size(857, 424);
-            this.configurationPanel.TabIndex = 9;
-            //
+            // 
+            configurationPanel.Controls.Add(lblSelectToBegin);
+            configurationPanel.Font = new Font("Tahoma", 14.25F);
+            configurationPanel.Location = new Point(332, 166);
+            configurationPanel.Name = "configurationPanel";
+            configurationPanel.Size = new Size(857, 424);
+            configurationPanel.TabIndex = 9;
+            // 
             // lblSelectToBegin
-            //
-            this.lblSelectToBegin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSelectToBegin.Location = new System.Drawing.Point(0, 0);
-            this.lblSelectToBegin.Name = "lblSelectToBegin";
-            this.lblSelectToBegin.Size = new System.Drawing.Size(857, 424);
-            this.lblSelectToBegin.TabIndex = 0;
-            this.lblSelectToBegin.Text = "Select a plugin and a action to begin";
-            this.lblSelectToBegin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblSelectToBegin.UseMnemonic = false;
-            //
+            // 
+            lblSelectToBegin.Dock = DockStyle.Fill;
+            lblSelectToBegin.Location = new Point(0, 0);
+            lblSelectToBegin.Name = "lblSelectToBegin";
+            lblSelectToBegin.Size = new Size(857, 424);
+            lblSelectToBegin.TabIndex = 0;
+            lblSelectToBegin.Text = "Select a plugin and a action to begin";
+            lblSelectToBegin.TextAlign = ContentAlignment.MiddleCenter;
+            lblSelectToBegin.UseMnemonic = false;
+            // 
             // pluginSearch
-            //
-            this.pluginSearch.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
-            this.pluginSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pluginSearch.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pluginSearch.ForeColor = System.Drawing.Color.White;
-            this.pluginSearch.Icon = global::SuchByte.MacroDeck.Properties.Resources.magnifying_glass;
-            this.pluginSearch.Location = new System.Drawing.Point(11, 16);
-            this.pluginSearch.MaxCharacters = 32767;
-            this.pluginSearch.Multiline = false;
-            this.pluginSearch.Name = "pluginSearch";
-            this.pluginSearch.Padding = new System.Windows.Forms.Padding(30, 5, 5, 8);
-            this.pluginSearch.PasswordChar = false;
-            this.pluginSearch.PlaceHolderColor = System.Drawing.Color.Gray;
-            this.pluginSearch.PlaceHolderText = "";
-            this.pluginSearch.ReadOnly = false;
-            this.pluginSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.pluginSearch.SelectionStart = 0;
-            this.pluginSearch.Size = new System.Drawing.Size(310, 33);
-            this.pluginSearch.TabIndex = 10;
-            this.pluginSearch.TabStop = false;
-            this.pluginSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.pluginSearch.TextChanged += new System.EventHandler(this.PluginSearch_TextChanged);
-            //
+            // 
+            pluginSearch.BackColor = Color.FromArgb(65, 65, 65);
+            pluginSearch.Cursor = Cursors.Hand;
+            pluginSearch.Font = new Font("Tahoma", 12F);
+            pluginSearch.ForeColor = Color.White;
+            pluginSearch.Icon = Properties.Resources.magnifying_glass;
+            pluginSearch.Location = new Point(11, 16);
+            pluginSearch.MaxCharacters = 32767;
+            pluginSearch.Multiline = false;
+            pluginSearch.Name = "pluginSearch";
+            pluginSearch.Padding = new Padding(30, 5, 5, 8);
+            pluginSearch.PasswordChar = false;
+            pluginSearch.PlaceHolderColor = Color.Gray;
+            pluginSearch.PlaceHolderText = "";
+            pluginSearch.ReadOnly = false;
+            pluginSearch.ScrollBars = ScrollBars.None;
+            pluginSearch.SelectionStart = 0;
+            pluginSearch.Size = new Size(310, 43);
+            pluginSearch.TabIndex = 10;
+            pluginSearch.TabStop = false;
+            pluginSearch.TextAlignment = HorizontalAlignment.Left;
+            pluginSearch.TextChanged += PluginSearch_TextChanged;
+            // 
             // pluginsList
-            //
-            this.pluginsList.AutoScroll = true;
-            this.pluginsList.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
-            this.pluginsList.Location = new System.Drawing.Point(11, 55);
-            this.pluginsList.Name = "pluginsList";
-            this.pluginsList.Size = new System.Drawing.Size(310, 566);
-            this.pluginsList.TabIndex = 11;
-            //
+            // 
+            pluginsList.AutoScroll = true;
+            pluginsList.BackColor = Color.FromArgb(65, 65, 65);
+            pluginsList.Location = new Point(11, 79);
+            pluginsList.Name = "pluginsList";
+            pluginsList.Size = new Size(310, 579);
+            pluginsList.TabIndex = 11;
+            // 
             // selectedPluginIcon
-            //
-            this.selectedPluginIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.selectedPluginIcon.Location = new System.Drawing.Point(335, 43);
-            this.selectedPluginIcon.Name = "selectedPluginIcon";
-            this.selectedPluginIcon.AutoSize = true;
-            this.selectedPluginIcon.TabIndex = 12;
-            this.selectedPluginIcon.TabStop = false;
-            //
+            // 
+            selectedPluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
+            selectedPluginIcon.Location = new Point(335, 43);
+            selectedPluginIcon.Name = "selectedPluginIcon";
+            selectedPluginIcon.Size = new Size(100, 50);
+            selectedPluginIcon.TabIndex = 12;
+            selectedPluginIcon.TabStop = false;
+            // 
             // lblSelectedActionName
-            //
-            this.lblSelectedActionName.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSelectedActionName.Location = new System.Drawing.Point(391, 43);
-            this.lblSelectedActionName.Name = "lblSelectedActionName";
-            this.lblSelectedActionName.AutoSize = true;
-            this.lblSelectedActionName.TabIndex = 13;
-            this.lblSelectedActionName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblSelectedActionName.UseMnemonic = false;
-            //
+            // 
+            lblSelectedActionName.AutoSize = true;
+            lblSelectedActionName.Font = new Font("Tahoma", 15.75F);
+            lblSelectedActionName.Location = new Point(391, 43);
+            lblSelectedActionName.Name = "lblSelectedActionName";
+            lblSelectedActionName.Size = new Size(0, 39);
+            lblSelectedActionName.TabIndex = 13;
+            lblSelectedActionName.TextAlign = ContentAlignment.MiddleCenter;
+            lblSelectedActionName.UseMnemonic = false;
+            // 
             // ActionConfigurator
-            //
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
-            this.ClientSize = new System.Drawing.Size(1200, 635);
-            this.Controls.Add(this.lblSelectedActionName);
-            this.Controls.Add(this.selectedPluginIcon);
-            this.Controls.Add(this.pluginsList);
-            this.Controls.Add(this.pluginSearch);
-            this.Controls.Add(this.configurationPanel);
-            this.Controls.Add(this.labelDescription);
-            this.Controls.Add(this.btnApply);
-            this.Name = "ActionConfigurator";
-            this.Text = "Macro Deck :: Configure action";
-            this.Controls.SetChildIndex(this.btnApply, 0);
-            this.Controls.SetChildIndex(this.labelDescription, 0);
-            this.Controls.SetChildIndex(this.configurationPanel, 0);
-            this.Controls.SetChildIndex(this.pluginSearch, 0);
-            this.Controls.SetChildIndex(this.pluginsList, 0);
-            this.Controls.SetChildIndex(this.selectedPluginIcon, 0);
-            this.Controls.SetChildIndex(this.lblSelectedActionName, 0);
-            this.configurationPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.selectedPluginIcon)).EndInit();
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            ClientSize = new Size(1200, 674);
+            Controls.Add(lblSelectedActionName);
+            Controls.Add(selectedPluginIcon);
+            Controls.Add(pluginsList);
+            Controls.Add(pluginSearch);
+            Controls.Add(configurationPanel);
+            Controls.Add(labelDescription);
+            Controls.Add(btnApply);
+            Name = "ActionConfigurator";
+            Text = "Macro Deck :: Configure action";
+            configurationPanel.ResumeLayout(false);
+            ((ISupportInitialize)selectedPluginIcon).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

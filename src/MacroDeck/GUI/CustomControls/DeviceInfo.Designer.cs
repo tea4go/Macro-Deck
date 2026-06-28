@@ -37,223 +37,222 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDisplayName = new Label();
-            this.displayName = new RoundedTextBox();
-            this.btnRemove = new PictureButton();
-            this.lblIdLabel = new Label();
-            this.lblId = new Label();
-            this.checkBlockConnection = new CheckBox();
-            this.lblStatusLabel = new Label();
-            this.lblStatus = new Label();
-            this.btnChangeDisplayName = new PictureButton();
-            this.profiles = new RoundedComboBox();
-            this.lblProfile = new Label();
-            this.btnConfigure = new ButtonPrimary();
-            ((ISupportInitialize)(this.btnRemove)).BeginInit();
-            ((ISupportInitialize)(this.btnChangeDisplayName)).BeginInit();
-            this.SuspendLayout();
-            //
+            lblDisplayName = new Label();
+            displayName = new RoundedTextBox();
+            btnRemove = new PictureButton();
+            lblIdLabel = new Label();
+            lblId = new Label();
+            checkBlockConnection = new CheckBox();
+            lblStatusLabel = new Label();
+            lblStatus = new Label();
+            btnChangeDisplayName = new PictureButton();
+            profiles = new RoundedComboBox();
+            lblProfile = new Label();
+            btnConfigure = new ButtonPrimary();
+            ((ISupportInitialize)btnRemove).BeginInit();
+            ((ISupportInitialize)btnChangeDisplayName).BeginInit();
+            SuspendLayout();
+            // 
             // lblDisplayName
-            //
-            this.lblDisplayName.AutoSize = true;
-            this.lblDisplayName.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblDisplayName.ForeColor = Color.White;
-            this.lblDisplayName.Location = new Point(5, 114);
-            this.lblDisplayName.Name = "lblDisplayName";
-            this.lblDisplayName.Size = new Size(110, 19);
-            this.lblDisplayName.TabIndex = 0;
-            this.lblDisplayName.Text = "Display name:";
-            this.lblDisplayName.UseMnemonic = false;
-            //
+            // 
+            lblDisplayName.AutoSize = true;
+            lblDisplayName.Font = new Font("Tahoma", 12F);
+            lblDisplayName.ForeColor = Color.White;
+            lblDisplayName.Location = new Point(5, 164);
+            lblDisplayName.Name = "lblDisplayName";
+            lblDisplayName.Size = new Size(163, 29);
+            lblDisplayName.TabIndex = 0;
+            lblDisplayName.Text = "Display name:";
+            lblDisplayName.UseMnemonic = false;
+            // 
             // displayName
-            //
-            this.displayName.BackColor = Color.FromArgb(65, 65, 65);
-            this.displayName.Cursor = Cursors.Hand;
-            this.displayName.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.displayName.ForeColor = Color.White;
-            this.displayName.Icon = null;
-            this.displayName.Location = new Point(119, 110);
-            this.displayName.MaxCharacters = 32767;
-            this.displayName.Multiline = false;
-            this.displayName.Name = "displayName";
-            this.displayName.Padding = new Padding(8, 5, 8, 5);
-            this.displayName.PasswordChar = false;
-            this.displayName.PlaceHolderColor = Color.Gray;
-            this.displayName.PlaceHolderText = "";
-            this.displayName.ReadOnly = false;
-            this.displayName.ScrollBars = ScrollBars.None;
-            this.displayName.SelectionStart = 0;
-            this.displayName.Size = new Size(299, 27);
-            this.displayName.TabIndex = 1;
-            this.displayName.TextAlignment = HorizontalAlignment.Left;
-            //
+            // 
+            displayName.BackColor = Color.FromArgb(65, 65, 65);
+            displayName.Cursor = Cursors.Hand;
+            displayName.Font = new Font("Tahoma", 9.75F);
+            displayName.ForeColor = Color.White;
+            displayName.Icon = null;
+            displayName.Location = new Point(198, 160);
+            displayName.MaxCharacters = 32767;
+            displayName.Multiline = false;
+            displayName.Name = "displayName";
+            displayName.Padding = new Padding(8, 5, 8, 5);
+            displayName.PasswordChar = false;
+            displayName.PlaceHolderColor = Color.Gray;
+            displayName.PlaceHolderText = "";
+            displayName.ReadOnly = false;
+            displayName.ScrollBars = ScrollBars.None;
+            displayName.SelectionStart = 0;
+            displayName.Size = new Size(391, 35);
+            displayName.TabIndex = 1;
+            displayName.TextAlignment = HorizontalAlignment.Left;
+            // 
             // btnRemove
-            //
-            this.btnRemove.BackColor = Color.Transparent;
-            this.btnRemove.BackgroundImage = Resources.Delete_Normal;
-            this.btnRemove.BackgroundImageLayout = ImageLayout.Stretch;
-            this.btnRemove.Cursor = Cursors.Hand;
-            this.btnRemove.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.btnRemove.ForeColor = Color.White;
-            this.btnRemove.HoverImage = Resources.Delete_Hover;
-            this.btnRemove.Location = new Point(500, 5);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new Size(25, 25);
-            this.btnRemove.TabIndex = 2;
-            this.btnRemove.TabStop = false;
-            this.btnRemove.Click += new EventHandler(this.BtnRemove_Click);
-            //
+            // 
+            btnRemove.BackColor = Color.Transparent;
+            btnRemove.BackgroundImage = Resources.Delete_Normal;
+            btnRemove.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRemove.Cursor = Cursors.Hand;
+            btnRemove.Font = new Font("Tahoma", 9.75F);
+            btnRemove.ForeColor = Color.White;
+            btnRemove.HoverImage = Resources.Delete_Hover;
+            btnRemove.Location = new Point(594, 9);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(32, 32);
+            btnRemove.TabIndex = 2;
+            btnRemove.TabStop = false;
+            btnRemove.Click += BtnRemove_Click;
+            // 
             // lblIdLabel
-            //
-            this.lblIdLabel.AutoSize = true;
-            this.lblIdLabel.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblIdLabel.ForeColor = Color.White;
-            this.lblIdLabel.Location = new Point(5, 40);
-            this.lblIdLabel.Name = "lblIdLabel";
-            this.lblIdLabel.Size = new Size(77, 30);
-            this.lblIdLabel.TabIndex = 3;
-            this.lblIdLabel.Text = "Client ID:";
-            this.lblIdLabel.UseMnemonic = false;
-            //
+            // 
+            lblIdLabel.AutoSize = true;
+            lblIdLabel.Font = new Font("Tahoma", 12F);
+            lblIdLabel.ForeColor = Color.White;
+            lblIdLabel.Location = new Point(5, 58);
+            lblIdLabel.Name = "lblIdLabel";
+            lblIdLabel.Size = new Size(112, 29);
+            lblIdLabel.TabIndex = 3;
+            lblIdLabel.Text = "Client ID:";
+            lblIdLabel.UseMnemonic = false;
+            // 
             // lblId
-            //
-            this.lblId.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblId.ForeColor = Color.White;
-            this.lblId.Location = new Point(119, 40);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new Size(194, 30);
-            this.lblId.TabIndex = 4;
-            this.lblId.UseMnemonic = false;
-            //
+            // 
+            lblId.Font = new Font("Tahoma", 14.25F);
+            lblId.ForeColor = Color.White;
+            lblId.Location = new Point(198, 59);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(194, 30);
+            lblId.TabIndex = 4;
+            lblId.UseMnemonic = false;
+            // 
             // checkBlockConnection
-            //
-            this.checkBlockConnection.CheckAlign = ContentAlignment.MiddleLeft;
-            this.checkBlockConnection.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.checkBlockConnection.ForeColor = Color.White;
-            this.checkBlockConnection.Location = new Point(5, 5);
-            this.checkBlockConnection.Name = "checkBlockConnection";
-            this.checkBlockConnection.Size = new Size(167, 40);
-            this.checkBlockConnection.TabIndex = 5;
-            this.checkBlockConnection.Text = "Block connection";
-            this.checkBlockConnection.TextAlign = ContentAlignment.MiddleLeft;
-            this.checkBlockConnection.UseMnemonic = false;
-            this.checkBlockConnection.UseVisualStyleBackColor = true;
-            this.checkBlockConnection.CheckedChanged += new EventHandler(this.CheckBlockConnection_CheckedChanged);
-            //
+            // 
+            checkBlockConnection.Font = new Font("Tahoma", 12F);
+            checkBlockConnection.ForeColor = Color.White;
+            checkBlockConnection.Location = new Point(13, 10);
+            checkBlockConnection.Name = "checkBlockConnection";
+            checkBlockConnection.Size = new Size(167, 40);
+            checkBlockConnection.TabIndex = 5;
+            checkBlockConnection.Text = "Block connection";
+            checkBlockConnection.UseMnemonic = false;
+            checkBlockConnection.UseVisualStyleBackColor = true;
+            checkBlockConnection.CheckedChanged += CheckBlockConnection_CheckedChanged;
+            // 
             // lblStatusLabel
-            //
-            this.lblStatusLabel.AutoSize = true;
-            this.lblStatusLabel.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblStatusLabel.ForeColor = Color.White;
-            this.lblStatusLabel.Location = new Point(5, 75);
-            this.lblStatusLabel.Name = "lblStatusLabel";
-            this.lblStatusLabel.Size = new Size(58, 19);
-            this.lblStatusLabel.TabIndex = 6;
-            this.lblStatusLabel.Text = "Status:";
-            this.lblStatusLabel.UseMnemonic = false;
-            //
+            // 
+            lblStatusLabel.AutoSize = true;
+            lblStatusLabel.Font = new Font("Tahoma", 12F);
+            lblStatusLabel.ForeColor = Color.White;
+            lblStatusLabel.Location = new Point(5, 109);
+            lblStatusLabel.Name = "lblStatusLabel";
+            lblStatusLabel.Size = new Size(87, 29);
+            lblStatusLabel.TabIndex = 6;
+            lblStatusLabel.Text = "Status:";
+            lblStatusLabel.UseMnemonic = false;
+            // 
             // lblStatus
-            //
-            this.lblStatus.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblStatus.ForeColor = Color.White;
-            this.lblStatus.Location = new Point(119, 75);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new Size(226, 23);
-            this.lblStatus.TabIndex = 7;
-            this.lblStatus.Text = "?";
-            this.lblStatus.UseMnemonic = false;
-            //
+            // 
+            lblStatus.Font = new Font("Tahoma", 12F);
+            lblStatus.ForeColor = Color.White;
+            lblStatus.Location = new Point(198, 109);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(226, 23);
+            lblStatus.TabIndex = 7;
+            lblStatus.Text = "?";
+            lblStatus.UseMnemonic = false;
+            // 
             // btnChangeDisplayName
-            //
-            this.btnChangeDisplayName.BackColor = Color.Transparent;
-            this.btnChangeDisplayName.BackgroundImage = Resources.Edit_Normal;
-            this.btnChangeDisplayName.BackgroundImageLayout = ImageLayout.Stretch;
-            this.btnChangeDisplayName.Cursor = Cursors.Hand;
-            this.btnChangeDisplayName.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.btnChangeDisplayName.ForeColor = Color.White;
-            this.btnChangeDisplayName.HoverImage = Resources.Edit_Hover;
-            this.btnChangeDisplayName.Location = new Point(424, 110);
-            this.btnChangeDisplayName.Name = "btnChangeDisplayName";
-            this.btnChangeDisplayName.Size = new Size(27, 27);
-            this.btnChangeDisplayName.TabIndex = 8;
-            this.btnChangeDisplayName.TabStop = false;
-            this.btnChangeDisplayName.Click += new EventHandler(this.BtnChangeDisplayName_Click);
-            //
+            // 
+            btnChangeDisplayName.BackColor = Color.Transparent;
+            btnChangeDisplayName.BackgroundImage = Resources.Edit_Normal;
+            btnChangeDisplayName.BackgroundImageLayout = ImageLayout.Stretch;
+            btnChangeDisplayName.Cursor = Cursors.Hand;
+            btnChangeDisplayName.Font = new Font("Tahoma", 9.75F);
+            btnChangeDisplayName.ForeColor = Color.White;
+            btnChangeDisplayName.HoverImage = Resources.Edit_Hover;
+            btnChangeDisplayName.Location = new Point(593, 160);
+            btnChangeDisplayName.Name = "btnChangeDisplayName";
+            btnChangeDisplayName.Size = new Size(32, 32);
+            btnChangeDisplayName.TabIndex = 8;
+            btnChangeDisplayName.TabStop = false;
+            btnChangeDisplayName.Click += BtnChangeDisplayName_Click;
+            // 
             // profiles
-            //
-            this.profiles.BackColor = Color.FromArgb(65, 65, 65);
-            this.profiles.Cursor = Cursors.Hand;
-            this.profiles.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.profiles.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.profiles.ForeColor = Color.White;
-            this.profiles.Icon = null;
-            this.profiles.Location = new Point(119, 145);
-            this.profiles.Name = "profiles";
-            this.profiles.SelectedIndex = -1;
-            this.profiles.SelectedItem = null;
-            this.profiles.Size = new Size(299, 28);
-            this.profiles.TabIndex = 9;
-            this.profiles.SelectedIndexChanged += new EventHandler(this.Profiles_SelectedIndexChanged);
-            //
+            // 
+            profiles.BackColor = Color.FromArgb(65, 65, 65);
+            profiles.Cursor = Cursors.Hand;
+            profiles.DropDownStyle = ComboBoxStyle.DropDownList;
+            profiles.Font = new Font("Tahoma", 9.75F);
+            profiles.ForeColor = Color.White;
+            profiles.Icon = null;
+            profiles.Location = new Point(198, 221);
+            profiles.Name = "profiles";
+            profiles.SelectedIndex = -1;
+            profiles.SelectedItem = null;
+            profiles.Size = new Size(428, 32);
+            profiles.TabIndex = 9;
+            profiles.SelectedIndexChanged += Profiles_SelectedIndexChanged;
+            // 
             // lblProfile
-            //
-            this.lblProfile.AutoSize = true;
-            this.lblProfile.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblProfile.ForeColor = Color.White;
-            this.lblProfile.Location = new Point(5, 150);
-            this.lblProfile.Name = "lblProfile";
-            this.lblProfile.Size = new Size(60, 19);
-            this.lblProfile.TabIndex = 10;
-            this.lblProfile.Text = "Profile:";
-            this.lblProfile.UseMnemonic = false;
-            //
+            // 
+            lblProfile.AutoSize = true;
+            lblProfile.Font = new Font("Tahoma", 12F);
+            lblProfile.ForeColor = Color.White;
+            lblProfile.Location = new Point(5, 226);
+            lblProfile.Name = "lblProfile";
+            lblProfile.Size = new Size(87, 29);
+            lblProfile.TabIndex = 10;
+            lblProfile.Text = "Profile:";
+            lblProfile.UseMnemonic = false;
+            // 
             // btnConfigure
-            //
-            this.btnConfigure.BackColor = Color.FromArgb(0, 123, 255);
-            this.btnConfigure.BorderRadius = 8;
-            this.btnConfigure.Cursor = Cursors.Hand;
-            this.btnConfigure.FlatAppearance.BorderSize = 0;
-            this.btnConfigure.FlatStyle = FlatStyle.Flat;
-            this.btnConfigure.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.btnConfigure.ForeColor = Color.White;
-            this.btnConfigure.HoverColor = Color.FromArgb(0, 89, 184);
-            this.btnConfigure.Icon = null;
-            this.btnConfigure.Location = new Point(420, 30);
-            this.btnConfigure.Name = "btnConfigure";
-            this.btnConfigure.Progress = 0;
-            this.btnConfigure.ProgressColor = Color.FromArgb(0, 46, 94);
-            this.btnConfigure.Size = new Size(100, 27);
-            this.btnConfigure.TabIndex = 13;
-            this.btnConfigure.Text = "Device settings";
-            this.btnConfigure.UseMnemonic = false;
-            this.btnConfigure.UseVisualStyleBackColor = false;
-            this.btnConfigure.Click += new EventHandler(this.BtnConfigure_Click);
-            //
+            // 
+            btnConfigure.BorderRadius = 8;
+            btnConfigure.Cursor = Cursors.Hand;
+            btnConfigure.FlatAppearance.BorderSize = 0;
+            btnConfigure.FlatStyle = FlatStyle.Flat;
+            btnConfigure.Font = new Font("Tahoma", 9.75F);
+            btnConfigure.ForeColor = Color.White;
+            btnConfigure.HoverColor = Color.FromArgb(0, 89, 184);
+            btnConfigure.Icon = null;
+            btnConfigure.Location = new Point(420, 48);
+            btnConfigure.Name = "btnConfigure";
+            btnConfigure.Progress = 0;
+            btnConfigure.ProgressColor = Color.FromArgb(0, 46, 94);
+            btnConfigure.Size = new Size(206, 53);
+            btnConfigure.TabIndex = 13;
+            btnConfigure.Text = "Device settings";
+            btnConfigure.UseMnemonic = false;
+            btnConfigure.UseVisualStyleBackColor = false;
+            btnConfigure.UseWindowsAccentColor = true;
+            btnConfigure.WriteProgress = true;
+            btnConfigure.Click += BtnConfigure_Click;
+            // 
             // DeviceInfo
-            //
-
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(35, 35, 35);
-            this.Controls.Add(this.btnConfigure);
-            this.Controls.Add(this.lblProfile);
-            this.Controls.Add(this.profiles);
-            this.Controls.Add(this.btnChangeDisplayName);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.lblStatusLabel);
-            this.Controls.Add(this.checkBlockConnection);
-            this.Controls.Add(this.lblId);
-            this.Controls.Add(this.lblIdLabel);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.displayName);
-            this.Controls.Add(this.lblDisplayName);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.Name = "DeviceInfo";
-            this.Size = new Size(534, 180);
-            this.Load += new EventHandler(this.DeviceInfo_Load);
-            ((ISupportInitialize)(this.btnRemove)).EndInit();
-            ((ISupportInitialize)(this.btnChangeDisplayName)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(35, 35, 35);
+            Controls.Add(btnConfigure);
+            Controls.Add(lblProfile);
+            Controls.Add(profiles);
+            Controls.Add(btnChangeDisplayName);
+            Controls.Add(lblStatus);
+            Controls.Add(lblStatusLabel);
+            Controls.Add(checkBlockConnection);
+            Controls.Add(lblId);
+            Controls.Add(lblIdLabel);
+            Controls.Add(btnRemove);
+            Controls.Add(displayName);
+            Controls.Add(lblDisplayName);
+            Font = new Font("Tahoma", 9F);
+            Name = "DeviceInfo";
+            Size = new Size(640, 330);
+            Load += DeviceInfo_Load;
+            ((ISupportInitialize)btnRemove).EndInit();
+            ((ISupportInitialize)btnChangeDisplayName).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

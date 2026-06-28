@@ -34,40 +34,39 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.borderlessComboBox1 = new BorderlessComboBox();
-            this.SuspendLayout();
-            //
+            borderlessComboBox1 = new BorderlessComboBox();
+            SuspendLayout();
+            // 
             // borderlessComboBox1
-            //
-            this.borderlessComboBox1.BackColor = Color.FromArgb(65, 65, 65);
-            this.borderlessComboBox1.Dock = DockStyle.Fill;
-            this.borderlessComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.borderlessComboBox1.FlatStyle = FlatStyle.Popup;
-            this.borderlessComboBox1.ForeColor = Color.White;
-            this.borderlessComboBox1.FormattingEnabled = true;
-            this.borderlessComboBox1.Location = new Point(8, 2);
-            this.borderlessComboBox1.Margin = new Padding(0);
-            this.borderlessComboBox1.Name = "borderlessComboBox1";
-            this.borderlessComboBox1.Size = new Size(234, 22);
-            this.borderlessComboBox1.TabIndex = 0;
-            this.borderlessComboBox1.SelectedIndexChanged += new EventHandler(this.BorderlessComboBox1_SelectedIndexChanged);
-            this.borderlessComboBox1.Click += new EventHandler(this.BorderlessComboBox1_Click);
-            this.borderlessComboBox1.Enter += new EventHandler(this.BorderlessComboBox1_Enter);
-            this.borderlessComboBox1.GotFocus += new EventHandler(this.BorderlessComboBox1_GotFocus);
-            this.borderlessComboBox1.KeyPress += new KeyPressEventHandler(this.BorderlessComboBox1_KeyPress);
-            this.borderlessComboBox1.LostFocus += new EventHandler(this.BorderlessComboBox1_LostFocus);
-            this.borderlessComboBox1.TextChanged += new EventHandler(this.BorderlessComboBox1_TextChanged);
-            //
+            // 
+            borderlessComboBox1.BackColor = Color.FromArgb(65, 65, 65);
+            borderlessComboBox1.Dock = DockStyle.Fill;
+            borderlessComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            borderlessComboBox1.FlatStyle = FlatStyle.Popup;
+            borderlessComboBox1.ForeColor = Color.White;
+            borderlessComboBox1.FormattingEnabled = true;
+            borderlessComboBox1.Location = new Point(0, 0);
+            borderlessComboBox1.Margin = new Padding(0);
+            borderlessComboBox1.Name = "borderlessComboBox1";
+            borderlessComboBox1.Size = new Size(250, 30);
+            borderlessComboBox1.TabIndex = 0;
+            borderlessComboBox1.SelectedIndexChanged += BorderlessComboBox1_SelectedIndexChanged;
+            borderlessComboBox1.TextChanged += BorderlessComboBox1_TextChanged;
+            borderlessComboBox1.Click += BorderlessComboBox1_Click;
+            borderlessComboBox1.Enter += BorderlessComboBox1_Enter;
+            borderlessComboBox1.GotFocus += BorderlessComboBox1_GotFocus;
+            borderlessComboBox1.KeyPress += BorderlessComboBox1_KeyPress;
+            borderlessComboBox1.LostFocus += BorderlessComboBox1_LostFocus;
+            // 
             // RoundedComboBox
-            //
-            this.AutoScaleMode = AutoScaleMode.None;
-            this.BackColor = Color.FromArgb(65, 65, 65);
-            this.Controls.Add(this.borderlessComboBox1);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.Name = "RoundedComboBox";
-            this.Padding = new Padding(0, 0, 0, 0);
-            this.Size = new Size(250, 26);
-            this.ResumeLayout(false);
+            // 
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.FromArgb(65, 65, 65);
+            Controls.Add(borderlessComboBox1);
+            Font = new Font("Tahoma", 9F);
+            Name = "RoundedComboBox";
+            Size = new Size(250, 38);
+            ResumeLayout(false);
 
         }
 

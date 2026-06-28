@@ -34,33 +34,34 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblActionName = new Label();
-            this.SuspendLayout();
+            lblActionName = new Label();
+            SuspendLayout();
             // 
             // lblActionName
             // 
-            this.lblActionName.Cursor = Cursors.Hand;
-            this.lblActionName.Location = new Point(8, 5);
-            this.lblActionName.Name = "lblActionName";
-            this.lblActionName.Size = new Size(252, 30);
-            this.lblActionName.TabIndex = 0;
-            this.lblActionName.Text = "label1";
-            this.lblActionName.TextAlign = ContentAlignment.MiddleLeft;
-            this.lblActionName.UseMnemonic = false;
+            lblActionName.Cursor = Cursors.Hand;
+            lblActionName.Location = new Point(8, 5);
+            lblActionName.Name = "lblActionName";
+            lblActionName.Size = new Size(252, 36);
+            lblActionName.TabIndex = 0;
+            lblActionName.Text = "label1";
+            lblActionName.TextAlign = ContentAlignment.MiddleLeft;
+            lblActionName.UseMnemonic = false;
             // 
             // ActionConfiguratorActionItem
             // 
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(35, 35, 35);
-            this.Controls.Add(this.lblActionName);
-            this.Cursor = Cursors.Hand;
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.ForeColor = Color.White;
-            this.Margin = new Padding(6, 0, 6, 1);
-            this.Name = "ActionConfiguratorActionItem";
-            this.Size = new Size(268, 40);
-            this.Load += new EventHandler(this.ActionConfiguratorActionItem_Load);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(35, 35, 35);
+            Controls.Add(lblActionName);
+            Cursor = Cursors.Hand;
+            Font = new Font("Tahoma", 9F);
+            ForeColor = Color.White;
+            Margin = new Padding(6, 0, 6, 1);
+            Name = "ActionConfiguratorActionItem";
+            Size = new Size(268, 40);
+            Load += ActionConfiguratorActionItem_Load;
+            ResumeLayout(false);
 
         }
 

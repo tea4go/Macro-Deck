@@ -129,7 +129,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             foldersView.ShowLines = false;
             foldersView.ShowPlusMinus = false;
             foldersView.ShowRootLines = false;
-            foldersView.Size = new Size(227, 399);
+            foldersView.Size = new Size(227, 784);
             foldersView.TabIndex = 6;
             foldersView.DrawNode += FoldersView_DrawNode;
             foldersView.AfterSelect += FoldersView_AfterSelect;
@@ -141,7 +141,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             buttonPanel.Location = new Point(237, 84);
             buttonPanel.Margin = new Padding(10);
             buttonPanel.Name = "buttonPanel";
-            buttonPanel.Size = new Size(747, 648);
+            buttonPanel.Size = new Size(1045, 1033);
             buttonPanel.TabIndex = 5;
             // 
             // actionButtonContextMenuItemEdit
@@ -278,7 +278,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             boxProfiles.Font = new Font("Tahoma", 11.25F);
             boxProfiles.ForeColor = Color.White;
             boxProfiles.Icon = null;
-            boxProfiles.Location = new Point(341, 17);
+            boxProfiles.Location = new Point(569, 17);
             boxProfiles.Margin = new Padding(0);
             boxProfiles.Name = "boxProfiles";
             boxProfiles.SelectedIndex = -1;
@@ -297,7 +297,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnAddProfile.Font = new Font("Tahoma", 9.75F);
             btnAddProfile.ForeColor = Color.White;
             btnAddProfile.HoverImage = Resources.Create_Hover;
-            btnAddProfile.Location = new Point(291, 15);
+            btnAddProfile.Location = new Point(519, 15);
             btnAddProfile.Name = "btnAddProfile";
             btnAddProfile.Size = new Size(38, 38);
             btnAddProfile.TabIndex = 12;
@@ -315,7 +315,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnDeleteProfile.Font = new Font("Tahoma", 9.75F);
             btnDeleteProfile.ForeColor = Color.White;
             btnDeleteProfile.HoverImage = Resources.Delete_Hover;
-            btnDeleteProfile.Location = new Point(692, 15);
+            btnDeleteProfile.Location = new Point(920, 15);
             btnDeleteProfile.Name = "btnDeleteProfile";
             btnDeleteProfile.Size = new Size(38, 38);
             btnDeleteProfile.TabIndex = 13;
@@ -329,7 +329,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             buttonColumns.BorderStyle = BorderStyle.None;
             buttonColumns.Font = new Font("Tahoma", 11.25F);
             buttonColumns.ForeColor = Color.White;
-            buttonColumns.Location = new Point(15, 549);
+            buttonColumns.Location = new Point(15, 934);
             buttonColumns.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             buttonColumns.Name = "buttonColumns";
             buttonColumns.Size = new Size(66, 31);
@@ -344,7 +344,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             buttonRows.BorderStyle = BorderStyle.None;
             buttonRows.Font = new Font("Tahoma", 11.25F);
             buttonRows.ForeColor = Color.White;
-            buttonRows.Location = new Point(15, 505);
+            buttonRows.Location = new Point(15, 890);
             buttonRows.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             buttonRows.Name = "buttonRows";
             buttonRows.Size = new Size(66, 31);
@@ -359,7 +359,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblColumns.BackColor = Color.Transparent;
             lblColumns.Font = new Font("Tahoma", 11.25F);
             lblColumns.ForeColor = Color.White;
-            lblColumns.Location = new Point(92, 547);
+            lblColumns.Location = new Point(92, 932);
             lblColumns.Name = "lblColumns";
             lblColumns.Size = new Size(98, 28);
             lblColumns.TabIndex = 16;
@@ -374,7 +374,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblRows.BackColor = Color.Transparent;
             lblRows.Font = new Font("Tahoma", 11.25F);
             lblRows.ForeColor = Color.White;
-            lblRows.Location = new Point(92, 505);
+            lblRows.Location = new Point(92, 890);
             lblRows.Name = "lblRows";
             lblRows.Size = new Size(65, 28);
             lblRows.TabIndex = 17;
@@ -389,7 +389,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblSpacing.BackColor = Color.Transparent;
             lblSpacing.Font = new Font("Tahoma", 11.25F);
             lblSpacing.ForeColor = Color.White;
-            lblSpacing.Location = new Point(92, 591);
+            lblSpacing.Location = new Point(92, 976);
             lblSpacing.Name = "lblSpacing";
             lblSpacing.Size = new Size(92, 28);
             lblSpacing.TabIndex = 19;
@@ -404,7 +404,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             buttonSpacing.BorderStyle = BorderStyle.None;
             buttonSpacing.Font = new Font("Tahoma", 11.25F);
             buttonSpacing.ForeColor = Color.White;
-            buttonSpacing.Location = new Point(15, 593);
+            buttonSpacing.Location = new Point(15, 978);
             buttonSpacing.Maximum = new decimal(new int[] { 25, 0, 0, 0 });
             buttonSpacing.Name = "buttonSpacing";
             buttonSpacing.Size = new Size(66, 31);
@@ -419,7 +419,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblCornerRadius.BackColor = Color.Transparent;
             lblCornerRadius.Font = new Font("Tahoma", 11.25F);
             lblCornerRadius.ForeColor = Color.White;
-            lblCornerRadius.Location = new Point(92, 636);
+            lblCornerRadius.Location = new Point(92, 1021);
             lblCornerRadius.Name = "lblCornerRadius";
             lblCornerRadius.Size = new Size(147, 28);
             lblCornerRadius.TabIndex = 21;
@@ -434,7 +434,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             cornerRadius.BorderStyle = BorderStyle.None;
             cornerRadius.Font = new Font("Tahoma", 11.25F);
             cornerRadius.ForeColor = Color.White;
-            cornerRadius.Location = new Point(15, 636);
+            cornerRadius.Location = new Point(15, 1021);
             cornerRadius.Name = "cornerRadius";
             cornerRadius.Size = new Size(66, 31);
             cornerRadius.TabIndex = 20;
@@ -450,7 +450,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkButtonBackground.CheckState = CheckState.Checked;
             checkButtonBackground.Font = new Font("Tahoma", 11.25F);
             checkButtonBackground.ForeColor = Color.White;
-            checkButtonBackground.Location = new Point(9, 696);
+            checkButtonBackground.Location = new Point(9, 1081);
             checkButtonBackground.Name = "checkButtonBackground";
             checkButtonBackground.Size = new Size(233, 32);
             checkButtonBackground.TabIndex = 22;
@@ -469,7 +469,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnEditProfile.Font = new Font("Tahoma", 9.75F);
             btnEditProfile.ForeColor = Color.White;
             btnEditProfile.HoverImage = Resources.Edit_Hover;
-            btnEditProfile.Location = new Point(642, 15);
+            btnEditProfile.Location = new Point(870, 15);
             btnEditProfile.Name = "btnEditProfile";
             btnEditProfile.Size = new Size(38, 38);
             btnEditProfile.TabIndex = 23;
@@ -488,7 +488,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             panel1.Location = new Point(237, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1002, 74);
+            panel1.Size = new Size(1459, 74);
             panel1.TabIndex = 24;
             // 
             // checkQrAndNetwork
@@ -505,7 +505,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkQrAndNetwork.FlatAppearance.CheckedBackColor = Color.Transparent;
             checkQrAndNetwork.FlatStyle = FlatStyle.Flat;
             checkQrAndNetwork.ForeColor = Color.Black;
-            checkQrAndNetwork.Location = new Point(928, 7);
+            checkQrAndNetwork.Location = new Point(1385, 7);
             checkQrAndNetwork.Margin = new Padding(5);
             checkQrAndNetwork.Name = "checkQrAndNetwork";
             checkQrAndNetwork.Size = new Size(66, 59);
@@ -531,10 +531,10 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             networkInformationPanel.Controls.Add(lblNetworkInterfaces);
             networkInformationPanel.Controls.Add(lblPort);
             networkInformationPanel.FlowDirection = FlowDirection.TopDown;
-            networkInformationPanel.Location = new Point(994, 84);
+            networkInformationPanel.Location = new Point(1292, 84);
             networkInformationPanel.Margin = new Padding(0);
             networkInformationPanel.Name = "networkInformationPanel";
-            networkInformationPanel.Size = new Size(250, 651);
+            networkInformationPanel.Size = new Size(409, 1036);
             networkInformationPanel.TabIndex = 46;
             // 
             // lblNetworkInterfaces
@@ -623,7 +623,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             Controls.Add(buttonPanel);
             Font = new Font("Tahoma", 9F);
             Name = "DeckView";
-            Size = new Size(1244, 735);
+            Size = new Size(1701, 1120);
             Load += Deck_Load;
             foldersContextMenu.ResumeLayout(false);
             actionButtonContextMenu.ResumeLayout(false);

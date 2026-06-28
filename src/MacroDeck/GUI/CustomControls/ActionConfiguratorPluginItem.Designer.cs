@@ -34,67 +34,78 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.pluginIcon = new PictureBox();
-            this.pluginName = new Label();
-            this.lblCountActions = new Label();
-            this.chevron = new PictureBox();
-            ((ISupportInitialize)(this.pluginIcon)).BeginInit();
-            ((ISupportInitialize)(this.chevron)).BeginInit();
-            this.SuspendLayout();
+            pluginIcon = new PictureBox();
+            pluginName = new Label();
+            lblCountActions = new Label();
+            chevron = new PictureBox();
+            ((ISupportInitialize)pluginIcon).BeginInit();
+            ((ISupportInitialize)chevron).BeginInit();
+            SuspendLayout();
+            // 
             // pluginIcon
-            this.pluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
-            this.pluginIcon.Cursor = Cursors.Hand;
-            this.pluginIcon.Location = new Point(33, 5);
-            this.pluginIcon.Name = "pluginIcon";
-            this.pluginIcon.Size = new Size(30, 30);
-            this.pluginIcon.TabIndex = 0;
-            this.pluginIcon.TabStop = false;
+            // 
+            pluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
+            pluginIcon.Cursor = Cursors.Hand;
+            pluginIcon.Location = new Point(33, 14);
+            pluginIcon.Name = "pluginIcon";
+            pluginIcon.Size = new Size(30, 30);
+            pluginIcon.TabIndex = 0;
+            pluginIcon.TabStop = false;
+            // 
             // pluginName
-            this.pluginName.Cursor = Cursors.Hand;
-            this.pluginName.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            this.pluginName.Location = new Point(69, 3);
-            this.pluginName.Name = "pluginName";
-            this.pluginName.Size = new Size(203, 20);
-            this.pluginName.TabIndex = 1;
-            this.pluginName.Text = "label1";
-            this.pluginName.TextAlign = ContentAlignment.MiddleLeft;
-            this.pluginName.UseMnemonic = false;
+            // 
+            pluginName.Cursor = Cursors.Hand;
+            pluginName.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            pluginName.Location = new Point(69, 5);
+            pluginName.Name = "pluginName";
+            pluginName.Size = new Size(203, 20);
+            pluginName.TabIndex = 1;
+            pluginName.Text = "label1";
+            pluginName.TextAlign = ContentAlignment.MiddleLeft;
+            pluginName.UseMnemonic = false;
+            // 
             // lblCountActions
-            this.lblCountActions.Cursor = Cursors.Hand;
-            this.lblCountActions.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblCountActions.Location = new Point(69, 18);
-            this.lblCountActions.Name = "lblCountActions";
-            this.lblCountActions.Size = new Size(203, 20);
-            this.lblCountActions.TabIndex = 2;
-            this.lblCountActions.Text = "label1";
-            this.lblCountActions.TextAlign = ContentAlignment.MiddleLeft;
-            this.lblCountActions.UseMnemonic = false;
+            // 
+            lblCountActions.Cursor = Cursors.Hand;
+            lblCountActions.Font = new Font("Tahoma", 8.25F);
+            lblCountActions.Location = new Point(69, 31);
+            lblCountActions.Name = "lblCountActions";
+            lblCountActions.Size = new Size(203, 20);
+            lblCountActions.TabIndex = 2;
+            lblCountActions.Text = "label1";
+            lblCountActions.TextAlign = ContentAlignment.MiddleLeft;
+            lblCountActions.UseMnemonic = false;
+            // 
             // chevron
-            this.chevron.BackgroundImage = Resources.Chevron_Right;
-            this.chevron.BackgroundImageLayout = ImageLayout.Stretch;
-            this.chevron.Cursor = Cursors.Hand;
-            this.chevron.Location = new Point(8, 10);
-            this.chevron.Name = "chevron";
-            this.chevron.Size = new Size(20, 20);
-            this.chevron.TabIndex = 3;
-            this.chevron.TabStop = false;
+            // 
+            chevron.BackgroundImage = Resources.Chevron_Right;
+            chevron.BackgroundImageLayout = ImageLayout.Stretch;
+            chevron.Cursor = Cursors.Hand;
+            chevron.Location = new Point(8, 19);
+            chevron.Name = "chevron";
+            chevron.Size = new Size(20, 20);
+            chevron.TabIndex = 3;
+            chevron.TabStop = false;
+            // 
             // ActionConfiguratorPluginItem
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(35, 35, 35);
-            this.Controls.Add(this.chevron);
-            this.Controls.Add(this.lblCountActions);
-            this.Controls.Add(this.pluginName);
-            this.Controls.Add(this.pluginIcon);
-            this.Cursor = Cursors.Hand;
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.ForeColor = Color.White;
-            this.Margin = new Padding(0, 6, 0, 1);
-            this.Name = "ActionConfiguratorPluginItem";
-            this.Size = new Size(280, 40);
-            this.Load += new EventHandler(this.ActionConfiguratorPluginItem_Load);
-            ((ISupportInitialize)(this.pluginIcon)).EndInit();
-            ((ISupportInitialize)(this.chevron)).EndInit();
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(35, 35, 35);
+            Controls.Add(chevron);
+            Controls.Add(lblCountActions);
+            Controls.Add(pluginName);
+            Controls.Add(pluginIcon);
+            Cursor = Cursors.Hand;
+            Font = new Font("Tahoma", 9F);
+            ForeColor = Color.White;
+            Margin = new Padding(0, 6, 0, 1);
+            Name = "ActionConfiguratorPluginItem";
+            Size = new Size(280, 56);
+            Load += ActionConfiguratorPluginItem_Load;
+            ((ISupportInitialize)pluginIcon).EndInit();
+            ((ISupportInitialize)chevron).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

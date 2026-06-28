@@ -31,135 +31,137 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.Notifications
         /// </summary>
         private void InitializeComponent()
         {
-            this.pluginIcon = new PictureBox();
-            this.lblPluginName = new Label();
-            this.lblTitle = new Label();
-            this.lblMessage = new Label();
-            this.additionalControls = new FlowLayoutPanel();
-            this.flowLayoutPanel1 = new FlowLayoutPanel();
-            this.lblDateTime = new Label();
-            this.btnRemove = new PictureButton();
-            ((ISupportInitialize)(this.pluginIcon)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((ISupportInitialize)(this.btnRemove)).BeginInit();
-            this.SuspendLayout();
+            pluginIcon = new PictureBox();
+            lblPluginName = new Label();
+            lblTitle = new Label();
+            lblMessage = new Label();
+            additionalControls = new FlowLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            lblDateTime = new Label();
+            btnRemove = new PictureButton();
+            ((ISupportInitialize)pluginIcon).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            ((ISupportInitialize)btnRemove).BeginInit();
+            SuspendLayout();
             // 
             // pluginIcon
             // 
-            this.pluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
-            this.pluginIcon.Location = new Point(8, 8);
-            this.pluginIcon.Name = "pluginIcon";
-            this.pluginIcon.Size = new Size(50, 50);
-            this.pluginIcon.TabIndex = 0;
-            this.pluginIcon.TabStop = false;
+            pluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
+            pluginIcon.Location = new Point(8, 42);
+            pluginIcon.Name = "pluginIcon";
+            pluginIcon.Size = new Size(50, 50);
+            pluginIcon.TabIndex = 0;
+            pluginIcon.TabStop = false;
             // 
             // lblPluginName
             // 
-            this.lblPluginName.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            this.lblPluginName.ForeColor = Color.Silver;
-            this.lblPluginName.Location = new Point(64, 5);
-            this.lblPluginName.Name = "lblPluginName";
-            this.lblPluginName.Size = new Size(275, 13);
-            this.lblPluginName.TabIndex = 1;
-            this.lblPluginName.Text = "label1";
-            this.lblPluginName.TextAlign = ContentAlignment.MiddleLeft;
+            lblPluginName.AutoSize = true;
+            lblPluginName.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            lblPluginName.ForeColor = Color.Silver;
+            lblPluginName.Location = new Point(64, 17);
+            lblPluginName.Name = "lblPluginName";
+            lblPluginName.Size = new Size(64, 22);
+            lblPluginName.TabIndex = 1;
+            lblPluginName.Text = "label1";
+            lblPluginName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTitle
             // 
-            this.lblTitle.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblTitle.Location = new Point(63, 23);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new Size(399, 22);
-            this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "label1";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Tahoma", 12F);
+            lblTitle.Location = new Point(63, 51);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(75, 29);
+            lblTitle.TabIndex = 2;
+            lblTitle.Text = "label1";
             // 
             // lblMessage
             // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblMessage.Location = new Point(0, 0);
-            this.lblMessage.Margin = new Padding(0);
-            this.lblMessage.MaximumSize = new Size(400, 0);
-            this.lblMessage.MinimumSize = new Size(400, 0);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new Size(400, 16);
-            this.lblMessage.TabIndex = 3;
+            lblMessage.AutoSize = true;
+            lblMessage.Font = new Font("Tahoma", 9.75F);
+            lblMessage.Location = new Point(0, 0);
+            lblMessage.Margin = new Padding(0);
+            lblMessage.MaximumSize = new Size(400, 0);
+            lblMessage.MinimumSize = new Size(400, 0);
+            lblMessage.Name = "lblMessage";
+            lblMessage.Size = new Size(400, 24);
+            lblMessage.TabIndex = 3;
             // 
             // additionalControls
             // 
-            this.additionalControls.AutoSize = true;
-            this.additionalControls.Location = new Point(0, 26);
-            this.additionalControls.Margin = new Padding(0, 10, 0, 0);
-            this.additionalControls.MaximumSize = new Size(400, 0);
-            this.additionalControls.MinimumSize = new Size(400, 0);
-            this.additionalControls.Name = "additionalControls";
-            this.additionalControls.Size = new Size(400, 0);
-            this.additionalControls.TabIndex = 4;
+            additionalControls.AutoSize = true;
+            additionalControls.Location = new Point(0, 34);
+            additionalControls.Margin = new Padding(0, 10, 0, 0);
+            additionalControls.MaximumSize = new Size(400, 0);
+            additionalControls.MinimumSize = new Size(400, 0);
+            additionalControls.Name = "additionalControls";
+            additionalControls.Size = new Size(400, 0);
+            additionalControls.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this.lblMessage);
-            this.flowLayoutPanel1.Controls.Add(this.additionalControls);
-            this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new Point(64, 48);
-            this.flowLayoutPanel1.Margin = new Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new Size(400, 26);
-            this.flowLayoutPanel1.TabIndex = 5;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel1.Controls.Add(lblMessage);
+            flowLayoutPanel1.Controls.Add(additionalControls);
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(64, 89);
+            flowLayoutPanel1.Margin = new Padding(0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(400, 34);
+            flowLayoutPanel1.TabIndex = 5;
             // 
             // lblDateTime
             // 
-            this.lblDateTime.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblDateTime.ForeColor = Color.Silver;
-            this.lblDateTime.Location = new Point(320, 5);
-            this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new Size(188, 13);
-            this.lblDateTime.TabIndex = 6;
-            this.lblDateTime.Text = "00.00.0000 - 00:00:00";
-            this.lblDateTime.TextAlign = ContentAlignment.MiddleRight;
+            lblDateTime.AutoSize = true;
+            lblDateTime.Font = new Font("Tahoma", 9F);
+            lblDateTime.ForeColor = Color.Silver;
+            lblDateTime.Location = new Point(398, 11);
+            lblDateTime.Name = "lblDateTime";
+            lblDateTime.Size = new Size(191, 22);
+            lblDateTime.TabIndex = 6;
+            lblDateTime.Text = "00.00.0000 - 00:00:00";
+            lblDateTime.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnRemove
             // 
-            this.btnRemove.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
-            this.btnRemove.BackColor = Color.Transparent;
-            this.btnRemove.BackgroundImageLayout = ImageLayout.Stretch;
-            this.btnRemove.Cursor = Cursors.Hand;
-            this.btnRemove.HoverImage = Resources.Delete_Hover;
-            this.btnRemove.Image = Resources.Delete_Normal;
-            this.btnRemove.Location = new Point(483, 24);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new Size(30, 30);
-            this.btnRemove.TabIndex = 7;
-            this.btnRemove.TabStop = false;
-            this.btnRemove.Click += new EventHandler(this.BtnRemove_Click);
+            btnRemove.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRemove.BackColor = Color.Transparent;
+            btnRemove.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRemove.Cursor = Cursors.Hand;
+            btnRemove.HoverImage = Resources.Delete_Hover;
+            btnRemove.Image = Resources.Delete_Normal;
+            btnRemove.Location = new Point(608, 24);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(30, 30);
+            btnRemove.TabIndex = 7;
+            btnRemove.TabStop = false;
+            btnRemove.Click += BtnRemove_Click;
             // 
             // NotificationItem
             // 
-            this.AutoScaleDimensions = new SizeF(7F, 14F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.BackColor = Color.FromArgb(45, 45, 45);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.lblDateTime);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.lblPluginName);
-            this.Controls.Add(this.pluginIcon);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.ForeColor = Color.White;
-            this.MinimumSize = new Size(520, 0);
-            this.Name = "NotificationItem";
-            this.Size = new Size(525, 79);
-            this.Load += new EventHandler(this.NotificationItem_Load);
-            ((ISupportInitialize)(this.pluginIcon)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((ISupportInitialize)(this.btnRemove)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(10F, 22F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            BackColor = Color.FromArgb(45, 45, 45);
+            Controls.Add(btnRemove);
+            Controls.Add(lblDateTime);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(lblTitle);
+            Controls.Add(lblPluginName);
+            Controls.Add(pluginIcon);
+            Font = new Font("Tahoma", 9F);
+            ForeColor = Color.White;
+            MinimumSize = new Size(520, 0);
+            Name = "NotificationItem";
+            Size = new Size(650, 135);
+            Load += NotificationItem_Load;
+            ((ISupportInitialize)pluginIcon).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            ((ISupportInitialize)btnRemove).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

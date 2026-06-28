@@ -79,34 +79,34 @@ namespace SuchByte.MacroDeck.GUI
             ((ISupportInitialize)btnSettings).BeginInit();
             navigation.SuspendLayout();
             SuspendLayout();
-            //
+            // 
             // lblVersion
-            //
+            // 
             lblVersion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblVersion.Cursor = Cursors.Hand;
             lblVersion.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblVersion.ForeColor = Color.White;
-            lblVersion.Location = new Point(60, 735);
-            lblVersion.Margin = new Padding(9, 0, 9, 0);
+            lblVersion.Location = new Point(90, 1102);
+            lblVersion.Margin = new Padding(14, 0, 14, 0);
             lblVersion.Name = "lblVersion";
-            lblVersion.Size = new Size(154, 22);
+            lblVersion.Size = new Size(602, 33);
             lblVersion.TabIndex = 3;
             lblVersion.Text = "2.0.0";
             lblVersion.TextAlign = ContentAlignment.MiddleLeft;
             lblVersion.UseMnemonic = false;
-            lblVersion.Cursor = Cursors.Hand;
             lblVersion.Click += LblVersion_Click;
-            //
+            // 
             // contentPanel
-            //
+            // 
             contentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            contentPanel.Location = new Point(60, 0);
+            contentPanel.Location = new Point(90, 0);
             contentPanel.Margin = new Padding(0);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(1380, 728);
+            contentPanel.Size = new Size(2070, 1092);
             contentPanel.TabIndex = 4;
-            //
+            // 
             // contentButtonPanel
-            //
+            // 
             contentButtonPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             contentButtonPanel.Controls.Add(btnNotifications);
             contentButtonPanel.Controls.Add(btnDeck);
@@ -116,14 +116,14 @@ namespace SuchByte.MacroDeck.GUI
             contentButtonPanel.Controls.Add(btnVariables);
             contentButtonPanel.Controls.Add(panel2);
             contentButtonPanel.FlowDirection = FlowDirection.TopDown;
-            contentButtonPanel.Location = new Point(8, 7);
+            contentButtonPanel.Location = new Point(12, 10);
             contentButtonPanel.Margin = new Padding(0);
             contentButtonPanel.Name = "contentButtonPanel";
-            contentButtonPanel.Size = new Size(45, 572);
+            contentButtonPanel.Size = new Size(68, 1049);
             contentButtonPanel.TabIndex = 5;
-            //
+            // 
             // btnNotifications
-            //
+            // 
             btnNotifications.BorderRadius = 8;
             btnNotifications.Cursor = Cursors.Hand;
             btnNotifications.FlatAppearance.BorderSize = 0;
@@ -132,109 +132,109 @@ namespace SuchByte.MacroDeck.GUI
             btnNotifications.ForeColor = Color.White;
             btnNotifications.HoverColor = Color.Empty;
             btnNotifications.Icon = Properties.Resources.Bell;
-            btnNotifications.Location = new Point(0, 4);
-            btnNotifications.Margin = new Padding(0, 4, 0, 4);
+            btnNotifications.Location = new Point(0, 6);
+            btnNotifications.Margin = new Padding(0, 6, 0, 6);
             btnNotifications.Name = "btnNotifications";
             btnNotifications.NotificationCount = 0;
             btnNotifications.Progress = 0;
             btnNotifications.ProgressColor = Color.FromArgb(0, 103, 205);
-            btnNotifications.Size = new Size(44, 44);
+            btnNotifications.Size = new Size(66, 66);
             btnNotifications.TabIndex = 16;
             btnNotifications.UseVisualStyleBackColor = true;
             btnNotifications.UseWindowsAccentColor = false;
             btnNotifications.Visible = false;
             btnNotifications.WriteProgress = true;
             btnNotifications.Click += BtnNotifications_Click;
-            //
+            // 
             // btnDeck
-            //
+            // 
             btnDeck.BackColor = Color.Transparent;
             btnDeck.BackgroundImage = Properties.Resources.deck;
             btnDeck.BackgroundImageLayout = ImageLayout.Stretch;
             btnDeck.Cursor = Cursors.Hand;
             btnDeck.Font = new Font("Tahoma", 9.75F);
             btnDeck.ForeColor = Color.White;
-            btnDeck.Location = new Point(0, 52);
-            btnDeck.Margin = new Padding(0, 0, 0, 6);
+            btnDeck.Location = new Point(0, 78);
+            btnDeck.Margin = new Padding(0, 0, 0, 9);
             btnDeck.Name = "btnDeck";
             btnDeck.Selected = false;
-            btnDeck.Size = new Size(44, 44);
+            btnDeck.Size = new Size(66, 66);
             btnDeck.TabIndex = 0;
             btnDeck.TabStop = false;
             btnDeck.Click += BtnDeck_Click;
-            //
+            // 
             // panel1
-            //
+            // 
             panel1.BackColor = Color.Silver;
-            panel1.Location = new Point(0, 106);
-            panel1.Margin = new Padding(0, 4, 0, 4);
+            panel1.Location = new Point(0, 159);
+            panel1.Margin = new Padding(0, 6, 0, 6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(66, 3);
+            panel1.Size = new Size(99, 4);
             panel1.TabIndex = 4;
-            //
+            // 
             // btnExtensions
-            //
+            // 
             btnExtensions.BackColor = Color.Transparent;
             btnExtensions.BackgroundImage = Properties.Resources.Package_Manager_icon;
             btnExtensions.BackgroundImageLayout = ImageLayout.Stretch;
             btnExtensions.Cursor = Cursors.Hand;
             btnExtensions.Font = new Font("Tahoma", 9.75F);
             btnExtensions.ForeColor = Color.White;
-            btnExtensions.Location = new Point(0, 119);
-            btnExtensions.Margin = new Padding(0, 6, 0, 6);
+            btnExtensions.Location = new Point(0, 178);
+            btnExtensions.Margin = new Padding(0, 9, 0, 9);
             btnExtensions.Name = "btnExtensions";
             btnExtensions.Selected = false;
-            btnExtensions.Size = new Size(44, 44);
+            btnExtensions.Size = new Size(66, 66);
             btnExtensions.TabIndex = 1;
             btnExtensions.TabStop = false;
             btnExtensions.Click += BtnExtensions_Click;
-            //
+            // 
             // btnDeviceManager
-            //
+            // 
             btnDeviceManager.BackColor = Color.Transparent;
             btnDeviceManager.BackgroundImage = Properties.Resources.device_manager;
             btnDeviceManager.BackgroundImageLayout = ImageLayout.Stretch;
             btnDeviceManager.Cursor = Cursors.Hand;
             btnDeviceManager.Font = new Font("Tahoma", 9.75F);
             btnDeviceManager.ForeColor = Color.White;
-            btnDeviceManager.Location = new Point(0, 175);
-            btnDeviceManager.Margin = new Padding(0, 6, 0, 6);
+            btnDeviceManager.Location = new Point(0, 262);
+            btnDeviceManager.Margin = new Padding(0, 9, 0, 9);
             btnDeviceManager.Name = "btnDeviceManager";
             btnDeviceManager.Selected = false;
-            btnDeviceManager.Size = new Size(44, 44);
+            btnDeviceManager.Size = new Size(66, 66);
             btnDeviceManager.TabIndex = 2;
             btnDeviceManager.TabStop = false;
             btnDeviceManager.Click += BtnDeviceManager_Click;
-            //
+            // 
             // btnVariables
-            //
+            // 
             btnVariables.BackColor = Color.Transparent;
             btnVariables.BackgroundImage = Properties.Resources.variables;
             btnVariables.BackgroundImageLayout = ImageLayout.Stretch;
             btnVariables.Cursor = Cursors.Hand;
             btnVariables.Font = new Font("Tahoma", 12.75F);
             btnVariables.ForeColor = Color.White;
-            btnVariables.Location = new Point(0, 231);
-            btnVariables.Margin = new Padding(0, 6, 0, 6);
+            btnVariables.Location = new Point(0, 346);
+            btnVariables.Margin = new Padding(0, 9, 0, 9);
             btnVariables.Name = "btnVariables";
             btnVariables.Selected = false;
-            btnVariables.Size = new Size(44, 44);
+            btnVariables.Size = new Size(66, 66);
             btnVariables.TabIndex = 3;
             btnVariables.TabStop = false;
             btnVariables.Text = "{x}";
             btnVariables.Click += BtnVariables_Click;
-            //
+            // 
             // panel2
-            //
+            // 
             panel2.BackColor = Color.Silver;
-            panel2.Location = new Point(0, 285);
-            panel2.Margin = new Padding(0, 4, 0, 4);
+            panel2.Location = new Point(0, 427);
+            panel2.Margin = new Padding(0, 6, 0, 6);
             panel2.Name = "panel2";
-            panel2.Size = new Size(66, 3);
+            panel2.Size = new Size(99, 4);
             panel2.TabIndex = 5;
-            //
+            // 
             // btnSettings
-            //
+            // 
             btnSettings.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnSettings.BackColor = Color.Transparent;
             btnSettings.BackgroundImage = Properties.Resources.settings;
@@ -242,31 +242,31 @@ namespace SuchByte.MacroDeck.GUI
             btnSettings.Cursor = Cursors.Hand;
             btnSettings.Font = new Font("Tahoma", 9.75F);
             btnSettings.ForeColor = Color.White;
-            btnSettings.Location = new Point(8, 585);
-            btnSettings.Margin = new Padding(12, 6, 12, 6);
+            btnSettings.Location = new Point(12, 1069);
+            btnSettings.Margin = new Padding(18, 9, 18, 9);
             btnSettings.Name = "btnSettings";
             btnSettings.Selected = false;
-            btnSettings.Size = new Size(44, 44);
+            btnSettings.Size = new Size(66, 66);
             btnSettings.TabIndex = 1;
             btnSettings.TabStop = false;
             btnSettings.Click += BtnSettings_Click;
-            //
+            // 
             // lblNumClientsConnected
-            //
+            // 
             lblNumClientsConnected.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblNumClientsConnected.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNumClientsConnected.ForeColor = Color.White;
-            lblNumClientsConnected.Location = new Point(901, 735);
-            lblNumClientsConnected.Margin = new Padding(9, 0, 9, 0);
+            lblNumClientsConnected.Location = new Point(1811, 1102);
+            lblNumClientsConnected.Margin = new Padding(14, 0, 14, 0);
             lblNumClientsConnected.Name = "lblNumClientsConnected";
-            lblNumClientsConnected.Size = new Size(154, 22);
+            lblNumClientsConnected.Size = new Size(326, 33);
             lblNumClientsConnected.TabIndex = 8;
             lblNumClientsConnected.Text = "0 clients connected";
             lblNumClientsConnected.TextAlign = ContentAlignment.MiddleRight;
             lblNumClientsConnected.UseMnemonic = false;
-            //
+            // 
             // navigation
-            //
+            // 
             navigation.BackColor = Color.FromArgb(65, 65, 65);
             navigation.Controls.Add(contentButtonPanel);
             navigation.Controls.Add(btnSettings);
@@ -274,22 +274,22 @@ namespace SuchByte.MacroDeck.GUI
             navigation.Location = new Point(0, 0);
             navigation.Margin = new Padding(0);
             navigation.Name = "navigation";
-            navigation.Size = new Size(60, 635);
+            navigation.Size = new Size(90, 1143);
             navigation.TabIndex = 15;
-            //
+            // 
             // MainWindow
-            //
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            // 
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(65, 65, 65);
-            ClientSize = new Size(1440, 762);
+            ClientSize = new Size(2160, 1143);
             Controls.Add(navigation);
             Controls.Add(lblNumClientsConnected);
             Controls.Add(contentPanel);
             Controls.Add(lblVersion);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(10, 4, 10, 4);
-            MinimumSize = new Size(1440, 762);
+            Margin = new Padding(15, 6, 15, 6);
+            MinimumSize = new Size(2149, 1117);
             Name = "MainWindow";
             Text = "Macro Deck 2";
             FormClosing += OnFormClosing;
