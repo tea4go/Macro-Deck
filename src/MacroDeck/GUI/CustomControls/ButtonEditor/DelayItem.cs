@@ -5,6 +5,7 @@ using SuchByte.MacroDeck.Plugins;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 
+
 public partial class DelayItem : UserControl, IActionConditionItem
 {
     public PluginAction? Action { get; set; }

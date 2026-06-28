@@ -2,6 +2,7 @@
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 
+
 public partial class EventSelector : RoundedUserControl
 {
     private ActionButton.ActionButton actionButton;

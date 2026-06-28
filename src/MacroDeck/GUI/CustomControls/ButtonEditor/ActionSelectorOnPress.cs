@@ -6,6 +6,7 @@ using SuchByte.MacroDeck.Plugins;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 
+
 public partial class ActionSelectorOnPress : RoundedUserControl
 {
     private List<PluginAction?> _pluginActions;
