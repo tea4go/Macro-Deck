@@ -207,6 +207,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.Name = "ActionItem";
             this.Padding = new Padding(2);
             this.Size = new Size(842, 50);
+            this.Load += new EventHandler(this.ActionItem_Load);
             ((ISupportInitialize)(this.btnRemove)).EndInit();
             ((ISupportInitialize)(this.btnEdit)).EndInit();
             ((ISupportInitialize)(this.btnDown)).EndInit();

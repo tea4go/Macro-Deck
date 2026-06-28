@@ -1,4 +1,5 @@
-﻿using SuchByte.MacroDeck.ActionButton;
+﻿using Serilog;
+using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Interfaces;
@@ -10,6 +11,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 
 public partial class ConditionItem : UserControl, IActionConditionItem
 {
+    private static readonly ILogger Logger = Log.ForContext(typeof(ConditionItem));
+
     public PluginAction? Action { get; set; } = new ConditionAction();
 
     public event EventHandler OnRemoveClick;
@@ -293,7 +296,11 @@ public partial class ConditionItem : UserControl, IActionConditionItem
 
     private void ConditionItem_Load(object sender, EventArgs e)
     {
+        Logger.Information("ConditionItem_Load 触发，准备应用配置字体。Family={Family}, Size={Size}, Bold={Bold}",
+            Utils.FontManager.FontFamily, Utils.FontManager.FontSize, Utils.FontManager.FontBold);
         Utils.FontManager.Apply(this);
+        Logger.Information("ConditionItem 字体应用完成。lblIf=[{LblIf}], typeBox=[{TypeBox}], addItemContextMenu=[{Menu}]",
+            lblIf.Font, typeBox.Font, addItemContextMenu.Font);
         RefreshActions();
     }
 

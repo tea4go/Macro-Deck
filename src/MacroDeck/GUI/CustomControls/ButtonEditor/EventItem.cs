@@ -1,4 +1,5 @@
-﻿using SuchByte.MacroDeck.ActionButton;
+﻿using Serilog;
+using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.Events;
 using SuchByte.MacroDeck.Interfaces;
@@ -9,6 +10,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 
 public partial class EventItem : UserControl
 {
+    private static readonly ILogger Logger = Log.ForContext(typeof(EventItem));
+
     public event EventHandler EventChanged;
     public event EventHandler OnRemoveClick;
 
@@ -35,10 +38,18 @@ public partial class EventItem : UserControl
         menuItemCondition.Text = LanguageManager.Strings.Condition;
         menuItemDelay.Text = LanguageManager.Strings.Delay;
         lblTrigger.Text = LanguageManager.Strings.Trigger;
+
+        // ContextMenuStrip 不在窗体控件树中，FontManager.Apply 无法触及，需手动套用配置字体
+        addItemContextMenu.Font = Utils.FontManager.Resolve(addItemContextMenu.Font);
     }
 
     private void EventItem_Load(object sender, EventArgs e)
     {
+        Logger.Information("EventItem_Load 触发，准备应用配置字体。Family={Family}, Size={Size}, Bold={Bold}",
+            Utils.FontManager.FontFamily, Utils.FontManager.FontSize, Utils.FontManager.FontBold);
+        Utils.FontManager.Apply(this);
+        Logger.Information("EventItem 字体应用完成。lblTrigger=[{LblTrigger}], eventBox=[{EventBox}]",
+            lblTrigger.Font, eventBox.Font);
         LoadEvents();
         RefreshActions();
     }

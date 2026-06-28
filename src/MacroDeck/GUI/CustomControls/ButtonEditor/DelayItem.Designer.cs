@@ -236,6 +236,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.Margin = new Padding(0, 3, 0, 3);
             this.Name = "DelayItem";
             this.Size = new Size(842, 50);
+            this.Load += new EventHandler(this.DelayItem_Load);
             this.panelEdit.ResumeLayout(false);
             ((ISupportInitialize)(this.btnRemove)).EndInit();
             ((ISupportInitialize)(this.btnDown)).EndInit();

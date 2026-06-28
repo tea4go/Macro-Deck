@@ -1,4 +1,5 @@
-﻿using SuchByte.MacroDeck.Interfaces;
+﻿using Serilog;
+using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Plugins;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
@@ -6,6 +7,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 
 public partial class ActionItem : UserControl, IActionConditionItem
 {
+    private static readonly ILogger Logger = Log.ForContext(typeof(ActionItem));
+
     public PluginAction? Action { get; set; }
 
     public event EventHandler OnRemoveClick;
@@ -21,6 +24,15 @@ public partial class ActionItem : UserControl, IActionConditionItem
         lblPlugin.Text = PluginManager.GetPluginByAction(Action).Name;
         lblAction.Text = Action.Name;
         lblConfigurationSummary.Text = Action.ConfigurationSummary;
+    }
+
+    private void ActionItem_Load(object sender, EventArgs e)
+    {
+        Logger.Information("ActionItem_Load 触发，准备应用配置字体。Family={Family}, Size={Size}, Bold={Bold}",
+            Utils.FontManager.FontFamily, Utils.FontManager.FontSize, Utils.FontManager.FontBold);
+        Utils.FontManager.Apply(this);
+        Logger.Information("ActionItem 字体应用完成。lblPlugin=[{LblPlugin}], lblAction=[{LblAction}]",
+            lblPlugin.Font, lblAction.Font);
     }
 
 
