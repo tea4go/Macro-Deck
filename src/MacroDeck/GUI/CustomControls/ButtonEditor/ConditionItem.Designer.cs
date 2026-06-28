@@ -97,7 +97,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.typeBox.Name = "typeBox";
             this.typeBox.SelectedIndex = -1;
             this.typeBox.SelectedItem = null;
-            this.typeBox.Size = new Size(115, 28);
+            this.typeBox.Size = new Size(135, 28);
             this.typeBox.TabIndex = 5;
             this.typeBox.SelectedIndexChanged += new EventHandler(this.TypeBox_SelectedIndexChanged);
             this.typeBox.Load += new EventHandler(this.typeBox_Load);
@@ -109,7 +109,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.methodBox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.methodBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.methodBox.Icon = null;
-            this.methodBox.Location = new Point(245, 0);
+            this.methodBox.Location = new Point(295, 0);
             this.methodBox.Margin = new Padding(5, 0, 5, 0);
             this.methodBox.Name = "methodBox";
             this.methodBox.SelectedIndex = -1;
@@ -127,7 +127,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.valueToCompare.DropDownStyle = ComboBoxStyle.DropDown;
             this.valueToCompare.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.valueToCompare.Icon = null;
-            this.valueToCompare.Location = new Point(348, 0);
+            this.valueToCompare.Location = new Point(398, 0);
             this.valueToCompare.Margin = new Padding(5, 0, 5, 0);
             this.valueToCompare.Name = "valueToCompare";
             this.valueToCompare.SelectedIndex = -1;
