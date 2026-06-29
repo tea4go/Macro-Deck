@@ -46,7 +46,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             pluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
             pluginIcon.Cursor = Cursors.Hand;
-            pluginIcon.Location = new Point(33, 14);
+            pluginIcon.Location = new Point(33, 19);
             pluginIcon.Name = "pluginIcon";
             pluginIcon.Size = new Size(30, 30);
             pluginIcon.TabIndex = 0;
@@ -56,7 +56,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             pluginName.Cursor = Cursors.Hand;
             pluginName.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            pluginName.Location = new Point(69, 5);
+            pluginName.Location = new Point(69, 8);
             pluginName.Name = "pluginName";
             pluginName.Size = new Size(203, 20);
             pluginName.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             lblCountActions.Cursor = Cursors.Hand;
             lblCountActions.Font = new Font("Tahoma", 8.25F);
-            lblCountActions.Location = new Point(69, 31);
+            lblCountActions.Location = new Point(69, 38);
             lblCountActions.Name = "lblCountActions";
             lblCountActions.Size = new Size(203, 20);
             lblCountActions.TabIndex = 2;
@@ -81,7 +81,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             chevron.BackgroundImage = Resources.Chevron_Right;
             chevron.BackgroundImageLayout = ImageLayout.Stretch;
             chevron.Cursor = Cursors.Hand;
-            chevron.Location = new Point(8, 19);
+            chevron.Location = new Point(8, 23);
             chevron.Name = "chevron";
             chevron.Size = new Size(20, 20);
             chevron.TabIndex = 3;
@@ -101,7 +101,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             ForeColor = Color.White;
             Margin = new Padding(0, 6, 0, 1);
             Name = "ActionConfiguratorPluginItem";
-            Size = new Size(280, 56);
+            Size = new Size(415, 70);
             Load += ActionConfiguratorPluginItem_Load;
             ((ISupportInitialize)pluginIcon).EndInit();
             ((ISupportInitialize)chevron).EndInit();

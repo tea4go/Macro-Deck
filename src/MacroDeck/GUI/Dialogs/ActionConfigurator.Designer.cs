@@ -53,7 +53,7 @@ namespace SuchByte.MacroDeck.GUI
             btnApply.ForeColor = Color.White;
             btnApply.HoverColor = Color.FromArgb(0, 89, 184);
             btnApply.Icon = null;
-            btnApply.Location = new Point(1059, 596);
+            btnApply.Location = new Point(1658, 1198);
             btnApply.Name = "btnApply";
             btnApply.Progress = 0;
             btnApply.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -82,7 +82,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             labelDescription.Font = new Font("Tahoma", 9F);
             labelDescription.ForeColor = Color.White;
-            labelDescription.Location = new Point(335, 105);
+            labelDescription.Location = new Point(518, 87);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(854, 58);
             labelDescription.TabIndex = 3;
@@ -92,7 +92,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             configurationPanel.Controls.Add(lblSelectToBegin);
             configurationPanel.Font = new Font("Tahoma", 14.25F);
-            configurationPanel.Location = new Point(332, 166);
+            configurationPanel.Location = new Point(518, 148);
             configurationPanel.Name = "configurationPanel";
             configurationPanel.Size = new Size(857, 424);
             configurationPanel.TabIndex = 9;
@@ -126,7 +126,7 @@ namespace SuchByte.MacroDeck.GUI
             pluginSearch.ReadOnly = false;
             pluginSearch.ScrollBars = ScrollBars.None;
             pluginSearch.SelectionStart = 0;
-            pluginSearch.Size = new Size(310, 43);
+            pluginSearch.Size = new Size(487, 43);
             pluginSearch.TabIndex = 10;
             pluginSearch.TabStop = false;
             pluginSearch.TextAlignment = HorizontalAlignment.Left;
@@ -134,19 +134,20 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // pluginsList
             // 
+            pluginsList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             pluginsList.AutoScroll = true;
             pluginsList.BackColor = Color.FromArgb(65, 65, 65);
             pluginsList.Location = new Point(11, 79);
             pluginsList.Name = "pluginsList";
-            pluginsList.Size = new Size(310, 579);
+            pluginsList.Size = new Size(487, 1181);
             pluginsList.TabIndex = 11;
             // 
             // selectedPluginIcon
             // 
             selectedPluginIcon.BackgroundImageLayout = ImageLayout.Stretch;
-            selectedPluginIcon.Location = new Point(335, 43);
+            selectedPluginIcon.Location = new Point(518, 16);
             selectedPluginIcon.Name = "selectedPluginIcon";
-            selectedPluginIcon.Size = new Size(100, 50);
+            selectedPluginIcon.Size = new Size(59, 50);
             selectedPluginIcon.TabIndex = 12;
             selectedPluginIcon.TabStop = false;
             // 
@@ -154,10 +155,11 @@ namespace SuchByte.MacroDeck.GUI
             // 
             lblSelectedActionName.AutoSize = true;
             lblSelectedActionName.Font = new Font("Tahoma", 15.75F);
-            lblSelectedActionName.Location = new Point(391, 43);
+            lblSelectedActionName.Location = new Point(612, 20);
             lblSelectedActionName.Name = "lblSelectedActionName";
-            lblSelectedActionName.Size = new Size(0, 39);
+            lblSelectedActionName.Size = new Size(238, 39);
             lblSelectedActionName.TabIndex = 13;
+            lblSelectedActionName.Text = "1111111111111";
             lblSelectedActionName.TextAlign = ContentAlignment.MiddleCenter;
             lblSelectedActionName.UseMnemonic = false;
             // 
@@ -166,7 +168,7 @@ namespace SuchByte.MacroDeck.GUI
             AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
-            ClientSize = new Size(1200, 674);
+            ClientSize = new Size(1840, 1285);
             Controls.Add(lblSelectedActionName);
             Controls.Add(selectedPluginIcon);
             Controls.Add(pluginsList);

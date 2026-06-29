@@ -40,9 +40,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // lblActionName
             // 
             lblActionName.Cursor = Cursors.Hand;
-            lblActionName.Location = new Point(8, 5);
+            lblActionName.Location = new Point(1, 0);
             lblActionName.Name = "lblActionName";
-            lblActionName.Size = new Size(252, 36);
+            lblActionName.Size = new Size(265, 48);
             lblActionName.TabIndex = 0;
             lblActionName.Text = "label1";
             lblActionName.TextAlign = ContentAlignment.MiddleLeft;
@@ -59,7 +59,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             ForeColor = Color.White;
             Margin = new Padding(6, 0, 6, 1);
             Name = "ActionConfiguratorActionItem";
-            Size = new Size(268, 40);
+            Size = new Size(268, 50);
             Load += ActionConfiguratorActionItem_Load;
             ResumeLayout(false);
 
