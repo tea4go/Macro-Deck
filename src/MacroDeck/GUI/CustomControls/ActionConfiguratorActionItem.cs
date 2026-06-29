@@ -1,5 +1,6 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.Plugins;
+﻿using SuchByte.MacroDeck.Plugins;
+using SuchByte.MacroDeck.Utils;
+using System.Windows.Forms;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -34,6 +35,9 @@ public partial class ActionConfiguratorActionItem : RoundedUserControl
     /// </summary>
     public void AdjustLayout()
     {
+        // 插件名称字体：配置字号，始终粗体
+        lblActionName.Font = new Font(FontManager.FontFamily, FontManager.FontSize, FontStyle.Bold, baseFont.Unit, baseFont.GdiCharSet);
+
         var textHeight = TextRenderer.MeasureText("Ay", lblActionName.Font).Height + 8;
         if (lblActionName.Height < textHeight)
             lblActionName.Height = textHeight;

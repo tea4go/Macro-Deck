@@ -93,7 +93,7 @@ public partial class ActionConfiguratorPluginItem : RoundedUserControl
         var baseFont = pluginName.Font;
         var nameFontSize = FontManager.FontSize + 3;
         pluginName.Font = new Font(FontManager.FontFamily, nameFontSize, FontStyle.Bold, baseFont.Unit, baseFont.GdiCharSet);
-
+        lblCountActions.Font = new Font(FontManager.FontFamily, FontManager.FontSize, FontStyle.Bold, baseFont.Unit, baseFont.GdiCharSet);
         // 计算各标签在当前字体下的最小高度（以 Ay 为基准加上边距）
         var nameTextHeight = TextRenderer.MeasureText("Ay", pluginName.Font).Height + 4;
         var countTextHeight = TextRenderer.MeasureText("Ay", lblCountActions.Font).Height + 4;

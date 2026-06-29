@@ -46,6 +46,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // btnApply
             // 
+            btnApply.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnApply.BorderRadius = 8;
             btnApply.Cursor = Cursors.Hand;
             btnApply.FlatStyle = FlatStyle.Flat;
@@ -53,7 +54,7 @@ namespace SuchByte.MacroDeck.GUI
             btnApply.ForeColor = Color.White;
             btnApply.HoverColor = Color.FromArgb(0, 89, 184);
             btnApply.Icon = null;
-            btnApply.Location = new Point(1658, 1198);
+            btnApply.Location = new Point(1693, 1198);
             btnApply.Name = "btnApply";
             btnApply.Progress = 0;
             btnApply.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -82,7 +83,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             labelDescription.Font = new Font("Tahoma", 9F);
             labelDescription.ForeColor = Color.White;
-            labelDescription.Location = new Point(518, 87);
+            labelDescription.Location = new Point(518, 90);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(854, 58);
             labelDescription.TabIndex = 3;
@@ -99,10 +100,10 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // lblSelectToBegin
             // 
-            lblSelectToBegin.Dock = DockStyle.Fill;
+            lblSelectToBegin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSelectToBegin.Location = new Point(0, 0);
             lblSelectToBegin.Name = "lblSelectToBegin";
-            lblSelectToBegin.Size = new Size(857, 424);
+            lblSelectToBegin.Size = new Size(1301, 1027);
             lblSelectToBegin.TabIndex = 0;
             lblSelectToBegin.Text = "Select a plugin and a action to begin";
             lblSelectToBegin.TextAlign = ContentAlignment.MiddleCenter;
@@ -157,9 +158,8 @@ namespace SuchByte.MacroDeck.GUI
             lblSelectedActionName.Font = new Font("Tahoma", 15.75F);
             lblSelectedActionName.Location = new Point(612, 20);
             lblSelectedActionName.Name = "lblSelectedActionName";
-            lblSelectedActionName.Size = new Size(238, 39);
+            lblSelectedActionName.Size = new Size(0, 39);
             lblSelectedActionName.TabIndex = 13;
-            lblSelectedActionName.Text = "1111111111111";
             lblSelectedActionName.TextAlign = ContentAlignment.MiddleCenter;
             lblSelectedActionName.UseMnemonic = false;
             // 
