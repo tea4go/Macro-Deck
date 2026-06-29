@@ -31,7 +31,6 @@ public partial class ActionConfigurator : DialogForm
         Action = action;
         InitializeComponent();
         // 初始化界面文本（多语言支持）
-        lblSelectToBegin.Text = LanguageManager.Strings.SelectAPluginAndActionToBegin;
         btnApply.Text = LanguageManager.Strings.Ok;
         label2.Text = LanguageManager.Strings.Action;
         pluginSearch.PlaceHolderText = LanguageManager.Strings.Search;

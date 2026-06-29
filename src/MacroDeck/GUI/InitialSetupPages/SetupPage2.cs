@@ -30,8 +30,7 @@ public partial class SetupPage2 : UserControl
         //this.adapter.Items.Add("All");
         try
         {
-            var adapters = NetworkInterface.GetAllNetworkInterfaces();
-            foreach (var adapter in adapters)
+            foreach (var adapter in NetworkInterface.GetAllNetworkInterfaces().Where(IsUsableAdapter))
             {
                 this.adapter.Items.Add(adapter.Name);
             }
@@ -41,6 +40,25 @@ public partial class SetupPage2 : UserControl
         catch
         {
         }
+    }
+
+    /// <summary>
+    /// 过滤可供选择的网卡：仅保留活动、非回环、且具备 IPv4 地址的接口。
+    /// </summary>
+    private static bool IsUsableAdapter(NetworkInterface adapter)
+    {
+        if (adapter.OperationalStatus != OperationalStatus.Up)
+        {
+            return false;
+        }
+
+        if (adapter.NetworkInterfaceType == NetworkInterfaceType.Loopback)
+        {
+            return false;
+        }
+
+        return adapter.GetIPProperties().UnicastAddresses
+            .Any(ip => ip.Address.AddressFamily == AddressFamily.InterNetwork);
     }
 
     private void Adapter_SelectedIndexChanged(object sender, EventArgs e)

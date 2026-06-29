@@ -34,68 +34,68 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblAlmostDone = new Label();
-            this.checkAutoUpdates = new CheckBox();
-            this.checkAutoStart = new CheckBox();
-            this.SuspendLayout();
+            lblAlmostDone = new Label();
+            checkAutoUpdates = new CheckBox();
+            checkAutoStart = new CheckBox();
+            SuspendLayout();
             // 
             // lblAlmostDone
             // 
-            this.lblAlmostDone.Font = new Font("Tahoma", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblAlmostDone.ForeColor = Color.White;
-            this.lblAlmostDone.ImageAlign = ContentAlignment.BottomCenter;
-            this.lblAlmostDone.Location = new Point(3, 0);
-            this.lblAlmostDone.Name = "lblAlmostDone";
-            this.lblAlmostDone.Size = new Size(685, 45);
-            this.lblAlmostDone.TabIndex = 7;
-            this.lblAlmostDone.Text = "We\'re almost done!";
-            this.lblAlmostDone.TextAlign = ContentAlignment.TopCenter;
-            this.lblAlmostDone.UseMnemonic = false;
+            lblAlmostDone.Font = new Font("Tahoma", 24F);
+            lblAlmostDone.ForeColor = Color.White;
+            lblAlmostDone.ImageAlign = ContentAlignment.BottomCenter;
+            lblAlmostDone.Location = new Point(3, 0);
+            lblAlmostDone.Name = "lblAlmostDone";
+            lblAlmostDone.Size = new Size(685, 73);
+            lblAlmostDone.TabIndex = 7;
+            lblAlmostDone.Text = "We're almost done!";
+            lblAlmostDone.TextAlign = ContentAlignment.TopCenter;
+            lblAlmostDone.UseMnemonic = false;
             // 
             // checkAutoUpdates
             // 
-            this.checkAutoUpdates.AutoSize = true;
-            this.checkAutoUpdates.Checked = true;
-            this.checkAutoUpdates.CheckState = CheckState.Checked;
-            this.checkAutoUpdates.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.checkAutoUpdates.ForeColor = Color.White;
-            this.checkAutoUpdates.Location = new Point(16, 100);
-            this.checkAutoUpdates.Name = "checkAutoUpdates";
-            this.checkAutoUpdates.Size = new Size(253, 23);
-            this.checkAutoUpdates.TabIndex = 8;
-            this.checkAutoUpdates.Text = "Automatically check for updates";
-            this.checkAutoUpdates.UseMnemonic = false;
-            this.checkAutoUpdates.UseVisualStyleBackColor = true;
-            this.checkAutoUpdates.CheckedChanged += new EventHandler(this.CheckAutoUpdates_CheckedChanged);
+            checkAutoUpdates.AutoSize = true;
+            checkAutoUpdates.Checked = true;
+            checkAutoUpdates.CheckState = CheckState.Checked;
+            checkAutoUpdates.Font = new Font("Tahoma", 12F);
+            checkAutoUpdates.ForeColor = Color.White;
+            checkAutoUpdates.Location = new Point(16, 100);
+            checkAutoUpdates.Name = "checkAutoUpdates";
+            checkAutoUpdates.Size = new Size(377, 33);
+            checkAutoUpdates.TabIndex = 8;
+            checkAutoUpdates.Text = "Automatically check for updates";
+            checkAutoUpdates.UseMnemonic = false;
+            checkAutoUpdates.UseVisualStyleBackColor = true;
+            checkAutoUpdates.CheckedChanged += CheckAutoUpdates_CheckedChanged;
             // 
             // checkAutoStart
             // 
-            this.checkAutoStart.AutoSize = true;
-            this.checkAutoStart.Checked = true;
-            this.checkAutoStart.CheckState = CheckState.Checked;
-            this.checkAutoStart.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.checkAutoStart.ForeColor = Color.White;
-            this.checkAutoStart.Location = new Point(16, 129);
-            this.checkAutoStart.Name = "checkAutoStart";
-            this.checkAutoStart.Size = new Size(264, 23);
-            this.checkAutoStart.TabIndex = 9;
-            this.checkAutoStart.Text = "Automatically start with Windows\r\n";
-            this.checkAutoStart.UseMnemonic = false;
-            this.checkAutoStart.UseVisualStyleBackColor = true;
-            this.checkAutoStart.CheckedChanged += new EventHandler(this.CheckAutoStart_CheckedChanged);
+            checkAutoStart.AutoSize = true;
+            checkAutoStart.Checked = true;
+            checkAutoStart.CheckState = CheckState.Checked;
+            checkAutoStart.Font = new Font("Tahoma", 12F);
+            checkAutoStart.ForeColor = Color.White;
+            checkAutoStart.Location = new Point(16, 145);
+            checkAutoStart.Name = "checkAutoStart";
+            checkAutoStart.Size = new Size(391, 33);
+            checkAutoStart.TabIndex = 9;
+            checkAutoStart.Text = "Automatically start with Windows\r\n";
+            checkAutoStart.UseMnemonic = false;
+            checkAutoStart.UseVisualStyleBackColor = true;
+            checkAutoStart.CheckedChanged += CheckAutoStart_CheckedChanged;
             // 
             // SetupPage6
             // 
-            
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(45, 45, 45);
-            this.Controls.Add(this.checkAutoStart);
-            this.Controls.Add(this.checkAutoUpdates);
-            this.Controls.Add(this.lblAlmostDone);
-            this.Name = "SetupPage6";
-            this.Size = new Size(691, 571);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            Controls.Add(checkAutoStart);
+            Controls.Add(checkAutoUpdates);
+            Controls.Add(lblAlmostDone);
+            Name = "SetupPage6";
+            Size = new Size(691, 571);
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

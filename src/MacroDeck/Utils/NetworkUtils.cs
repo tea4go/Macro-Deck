@@ -14,7 +14,8 @@ internal class NetworkUtils
 
     /// <summary>
     /// 获取所有活动网络接口的 IPv4 地址列表。
-    /// 排除回环地址（127.0.0.1），仅返回有效的内网/外网 IPv4 地址。
+    /// 过滤规则与初始向导中的网卡选择口径保持一致：
+    /// 仅保留 OperationalStatus=Up、非回环、且具备 IPv4 地址的接口。
     /// </summary>
     /// <returns>IPv4 地址字符串数组</returns>
     public static string[] GetNetworkInterfaces()
@@ -23,10 +24,12 @@ internal class NetworkUtils
         try
         {
             networkInterfaces.AddRange(NetworkInterface.GetAllNetworkInterfaces()
+                .Where(adapter => adapter.OperationalStatus == OperationalStatus.Up
+                                  && adapter.NetworkInterfaceType != NetworkInterfaceType.Loopback)
                 .Select(adapter => adapter.GetIPProperties()
                     .UnicastAddresses.FirstOrDefault(x => x.Address.AddressFamily == AddressFamily.InterNetwork)
                     ?.Address.ToString())
-                .Where(address => !string.IsNullOrWhiteSpace(address) && address != "127.0.0.1"));
+                .Where(address => !string.IsNullOrWhiteSpace(address)));
         }
         catch (Exception ex)
         {

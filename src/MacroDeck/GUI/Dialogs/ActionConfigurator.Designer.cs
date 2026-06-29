@@ -35,12 +35,10 @@ namespace SuchByte.MacroDeck.GUI
             label2 = new Label();
             labelDescription = new Label();
             configurationPanel = new Panel();
-            lblSelectToBegin = new Label();
             pluginSearch = new RoundedTextBox();
             pluginsList = new FlowLayoutPanel();
             selectedPluginIcon = new PictureBox();
             lblSelectedActionName = new Label();
-            configurationPanel.SuspendLayout();
             ((ISupportInitialize)selectedPluginIcon).BeginInit();
             SuspendLayout();
             // 
@@ -81,7 +79,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // labelDescription
             // 
-            labelDescription.Font = new Font("Tahoma", 9F);
+            labelDescription.Font = new Font("Tahoma", 12F);
             labelDescription.ForeColor = Color.White;
             labelDescription.Location = new Point(518, 90);
             labelDescription.Name = "labelDescription";
@@ -91,24 +89,12 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // configurationPanel
             // 
-            configurationPanel.BackColor = Color.FromArgb(45, 45, 145);
-            configurationPanel.Controls.Add(lblSelectToBegin);
+            configurationPanel.BackColor = Color.FromArgb(45, 45, 45);
             configurationPanel.Font = new Font("Tahoma", 14.25F);
             configurationPanel.Location = new Point(518, 148);
             configurationPanel.Name = "configurationPanel";
-            configurationPanel.Size = new Size(857, 424);
+            configurationPanel.Size = new Size(1301, 1026);
             configurationPanel.TabIndex = 9;
-            // 
-            // lblSelectToBegin
-            // 
-            lblSelectToBegin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblSelectToBegin.Location = new Point(0, 496);
-            lblSelectToBegin.Name = "lblSelectToBegin";
-            lblSelectToBegin.Size = new Size(1301, 531);
-            lblSelectToBegin.TabIndex = 0;
-            lblSelectToBegin.Text = "Select a plugin and a action to begin";
-            lblSelectToBegin.TextAlign = ContentAlignment.MiddleCenter;
-            lblSelectToBegin.UseMnemonic = false;
             // 
             // pluginSearch
             // 
@@ -179,7 +165,6 @@ namespace SuchByte.MacroDeck.GUI
             Controls.Add(btnApply);
             Name = "ActionConfigurator";
             Text = "Macro Deck :: Configure action";
-            configurationPanel.ResumeLayout(false);
             ((ISupportInitialize)selectedPluginIcon).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -191,7 +176,6 @@ namespace SuchByte.MacroDeck.GUI
         private Label label2;
         private Label labelDescription;
         private Panel configurationPanel;
-        private Label lblSelectToBegin;
         private RoundedTextBox pluginSearch;
         private FlowLayoutPanel pluginsList;
         private PictureBox selectedPluginIcon;

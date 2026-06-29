@@ -34,69 +34,68 @@ namespace SuchByte.MacroDeck.GUI.InitialSetupPages
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblPickAllPlugins = new Label();
-            this.lblDontWorry = new Label();
-            this.plugins = new FlowLayoutPanel();
-            this.progressBar = new ProgressBar();
-            this.SuspendLayout();
+            lblPickAllPlugins = new Label();
+            lblDontWorry = new Label();
+            plugins = new FlowLayoutPanel();
+            progressBar = new ProgressBar();
+            SuspendLayout();
             // 
             // lblPickAllPlugins
             // 
-            this.lblPickAllPlugins.Font = new Font("Tahoma", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblPickAllPlugins.ForeColor = Color.White;
-            this.lblPickAllPlugins.ImageAlign = ContentAlignment.BottomCenter;
-            this.lblPickAllPlugins.Location = new Point(3, 0);
-            this.lblPickAllPlugins.Name = "lblPickAllPlugins";
-            this.lblPickAllPlugins.Size = new Size(685, 48);
-            this.lblPickAllPlugins.TabIndex = 5;
-            this.lblPickAllPlugins.Text = "Pick all the plugins you need";
-            this.lblPickAllPlugins.TextAlign = ContentAlignment.TopCenter;
-            this.lblPickAllPlugins.UseMnemonic = false;
+            lblPickAllPlugins.Font = new Font("Tahoma", 24F);
+            lblPickAllPlugins.ForeColor = Color.White;
+            lblPickAllPlugins.ImageAlign = ContentAlignment.BottomCenter;
+            lblPickAllPlugins.Location = new Point(3, 0);
+            lblPickAllPlugins.Name = "lblPickAllPlugins";
+            lblPickAllPlugins.Size = new Size(685, 81);
+            lblPickAllPlugins.TabIndex = 5;
+            lblPickAllPlugins.Text = "Pick all the plugins you need";
+            lblPickAllPlugins.TextAlign = ContentAlignment.TopCenter;
+            lblPickAllPlugins.UseMnemonic = false;
             // 
             // lblDontWorry
             // 
-            this.lblDontWorry.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.lblDontWorry.ForeColor = Color.White;
-            this.lblDontWorry.ImageAlign = ContentAlignment.BottomCenter;
-            this.lblDontWorry.Location = new Point(3, 48);
-            this.lblDontWorry.Name = "lblDontWorry";
-            this.lblDontWorry.Size = new Size(685, 48);
-            this.lblDontWorry.TabIndex = 6;
-            this.lblDontWorry.Text = "Don\'t worry, you can always install/uninstall plugins later in the package manage" +
-    "r";
-            this.lblDontWorry.TextAlign = ContentAlignment.TopCenter;
-            this.lblDontWorry.UseMnemonic = false;
+            lblDontWorry.Font = new Font("Tahoma", 12F);
+            lblDontWorry.ForeColor = Color.White;
+            lblDontWorry.ImageAlign = ContentAlignment.BottomCenter;
+            lblDontWorry.Location = new Point(3, 81);
+            lblDontWorry.Name = "lblDontWorry";
+            lblDontWorry.Size = new Size(685, 79);
+            lblDontWorry.TabIndex = 6;
+            lblDontWorry.Text = "Don't worry, you can always install/uninstall plugins later in the package manager";
+            lblDontWorry.TextAlign = ContentAlignment.TopCenter;
+            lblDontWorry.UseMnemonic = false;
             // 
             // plugins
             // 
-            this.plugins.AutoScroll = true;
-            this.plugins.Location = new Point(120, 99);
-            this.plugins.Name = "plugins";
-            this.plugins.Size = new Size(450, 442);
-            this.plugins.TabIndex = 7;
+            plugins.AutoScroll = true;
+            plugins.Location = new Point(120, 172);
+            plugins.Name = "plugins";
+            plugins.Size = new Size(450, 369);
+            plugins.TabIndex = 7;
             // 
             // progressBar
             // 
-            this.progressBar.Location = new Point(208, 547);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new Size(275, 18);
-            this.progressBar.Style = ProgressBarStyle.Marquee;
-            this.progressBar.TabIndex = 8;
-            this.progressBar.Visible = false;
+            progressBar.Location = new Point(208, 547);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(275, 31);
+            progressBar.Style = ProgressBarStyle.Marquee;
+            progressBar.TabIndex = 8;
+            progressBar.Visible = false;
             // 
             // SetupPage4
             // 
-           
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(45, 45, 45);
-            this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.plugins);
-            this.Controls.Add(this.lblDontWorry);
-            this.Controls.Add(this.lblPickAllPlugins);
-            this.Name = "SetupPage4";
-            this.Size = new Size(691, 609);
-            this.Load += new EventHandler(this.SetupPage4_Load);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            Controls.Add(progressBar);
+            Controls.Add(plugins);
+            Controls.Add(lblDontWorry);
+            Controls.Add(lblPickAllPlugins);
+            Name = "SetupPage4";
+            Size = new Size(691, 609);
+            Load += SetupPage4_Load;
+            ResumeLayout(false);
 
         }
 

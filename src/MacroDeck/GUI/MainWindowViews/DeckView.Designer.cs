@@ -576,7 +576,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             lblFolders.BackColor = Color.Transparent;
             lblFolders.Font = new Font("Tahoma", 9F);
-            lblFolders.ForeColor = Color.FromArgb(160, 160, 160);
+            lblFolders.ForeColor = Color.White;
             lblFolders.Location = new Point(12, 21);
             lblFolders.Name = "lblFolders";
             lblFolders.Size = new Size(160, 36);

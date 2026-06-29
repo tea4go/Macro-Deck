@@ -40,8 +40,11 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // lblActionName
             // 
             lblActionName.Cursor = Cursors.Hand;
+            lblActionName.Font = new Font("Tahoma", 12F);
             lblActionName.Location = new Point(1, 0);
+            lblActionName.Margin = new Padding(10, 0, 3, 0);
             lblActionName.Name = "lblActionName";
+            lblActionName.Padding = new Padding(10, 0, 0, 0);
             lblActionName.Size = new Size(265, 48);
             lblActionName.TabIndex = 0;
             lblActionName.Text = "label1";
