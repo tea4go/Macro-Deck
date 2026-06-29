@@ -322,7 +322,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.flowLayoutPanel2.Controls.Add(this.valueToCompare);
             this.flowLayoutPanel2.Controls.Add(this.template);
             this.flowLayoutPanel2.Controls.Add(this.btnOpenTemplateEditor);
-            this.flowLayoutPanel2.Location = new Point(215, 2);
+            this.flowLayoutPanel2.Location = new Point(235, 2);
             this.flowLayoutPanel2.Margin = new Padding(0);
             this.flowLayoutPanel2.MaximumSize = new Size(522, 0);
             this.flowLayoutPanel2.MinimumSize = new Size(522, 28);
