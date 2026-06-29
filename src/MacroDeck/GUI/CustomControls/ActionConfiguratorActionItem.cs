@@ -36,7 +36,7 @@ public partial class ActionConfiguratorActionItem : RoundedUserControl
     public void AdjustLayout()
     {
         // 插件名称字体：配置字号，始终粗体
-        lblActionName.Font = new Font(FontManager.FontFamily, FontManager.FontSize, FontStyle.Bold, baseFont.Unit, baseFont.GdiCharSet);
+        lblActionName.Font = new Font(FontManager.FontFamily, FontManager.FontSize, FontStyle.Bold, GraphicsUnit.Point);
 
         var textHeight = TextRenderer.MeasureText("Ay", lblActionName.Font).Height + 8;
         if (lblActionName.Height < textHeight)
