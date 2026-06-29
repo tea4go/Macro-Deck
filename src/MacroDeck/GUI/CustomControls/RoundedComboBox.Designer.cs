@@ -50,6 +50,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             borderlessComboBox1.Name = "borderlessComboBox1";
             borderlessComboBox1.Size = new Size(250, 30);
             borderlessComboBox1.TabIndex = 0;
+            borderlessComboBox1.Tag = "no-font";
             borderlessComboBox1.SelectedIndexChanged += BorderlessComboBox1_SelectedIndexChanged;
             borderlessComboBox1.TextChanged += BorderlessComboBox1_TextChanged;
             borderlessComboBox1.Click += BorderlessComboBox1_Click;

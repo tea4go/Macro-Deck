@@ -42,13 +42,14 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             textBox1.BackColor = Color.FromArgb(65, 65, 65);
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Tahoma", 11.25F);
+            textBox1.Font = new Font("Tahoma", 9F);
             textBox1.ForeColor = Color.White;
             textBox1.Location = new Point(0, 0);
             textBox1.Margin = new Padding(0, 0, 0, 0);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(250, 28);
             textBox1.TabIndex = 0;
+            textBox1.Tag = "no-font";
             textBox1.Click += TextBox1_Click;
             textBox1.TextChanged += TextBox1_TextChanged;
             textBox1.Enter += TextBox1_Enter;

@@ -91,6 +91,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // configurationPanel
             // 
+            configurationPanel.BackColor = Color.FromArgb(45, 45, 145);
             configurationPanel.Controls.Add(lblSelectToBegin);
             configurationPanel.Font = new Font("Tahoma", 14.25F);
             configurationPanel.Location = new Point(518, 148);
@@ -101,9 +102,9 @@ namespace SuchByte.MacroDeck.GUI
             // lblSelectToBegin
             // 
             lblSelectToBegin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblSelectToBegin.Location = new Point(0, 0);
+            lblSelectToBegin.Location = new Point(0, 496);
             lblSelectToBegin.Name = "lblSelectToBegin";
-            lblSelectToBegin.Size = new Size(1301, 1027);
+            lblSelectToBegin.Size = new Size(1301, 531);
             lblSelectToBegin.TabIndex = 0;
             lblSelectToBegin.Text = "Select a plugin and a action to begin";
             lblSelectToBegin.TextAlign = ContentAlignment.MiddleCenter;
