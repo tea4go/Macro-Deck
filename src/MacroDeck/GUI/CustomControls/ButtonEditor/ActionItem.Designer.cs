@@ -137,7 +137,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // panelEdit
             // 
-            this.panelEdit.Anchor = AnchorStyles.None;
+            this.panelEdit.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             this.panelEdit.Controls.Add(this.btnRemove);
             this.panelEdit.Controls.Add(this.btnEdit);
             this.panelEdit.Controls.Add(this.btnDown);

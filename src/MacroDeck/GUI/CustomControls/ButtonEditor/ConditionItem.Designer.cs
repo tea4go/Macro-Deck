@@ -143,10 +143,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.actionsList.FlowDirection = FlowDirection.TopDown;
             this.actionsList.Location = new Point(0, 0);
             this.actionsList.Margin = new Padding(0);
-            this.actionsList.MaximumSize = new Size(840, 0);
-            this.actionsList.MinimumSize = new Size(840, 0);
+            this.actionsList.MaximumSize = new Size(0, 0);
+            this.actionsList.MinimumSize = new Size(0, 0);
             this.actionsList.Name = "actionsList";
-            this.actionsList.Size = new Size(840, 0);
+            this.actionsList.Size = new Size(0, 0);
             this.actionsList.TabIndex = 8;
             // 
             // btnAddAction
@@ -269,10 +269,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.elseActionsList.FlowDirection = FlowDirection.TopDown;
             this.elseActionsList.Location = new Point(0, 66);
             this.elseActionsList.Margin = new Padding(0);
-            this.elseActionsList.MaximumSize = new Size(840, 0);
-            this.elseActionsList.MinimumSize = new Size(840, 0);
+            this.elseActionsList.MaximumSize = new Size(0, 0);
+            this.elseActionsList.MinimumSize = new Size(0, 0);
             this.elseActionsList.Name = "elseActionsList";
-            this.elseActionsList.Size = new Size(840, 0);
+            this.elseActionsList.Size = new Size(0, 0);
             this.elseActionsList.TabIndex = 9;
             // 
             // btnAddActionElse
@@ -307,11 +307,11 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new Point(9, 37);
             this.flowLayoutPanel1.Margin = new Padding(0);
-            this.flowLayoutPanel1.MaximumSize = new Size(840, 0);
-            this.flowLayoutPanel1.MinimumSize = new Size(840, 0);
+            this.flowLayoutPanel1.MaximumSize = new Size(0, 0);
+            this.flowLayoutPanel1.MinimumSize = new Size(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new Padding(0, 0, 0, 10);
-            this.flowLayoutPanel1.Size = new Size(840, 109);
+            this.flowLayoutPanel1.Size = new Size(0, 109);
             this.flowLayoutPanel1.TabIndex = 14;
             // 
             // flowLayoutPanel2
@@ -416,8 +416,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.ForeColor = Color.White;
             this.Margin = new Padding(0, 3, 0, 3);
-            this.MaximumSize = new Size(850, 0);
-            this.MinimumSize = new Size(850, 0);
+            this.MaximumSize = new Size(0, 0);
+            this.MinimumSize = new Size(0, 0);
             this.Name = "ConditionItem";
             this.Size = new Size(850, 146);
             this.Load += new EventHandler(this.ConditionItem_Load);

@@ -63,6 +63,38 @@ public partial class ConditionItem : UserControl, IActionConditionItem
 
         // ContextMenuStrip 不在窗体控件树中，FontManager.Apply 无法触及，需手动套用配置字体
         addItemContextMenu.Font = Utils.FontManager.Resolve(addItemContextMenu.Font);
+
+        SizeChanged += (_, _) => SyncInnerWidths();
+        actionsList.ControlAdded += (_, _) => SyncInnerWidths();
+        elseActionsList.ControlAdded += (_, _) => SyncInnerWidths();
+    }
+
+    private void SyncInnerWidths()
+    {
+        var innerWidth = ClientSize.Width - flowLayoutPanel1.Left - 1;
+        if (innerWidth <= 0) return;
+
+        SuspendLayout();
+        flowLayoutPanel1.SuspendLayout();
+        actionsList.SuspendLayout();
+        elseActionsList.SuspendLayout();
+
+        if (flowLayoutPanel1.MinimumSize.Width != innerWidth)
+            flowLayoutPanel1.MinimumSize = new Size(innerWidth, flowLayoutPanel1.MinimumSize.Height);
+        if (actionsList.MinimumSize.Width != innerWidth)
+            actionsList.MinimumSize = new Size(innerWidth, actionsList.MinimumSize.Height);
+        if (elseActionsList.MinimumSize.Width != innerWidth)
+            elseActionsList.MinimumSize = new Size(innerWidth, elseActionsList.MinimumSize.Height);
+
+        foreach (Control child in actionsList.Controls)
+            ActionSelectorOnPress.ApplyFixedWidth(child, innerWidth);
+        foreach (Control child in elseActionsList.Controls)
+            ActionSelectorOnPress.ApplyFixedWidth(child, innerWidth);
+
+        elseActionsList.ResumeLayout();
+        actionsList.ResumeLayout();
+        flowLayoutPanel1.ResumeLayout();
+        ResumeLayout();
     }
 
 

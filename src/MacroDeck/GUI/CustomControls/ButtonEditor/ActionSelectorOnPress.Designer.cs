@@ -58,15 +58,15 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // actionsOnPress
             // 
-            this.actionsOnPress.AutoScroll = true;
+            this.actionsOnPress.AutoScroll = false;
             this.actionsOnPress.AutoSize = true;
             this.actionsOnPress.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.actionsOnPress.Location = new Point(3, 3);
             this.actionsOnPress.Margin = new Padding(0);
-            this.actionsOnPress.MaximumSize = new Size(869, 450);
-            this.actionsOnPress.MinimumSize = new Size(869, 1);
+            this.actionsOnPress.MaximumSize = new Size(0, 0);
+            this.actionsOnPress.MinimumSize = new Size(0, 1);
             this.actionsOnPress.Name = "actionsOnPress";
-            this.actionsOnPress.Size = new Size(869, 1);
+            this.actionsOnPress.Size = new Size(0, 1);
             this.actionsOnPress.TabIndex = 2;
             // 
             // addItemContextMenu
@@ -130,6 +130,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = Color.FromArgb(65, 65, 65);
             this.flowLayoutPanel1.Controls.Add(this.actionsOnPress);
             this.flowLayoutPanel1.Controls.Add(this.btnAdd);

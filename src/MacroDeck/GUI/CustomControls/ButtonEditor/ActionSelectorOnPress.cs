@@ -24,6 +24,48 @@ public partial class ActionSelectorOnPress : RoundedUserControl
         menuItemDelay.Text = LanguageManager.Strings.Delay;
         // ContextMenuStrip 不在窗体控件树中，FontManager.Apply 无法触及，需手动套用配置字体
         addItemContextMenu.Font = Utils.FontManager.Resolve(addItemContextMenu.Font);
+
+        Resize += (_, _) => SyncChildWidths();
+        actionsOnPress.ControlAdded += (_, _) => SyncChildWidths();
+        Load += (_, _) => SyncChildWidths();
+    }
+
+    private void SyncChildWidths()
+    {
+        var innerWidth = flowLayoutPanel1.ClientSize.Width - flowLayoutPanel1.Padding.Horizontal;
+        if (innerWidth <= 0) return;
+
+        actionsOnPress.SuspendLayout();
+        var itemContainerWidth = innerWidth - actionsOnPress.Margin.Horizontal;
+        foreach (Control child in actionsOnPress.Controls)
+        {
+            ApplyFixedWidth(child, itemContainerWidth);
+        }
+        actionsOnPress.ResumeLayout();
+
+        var btnTarget = innerWidth - btnAdd.Margin.Horizontal;
+        if (btnTarget > 0 && btnAdd.Width != btnTarget)
+        {
+            btnAdd.Width = btnTarget;
+        }
+    }
+
+    internal static void ApplyFixedWidth(Control child, int containerWidth)
+    {
+        var target = containerWidth - child.Margin.Horizontal;
+        if (target <= 0) return;
+
+        if (child.AutoSize)
+        {
+            if (child.MinimumSize.Width != target)
+                child.MinimumSize = new Size(target, child.MinimumSize.Height);
+            if (child.MaximumSize.Width != target)
+                child.MaximumSize = new Size(target, child.MaximumSize.Height);
+        }
+        else if (child.Width != target)
+        {
+            child.Width = target;
+        }
     }
 
     private void AddActionItem(PluginAction? action)
