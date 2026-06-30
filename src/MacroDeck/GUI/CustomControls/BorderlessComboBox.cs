@@ -1,15 +1,107 @@
-﻿namespace SuchByte.MacroDeck.GUI.CustomControls;
+﻿using System.Runtime.InteropServices;
+
+namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 internal class BorderlessComboBox : System.Windows.Forms.ComboBox
 {
     private const int WM_PAINT = 0xF;
     private int buttonWidth = SystemInformation.HorizontalScrollBarArrowWidth;
 
+    [StructLayout(LayoutKind.Sequential)]
+    private struct RECT
+    {
+        public int Left, Top, Right, Bottom;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct COMBOBOXINFO
+    {
+        public int cbSize;
+        public RECT rcItem;
+        public RECT rcButton;
+        public int stateButton;
+        public IntPtr hwndCombo;
+        public IntPtr hwndItem;
+        public IntPtr hwndList;
+    }
+
+    [DllImport("user32.dll", SetLastError = true)]
+    private static extern bool GetComboBoxInfo(IntPtr hwnd, ref COMBOBOXINFO pcbi);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    private static extern bool MoveWindow(IntPtr hWnd, int x, int y, int nWidth, int nHeight, bool bRepaint);
+
     public BorderlessComboBox()
     {
         // 切换到 OwnerDrawFixed 后 ItemHeight 才能真正控制控件与下拉项的高度，
         // 否则 Win32 COMBOBOX 会按字体把高度强制压回到字号决定的值。
         DrawMode = DrawMode.OwnerDrawFixed;
+    }
+
+    /// <summary>
+    /// DropDown 模式下，COMBOBOX 内部有独立的 EDIT 子窗口显示文字，
+    /// 系统按字体高度放置并贴顶。当外层因 ItemHeight 被撑高时，文字看起来偏上。
+    /// 这里拿到 EDIT 句柄，把它在控件中垂直居中。
+    ///
+    /// 注意：系统会在 WM_SIZE / 字体变化后重置 EDIT 位置，所以需要用 BeginInvoke
+    /// 推迟到当前消息处理完成后再 MoveWindow，避免被系统覆盖。
+    /// </summary>
+    private void CenterEditChild()
+    {
+        if (DropDownStyle != ComboBoxStyle.DropDown || !IsHandleCreated)
+        {
+            return;
+        }
+
+        var info = new COMBOBOXINFO { cbSize = Marshal.SizeOf<COMBOBOXINFO>() };
+        if (!GetComboBoxInfo(Handle, ref info) || info.hwndItem == IntPtr.Zero)
+        {
+            return;
+        }
+
+        var editWidth = info.rcItem.Right - info.rcItem.Left;
+        var editHeight = info.rcItem.Bottom - info.rcItem.Top;
+        if (editWidth <= 0 || editHeight <= 0)
+        {
+            return;
+        }
+
+        var newTop = Math.Max(0, (Height - editHeight) / 2);
+        if (newTop == info.rcItem.Top)
+        {
+            return;
+        }
+
+        MoveWindow(info.hwndItem, info.rcItem.Left, newTop, editWidth, editHeight, true);
+    }
+
+    private void DeferCenterEditChild()
+    {
+        if (!IsHandleCreated)
+        {
+            return;
+        }
+
+        // 延迟到当前消息循环之后，避开系统 WM_SIZE 内部对 EDIT 的重置
+        BeginInvoke(new Action(CenterEditChild));
+    }
+
+    protected override void OnHandleCreated(EventArgs e)
+    {
+        base.OnHandleCreated(e);
+        DeferCenterEditChild();
+    }
+
+    protected override void OnResize(EventArgs e)
+    {
+        base.OnResize(e);
+        DeferCenterEditChild();
+    }
+
+    protected override void OnFontChanged(EventArgs e)
+    {
+        base.OnFontChanged(e);
+        DeferCenterEditChild();
     }
 
     protected override void OnDrawItem(DrawItemEventArgs e)
@@ -66,9 +158,18 @@ internal class BorderlessComboBox : System.Windows.Forms.ComboBox
         });
     }
 
+    private const int WM_CTLCOLOREDIT = 0x0133;
+
     protected override void WndProc(ref Message m)
     {
         base.WndProc(ref m);
+
+        // EDIT 子窗口请求绘制时也校正一次位置，最稳妥的兜底时机
+        if (m.Msg == WM_CTLCOLOREDIT)
+        {
+            CenterEditChild();
+        }
+
         if (m.Msg == WM_PAINT)
         {
             using (var g = Graphics.FromHwnd(Handle))
