@@ -73,33 +73,51 @@ internal class BorderlessComboBox : System.Windows.Forms.ComboBox
         {
             using (var g = Graphics.FromHwnd(Handle))
             {
-                // Remove white border
-                using (var p = new Pen(Parent.BackColor, 1))
+                // 整片覆盖客户区，挡掉系统在 hot-track / focus 时画的白色高亮
+                using (var bg = new SolidBrush(BackColor))
+                {
+                    g.FillRectangle(bg, 0, 0, Width, Height);
+                }
+
+                // 与 Parent 同色画边框线，消除系统残留的 1px 白边
+                using (var p = new Pen(Parent?.BackColor ?? BackColor, 1))
                 {
                     g.DrawRectangle(p, 0, 0, Width - 1, Height - 1);
                 }
 
                 if (!Enabled)
                 {
-                    using var p = new Pen(Parent.BackColor, 5);
+                    using var p = new Pen(Parent?.BackColor ?? BackColor, 5);
                     g.DrawRectangle(p, 0, 0, Width - 1, Height - 1);
                 }
 
-
-                // Remove white drop down button
-                using (var brush = new SolidBrush(Parent.BackColor))
+                // 闭合显示时，重绘当前选中项的文字（背景已经被上面填过）
+                if (SelectedIndex >= 0)
                 {
-                    g.FillRectangle(brush, Width - buttonWidth - 5, 0, buttonWidth + 5, Height);
+                    var text = Items[SelectedIndex]?.ToString() ?? string.Empty;
+                    var fg = Enabled ? Color.White : Color.FromArgb(95, 95, 95);
+                    var textSize = TextRenderer.MeasureText(text, Font);
+                    var y = Math.Max(0, (Height - textSize.Height) / 2);
+                    TextRenderer.DrawText(g, text, Font, new Point(2, y), fg);
+                }
+                else if (!string.IsNullOrEmpty(Text))
+                {
+                    // DropDown 模式下可能有非列表项的文字
+                    var fg = Enabled ? Color.White : Color.FromArgb(95, 95, 95);
+                    var textSize = TextRenderer.MeasureText(Text, Font);
+                    var y = Math.Max(0, (Height - textSize.Height) / 2);
+                    TextRenderer.DrawText(g, Text, Font, new Point(2, y), fg);
                 }
 
-                // Draw custom drop down button
+                // 绘制自定义下拉箭头
                 using (var brush = new SolidBrush(Enabled ? Color.White : Color.FromArgb(95, 95, 95)))
                 {
                     g.FillPolygon(brush,
                         new Point[]
                         {
-                            new(Width - 5, Height / 2 - 2), new(Width - 15, Height / 2 - 2),
-                            new(Width - 10, Height / 2 + 3)
+                            new(Width - 5, Height / 2 - 2),
+                            new(Width - 15, Height / 2 - 2),
+                            new(Width - 10, Height / 2 + 3),
                         });
                 }
             }

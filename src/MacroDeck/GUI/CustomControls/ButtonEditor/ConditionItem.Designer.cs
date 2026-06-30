@@ -6,12 +6,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
 {
     partial class ConditionItem
     {
-        /// <summary> 
+        /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
         private IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -34,8 +34,8 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
 
         #region Vom Komponenten-Designer generierter Code
 
-        /// <summary> 
-        /// Erforderliche Methode für die Designerunterstützung. 
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
@@ -72,9 +72,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.flowLayoutPanel2.SuspendLayout();
             this.addItemContextMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // lblIf
-            // 
+            //
             this.lblIf.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblIf.ImageAlign = ContentAlignment.MiddleLeft;
             this.lblIf.Location = new Point(9, 2);
@@ -84,9 +84,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.lblIf.Text = "If";
             this.lblIf.UseMnemonic = false;
             this.lblIf.TextAlign = ContentAlignment.MiddleLeft;
-            // 
+            //
             // typeBox
-            // 
+            //
             this.typeBox.BackColor = Color.FromArgb(65, 65, 65);
             this.typeBox.Cursor = Cursors.Hand;
             this.typeBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -101,9 +101,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.typeBox.TabIndex = 5;
             this.typeBox.SelectedIndexChanged += new EventHandler(this.TypeBox_SelectedIndexChanged);
             this.typeBox.Load += new EventHandler(this.typeBox_Load);
-            // 
+            //
             // methodBox
-            // 
+            //
             this.methodBox.BackColor = Color.FromArgb(65, 65, 65);
             this.methodBox.Cursor = Cursors.Hand;
             this.methodBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -117,10 +117,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.methodBox.Size = new Size(97, 28);
             this.methodBox.TabIndex = 6;
             this.methodBox.SelectedIndexChanged += new EventHandler(this.MethodBox_SelectedIndexChanged);
-            // 
+            //
             // valueToCompare
-            // 
-            this.valueToCompare.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left) 
+            //
+            this.valueToCompare.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left)
                                                           | AnchorStyles.Right)));
             this.valueToCompare.BackColor = Color.FromArgb(65, 65, 65);
             this.valueToCompare.Cursor = Cursors.Hand;
@@ -135,9 +135,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.valueToCompare.Size = new Size(166, 28);
             this.valueToCompare.TabIndex = 7;
             this.valueToCompare.SelectedIndexChanged += new EventHandler(this.ValueToCompare_TextChanged);
-            // 
+            //
             // actionsList
-            // 
+            //
             this.actionsList.AutoSize = true;
             this.actionsList.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.actionsList.FlowDirection = FlowDirection.TopDown;
@@ -148,9 +148,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.actionsList.Name = "actionsList";
             this.actionsList.Size = new Size(0, 0);
             this.actionsList.TabIndex = 8;
-            // 
+            //
             // btnAddAction
-            // 
+            //
             this.btnAddAction.BackColor = Color.Transparent;
             this.btnAddAction.BackgroundImage = Resources.Create_Normal;
             this.btnAddAction.BackgroundImageLayout = ImageLayout.Stretch;
@@ -165,9 +165,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.btnAddAction.TabStop = false;
             this.btnAddAction.Text = "+ Action";
             this.btnAddAction.Click += new EventHandler(this.BtnAddAction_Click);
-            // 
+            //
             // source
-            // 
+            //
             this.source.BackColor = Color.FromArgb(65, 65, 65);
             this.source.Cursor = Cursors.Hand;
             this.source.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -182,9 +182,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.source.Size = new Size(236, 28);
             this.source.TabIndex = 10;
             this.source.SelectedIndexChanged += new EventHandler(this.Source_SelectedIndexChanged);
-            // 
+            //
             // panelEdit
-            // 
+            //
             this.panelEdit.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             this.panelEdit.Controls.Add(this.btnRemove);
             this.panelEdit.Controls.Add(this.btnDown);
@@ -194,9 +194,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new Size(89, 26);
             this.panelEdit.TabIndex = 11;
-            // 
+            //
             // btnRemove
-            // 
+            //
             this.btnRemove.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             this.btnRemove.BackColor = Color.Transparent;
             this.btnRemove.BackgroundImage = Resources.Delete_Normal;
@@ -212,9 +212,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.btnRemove.TabIndex = 2;
             this.btnRemove.TabStop = false;
             this.btnRemove.Click += new EventHandler(this.BtnRemove_Click);
-            // 
+            //
             // btnDown
-            // 
+            //
             this.btnDown.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             this.btnDown.BackColor = Color.Transparent;
             this.btnDown.BackgroundImage = Resources.Arrow_Down_Normal;
@@ -230,9 +230,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.btnDown.TabIndex = 4;
             this.btnDown.TabStop = false;
             this.btnDown.Click += new EventHandler(this.BtnDown_Click);
-            // 
+            //
             // btnUp
-            // 
+            //
             this.btnUp.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             this.btnUp.BackColor = Color.Transparent;
             this.btnUp.BackgroundImage = Resources.Arrow_Up_Normal;
@@ -248,9 +248,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.btnUp.TabIndex = 5;
             this.btnUp.TabStop = false;
             this.btnUp.Click += new EventHandler(this.BtnUp_Click);
-            // 
+            //
             // lblElse
-            // 
+            //
             this.lblElse.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
             this.lblElse.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.lblElse.Location = new Point(3, 33);
@@ -260,9 +260,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.lblElse.Text = "Else";
             this.lblElse.TextAlign = ContentAlignment.MiddleLeft;
             this.lblElse.UseMnemonic = false;
-            // 
+            //
             // elseActionsList
-            // 
+            //
             this.elseActionsList.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
             this.elseActionsList.AutoSize = true;
             this.elseActionsList.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -274,9 +274,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.elseActionsList.Name = "elseActionsList";
             this.elseActionsList.Size = new Size(0, 0);
             this.elseActionsList.TabIndex = 9;
-            // 
+            //
             // btnAddActionElse
-            // 
+            //
             this.btnAddActionElse.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
             this.btnAddActionElse.BackColor = Color.Transparent;
             this.btnAddActionElse.BackgroundImage = Resources.Create_Normal;
@@ -291,10 +291,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.btnAddActionElse.TabIndex = 13;
             this.btnAddActionElse.TabStop = false;
             this.btnAddActionElse.Click += new EventHandler(this.BtnAddActionElse_Click);
-            // 
+            //
             // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left) 
+            //
+            this.flowLayoutPanel1.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left)
                                                             | AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -305,7 +305,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.flowLayoutPanel1.Controls.Add(this.elseActionsList);
             this.flowLayoutPanel1.Controls.Add(this.btnAddActionElse);
             this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new Point(9, 37);
+            this.flowLayoutPanel1.Location = new Point(9, 46);
             this.flowLayoutPanel1.Margin = new Padding(0);
             this.flowLayoutPanel1.MaximumSize = new Size(0, 0);
             this.flowLayoutPanel1.MinimumSize = new Size(0, 0);
@@ -313,10 +313,11 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.flowLayoutPanel1.Padding = new Padding(0, 0, 0, 10);
             this.flowLayoutPanel1.Size = new Size(0, 109);
             this.flowLayoutPanel1.TabIndex = 14;
-            // 
+            //
             // flowLayoutPanel2
-            // 
+            //
             this.flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel2.WrapContents = false;
             this.flowLayoutPanel2.Controls.Add(this.source);
             this.flowLayoutPanel2.Controls.Add(this.methodBox);
             this.flowLayoutPanel2.Controls.Add(this.valueToCompare);
@@ -324,14 +325,12 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.flowLayoutPanel2.Controls.Add(this.btnOpenTemplateEditor);
             this.flowLayoutPanel2.Location = new Point(235, 2);
             this.flowLayoutPanel2.Margin = new Padding(0);
-            this.flowLayoutPanel2.MaximumSize = new Size(522, 0);
-            this.flowLayoutPanel2.MinimumSize = new Size(522, 28);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new Size(522, 28);
+            this.flowLayoutPanel2.Size = new Size(610, 42);
             this.flowLayoutPanel2.TabIndex = 15;
-            // 
+            //
             // addItemContextMenu
-            // 
+            //
             this.addItemContextMenu.BackColor = Color.FromArgb(45, 45, 45);
             this.addItemContextMenu.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             this.addItemContextMenu.Items.AddRange(new ToolStripItem[] {
@@ -341,25 +340,25 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.addItemContextMenu.Name = "addItemContextMenu";
             this.addItemContextMenu.ShowImageMargin = false;
             this.addItemContextMenu.Size = new Size(107, 60);
-            // 
+            //
             // menuItemAction
-            // 
+            //
             this.menuItemAction.ForeColor = Color.White;
             this.menuItemAction.Name = "menuItemAction";
             this.menuItemAction.Size = new Size(106, 28);
             this.menuItemAction.Text = "Action";
             this.menuItemAction.Click += new EventHandler(this.MenuItemAction_Click);
-            // 
+            //
             // menuItemDelay
-            // 
+            //
             this.menuItemDelay.ForeColor = Color.White;
             this.menuItemDelay.Name = "menuItemDelay";
             this.menuItemDelay.Size = new Size(106, 28);
             this.menuItemDelay.Text = "Delay";
             this.menuItemDelay.Click += new EventHandler(this.MenuItemDelay_Click);
-            // 
+            //
             // template
-            // 
+            //
             this.template.BackColor = Color.FromArgb(65, 65, 65);
             this.template.Cursor = Cursors.Hand;
             this.template.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -379,9 +378,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.template.TabIndex = 11;
             this.template.TextAlignment = HorizontalAlignment.Left;
             this.template.TextChanged += Template_TextChanged;
-            // 
+            //
             // btnOpenTemplateEditor
-            // 
+            //
             this.btnOpenTemplateEditor.BackColor = Color.FromArgb(0, 123, 255);
             this.btnOpenTemplateEditor.BorderRadius = 8;
             this.btnOpenTemplateEditor.Cursor = Cursors.Hand;
@@ -400,10 +399,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.btnOpenTemplateEditor.UseVisualStyleBackColor = false;
             this.btnOpenTemplateEditor.UseMnemonic = false;
             this.btnOpenTemplateEditor.Click += new EventHandler(this.BtnOpenTemplateEditor_Click);
-            // 
+            //
             // ConditionItem
-            // 
-            
+            //
+
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -436,7 +435,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
 
         }
 
-        
+
 
 
         #endregion

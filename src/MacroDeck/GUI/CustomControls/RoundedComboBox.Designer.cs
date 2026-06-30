@@ -43,7 +43,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             borderlessComboBox1.Dock = DockStyle.Fill;
             borderlessComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             borderlessComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            borderlessComboBox1.FlatStyle = FlatStyle.Popup;
+            borderlessComboBox1.FlatStyle = FlatStyle.Flat;
             borderlessComboBox1.ForeColor = Color.White;
             borderlessComboBox1.FormattingEnabled = true;
             borderlessComboBox1.ItemHeight = 32;
