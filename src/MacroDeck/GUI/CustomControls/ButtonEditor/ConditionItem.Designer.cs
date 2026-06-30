@@ -176,7 +176,6 @@ namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor
             this.source.Location = new Point(3, 0);
             this.source.Margin = new Padding(3, 0, 3, 0);
             this.source.Name = "source";
-            this.source.Padding = new Padding(8, 2, 8, 2);
             this.source.SelectedIndex = -1;
             this.source.SelectedItem = null;
             this.source.Size = new Size(236, 28);
