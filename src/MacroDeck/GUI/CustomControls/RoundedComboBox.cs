@@ -93,19 +93,22 @@ public partial class RoundedComboBox : UserControl
         }
     }
 
+    private int _itemHeight = 22;
+
     /// <summary>
-    /// 内嵌 ComboBox 的项高（同时决定 DropDownList 模式下的主控件可见高度）。
-    /// 修改后外层会自动跟随重新计算高度。
+    /// 控件目标高度。直接设置外层 UserControl 高度，内嵌 ComboBox 通过上下 Padding
+    /// 在中间垂直居中——不再使用 NumericUpDown.ItemHeight 撑大内嵌 ComboBox，
+    /// 这样 DropDown 模式下 EDIT 子窗口自然铺满 ComboBox 高度，看起来就是居中的。
     /// </summary>
     [Category("Appearance")]
-    [Description("内嵌 ComboBox 的项高。DropDownList 模式下同时决定主控件高度。")]
+    [Description("控件目标高度。内部 ComboBox 通过上下 padding 垂直居中。")]
     [DefaultValue(22)]
     public int ItemHeight
     {
-        get => borderlessComboBox1.ItemHeight;
+        get => _itemHeight;
         set
         {
-            borderlessComboBox1.ItemHeight = value;
+            _itemHeight = value;
             UpdateControlHeight();
         }
     }
@@ -143,10 +146,7 @@ public partial class RoundedComboBox : UserControl
     protected override void OnResize(EventArgs e)
     {
         base.OnResize(e);
-        if (DesignMode)
-        {
-            UpdateControlHeight();
-        }
+        UpdateControlHeight();
     }
 
     protected override void OnLoad(EventArgs e)
