@@ -41,14 +41,17 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             // 
             borderlessComboBox1.BackColor = Color.FromArgb(65, 65, 65);
             borderlessComboBox1.Dock = DockStyle.Fill;
+            borderlessComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             borderlessComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             borderlessComboBox1.FlatStyle = FlatStyle.Popup;
             borderlessComboBox1.ForeColor = Color.White;
             borderlessComboBox1.FormattingEnabled = true;
+            borderlessComboBox1.ItemHeight = 32;
             borderlessComboBox1.Location = new Point(0, 0);
             borderlessComboBox1.Margin = new Padding(0);
+            borderlessComboBox1.MaxDropDownItems = 15;
             borderlessComboBox1.Name = "borderlessComboBox1";
-            borderlessComboBox1.Size = new Size(250, 30);
+            borderlessComboBox1.Size = new Size(365, 38);
             borderlessComboBox1.TabIndex = 0;
             borderlessComboBox1.Tag = "no-font";
             borderlessComboBox1.SelectedIndexChanged += BorderlessComboBox1_SelectedIndexChanged;
@@ -64,9 +67,10 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(65, 65, 65);
             Controls.Add(borderlessComboBox1);
-            Font = new Font("Tahoma", 9F);
+            Font = new Font("Tahoma", 12F);
+            Margin = new Padding(0, 0, 0, 0);
             Name = "RoundedComboBox";
-            Size = new Size(250, 38);
+            Size = new Size(365, 46);
             ResumeLayout(false);
 
         }

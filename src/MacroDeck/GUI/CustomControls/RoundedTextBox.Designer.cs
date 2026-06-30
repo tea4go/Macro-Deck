@@ -45,9 +45,9 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             textBox1.Font = new Font("Tahoma", 9F);
             textBox1.ForeColor = Color.White;
             textBox1.Location = new Point(0, 0);
-            textBox1.Margin = new Padding(0, 0, 0, 0);
+            textBox1.Margin = new Padding(0);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(250, 28);
+            textBox1.Size = new Size(250, 19);
             textBox1.TabIndex = 0;
             textBox1.Tag = "no-font";
             textBox1.Click += TextBox1_Click;

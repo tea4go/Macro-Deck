@@ -93,6 +93,23 @@ public partial class RoundedComboBox : UserControl
         }
     }
 
+    /// <summary>
+    /// 内嵌 ComboBox 的项高（同时决定 DropDownList 模式下的主控件可见高度）。
+    /// 修改后外层会自动跟随重新计算高度。
+    /// </summary>
+    [Category("Appearance")]
+    [Description("内嵌 ComboBox 的项高。DropDownList 模式下同时决定主控件高度。")]
+    [DefaultValue(22)]
+    public int ItemHeight
+    {
+        get => borderlessComboBox1.ItemHeight;
+        set
+        {
+            borderlessComboBox1.ItemHeight = value;
+            UpdateControlHeight();
+        }
+    }
+
     public RoundedComboBox()
     {
         InitializeComponent();
