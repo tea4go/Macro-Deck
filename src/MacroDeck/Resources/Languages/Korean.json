@@ -8,7 +8,7 @@
   "Info": "정보",
   "Error": "오류",
   "Warning": "경고",
-  "ConfigureNetworkInfo": "올바른 네트워크 어댑터를 선택해야합니다. 올바르지 않은 네트워크 어댑터를 선택하면 클라이언트는 Macro Deck과 연결할 수 없게됩니다. 대부분의 경우 네트워크 어댑터의 이름은 \"이더넷\", \"WI-FI\"등 이며 IP주소는 대체로 \"192.168.178.xxx\" 등과 같습니다.\n\nMacro Deck의 기본 포트는 8191 입니다.만약 다른 프로그램에서 해당 포트를 이미 사용중이라면 변경할 수도 있습니다.",
+  "ConfigureNetworkInfo": "Macro Deck의 기본 포트는 8191 입니다. 만약 다른 프로그램에서 해당 포트를 이미 사용중이라면 변경할 수도 있습니다.",
   "AutomaticallyCheckUpdates": "자동으로 업데이트 확인",
   "AutomaticallyStartWithWindows": "Windows 시작시 자동 실행",
   "Show": "Macro Deck 설정",

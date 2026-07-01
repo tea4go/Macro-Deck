@@ -8,7 +8,7 @@
     "Info": "Info",
     "Error": "Virhe",
     "Warning": "Varoitus",
-    "ConfigureNetworkInfo": "On tärkeää valita oikea verkkosovitin, muuten et voi yhdistää palvelimeen. Useimmiten sovitin on nimetty \"Ethernet\" tai \"Wi-Fi\" ja ip-osoite on \"192.168.178.xxx\".\n\nOletusportti on 8191.Voit muuttaa portin jos joku muu ohjelma käyttää samaa porttia.",
+    "ConfigureNetworkInfo": "Oletusportti on 8191. Voit muuttaa portin jos joku muu ohjelma käyttää samaa porttia.",
     "AutomaticallyCheckUpdates": "Tarkista päivitykset automaattisesti",
     "AutomaticallyStartWithWindows": "Käynnistä Windowsin kanssa automaattisesti",
     "Show": "Näytä",

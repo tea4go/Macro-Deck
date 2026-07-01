@@ -8,7 +8,7 @@
     "Info": "Impormasyon",
     "Error": "Error",
     "Warning": "Babala",
-    "ConfigureNetworkInfo": "Importante na mag-select ng tamang network adapter o kung hindi, hindi ka makaka-connect kasama ang client sa server. Sa karamihan, ng pangalan ng Network adapter ay parang \"Ethernet\" o \"Wi-Fi\" at ang IP address sa karamihan ay parang \"192.168.178.xxx\".\n\nAng default port ng Macro Deck ay 8191. Kung merong application na gumagamit ng port na ito, kaya mong palitan ang port.",
+    "ConfigureNetworkInfo": "Ang default port ng Macro Deck ay 8191. Kung merong application na gumagamit ng port na ito, kaya mong palitan ang port.",
     "AutomaticallyCheckUpdates": "Automatikong mag-check ng updates",
     "AutomaticallyStartWithWindows": "Automatikong mag-start kasama ng Windows",
     "Show": "I-configure ang Macro Deck",

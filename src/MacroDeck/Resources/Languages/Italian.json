@@ -8,7 +8,7 @@
   "Info": "Info",
   "Error": "Errore",
   "Warning": "Avviso",
-  "ConfigureNetworkInfo": "È molto importante selezionare l'adattatore di rete corretto o altrimenti non sarete in grado di connettervi con il client al server. Nella maggior parte dei casi il nome dell'adattatore di rete appare come \"Ethernet\" o \"Wi-Fi\" e l'indirizzo ip nella maggior parte dei casi appare come \"192.168.178.xxx\".\n\nLa porta predefinita per Macro Deck è 8191. Se qualche altra applicazione usa questa porta, puoi cambiarla.",
+  "ConfigureNetworkInfo": "La porta predefinita per Macro Deck è 8191. Se qualche altra applicazione usa questa porta, puoi cambiarla.",
   "AutomaticallyCheckUpdates": "Ricerca autotomatica degli aggiornamenti",
   "AutomaticallyStartWithWindows": "Avvia con Windows",
   "Show": "Configura Macro Deck",

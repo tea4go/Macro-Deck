@@ -8,7 +8,7 @@
   "Info": "情報",
   "Error": "エラー",
   "Warning": "警告",
-  "ConfigureNetworkInfo": "正しいネットワークアダプターを選択することは本当に重要で、そうしないと、クライアントからサーバーに接続することができなくなります。多くの場合、ネットワークアダプタの名前は「Ethernet」または「Wi-Fi」のようで、IPアドレスは「192.168.178.xxx」のようなものが多いようです。\n\nMacro Deckのデフォルトのポートは8191です。他のアプリケーションがこのポートを使用している場合は、変更することができます。",
+  "ConfigureNetworkInfo": "Macro Deckのデフォルトのポートは8191です。他のアプリケーションがこのポートを使用している場合は、変更することができます。",
   "AutomaticallyCheckUpdates": "アップデートを自動的に確認する",
   "AutomaticallyStartWithWindows": "Windows起動時に自動的に実行する",
   "Show": "Macro Deckを設定する",

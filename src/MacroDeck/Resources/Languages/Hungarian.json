@@ -8,7 +8,7 @@
   "Info": "Infó",
   "Error": "Hiba",
   "Warning": "Figyelem",
-  "ConfigureNetworkInfo": "Nagyon fontos a megfelelő hálózati adapter kiválasztása, különben nem tud kapcsolódni a klienssel a szerverhez. A legtöbb esetben a hálózati adapter neve „Ethernet” vagy „Wi-Fi”, az IP-cím pedig a legtöbb esetben „192.168.178.xxx”.\n\nA Macro Deck alapértelmezett portja a 8191. Ha más alkalmazás használja ezt módosíthatja.",
+  "ConfigureNetworkInfo": "A Macro Deck alapértelmezett portja a 8191. Ha más alkalmazás használja ezt módosíthatja.",
   "AutomaticallyCheckUpdates": "Frissítések automatikus keresése",
   "AutomaticallyStartWithWindows": "Automatikus indítás a Windowsal",
   "Show": "Macro Deck konfigurálása",

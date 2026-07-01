@@ -8,7 +8,7 @@
   "Info": "Bilgi",
   "Error": "Hata",
   "Warning": "Uyarı",
-  "ConfigureNetworkInfo": "Doğru ağ adaptörünü seçmeniz çok önemlidir. Seçmemeniz durumunda client ve serverı birbirine bağlayamayabilirsiniz. Çoğu durumda Ağ adaptörünün ismi \"Ethernet\" veya \"Wi-Fi\" olmaktadır. Genellikle IP adresi \"192.168.178.xxx\" türevidir.\n\nMacro Deck'in varsayılan portu: 8191. Eğer başka bir uygulama bu portu kullanıyorsa, bu port tanımını değiştirebilirsiniz.",
+  "ConfigureNetworkInfo": "Macro Deck'in varsayılan portu: 8191. Eğer başka bir uygulama bu portu kullanıyorsa, bu port tanımını değiştirebilirsiniz.",
   "AutomaticallyCheckUpdates": "Güncellemeleri otomatik denetle",
   "AutomaticallyStartWithWindows": "Windows başlangıcında otomatik başlat",
   "Show": "Macro Deck'i ayarla",

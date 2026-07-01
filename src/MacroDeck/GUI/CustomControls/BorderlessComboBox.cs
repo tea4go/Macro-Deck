@@ -30,6 +30,9 @@ internal class BorderlessComboBox : System.Windows.Forms.ComboBox
     [DllImport("user32.dll", SetLastError = true)]
     private static extern bool GetComboBoxInfo(IntPtr hwnd, ref COMBOBOXINFO pcbi);
 
+    [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
+    private static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
+
     public BorderlessComboBox()
     {
         DrawMode = DrawMode.OwnerDrawFixed;
@@ -68,6 +71,16 @@ internal class BorderlessComboBox : System.Windows.Forms.ComboBox
     protected override void OnHandleCreated(EventArgs e)
     {
         base.OnHandleCreated(e);
+
+        // 关闭 ComboBox 自身及内嵌 EDIT 的视觉样式，避免 Win11 themed 在 hover 时
+        // 绘制白色 hot-track 高亮、移动 EDIT 位置等行为。
+        SetWindowTheme(Handle, string.Empty, string.Empty);
+        var info = new COMBOBOXINFO { cbSize = Marshal.SizeOf<COMBOBOXINFO>() };
+        if (GetComboBoxInfo(Handle, ref info) && info.hwndItem != IntPtr.Zero && info.hwndItem != Handle)
+        {
+            SetWindowTheme(info.hwndItem, string.Empty, string.Empty);
+        }
+
         BeginInvoke(new Action(AttachEditSubclassIfNeeded));
     }
 
@@ -226,53 +239,80 @@ internal class BorderlessComboBox : System.Windows.Forms.ComboBox
     /// </summary>
     private class EditSubclass : NativeWindow
     {
-        private const int WM_PAINT_LOCAL = 0xF;
+        private const int WM_PAINT = 0xF;
+        private const int WM_ERASEBKGND = 0x14;
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct PAINTSTRUCT
+        {
+            public IntPtr hdc;
+            public bool fErase;
+            public int rcPaintLeft, rcPaintTop, rcPaintRight, rcPaintBottom;
+            public bool fRestore, fIncUpdate;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+            public byte[] rgbReserved;
+        }
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr BeginPaint(IntPtr hwnd, out PAINTSTRUCT ps);
+        [DllImport("user32.dll")]
+        private static extern bool EndPaint(IntPtr hwnd, ref PAINTSTRUCT ps);
+        [DllImport("user32.dll")]
+        private static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
         private readonly BorderlessComboBox _owner;
-
         public bool IsAttached => Handle != IntPtr.Zero;
 
-        public EditSubclass(BorderlessComboBox owner)
-        {
-            _owner = owner;
-        }
+        public EditSubclass(BorderlessComboBox owner) => _owner = owner;
 
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == WM_PAINT_LOCAL)
+            if (m.Msg == WM_ERASEBKGND)
             {
-                // 让默认绘制先发生（保留光标、选区行为）
-                base.WndProc(ref m);
+                // 阻止 EDIT 擦除背景（避免闪烁）
+                m.Result = (IntPtr)1;
+                return;
+            }
 
-                // 然后用我们自己的绘制覆盖
-                using var g = Graphics.FromHwnd(Handle);
-                var bounds = GetClientBounds();
-                using (var bg = new SolidBrush(_owner.BackColor))
+            if (m.Msg == WM_PAINT)
+            {
+                // 完全接管 WM_PAINT，不调 base：
+                // base.WndProc 会用 BeginPaint 提交文字到屏幕（贴顶），
+                // 之后无法覆盖。必须在同一个 BeginPaint/EndPaint 周期里自绘。
+                var ps = new PAINTSTRUCT();
+                var hdc = BeginPaint(Handle, out ps);
+                if (hdc != IntPtr.Zero)
                 {
-                    g.FillRectangle(bg, bounds);
-                }
+                    try
+                    {
+                        using var g = Graphics.FromHdc(hdc);
+                        GetClientRect(Handle, out var rc);
+                        var bounds = new Rectangle(rc.Left, rc.Top, rc.Right - rc.Left, rc.Bottom - rc.Top);
 
-                var text = _owner.Text ?? string.Empty;
-                if (!string.IsNullOrEmpty(text))
-                {
-                    var fg = _owner.Enabled ? Color.White : Color.FromArgb(95, 95, 95);
-                    var textSize = TextRenderer.MeasureText(text, _owner.Font);
-                    var y = Math.Max(0, (bounds.Height - textSize.Height) / 2);
-                    TextRenderer.DrawText(g, text, _owner.Font, new Point(2, y), fg);
+                        using (var bg = new SolidBrush(_owner.BackColor))
+                        {
+                            g.FillRectangle(bg, bounds);
+                        }
+
+                        var text = _owner.Text ?? string.Empty;
+                        if (!string.IsNullOrEmpty(text))
+                        {
+                            var fg = _owner.Enabled ? Color.White : Color.FromArgb(95, 95, 95);
+                            var textSize = TextRenderer.MeasureText(text, _owner.Font);
+                            var y = Math.Max(0, (bounds.Height - textSize.Height) / 2);
+                            TextRenderer.DrawText(g, text, _owner.Font, new Point(2, y), fg);
+                        }
+                    }
+                    finally
+                    {
+                        EndPaint(Handle, ref ps);
+                    }
                 }
+                m.Result = IntPtr.Zero;
                 return;
             }
 
             base.WndProc(ref m);
         }
-
-        private Rectangle GetClientBounds()
-        {
-            GetClientRect(Handle, out var r);
-            return new Rectangle(r.Left, r.Top, r.Right - r.Left, r.Bottom - r.Top);
-        }
-
-        [DllImport("user32.dll")]
-        private static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
     }
 }

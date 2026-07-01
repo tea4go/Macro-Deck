@@ -8,7 +8,7 @@
   "Info": "Info",
   "Error": "Błąd",
   "Warning": "Uwaga",
-  "ConfigureNetworkInfo": "Bardzo ważne jest wybranie właściwej karty sieciowej, w przeciwnym razie nie będzie można połączyć się z serwerem za pomocą klienta. W większości przypadków nazwa karty sieciowej wygląda jak \"Ethernet\" lub \"Wi-Fi\", a adres IP w większości przypadków wygląda następująco: \"192.168.178.xxx\".\n\nDomyślnym portem dla aplikacji Macro Deck jest port: 8191. Jeśli jakaś inna aplikacja używa tego portu, możesz go zmienić. ",
+  "ConfigureNetworkInfo": "Domyślnym portem dla aplikacji Macro Deck jest port: 8191. Jeśli jakaś inna aplikacja używa tego portu, możesz go zmienić.",
   "AutomaticallyCheckUpdates": "Automatycznie sprawdzaj aktualizacje",
   "AutomaticallyStartWithWindows": "Uruchom automatycznie przy starcie systemu Windows",
   "Show": "Pokaż",

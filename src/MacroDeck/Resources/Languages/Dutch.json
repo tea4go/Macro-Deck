@@ -8,7 +8,7 @@
     "Info": "Info",
     "Error": "Fout",
     "Warning": "Waarschuwing",
-    "ConfigureNetworkInfo": "Het is erg belangrijk om de juiste netwerkadapter te selecteren, anders kunt u geen verbinding maken met de client met de server. In de meeste gevallen ziet de naam van de netwerkadapter eruit als \"Ethernet\" of \"Wi-Fi\" en het ip-adres in de meeste gevallen als \"192.168.178.xxx\".\n\nDe standaardpoort voor Macro Deck is 8191. Als een andere toepassing deze poort gebruikt, kunt u deze wijzigen.",
+    "ConfigureNetworkInfo": "De standaardpoort voor Macro Deck is 8191. Als een andere toepassing deze poort gebruikt, kunt u deze wijzigen.",
     "AutomaticallyCheckUpdates": "Automatisch controleren op nieuwe updates",
     "AutomaticallyStartWithWindows": "Automatisch opstarten met Windows",
     "Show": "Configureer Macro Deck",

@@ -8,7 +8,7 @@
   "Info": "Info",
   "Error": "Fehler",
   "Warning": "Warnung",
-  "ConfigureNetworkInfo": "Es ist sehr wichtig dass der richtige Netzwerkadapter eingestellt wird, da sonst keine Verbindung zum Server hergestellt werden kann. In den meisten fällen heißt der Netzwerkadapter \"Ethernet\" oder \"WLAN\" und die IP Adresse sieht meist wie \"192.168.178.xxx\" aus.\n  \nDer Standartport für Macro Deck ist 8191. Wenn andere Anwendungen diesen Port schon benutzen, muss dieser geändert werden.\n  ",
+  "ConfigureNetworkInfo": "Der Standartport für Macro Deck ist 8191. Wenn andere Anwendungen diesen Port schon benutzen, muss dieser geändert werden.",
   "AutomaticallyCheckUpdates": "Automatisch nach Updates suchen",
   "AutomaticallyStartWithWindows": "Automatisch mit Windows starten",
   "Show": "Macro Deck konfigurieren",

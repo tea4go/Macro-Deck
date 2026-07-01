@@ -8,7 +8,7 @@
   "Info": "Infos",
   "Error": "Erreur",
   "Warning": "Attention",
-  "ConfigureNetworkInfo": "Il est vraiment important de sélectionner la bonne carte réseau, sinon le client ne pourra pas se connecter au serveur. Dans la plupart des cas, le nom de la carte réseau ressemble à \"Ethernet\" ou \"Wi-Fi\" et l'adresse IP ressemble dans la plupart des cas à \"192.168.1.xxx\".\n\nLe port par défaut pour Macro Deck est 8191. Si une autre application utilise ce port, vous pouvez le modifier.",
+  "ConfigureNetworkInfo": "Le port par défaut pour Macro Deck est 8191. Si une autre application utilise ce port, vous pouvez le modifier.",
   "AutomaticallyCheckUpdates": "Rechercher automatiquement les mises à jour",
   "AutomaticallyStartWithWindows": "Démarrer automatiquement avec Windows",
   "Show": "Montrer",

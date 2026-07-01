@@ -14,7 +14,7 @@ public class Strings
     public string Warning = "Warning";
 
     public string ConfigureNetworkInfo
-        = "It's really important to select the correct network adapter or otherwise you will not be able to connect with the client to the server. In most cases the name of the Network adapter looks like \"Ethernet\" or \"Wi-Fi\" and the ip address in most cases looks like \"192.168.178.xxx\".\r\n\r\nThe default port for Macro Deck is 8191. If some other application uses this port, you can change it.";
+        = "The default port for Macro Deck is 8191. If some other application uses this port, you can change it.";
 
     public string AutomaticallyCheckUpdates = "Automatically check for updates";
     public string AutomaticallyStartWithWindows = "Automatically start with Windows";

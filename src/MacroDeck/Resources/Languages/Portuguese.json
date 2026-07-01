@@ -8,7 +8,7 @@
   "Info": "Informação",
   "Error": "Erro",
   "Warning": "Aviso",
-  "ConfigureNetworkInfo": "É muito importante selecionar a Placa de Rede correta para estabelecer a comunicação com o servidor. Normalmente a Placa de Rede chama-se \"Ethernet\" ou \"Rede sem fio\" e o Endereço IP costuma ser semelhante a \"192.168.178.xxx\".\n  \nA Porta Padrão do Macro Deck é 8191. Se outra aplicativo utilizar esta Porta, deve ser alterada.\n  ",
+  "ConfigureNetworkInfo": "A Porta Padrão do Macro Deck é 8191. Se outra aplicativo utilizar esta Porta, deve ser alterada.",
   "AutomaticallyCheckUpdates": "Proucurar atualizações automáticamente",
   "AutomaticallyStartWithWindows": "Abrir ao ligar o computador",
   "Show": "Configurar o Macro Deck",
