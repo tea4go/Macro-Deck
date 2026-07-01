@@ -69,9 +69,10 @@ public partial class VariablesView : UserControl
                 Text = creator,
                 Name = creator,
                 AutoSize = true,
-                Size = new Size(creatorFilter.Width - 30, 40)
+                Margin = new Padding(10, 3, 3, 3),
             };
             creatorFilter.Controls.Add(creatorCheckBox);
+            FontManager.Apply(creatorCheckBox);
             creatorCheckBox.CheckedChanged += CreatorCheckBox_CheckedChanged;
         }
     }

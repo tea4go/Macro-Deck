@@ -162,7 +162,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             font.Font = new Font("Tahoma", 12F);
             font.ForeColor = Color.White;
             font.Icon = null;
-            font.Location = new Point(12, 275);
+            font.Location = new Point(12, 268);
             font.Margin = new Padding(0);
             font.Name = "font";
             font.Padding = new Padding(8, 2, 8, 2);
@@ -179,7 +179,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblFont.ForeColor = Color.Gray;
             lblFont.Location = new Point(3, 223);
             lblFont.Name = "lblFont";
-            lblFont.Size = new Size(72, 35);
+            lblFont.Size = new Size(47, 23);
             lblFont.TabIndex = 5;
             lblFont.Text = "Font";
             lblFont.UseMnemonic = false;
@@ -187,18 +187,18 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // fontSize
             // 
             fontSize.BackColor = Color.FromArgb(65, 65, 65);
-            fontSize.BorderStyle = BorderStyle.FixedSingle;
+            fontSize.BorderStyle = BorderStyle.None;
             fontSize.DecimalPlaces = 2;
             fontSize.Font = new Font("Tahoma", 12F);
             fontSize.ForeColor = Color.White;
             fontSize.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
-            fontSize.Location = new Point(663, 277);
-            fontSize.Maximum = new decimal(new int[] { 72, 0, 0, 0 });
+            fontSize.Location = new Point(663, 268);
+            fontSize.Maximum = new decimal(new int[] { 32, 0, 0, 0 });
             fontSize.Minimum = new decimal(new int[] { 6, 0, 0, 0 });
             fontSize.Name = "fontSize";
-            fontSize.Size = new Size(151, 36);
+            fontSize.Size = new Size(151, 23);
             fontSize.TabIndex = 8;
-            fontSize.Value = new decimal(new int[] { 975, 0, 0, 131072 });
+            fontSize.Value = new decimal(new int[] { 10, 0, 0, 0 });
             fontSize.ValueChanged += FontSize_ValueChanged;
             // 
             // lblFontSize
@@ -208,7 +208,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblFontSize.ForeColor = Color.Gray;
             lblFontSize.Location = new Point(663, 223);
             lblFontSize.Name = "lblFontSize";
-            lblFontSize.Size = new Size(66, 35);
+            lblFontSize.Size = new Size(43, 23);
             lblFontSize.TabIndex = 7;
             lblFontSize.Text = "Size";
             lblFontSize.UseMnemonic = false;
@@ -218,7 +218,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkBold.AutoSize = true;
             checkBold.Location = new Point(13, 330);
             checkBold.Name = "checkBold";
-            checkBold.Size = new Size(84, 33);
+            checkBold.Size = new Size(59, 23);
             checkBold.TabIndex = 9;
             checkBold.Text = "Bold";
             checkBold.UseVisualStyleBackColor = true;
@@ -231,7 +231,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblFontRestartHint.ForeColor = Color.FromArgb(222, 170, 27);
             lblFontRestartHint.Location = new Point(13, 292);
             lblFontRestartHint.Name = "lblFontRestartHint";
-            lblFontRestartHint.Size = new Size(0, 24);
+            lblFontRestartHint.Size = new Size(0, 16);
             lblFontRestartHint.TabIndex = 10;
             lblFontRestartHint.Visible = false;
             // 
@@ -260,7 +260,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblLanguage.ForeColor = Color.Gray;
             lblLanguage.Location = new Point(3, 386);
             lblLanguage.Name = "lblLanguage";
-            lblLanguage.Size = new Size(138, 35);
+            lblLanguage.Size = new Size(93, 23);
             lblLanguage.TabIndex = 3;
             lblLanguage.Text = "Language";
             lblLanguage.UseMnemonic = false;
@@ -270,7 +270,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkStartWindows.AutoSize = true;
             checkStartWindows.Location = new Point(13, 133);
             checkStartWindows.Name = "checkStartWindows";
-            checkStartWindows.Size = new Size(245, 33);
+            checkStartWindows.Size = new Size(165, 23);
             checkStartWindows.TabIndex = 2;
             checkStartWindows.Text = "Start with Windows";
             checkStartWindows.UseMnemonic = false;
@@ -282,7 +282,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkSendErrorReports.AutoSize = true;
             checkSendErrorReports.Location = new Point(13, 175);
             checkSendErrorReports.Name = "checkSendErrorReports";
-            checkSendErrorReports.Size = new Size(365, 33);
+            checkSendErrorReports.Size = new Size(245, 23);
             checkSendErrorReports.TabIndex = 3;
             checkSendErrorReports.Text = "Send anonymous error reports";
             checkSendErrorReports.UseMnemonic = false;
@@ -296,7 +296,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblBehaviour.ForeColor = Color.Gray;
             lblBehaviour.Location = new Point(3, 80);
             lblBehaviour.Name = "lblBehaviour";
-            lblBehaviour.Size = new Size(125, 35);
+            lblBehaviour.Size = new Size(82, 23);
             lblBehaviour.TabIndex = 1;
             lblBehaviour.Text = "Behavior";
             lblBehaviour.UseMnemonic = false;
@@ -307,7 +307,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblGeneral.Font = new Font("Tahoma", 15.75F);
             lblGeneral.Location = new Point(3, 0);
             lblGeneral.Name = "lblGeneral";
-            lblGeneral.Size = new Size(126, 39);
+            lblGeneral.Size = new Size(84, 25);
             lblGeneral.TabIndex = 0;
             lblGeneral.Text = "General";
             lblGeneral.UseMnemonic = false;
@@ -345,7 +345,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkAutoStartUsb.Font = new Font("Tahoma", 12F);
             checkAutoStartUsb.Location = new Point(14, 742);
             checkAutoStartUsb.Name = "checkAutoStartUsb";
-            checkAutoStartUsb.Size = new Size(805, 33);
+            checkAutoStartUsb.Size = new Size(532, 23);
             checkAutoStartUsb.TabIndex = 27;
             checkAutoStartUsb.Text = "Automatically wake screen and start Macro Deck Client when connected";
             checkAutoStartUsb.UseMnemonic = false;
@@ -357,7 +357,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkEnableAdb.Font = new Font("Tahoma", 12F);
             checkEnableAdb.Location = new Point(14, 699);
             checkEnableAdb.Name = "checkEnableAdb";
-            checkEnableAdb.Size = new Size(766, 33);
+            checkEnableAdb.Size = new Size(520, 23);
             checkEnableAdb.TabIndex = 26;
             checkEnableAdb.Text = "Enable Android Debug Bridge (Required for Android USB connection)";
             checkEnableAdb.UseMnemonic = false;
@@ -370,7 +370,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label5.ForeColor = Color.Gray;
             label5.Location = new Point(5, 642);
             label5.Name = "label5";
-            label5.Size = new Size(67, 35);
+            label5.Size = new Size(44, 23);
             label5.TabIndex = 25;
             label5.Text = "USB";
             label5.UseMnemonic = false;
@@ -427,7 +427,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label4.Font = new Font("Tahoma", 11.25F);
             label4.Location = new Point(12, 399);
             label4.Name = "label4";
-            label4.Size = new Size(202, 28);
+            label4.Size = new Size(132, 18);
             label4.TabIndex = 22;
             label4.Text = "Private Key (PEM):";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -459,7 +459,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label3.Font = new Font("Tahoma", 11.25F);
             label3.Location = new Point(12, 240);
             label3.Name = "label3";
-            label3.Size = new Size(191, 28);
+            label3.Size = new Size(122, 18);
             label3.TabIndex = 20;
             label3.Text = "Certificate (PEM):";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -491,7 +491,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkEnableSsl.Font = new Font("Tahoma", 12F);
             checkEnableSsl.Location = new Point(12, 193);
             checkEnableSsl.Name = "checkEnableSsl";
-            checkEnableSsl.Size = new Size(155, 33);
+            checkEnableSsl.Size = new Size(106, 23);
             checkEnableSsl.TabIndex = 18;
             checkEnableSsl.Text = "Enable SSL";
             checkEnableSsl.UseMnemonic = false;
@@ -504,7 +504,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             labelSsl.ForeColor = Color.Gray;
             labelSsl.Location = new Point(3, 146);
             labelSsl.Name = "labelSsl";
-            labelSsl.Size = new Size(61, 35);
+            labelSsl.Size = new Size(41, 23);
             labelSsl.TabIndex = 13;
             labelSsl.Text = "SSL";
             labelSsl.UseMnemonic = false;
@@ -541,7 +541,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             port.Location = new Point(13, 89);
             port.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             port.Name = "port";
-            port.Size = new Size(154, 35);
+            port.Size = new Size(154, 26);
             port.TabIndex = 9;
             port.Value = new decimal(new int[] { 8191, 0, 0, 0 });
             // 
@@ -552,7 +552,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblPort.ForeColor = Color.Gray;
             lblPort.Location = new Point(3, 45);
             lblPort.Name = "lblPort";
-            lblPort.Size = new Size(67, 35);
+            lblPort.Size = new Size(43, 23);
             lblPort.TabIndex = 8;
             lblPort.Text = "Port";
             lblPort.UseMnemonic = false;
@@ -563,7 +563,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblConnection.Font = new Font("Tahoma", 15.75F);
             lblConnection.Location = new Point(3, 0);
             lblConnection.Name = "lblConnection";
-            lblConnection.Size = new Size(174, 39);
+            lblConnection.Size = new Size(116, 25);
             lblConnection.TabIndex = 1;
             lblConnection.Text = "Connection";
             lblConnection.UseMnemonic = false;
@@ -593,7 +593,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label2.ForeColor = Color.Gray;
             label2.Location = new Point(3, 50);
             label2.Name = "label2";
-            label2.Size = new Size(125, 35);
+            label2.Size = new Size(82, 23);
             label2.TabIndex = 18;
             label2.Text = "Behavior";
             label2.UseMnemonic = false;
@@ -603,7 +603,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkAutoUpdate.AutoSize = true;
             checkAutoUpdate.Location = new Point(13, 90);
             checkAutoUpdate.Name = "checkAutoUpdate";
-            checkAutoUpdate.Size = new Size(377, 33);
+            checkAutoUpdate.Size = new Size(253, 23);
             checkAutoUpdate.TabIndex = 17;
             checkAutoUpdate.Text = "Automatically check for updates";
             checkAutoUpdate.UseMnemonic = false;
@@ -614,7 +614,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             checkInstallBetaVersions.AutoSize = true;
             checkInstallBetaVersions.Location = new Point(13, 132);
             checkInstallBetaVersions.Name = "checkInstallBetaVersions";
-            checkInstallBetaVersions.Size = new Size(254, 33);
+            checkInstallBetaVersions.Size = new Size(169, 23);
             checkInstallBetaVersions.TabIndex = 16;
             checkInstallBetaVersions.Text = "Install Beta versions";
             checkInstallBetaVersions.UseMnemonic = false;
@@ -669,7 +669,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblUpdates.Font = new Font("Tahoma", 15.75F);
             lblUpdates.Location = new Point(3, 0);
             lblUpdates.Name = "lblUpdates";
-            lblUpdates.Size = new Size(133, 39);
+            lblUpdates.Size = new Size(88, 25);
             lblUpdates.TabIndex = 2;
             lblUpdates.Text = "Updates";
             lblUpdates.UseMnemonic = false;
@@ -727,7 +727,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblBackups.Font = new Font("Tahoma", 15.75F);
             lblBackups.Location = new Point(3, 12);
             lblBackups.Name = "lblBackups";
-            lblBackups.Size = new Size(134, 39);
+            lblBackups.Size = new Size(89, 25);
             lblBackups.TabIndex = 3;
             lblBackups.Text = "Backups";
             lblBackups.UseMnemonic = false;
@@ -763,7 +763,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblDotnetVersion.AutoSize = true;
             lblDotnetVersion.Location = new Point(664, 491);
             lblDotnetVersion.Name = "lblDotnetVersion";
-            lblDotnetVersion.Size = new Size(26, 29);
+            lblDotnetVersion.Size = new Size(18, 19);
             lblDotnetVersion.TabIndex = 20;
             lblDotnetVersion.Text = "0";
             lblDotnetVersion.UseMnemonic = false;
@@ -773,7 +773,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label6.AutoSize = true;
             label6.Location = new Point(271, 491);
             label6.Name = "label6";
-            label6.Size = new Size(108, 29);
+            label6.Size = new Size(74, 19);
             label6.TabIndex = 19;
             label6.Text = "Runtime:";
             label6.UseMnemonic = false;
@@ -798,7 +798,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             label1.Font = new Font("Tahoma", 11.25F);
             label1.Location = new Point(219, 256);
             label1.Name = "label1";
-            label1.Size = new Size(288, 28);
+            label1.Size = new Size(184, 18);
             label1.TabIndex = 15;
             label1.Text = "Licensed under Apache-2.0";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -810,7 +810,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblTranslationBy.Font = new Font("Tahoma", 11.25F);
             lblTranslationBy.Location = new Point(219, 164);
             lblTranslationBy.Name = "lblTranslationBy";
-            lblTranslationBy.Size = new Size(353, 28);
+            lblTranslationBy.Size = new Size(225, 18);
             lblTranslationBy.TabIndex = 14;
             lblTranslationBy.Text = "English translation by Macro Deck";
             lblTranslationBy.TextAlign = ContentAlignment.MiddleCenter;
@@ -844,7 +844,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblPluginAPIVersion.AutoSize = true;
             lblPluginAPIVersion.Location = new Point(664, 415);
             lblPluginAPIVersion.Name = "lblPluginAPIVersion";
-            lblPluginAPIVersion.Size = new Size(39, 29);
+            lblPluginAPIVersion.Size = new Size(27, 19);
             lblPluginAPIVersion.TabIndex = 12;
             lblPluginAPIVersion.Text = "20";
             lblPluginAPIVersion.UseMnemonic = false;
@@ -854,7 +854,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblWebsocketAPIVersion.AutoSize = true;
             lblWebsocketAPIVersion.Location = new Point(664, 373);
             lblWebsocketAPIVersion.Name = "lblWebsocketAPIVersion";
-            lblWebsocketAPIVersion.Size = new Size(39, 29);
+            lblWebsocketAPIVersion.Size = new Size(27, 19);
             lblWebsocketAPIVersion.TabIndex = 11;
             lblWebsocketAPIVersion.Text = "20";
             lblWebsocketAPIVersion.UseMnemonic = false;
@@ -864,7 +864,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblPluginAPILabel.AutoSize = true;
             lblPluginAPILabel.Location = new Point(271, 415);
             lblPluginAPILabel.Name = "lblPluginAPILabel";
-            lblPluginAPILabel.Size = new Size(211, 29);
+            lblPluginAPILabel.Size = new Size(146, 19);
             lblPluginAPILabel.TabIndex = 10;
             lblPluginAPILabel.Text = "Plugin API version:";
             lblPluginAPILabel.UseMnemonic = false;
@@ -874,7 +874,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblWebSocketAPILabel.AutoSize = true;
             lblWebSocketAPILabel.Location = new Point(271, 373);
             lblWebSocketAPILabel.Name = "lblWebSocketAPILabel";
-            lblWebSocketAPILabel.Size = new Size(265, 29);
+            lblWebSocketAPILabel.Size = new Size(177, 19);
             lblWebSocketAPILabel.TabIndex = 9;
             lblWebSocketAPILabel.Text = "Websocket API version:";
             lblWebSocketAPILabel.UseMnemonic = false;
@@ -884,7 +884,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblInstalledPlugins.AutoSize = true;
             lblInstalledPlugins.Location = new Point(664, 455);
             lblInstalledPlugins.Name = "lblInstalledPlugins";
-            lblInstalledPlugins.Size = new Size(26, 29);
+            lblInstalledPlugins.Size = new Size(18, 19);
             lblInstalledPlugins.TabIndex = 7;
             lblInstalledPlugins.Text = "0";
             lblInstalledPlugins.UseMnemonic = false;
@@ -894,7 +894,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblInstalledPluginsLabel.AutoSize = true;
             lblInstalledPluginsLabel.Location = new Point(271, 455);
             lblInstalledPluginsLabel.Name = "lblInstalledPluginsLabel";
-            lblInstalledPluginsLabel.Size = new Size(192, 29);
+            lblInstalledPluginsLabel.Size = new Size(131, 19);
             lblInstalledPluginsLabel.TabIndex = 4;
             lblInstalledPluginsLabel.Text = "Installed plugins:";
             lblInstalledPluginsLabel.UseMnemonic = false;
@@ -905,7 +905,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblDeveloped.Font = new Font("Tahoma", 11.25F);
             lblDeveloped.Location = new Point(219, 212);
             lblDeveloped.Name = "lblDeveloped";
-            lblDeveloped.Size = new Size(539, 28);
+            lblDeveloped.Size = new Size(352, 18);
             lblDeveloped.TabIndex = 2;
             lblDeveloped.Text = "Developed by Manuel Mayer (SuchByte) in Germany";
             lblDeveloped.TextAlign = ContentAlignment.MiddleCenter;
@@ -946,7 +946,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             // SettingsView
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
             Controls.Add(verticalTabControl);

@@ -49,7 +49,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             devicesList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             devicesList.AutoScroll = true;
-            devicesList.Location = new Point(3, 65);
+            devicesList.Location = new Point(9, 65);
             devicesList.Name = "devicesList";
             devicesList.Size = new Size(1025, 936);
             devicesList.TabIndex = 12;
@@ -61,7 +61,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblKnownDevices.ForeColor = Color.White;
             lblKnownDevices.Location = new Point(9, 14);
             lblKnownDevices.Name = "lblKnownDevices";
-            lblKnownDevices.Size = new Size(204, 35);
+            lblKnownDevices.Size = new Size(134, 23);
             lblKnownDevices.TabIndex = 13;
             lblKnownDevices.Text = "Known devices";
             lblKnownDevices.UseMnemonic = false;
@@ -73,7 +73,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblBehaviour.ForeColor = Color.White;
             lblBehaviour.Location = new Point(1058, 14);
             lblBehaviour.Name = "lblBehaviour";
-            lblBehaviour.Size = new Size(141, 35);
+            lblBehaviour.Size = new Size(93, 23);
             lblBehaviour.TabIndex = 14;
             lblBehaviour.Text = "Behaviour";
             lblBehaviour.UseMnemonic = false;
@@ -96,7 +96,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioBlockNew.ForeColor = Color.FromArgb(255, 128, 128);
             radioBlockNew.Location = new Point(27, 91);
             radioBlockNew.Name = "radioBlockNew";
-            radioBlockNew.Size = new Size(308, 33);
+            radioBlockNew.Size = new Size(207, 23);
             radioBlockNew.TabIndex = 2;
             radioBlockNew.TabStop = true;
             radioBlockNew.Text = "Block all new connections";
@@ -111,7 +111,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioAllowAll.ForeColor = Color.White;
             radioAllowAll.Location = new Point(27, 49);
             radioAllowAll.Name = "radioAllowAll";
-            radioAllowAll.Size = new Size(530, 33);
+            radioAllowAll.Size = new Size(358, 23);
             radioAllowAll.TabIndex = 1;
             radioAllowAll.TabStop = true;
             radioAllowAll.Text = "Allow all new connections (Not recommended)";
@@ -126,7 +126,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioAskNewConnections.ForeColor = Color.White;
             radioAskNewConnections.Location = new Point(27, 10);
             radioAskNewConnections.Name = "radioAskNewConnections";
-            radioAskNewConnections.Size = new Size(293, 33);
+            radioAskNewConnections.Size = new Size(198, 23);
             radioAskNewConnections.TabIndex = 0;
             radioAskNewConnections.TabStop = true;
             radioAskNewConnections.Text = "Ask on new connections";
@@ -136,7 +136,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             // DeviceManagerView
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
             Controls.Add(panel1);

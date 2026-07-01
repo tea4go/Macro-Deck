@@ -58,7 +58,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioInstalled.ForeColor = Color.White;
             radioInstalled.Icon = Resources.Harddisk;
             radioInstalled.IconAlignment = ContentAlignment.MiddleLeft;
-            radioInstalled.Location = new Point(3, 3);
+            radioInstalled.Location = new Point(16, 3);
             radioInstalled.Name = "radioInstalled";
             radioInstalled.Size = new Size(186, 52);
             radioInstalled.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioOnline.ForeColor = Color.White;
             radioOnline.Icon = Resources.Web2;
             radioOnline.IconAlignment = ContentAlignment.MiddleLeft;
-            radioOnline.Location = new Point(195, 3);
+            radioOnline.Location = new Point(208, 3);
             radioOnline.Name = "radioOnline";
             radioOnline.Size = new Size(186, 52);
             radioOnline.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             // ExtensionsView
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
             Controls.Add(radioOnline);
