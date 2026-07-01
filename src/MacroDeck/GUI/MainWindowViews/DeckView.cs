@@ -59,6 +59,9 @@ public partial class DeckView : UserControl
     {
         InitializeComponent();
         Dock = DockStyle.Fill;
+        // ContextMenuStrip 不在窗体控件树中，FontManager.Apply 无法触及，需手动套用配置字体
+        actionButtonContextMenu.Font = FontManager.Resolve(actionButtonContextMenu.Font);
+        foldersContextMenu.Font = FontManager.Resolve(foldersContextMenu.Font);
         UpdateTranslation();
         _currentFolder = ProfileManager.CurrentProfile.Folders.FirstOrDefault();
         qrCodeBox.BackgroundImage = QrCodeService.Instance.GetQuickSetupQrCode();

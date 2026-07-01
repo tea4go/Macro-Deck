@@ -57,11 +57,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             logOutput.BackColor = Color.FromArgb(65, 65, 65);
             logOutput.BorderStyle = BorderStyle.None;
             logOutput.ForeColor = Color.White;
-            logOutput.Location = new Point(15, 90);
-            logOutput.Margin = new Padding(4);
+            logOutput.Location = new Point(10, 60);
             logOutput.Name = "logOutput";
             logOutput.ReadOnly = true;
-            logOutput.Size = new Size(1170, 504);
+            logOutput.Size = new Size(780, 336);
             logOutput.TabIndex = 1;
             logOutput.Text = "";
             // 
@@ -76,12 +75,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnClear.ForeColor = Color.White;
             btnClear.HoverColor = Color.FromArgb(0, 89, 184);
             btnClear.Icon = null;
-            btnClear.Location = new Point(1005, 611);
-            btnClear.Margin = new Padding(4);
+            btnClear.Location = new Point(670, 410);
             btnClear.Name = "btnClear";
             btnClear.Progress = 0;
             btnClear.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnClear.Size = new Size(183, 56);
+            btnClear.Size = new Size(122, 37);
             btnClear.TabIndex = 2;
             btnClear.Text = "Clear";
             btnClear.UseMnemonic = false;
@@ -101,12 +99,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnRestartMacroDeck.ForeColor = Color.White;
             btnRestartMacroDeck.HoverColor = Color.FromArgb(0, 89, 184);
             btnRestartMacroDeck.Icon = null;
-            btnRestartMacroDeck.Location = new Point(195, 611);
-            btnRestartMacroDeck.Margin = new Padding(4);
+            btnRestartMacroDeck.Location = new Point(130, 410);
             btnRestartMacroDeck.Name = "btnRestartMacroDeck";
             btnRestartMacroDeck.Progress = 0;
             btnRestartMacroDeck.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnRestartMacroDeck.Size = new Size(183, 56);
+            btnRestartMacroDeck.Size = new Size(122, 37);
             btnRestartMacroDeck.TabIndex = 3;
             btnRestartMacroDeck.Text = "Restart Macro Deck";
             btnRestartMacroDeck.UseMnemonic = false;
@@ -126,12 +123,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnExit.ForeColor = Color.White;
             btnExit.HoverColor = Color.FromArgb(0, 89, 184);
             btnExit.Icon = null;
-            btnExit.Location = new Point(3, 611);
-            btnExit.Margin = new Padding(4);
+            btnExit.Location = new Point(2, 410);
             btnExit.Name = "btnExit";
             btnExit.Progress = 0;
             btnExit.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnExit.Size = new Size(183, 56);
+            btnExit.Size = new Size(122, 37);
             btnExit.TabIndex = 4;
             btnExit.Text = "Exit Macro Deck";
             btnExit.UseMnemonic = false;
@@ -151,12 +147,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOpenUser.ForeColor = Color.White;
             btnOpenUser.HoverColor = Color.FromArgb(0, 89, 184);
             btnOpenUser.Icon = null;
-            btnOpenUser.Location = new Point(387, 611);
-            btnOpenUser.Margin = new Padding(4);
+            btnOpenUser.Location = new Point(258, 410);
             btnOpenUser.Name = "btnOpenUser";
             btnOpenUser.Progress = 0;
             btnOpenUser.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnOpenUser.Size = new Size(183, 56);
+            btnOpenUser.Size = new Size(122, 37);
             btnOpenUser.TabIndex = 5;
             btnOpenUser.Text = "Open user directory";
             btnOpenUser.UseMnemonic = false;
@@ -168,10 +163,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // label1
             // 
             label1.Font = new Font("Tahoma", 11.25F);
-            label1.Location = new Point(10, 23);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(9, 16);
             label1.Name = "label1";
-            label1.Size = new Size(142, 39);
+            label1.Size = new Size(95, 26);
             label1.TabIndex = 6;
             label1.Text = "Log level:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -184,12 +178,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             logLevel.DropDownStyle = ComboBoxStyle.DropDownList;
             logLevel.Font = new Font("Tahoma", 12F);
             logLevel.Icon = null;
-            logLevel.Location = new Point(150, 27);
-            logLevel.Margin = new Padding(4);
+            logLevel.Location = new Point(100, 10);
             logLevel.Name = "logLevel";
             logLevel.SelectedIndex = -1;
             logLevel.SelectedItem = null;
-            logLevel.Size = new Size(266, 38);
+            logLevel.Size = new Size(177, 38);
             logLevel.TabIndex = 7;
             logLevel.SelectedIndexChanged += LogLevel_SelectedIndexChanged;
             // 
@@ -204,12 +197,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnExportOutput.ForeColor = Color.White;
             btnExportOutput.HoverColor = Color.FromArgb(0, 89, 184);
             btnExportOutput.Icon = null;
-            btnExportOutput.Location = new Point(813, 611);
-            btnExportOutput.Margin = new Padding(4);
+            btnExportOutput.Location = new Point(542, 410);
             btnExportOutput.Name = "btnExportOutput";
             btnExportOutput.Progress = 0;
             btnExportOutput.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnExportOutput.Size = new Size(183, 56);
+            btnExportOutput.Size = new Size(122, 37);
             btnExportOutput.TabIndex = 8;
             btnExportOutput.Text = "Export output";
             btnExportOutput.UseMnemonic = false;
@@ -222,10 +214,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.Font = new Font("Tahoma", 11.25F);
-            label3.Location = new Point(588, 23);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(392, 16);
             label3.Name = "label3";
-            label3.Size = new Size(160, 39);
+            label3.Size = new Size(107, 26);
             label3.TabIndex = 9;
             label3.Text = "Filter:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -236,21 +227,20 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             filter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             filter.BackColor = Color.FromArgb(65, 65, 65);
             filter.Cursor = Cursors.Hand;
-            filter.Font = new Font("Tahoma", 9F);
+            filter.Font = new Font("Tahoma", 12F);
             filter.Icon = null;
-            filter.Location = new Point(756, 23);
-            filter.Margin = new Padding(4);
+            filter.Location = new Point(483, 14);
             filter.MaxCharacters = 32767;
             filter.Multiline = false;
             filter.Name = "filter";
-            filter.Padding = new Padding(12, 8, 12, 8);
+            filter.Padding = new Padding(8, 5, 8, 5);
             filter.PasswordChar = false;
             filter.PlaceHolderColor = Color.Gray;
             filter.PlaceHolderText = "";
             filter.ReadOnly = false;
             filter.ScrollBars = ScrollBars.None;
             filter.SelectionStart = 0;
-            filter.Size = new Size(352, 39);
+            filter.Size = new Size(212, 30);
             filter.TabIndex = 10;
             filter.TextAlignment = HorizontalAlignment.Left;
             // 
@@ -265,12 +255,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnAddFilter.ForeColor = Color.White;
             btnAddFilter.HoverColor = Color.FromArgb(0, 89, 184);
             btnAddFilter.Icon = Properties.Resources.Create_Hover;
-            btnAddFilter.Location = new Point(1112, 14);
-            btnAddFilter.Margin = new Padding(4);
+            btnAddFilter.Location = new Point(704, 11);
             btnAddFilter.Name = "btnAddFilter";
             btnAddFilter.Progress = 0;
             btnAddFilter.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnAddFilter.Size = new Size(38, 56);
+            btnAddFilter.Size = new Size(38, 37);
             btnAddFilter.TabIndex = 11;
             btnAddFilter.UseMnemonic = false;
             btnAddFilter.UseVisualStyleBackColor = false;
@@ -298,12 +287,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnRemoveFilters.ForeColor = Color.White;
             btnRemoveFilters.HoverColor = Color.FromArgb(152, 0, 0);
             btnRemoveFilters.Icon = Properties.Resources.Delete_Hover;
-            btnRemoveFilters.Location = new Point(1155, 14);
-            btnRemoveFilters.Margin = new Padding(4);
+            btnRemoveFilters.Location = new Point(752, 11);
             btnRemoveFilters.Name = "btnRemoveFilters";
             btnRemoveFilters.Progress = 0;
             btnRemoveFilters.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnRemoveFilters.Size = new Size(38, 56);
+            btnRemoveFilters.Size = new Size(38, 37);
             btnRemoveFilters.TabIndex = 12;
             btnRemoveFilters.UseMnemonic = false;
             btnRemoveFilters.UseVisualStyleBackColor = false;
@@ -322,12 +310,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnTestNotification.ForeColor = Color.White;
             btnTestNotification.HoverColor = Color.FromArgb(0, 89, 184);
             btnTestNotification.Icon = null;
-            btnTestNotification.Location = new Point(579, 611);
-            btnTestNotification.Margin = new Padding(4);
+            btnTestNotification.Location = new Point(386, 410);
             btnTestNotification.Name = "btnTestNotification";
             btnTestNotification.Progress = 0;
             btnTestNotification.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnTestNotification.Size = new Size(183, 56);
+            btnTestNotification.Size = new Size(122, 37);
             btnTestNotification.TabIndex = 13;
             btnTestNotification.Text = "Test notification";
             btnTestNotification.UseMnemonic = false;
@@ -346,12 +333,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOpenLogs.ForeColor = Color.White;
             btnOpenLogs.HoverColor = Color.FromArgb(0, 89, 184);
             btnOpenLogs.Icon = null;
-            btnOpenLogs.Location = new Point(424, 14);
-            btnOpenLogs.Margin = new Padding(4);
+            btnOpenLogs.Location = new Point(283, 11);
             btnOpenLogs.Name = "btnOpenLogs";
             btnOpenLogs.Progress = 0;
             btnOpenLogs.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnOpenLogs.Size = new Size(151, 56);
+            btnOpenLogs.Size = new Size(101, 37);
             btnOpenLogs.TabIndex = 14;
             btnOpenLogs.Text = "Open logs";
             btnOpenLogs.UseMnemonic = false;
@@ -362,9 +348,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // DebugConsole
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(1200, 689);
+            ClientSize = new Size(800, 459);
             Controls.Add(btnTestNotification);
             Controls.Add(btnRemoveFilters);
             Controls.Add(btnAddFilter);
@@ -379,10 +365,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Controls.Add(btnClear);
             Controls.Add(logOutput);
             Controls.Add(btnOpenLogs);
-            Margin = new Padding(9, 6, 9, 6);
-            MinimumSize = new Size(1189, 649);
+            Margin = new Padding(6, 4, 6, 4);
+            MinimumSize = new Size(798, 445);
             Name = "DebugConsole";
-            Padding = new Padding(3);
+            Padding = new Padding(2, 2, 2, 2);
             StartPosition = FormStartPosition.WindowsDefaultLocation;
             Load += DebugConsole_Load;
             ResumeLayout(false);
