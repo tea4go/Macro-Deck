@@ -182,14 +182,14 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             logLevel.BackColor = Color.FromArgb(65, 65, 65);
             logLevel.Cursor = Cursors.Hand;
             logLevel.DropDownStyle = ComboBoxStyle.DropDownList;
-            logLevel.Font = new Font("Tahoma", 9F);
+            logLevel.Font = new Font("Tahoma", 12F);
             logLevel.Icon = null;
-            logLevel.Location = new Point(162, 27);
+            logLevel.Location = new Point(150, 27);
             logLevel.Margin = new Padding(4);
             logLevel.Name = "logLevel";
             logLevel.SelectedIndex = -1;
             logLevel.SelectedItem = null;
-            logLevel.Size = new Size(254, 30);
+            logLevel.Size = new Size(266, 38);
             logLevel.TabIndex = 7;
             logLevel.SelectedIndexChanged += LogLevel_SelectedIndexChanged;
             // 

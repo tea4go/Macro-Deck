@@ -61,7 +61,7 @@ namespace SuchByte.MacroDeck.GUI
             iconList.AutoScrollMinSize = new Size(0, 6);
             iconList.BackColor = Color.FromArgb(45, 45, 45);
             iconList.Location = new Point(18, 102);
-            iconList.Margin = new Padding(4, 4, 4, 4);
+            iconList.Margin = new Padding(4);
             iconList.Name = "iconList";
             iconList.Radius = 0;
             iconList.SelectedIcon = null;
@@ -78,7 +78,7 @@ namespace SuchByte.MacroDeck.GUI
             btnImport.HoverColor = Color.FromArgb(0, 89, 184);
             btnImport.Icon = null;
             btnImport.Location = new Point(4, 4);
-            btnImport.Margin = new Padding(4, 4, 4, 4);
+            btnImport.Margin = new Padding(4);
             btnImport.Name = "btnImport";
             btnImport.Progress = 0;
             btnImport.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -98,7 +98,7 @@ namespace SuchByte.MacroDeck.GUI
             btnPreview.Column = 0;
             btnPreview.ForegroundImage = null;
             btnPreview.Location = new Point(18, 664);
-            btnPreview.Margin = new Padding(4, 4, 4, 4);
+            btnPreview.Margin = new Padding(4);
             btnPreview.Name = "btnPreview";
             btnPreview.Radius = 40;
             btnPreview.Row = 0;
@@ -119,7 +119,7 @@ namespace SuchByte.MacroDeck.GUI
             btnOk.HoverColor = Color.FromArgb(0, 89, 184);
             btnOk.Icon = null;
             btnOk.Location = new Point(1046, 846);
-            btnOk.Margin = new Padding(4, 4, 4, 4);
+            btnOk.Margin = new Padding(4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -137,15 +137,15 @@ namespace SuchByte.MacroDeck.GUI
             iconPacksBox.BackColor = Color.FromArgb(65, 65, 65);
             iconPacksBox.Cursor = Cursors.Hand;
             iconPacksBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            iconPacksBox.Font = new Font("Tahoma", 9F);
+            iconPacksBox.Font = new Font("Tahoma", 12F);
             iconPacksBox.ForeColor = Color.White;
             iconPacksBox.Icon = null;
             iconPacksBox.Location = new Point(18, 29);
-            iconPacksBox.Margin = new Padding(0, 0, 0, 0);
+            iconPacksBox.Margin = new Padding(0);
             iconPacksBox.Name = "iconPacksBox";
             iconPacksBox.SelectedIndex = -1;
             iconPacksBox.SelectedItem = null;
-            iconPacksBox.Size = new Size(480, 36);
+            iconPacksBox.Size = new Size(480, 38);
             iconPacksBox.TabIndex = 7;
             iconPacksBox.SelectedIndexChanged += IconPacksBox_SelectedIndexChanged;
             // 
@@ -159,7 +159,7 @@ namespace SuchByte.MacroDeck.GUI
             btnCreateIconPack.ForeColor = Color.White;
             btnCreateIconPack.HoverImage = Properties.Resources.Create_Hover;
             btnCreateIconPack.Location = new Point(508, 31);
-            btnCreateIconPack.Margin = new Padding(4, 4, 4, 4);
+            btnCreateIconPack.Margin = new Padding(4);
             btnCreateIconPack.Name = "btnCreateIconPack";
             btnCreateIconPack.Size = new Size(38, 38);
             btnCreateIconPack.TabIndex = 9;
@@ -176,7 +176,7 @@ namespace SuchByte.MacroDeck.GUI
             btnDeleteIconPack.ForeColor = Color.White;
             btnDeleteIconPack.HoverImage = Properties.Resources.Delete_Hover;
             btnDeleteIconPack.Location = new Point(559, 31);
-            btnDeleteIconPack.Margin = new Padding(4, 4, 4, 4);
+            btnDeleteIconPack.Margin = new Padding(4);
             btnDeleteIconPack.Name = "btnDeleteIconPack";
             btnDeleteIconPack.Size = new Size(38, 38);
             btnDeleteIconPack.TabIndex = 10;
@@ -194,7 +194,7 @@ namespace SuchByte.MacroDeck.GUI
             btnImportIconPack.HoverColor = Color.FromArgb(0, 89, 184);
             btnImportIconPack.Icon = null;
             btnImportIconPack.Location = new Point(626, 15);
-            btnImportIconPack.Margin = new Padding(4, 4, 4, 4);
+            btnImportIconPack.Margin = new Padding(4);
             btnImportIconPack.Name = "btnImportIconPack";
             btnImportIconPack.Progress = 0;
             btnImportIconPack.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -218,7 +218,7 @@ namespace SuchByte.MacroDeck.GUI
             btnExportIconPack.HoverColor = Color.FromArgb(0, 89, 184);
             btnExportIconPack.Icon = null;
             btnExportIconPack.Location = new Point(830, 16);
-            btnExportIconPack.Margin = new Padding(4, 4, 4, 4);
+            btnExportIconPack.Margin = new Padding(4);
             btnExportIconPack.Name = "btnExportIconPack";
             btnExportIconPack.Progress = 0;
             btnExportIconPack.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -242,7 +242,7 @@ namespace SuchByte.MacroDeck.GUI
             btnDeleteIcon.HoverColor = Color.FromArgb(130, 0, 0);
             btnDeleteIcon.Icon = null;
             btnDeleteIcon.Location = new Point(1000, 664);
-            btnDeleteIcon.Margin = new Padding(4, 4, 4, 4);
+            btnDeleteIcon.Margin = new Padding(4);
             btnDeleteIcon.Name = "btnDeleteIcon";
             btnDeleteIcon.Progress = 0;
             btnDeleteIcon.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -258,7 +258,7 @@ namespace SuchByte.MacroDeck.GUI
             // lblSizeLabel
             // 
             lblSizeLabel.AutoSize = true;
-            lblSizeLabel.Location = new Point(252, 748);
+            lblSizeLabel.Location = new Point(252, 798);
             lblSizeLabel.Margin = new Padding(4, 0, 4, 0);
             lblSizeLabel.Name = "lblSizeLabel";
             lblSizeLabel.Size = new Size(53, 24);
@@ -268,7 +268,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // lblSize
             // 
-            lblSize.Location = new Point(321, 751);
+            lblSize.Location = new Point(321, 799);
             lblSize.Margin = new Padding(4, 0, 4, 0);
             lblSize.Name = "lblSize";
             lblSize.Size = new Size(352, 22);
@@ -278,7 +278,7 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // lblType
             // 
-            lblType.Location = new Point(321, 813);
+            lblType.Location = new Point(321, 845);
             lblType.Margin = new Padding(4, 0, 4, 0);
             lblType.Name = "lblType";
             lblType.Size = new Size(69, 24);
@@ -289,7 +289,7 @@ namespace SuchByte.MacroDeck.GUI
             // lblTypeLabel
             // 
             lblTypeLabel.AutoSize = true;
-            lblTypeLabel.Location = new Point(252, 808);
+            lblTypeLabel.Location = new Point(252, 845);
             lblTypeLabel.Margin = new Padding(4, 0, 4, 0);
             lblTypeLabel.Name = "lblTypeLabel";
             lblTypeLabel.Size = new Size(61, 24);
@@ -307,7 +307,7 @@ namespace SuchByte.MacroDeck.GUI
             btnCreateIcon.HoverColor = Color.FromArgb(0, 89, 184);
             btnCreateIcon.Icon = null;
             btnCreateIcon.Location = new Point(184, 4);
-            btnCreateIcon.Margin = new Padding(4, 4, 4, 4);
+            btnCreateIcon.Margin = new Padding(4);
             btnCreateIcon.Name = "btnCreateIcon";
             btnCreateIcon.Progress = 0;
             btnCreateIcon.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -326,16 +326,16 @@ namespace SuchByte.MacroDeck.GUI
             panelCreateIcon.Controls.Add(btnCreateIcon);
             panelCreateIcon.Controls.Add(lblManaged);
             panelCreateIcon.Location = new Point(252, 664);
-            panelCreateIcon.Margin = new Padding(4, 4, 4, 4);
+            panelCreateIcon.Margin = new Padding(4);
             panelCreateIcon.Name = "panelCreateIcon";
-            panelCreateIcon.Size = new Size(740, 57);
+            panelCreateIcon.Size = new Size(740, 130);
             panelCreateIcon.TabIndex = 21;
             // 
             // lblManaged
             // 
             lblManaged.AutoSize = true;
-            lblManaged.Location = new Point(4, 64);
-            lblManaged.Margin = new Padding(4, 0, 4, 0);
+            lblManaged.Location = new Point(5, 84);
+            lblManaged.Margin = new Padding(5, 20, 4, 0);
             lblManaged.Name = "lblManaged";
             lblManaged.Size = new Size(452, 24);
             lblManaged.TabIndex = 21;
@@ -352,8 +352,8 @@ namespace SuchByte.MacroDeck.GUI
             btnGenerateStatic.ForeColor = Color.White;
             btnGenerateStatic.HoverColor = Color.FromArgb(0, 89, 184);
             btnGenerateStatic.Icon = null;
-            btnGenerateStatic.Location = new Point(399, 794);
-            btnGenerateStatic.Margin = new Padding(4, 4, 4, 4);
+            btnGenerateStatic.Location = new Point(774, 845);
+            btnGenerateStatic.Margin = new Padding(4);
             btnGenerateStatic.Name = "btnGenerateStatic";
             btnGenerateStatic.Progress = 0;
             btnGenerateStatic.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -390,7 +390,7 @@ namespace SuchByte.MacroDeck.GUI
             Controls.Add(iconList);
             Margin = new Padding(6, 9, 6, 9);
             Name = "IconSelector";
-            Padding = new Padding(3, 3, 3, 3);
+            Padding = new Padding(3);
             Text = "Macro Deck :: Icon selector";
             Shown += IconSelector_Shown;
             ((ISupportInitialize)btnPreview).EndInit();

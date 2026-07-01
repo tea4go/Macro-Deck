@@ -57,15 +57,15 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             variablesPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             variablesPanel.AutoScroll = true;
-            variablesPanel.Location = new Point(240, 53);
+            variablesPanel.Location = new Point(240, 70);
             variablesPanel.Name = "variablesPanel";
-            variablesPanel.Size = new Size(897, 402);
+            variablesPanel.Size = new Size(897, 385);
             variablesPanel.TabIndex = 11;
             // 
             // lblCreator
             // 
             lblCreator.Font = new Font("Tahoma", 12F);
-            lblCreator.Location = new Point(860, 0);
+            lblCreator.Location = new Point(860, 11);
             lblCreator.Name = "lblCreator";
             lblCreator.Size = new Size(163, 50);
             lblCreator.TabIndex = 15;
@@ -76,7 +76,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // lblValue
             // 
             lblValue.Font = new Font("Tahoma", 12F);
-            lblValue.Location = new Point(596, 0);
+            lblValue.Location = new Point(596, 11);
             lblValue.Name = "lblValue";
             lblValue.Size = new Size(258, 50);
             lblValue.TabIndex = 14;
@@ -87,7 +87,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // lblType
             // 
             lblType.Font = new Font("Tahoma", 12F);
-            lblType.Location = new Point(476, 0);
+            lblType.Location = new Point(476, 11);
             lblType.Name = "lblType";
             lblType.Size = new Size(114, 50);
             lblType.TabIndex = 13;
@@ -98,7 +98,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // lblName
             // 
             lblName.Font = new Font("Tahoma", 12F);
-            lblName.Location = new Point(247, 0);
+            lblName.Location = new Point(247, 11);
             lblName.Name = "lblName";
             lblName.Size = new Size(223, 50);
             lblName.TabIndex = 12;
@@ -121,7 +121,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnCreateVariable.Name = "btnCreateVariable";
             btnCreateVariable.Progress = 0;
             btnCreateVariable.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnCreateVariable.Size = new Size(215, 37);
+            btnCreateVariable.Size = new Size(215, 42);
             btnCreateVariable.TabIndex = 16;
             btnCreateVariable.Text = "Create variable";
             btnCreateVariable.UseMnemonic = false;

@@ -79,16 +79,18 @@ namespace SuchByte.MacroDeck.GUI
             // 
             // labelDescription
             // 
+            labelDescription.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelDescription.Font = new Font("Tahoma", 12F);
             labelDescription.ForeColor = Color.White;
-            labelDescription.Location = new Point(518, 90);
+            labelDescription.Location = new Point(518, 81);
             labelDescription.Name = "labelDescription";
-            labelDescription.Size = new Size(854, 58);
+            labelDescription.Size = new Size(1301, 58);
             labelDescription.TabIndex = 3;
             labelDescription.UseMnemonic = false;
             // 
             // configurationPanel
             // 
+            configurationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             configurationPanel.BackColor = Color.FromArgb(45, 45, 45);
             configurationPanel.Font = new Font("Tahoma", 14.25F);
             configurationPanel.Location = new Point(518, 148);

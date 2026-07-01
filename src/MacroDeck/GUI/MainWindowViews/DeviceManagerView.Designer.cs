@@ -49,9 +49,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             devicesList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             devicesList.AutoScroll = true;
-            devicesList.Location = new Point(3, 61);
+            devicesList.Location = new Point(3, 65);
             devicesList.Name = "devicesList";
-            devicesList.Size = new Size(1025, 950);
+            devicesList.Size = new Size(1025, 936);
             devicesList.TabIndex = 12;
             // 
             // lblKnownDevices
@@ -61,7 +61,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblKnownDevices.ForeColor = Color.White;
             lblKnownDevices.Location = new Point(9, 14);
             lblKnownDevices.Name = "lblKnownDevices";
-            lblKnownDevices.Size = new Size(170, 29);
+            lblKnownDevices.Size = new Size(204, 35);
             lblKnownDevices.TabIndex = 13;
             lblKnownDevices.Text = "Known devices";
             lblKnownDevices.UseMnemonic = false;
@@ -73,7 +73,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             lblBehaviour.ForeColor = Color.White;
             lblBehaviour.Location = new Point(1058, 14);
             lblBehaviour.Name = "lblBehaviour";
-            lblBehaviour.Size = new Size(118, 29);
+            lblBehaviour.Size = new Size(141, 35);
             lblBehaviour.TabIndex = 14;
             lblBehaviour.Text = "Behaviour";
             lblBehaviour.UseMnemonic = false;
@@ -86,7 +86,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             panel1.Controls.Add(radioAskNewConnections);
             panel1.Location = new Point(1052, 65);
             panel1.Name = "panel1";
-            panel1.Size = new Size(810, 135);
+            panel1.Size = new Size(797, 135);
             panel1.TabIndex = 15;
             // 
             // radioBlockNew
@@ -94,9 +94,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioBlockNew.AutoSize = true;
             radioBlockNew.Font = new Font("Tahoma", 12F);
             radioBlockNew.ForeColor = Color.FromArgb(255, 128, 128);
-            radioBlockNew.Location = new Point(3, 84);
+            radioBlockNew.Location = new Point(27, 91);
             radioBlockNew.Name = "radioBlockNew";
-            radioBlockNew.Size = new Size(256, 28);
+            radioBlockNew.Size = new Size(308, 33);
             radioBlockNew.TabIndex = 2;
             radioBlockNew.TabStop = true;
             radioBlockNew.Text = "Block all new connections";
@@ -109,9 +109,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioAllowAll.AutoSize = true;
             radioAllowAll.Font = new Font("Tahoma", 12F);
             radioAllowAll.ForeColor = Color.White;
-            radioAllowAll.Location = new Point(3, 42);
+            radioAllowAll.Location = new Point(27, 49);
             radioAllowAll.Name = "radioAllowAll";
-            radioAllowAll.Size = new Size(443, 28);
+            radioAllowAll.Size = new Size(530, 33);
             radioAllowAll.TabIndex = 1;
             radioAllowAll.TabStop = true;
             radioAllowAll.Text = "Allow all new connections (Not recommended)";
@@ -124,9 +124,9 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             radioAskNewConnections.AutoSize = true;
             radioAskNewConnections.Font = new Font("Tahoma", 12F);
             radioAskNewConnections.ForeColor = Color.White;
-            radioAskNewConnections.Location = new Point(3, 3);
+            radioAskNewConnections.Location = new Point(27, 10);
             radioAskNewConnections.Name = "radioAskNewConnections";
-            radioAskNewConnections.Size = new Size(241, 28);
+            radioAskNewConnections.Size = new Size(293, 33);
             radioAskNewConnections.TabIndex = 0;
             radioAskNewConnections.TabStop = true;
             radioAskNewConnections.Text = "Ask on new connections";
@@ -136,7 +136,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             // DeviceManagerView
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
             Controls.Add(panel1);

@@ -48,6 +48,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // btnOk
             // 
+            btnOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnOk.BorderRadius = 8;
             btnOk.Cursor = Cursors.Hand;
             btnOk.FlatAppearance.BorderSize = 0;
@@ -56,7 +57,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.ForeColor = Color.White;
             btnOk.HoverColor = Color.FromArgb(0, 89, 184);
             btnOk.Icon = null;
-            btnOk.Location = new Point(425, 164);
+            btnOk.Location = new Point(425, 169);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -73,7 +74,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblBrightness.AutoSize = true;
             lblBrightness.Font = new Font("Tahoma", 12F);
-            lblBrightness.Location = new Point(17, 27);
+            lblBrightness.Location = new Point(17, 26);
             lblBrightness.Name = "lblBrightness";
             lblBrightness.Size = new Size(123, 29);
             lblBrightness.TabIndex = 3;
@@ -96,7 +97,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             checkAutoConnect.AutoSize = true;
             checkAutoConnect.CheckAlign = ContentAlignment.MiddleRight;
             checkAutoConnect.Font = new Font("Tahoma", 12F);
-            checkAutoConnect.Location = new Point(17, 71);
+            checkAutoConnect.Location = new Point(17, 72);
             checkAutoConnect.Name = "checkAutoConnect";
             checkAutoConnect.Size = new Size(271, 33);
             checkAutoConnect.TabIndex = 5;

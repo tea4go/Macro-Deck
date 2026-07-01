@@ -155,10 +155,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // checkBlockThisDevice
             // 
+            checkBlockThisDevice.AutoSize = true;
             checkBlockThisDevice.CheckAlign = ContentAlignment.TopLeft;
-            checkBlockThisDevice.Location = new Point(172, 388);
+            checkBlockThisDevice.Location = new Point(172, 398);
             checkBlockThisDevice.Name = "checkBlockThisDevice";
-            checkBlockThisDevice.Size = new Size(204, 42);
+            checkBlockThisDevice.Size = new Size(184, 28);
             checkBlockThisDevice.TabIndex = 12;
             checkBlockThisDevice.Text = "Block this device";
             checkBlockThisDevice.TextAlign = ContentAlignment.TopLeft;

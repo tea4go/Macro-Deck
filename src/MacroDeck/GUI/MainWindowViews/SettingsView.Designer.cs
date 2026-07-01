@@ -163,11 +163,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             font.ForeColor = Color.White;
             font.Icon = null;
             font.Location = new Point(12, 275);
+            font.Margin = new Padding(0);
             font.Name = "font";
             font.Padding = new Padding(8, 2, 8, 2);
             font.SelectedIndex = -1;
             font.SelectedItem = null;
-            font.Size = new Size(620, 41);
+            font.Size = new Size(620, 42);
             font.TabIndex = 6;
             font.SelectedIndexChanged += Font_SelectedIndexChanged;
             // 
@@ -243,11 +244,12 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             language.ForeColor = Color.White;
             language.Icon = null;
             language.Location = new Point(12, 431);
+            language.Margin = new Padding(0);
             language.Name = "language";
             language.Padding = new Padding(8, 2, 8, 2);
             language.SelectedIndex = -1;
             language.SelectedItem = null;
-            language.Size = new Size(253, 41);
+            language.Size = new Size(253, 42);
             language.TabIndex = 4;
             language.SelectedIndexChanged += Language_SelectedIndexChanged;
             // 
@@ -387,7 +389,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnApplySslConfiguration.Name = "btnApplySslConfiguration";
             btnApplySslConfiguration.Progress = 0;
             btnApplySslConfiguration.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnApplySslConfiguration.Size = new Size(308, 37);
+            btnApplySslConfiguration.Size = new Size(308, 42);
             btnApplySslConfiguration.TabIndex = 24;
             btnApplySslConfiguration.Text = "Apply SSL configuration";
             btnApplySslConfiguration.UseMnemonic = false;
@@ -410,7 +412,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             btnGenerateCertificate.Name = "btnGenerateCertificate";
             btnGenerateCertificate.Progress = 0;
             btnGenerateCertificate.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnGenerateCertificate.Size = new Size(316, 37);
+            btnGenerateCertificate.Size = new Size(316, 42);
             btnGenerateCertificate.TabIndex = 23;
             btnGenerateCertificate.Text = "Generate new certificate";
             btnGenerateCertificate.UseMnemonic = false;
@@ -580,7 +582,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabUpdater.ForeColor = Color.White;
             tabUpdater.Location = new Point(204, 4);
             tabUpdater.Name = "tabUpdater";
-            tabUpdater.Size = new Size(923, 526);
+            tabUpdater.Size = new Size(923, 858);
             tabUpdater.TabIndex = 1;
             tabUpdater.Text = "Updates";
             // 
@@ -681,7 +683,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             tabBackups.ForeColor = Color.White;
             tabBackups.Location = new Point(204, 4);
             tabBackups.Name = "tabBackups";
-            tabBackups.Size = new Size(923, 526);
+            tabBackups.Size = new Size(923, 858);
             tabBackups.TabIndex = 4;
             tabBackups.Text = "Backups";
             // 
@@ -925,7 +927,7 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
             // 
             pictureBox1.BackgroundImage = Resources.Icon;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(3, 47);
+            pictureBox1.Location = new Point(9, 47);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(200, 187);
             pictureBox1.TabIndex = 0;

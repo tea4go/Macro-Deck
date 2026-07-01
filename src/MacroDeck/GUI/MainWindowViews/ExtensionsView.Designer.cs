@@ -36,66 +36,66 @@ namespace SuchByte.MacroDeck.GUI.MainWindowViews
         /// </summary>
         private void InitializeComponent()
         {
-            this.content = new Panel();
-            this.radioInstalled = new ButtonRadioButton();
-            this.radioOnline = new ButtonRadioButton();
-            this.SuspendLayout();
+            content = new Panel();
+            radioInstalled = new ButtonRadioButton();
+            radioOnline = new ButtonRadioButton();
+            SuspendLayout();
             // 
             // content
             // 
-            this.content.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom) 
-                                                    | AnchorStyles.Left) 
-                                                   | AnchorStyles.Right)));
-            this.content.Location = new Point(0, 45);
-            this.content.Name = "content";
-            this.content.Size = new Size(1137, 495);
-            this.content.TabIndex = 0;
+            content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            content.Location = new Point(10, 62);
+            content.Name = "content";
+            content.Size = new Size(1117, 467);
+            content.TabIndex = 0;
             // 
             // radioInstalled
             // 
-            this.radioInstalled.BorderRadius = 8;
-            this.radioInstalled.Checked = true;
-            this.radioInstalled.Cursor = Cursors.Hand;
-            this.radioInstalled.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.radioInstalled.ForeColor = Color.White;
-            this.radioInstalled.Icon = Resources.Harddisk;
-            this.radioInstalled.Location = new Point(3, 3);
-            this.radioInstalled.Name = "radioInstalled";
-            this.radioInstalled.Size = new Size(186, 37);
-            this.radioInstalled.TabIndex = 1;
-            this.radioInstalled.TabStop = true;
-            this.radioInstalled.Text = "Installed";
-            this.radioInstalled.UseVisualStyleBackColor = true;
-            this.radioInstalled.CheckedChanged += new EventHandler(this.RadioInstalled_CheckedChanged);
+            radioInstalled.BorderRadius = 8;
+            radioInstalled.Checked = true;
+            radioInstalled.Cursor = Cursors.Hand;
+            radioInstalled.Font = new Font("Tahoma", 12F);
+            radioInstalled.ForeColor = Color.White;
+            radioInstalled.Icon = Resources.Harddisk;
+            radioInstalled.IconAlignment = ContentAlignment.MiddleLeft;
+            radioInstalled.Location = new Point(3, 3);
+            radioInstalled.Name = "radioInstalled";
+            radioInstalled.Size = new Size(186, 52);
+            radioInstalled.TabIndex = 1;
+            radioInstalled.TabStop = true;
+            radioInstalled.Text = "Installed";
+            radioInstalled.UseVisualStyleBackColor = true;
+            radioInstalled.CheckedChanged += RadioInstalled_CheckedChanged;
             // 
             // radioOnline
             // 
-            this.radioOnline.BorderRadius = 8;
-            this.radioOnline.Cursor = Cursors.Hand;
-            this.radioOnline.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            this.radioOnline.ForeColor = Color.White;
-            this.radioOnline.Icon = Resources.Web2;
-            this.radioOnline.Location = new Point(195, 3);
-            this.radioOnline.Name = "radioOnline";
-            this.radioOnline.Size = new Size(186, 37);
-            this.radioOnline.TabIndex = 2;
-            this.radioOnline.Text = "Online";
-            this.radioOnline.UseVisualStyleBackColor = true;
-            this.radioOnline.CheckedChanged += new EventHandler(this.RadioOnline_CheckedChanged);
+            radioOnline.BorderRadius = 8;
+            radioOnline.Cursor = Cursors.Hand;
+            radioOnline.Font = new Font("Tahoma", 12F);
+            radioOnline.ForeColor = Color.White;
+            radioOnline.Icon = Resources.Web2;
+            radioOnline.IconAlignment = ContentAlignment.MiddleLeft;
+            radioOnline.Location = new Point(195, 3);
+            radioOnline.Name = "radioOnline";
+            radioOnline.Size = new Size(186, 52);
+            radioOnline.TabIndex = 2;
+            radioOnline.Text = "Online";
+            radioOnline.UseVisualStyleBackColor = true;
+            radioOnline.CheckedChanged += RadioOnline_CheckedChanged;
             // 
             // ExtensionsView
             // 
-            
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            this.BackColor = Color.FromArgb(45, 45, 45);
-            this.Controls.Add(this.radioOnline);
-            this.Controls.Add(this.radioInstalled);
-            this.Controls.Add(this.content);
-            this.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            this.Name = "ExtensionsView";
-            this.Size = new Size(1137, 540);
-            this.Load += new EventHandler(this.ExtensionStoreView_Load);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 45);
+            Controls.Add(radioOnline);
+            Controls.Add(radioInstalled);
+            Controls.Add(content);
+            Font = new Font("Tahoma", 9F);
+            Name = "ExtensionsView";
+            Size = new Size(1137, 540);
+            Load += ExtensionStoreView_Load;
+            ResumeLayout(false);
 
         }
 

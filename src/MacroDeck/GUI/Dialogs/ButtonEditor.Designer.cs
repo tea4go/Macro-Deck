@@ -111,12 +111,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnApply.ForeColor = Color.White;
             btnApply.HoverColor = Color.FromArgb(0, 89, 184);
             btnApply.Icon = null;
-            btnApply.Location = new Point(1380, 820);
-            btnApply.Margin = new Padding(7, 7, 7, 7);
+            btnApply.Location = new Point(1656, 984);
+            btnApply.Margin = new Padding(8, 8, 8, 8);
             btnApply.Name = "btnApply";
             btnApply.Progress = 0;
             btnApply.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnApply.Size = new Size(110, 47);
+            btnApply.Size = new Size(132, 56);
             btnApply.TabIndex = 1;
             btnApply.Text = "Apply";
             btnApply.UseMnemonic = false;
@@ -134,14 +134,14 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnPreview.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
             btnPreview.ForeColor = Color.White;
             btnPreview.ForegroundImage = null;
-            btnPreview.Location = new Point(8, 108);
-            btnPreview.Margin = new Padding(7, 7, 7, 7);
+            btnPreview.Location = new Point(10, 130);
+            btnPreview.Margin = new Padding(8, 8, 8, 8);
             btnPreview.Name = "btnPreview";
             btnPreview.Radius = 40;
             btnPreview.Row = 0;
             btnPreview.ShowGIFIndicator = false;
             btnPreview.ShowKeyboardHotkeyIndicator = false;
-            btnPreview.Size = new Size(150, 150);
+            btnPreview.Size = new Size(180, 180);
             btnPreview.SizeMode = PictureBoxSizeMode.StretchImage;
             btnPreview.TabIndex = 3;
             btnPreview.TabStop = false;
@@ -154,19 +154,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             labelText.Cursor = Cursors.Hand;
             labelText.Font = new Font("Tahoma", 11.25F);
             labelText.Icon = null;
-            labelText.Location = new Point(7, 270);
-            labelText.Margin = new Padding(7, 7, 7, 7);
+            labelText.Location = new Point(8, 324);
+            labelText.Margin = new Padding(8, 8, 8, 8);
             labelText.MaxCharacters = 32767;
             labelText.Multiline = true;
             labelText.Name = "labelText";
-            labelText.Padding = new Padding(12, 8, 12, 8);
+            labelText.Padding = new Padding(14, 10, 14, 10);
             labelText.PasswordChar = false;
             labelText.PlaceHolderColor = Color.Gray;
             labelText.PlaceHolderText = "";
             labelText.ReadOnly = false;
             labelText.ScrollBars = ScrollBars.None;
             labelText.SelectionStart = 0;
-            labelText.Size = new Size(310, 122);
+            labelText.Size = new Size(372, 146);
             labelText.TabIndex = 23;
             labelText.TabStop = false;
             labelText.TextAlignment = HorizontalAlignment.Center;
@@ -178,12 +178,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             fontSize.BorderStyle = BorderStyle.FixedSingle;
             fontSize.Font = new Font("Tahoma", 11.25F);
             fontSize.ForeColor = Color.White;
-            fontSize.Location = new Point(9, 498);
-            fontSize.Margin = new Padding(7, 7, 7, 7);
+            fontSize.Location = new Point(11, 610);
+            fontSize.Margin = new Padding(8, 8, 8, 8);
             fontSize.Maximum = new decimal(new int[] { 18, 0, 0, 0 });
             fontSize.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
             fontSize.Name = "fontSize";
-            fontSize.Size = new Size(68, 30);
+            fontSize.Size = new Size(82, 35);
             fontSize.TabIndex = 10;
             fontSize.TabStop = false;
             fontSize.Value = new decimal(new int[] { 6, 0, 0, 0 });
@@ -192,10 +192,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // lblButtonState
             // 
             lblButtonState.Font = new Font("Tahoma", 9.75F);
-            lblButtonState.Location = new Point(2, 18);
-            lblButtonState.Margin = new Padding(7, 0, 7, 0);
+            lblButtonState.Location = new Point(2, 22);
+            lblButtonState.Margin = new Padding(8, 0, 8, 0);
             lblButtonState.Name = "lblButtonState";
-            lblButtonState.Size = new Size(197, 35);
+            lblButtonState.Size = new Size(236, 42);
             lblButtonState.TabIndex = 12;
             lblButtonState.Text = "Button state";
             lblButtonState.TextAlign = ContentAlignment.MiddleLeft;
@@ -209,10 +209,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             radioButtonOff.Font = new Font("Tahoma", 9.75F);
             radioButtonOff.Icon = null;
             radioButtonOff.IconAlignment = ContentAlignment.MiddleLeft;
-            radioButtonOff.Location = new Point(198, 18);
-            radioButtonOff.Margin = new Padding(7, 7, 7, 7);
+            radioButtonOff.Location = new Point(238, 22);
+            radioButtonOff.Margin = new Padding(8, 8, 8, 8);
             radioButtonOff.Name = "radioButtonOff";
-            radioButtonOff.Size = new Size(78, 35);
+            radioButtonOff.Size = new Size(94, 42);
             radioButtonOff.TabIndex = 13;
             radioButtonOff.TabStop = true;
             radioButtonOff.Text = "Off";
@@ -227,10 +227,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             radioButtonOn.Font = new Font("Tahoma", 9.75F);
             radioButtonOn.Icon = null;
             radioButtonOn.IconAlignment = ContentAlignment.MiddleLeft;
-            radioButtonOn.Location = new Point(280, 18);
-            radioButtonOn.Margin = new Padding(7, 7, 7, 7);
+            radioButtonOn.Location = new Point(336, 22);
+            radioButtonOn.Margin = new Padding(8, 8, 8, 8);
             radioButtonOn.Name = "radioButtonOn";
-            radioButtonOn.Size = new Size(78, 35);
+            radioButtonOn.Size = new Size(94, 42);
             radioButtonOn.TabIndex = 14;
             radioButtonOn.Text = "On";
             radioButtonOn.UseMnemonic = false;
@@ -243,10 +243,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             panel1.Controls.Add(radioButtonOn);
             panel1.Controls.Add(radioButtonOff);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 36);
-            panel1.Margin = new Padding(7, 7, 7, 7);
+            panel1.Location = new Point(0, 44);
+            panel1.Margin = new Padding(8, 8, 8, 8);
             panel1.Name = "panel1";
-            panel1.Size = new Size(358, 52);
+            panel1.Size = new Size(430, 62);
             panel1.TabIndex = 15;
             // 
             // panel2
@@ -256,19 +256,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             panel2.Controls.Add(labelAlignCenter);
             panel2.Controls.Add(labelAlignTop);
             panel2.Font = new Font("Tahoma", 9.75F);
-            panel2.Location = new Point(8, 405);
-            panel2.Margin = new Padding(7, 7, 7, 7);
+            panel2.Location = new Point(10, 486);
+            panel2.Margin = new Padding(8, 8, 8, 8);
             panel2.Name = "panel2";
-            panel2.Size = new Size(357, 35);
+            panel2.Size = new Size(428, 42);
             panel2.TabIndex = 16;
             // 
             // label2
             // 
             label2.Font = new Font("Tahoma", 9.75F);
             label2.Location = new Point(0, 0);
-            label2.Margin = new Padding(7, 0, 7, 0);
+            label2.Margin = new Padding(8, 0, 8, 0);
             label2.Name = "label2";
-            label2.Size = new Size(218, 33);
+            label2.Size = new Size(262, 40);
             label2.TabIndex = 29;
             label2.Text = "Align label:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -282,10 +282,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             labelAlignBottom.Font = new Font("Tahoma", 11.25F);
             labelAlignBottom.Icon = Properties.Resources.AlignBottom;
             labelAlignBottom.IconAlignment = ContentAlignment.MiddleCenter;
-            labelAlignBottom.Location = new Point(228, 0);
-            labelAlignBottom.Margin = new Padding(7, 7, 7, 7);
+            labelAlignBottom.Location = new Point(274, 0);
+            labelAlignBottom.Margin = new Padding(8, 8, 8, 8);
             labelAlignBottom.Name = "labelAlignBottom";
-            labelAlignBottom.Size = new Size(33, 33);
+            labelAlignBottom.Size = new Size(40, 40);
             labelAlignBottom.TabIndex = 11;
             labelAlignBottom.TabStop = true;
             labelAlignBottom.UseMnemonic = false;
@@ -299,10 +299,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             labelAlignCenter.Font = new Font("Tahoma", 11.25F);
             labelAlignCenter.Icon = Properties.Resources.AlignCenter;
             labelAlignCenter.IconAlignment = ContentAlignment.MiddleCenter;
-            labelAlignCenter.Location = new Point(272, 0);
-            labelAlignCenter.Margin = new Padding(7, 7, 7, 7);
+            labelAlignCenter.Location = new Point(326, 0);
+            labelAlignCenter.Margin = new Padding(8, 8, 8, 8);
             labelAlignCenter.Name = "labelAlignCenter";
-            labelAlignCenter.Size = new Size(33, 33);
+            labelAlignCenter.Size = new Size(40, 40);
             labelAlignCenter.TabIndex = 10;
             labelAlignCenter.UseMnemonic = false;
             labelAlignCenter.UseVisualStyleBackColor = true;
@@ -315,10 +315,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             labelAlignTop.Font = new Font("Tahoma", 11.25F);
             labelAlignTop.Icon = Properties.Resources.AlignTop;
             labelAlignTop.IconAlignment = ContentAlignment.MiddleCenter;
-            labelAlignTop.Location = new Point(318, 0);
-            labelAlignTop.Margin = new Padding(7, 7, 7, 7);
+            labelAlignTop.Location = new Point(382, 0);
+            labelAlignTop.Margin = new Padding(8, 8, 8, 8);
             labelAlignTop.Name = "labelAlignTop";
-            labelAlignTop.Size = new Size(33, 33);
+            labelAlignTop.Size = new Size(40, 40);
             labelAlignTop.TabIndex = 9;
             labelAlignTop.UseMnemonic = false;
             labelAlignTop.UseVisualStyleBackColor = true;
@@ -333,10 +333,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnEditIcon.Font = new Font("Tahoma", 9.75F);
             btnEditIcon.ForeColor = Color.White;
             btnEditIcon.HoverImage = Properties.Resources.Edit_Hover;
-            btnEditIcon.Location = new Point(170, 113);
-            btnEditIcon.Margin = new Padding(7, 7, 7, 7);
+            btnEditIcon.Location = new Point(204, 136);
+            btnEditIcon.Margin = new Padding(8, 8, 8, 8);
             btnEditIcon.Name = "btnEditIcon";
-            btnEditIcon.Size = new Size(43, 33);
+            btnEditIcon.Size = new Size(52, 40);
             btnEditIcon.TabIndex = 17;
             btnEditIcon.TabStop = false;
             btnEditIcon.Click += BtnEditIcon_Click;
@@ -350,10 +350,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnRemoveIcon.Font = new Font("Tahoma", 9.75F);
             btnRemoveIcon.ForeColor = Color.White;
             btnRemoveIcon.HoverImage = Properties.Resources.Delete_Hover;
-            btnRemoveIcon.Location = new Point(170, 159);
-            btnRemoveIcon.Margin = new Padding(7, 7, 7, 7);
+            btnRemoveIcon.Location = new Point(204, 191);
+            btnRemoveIcon.Margin = new Padding(8, 8, 8, 8);
             btnRemoveIcon.Name = "btnRemoveIcon";
-            btnRemoveIcon.Size = new Size(43, 33);
+            btnRemoveIcon.Size = new Size(52, 40);
             btnRemoveIcon.TabIndex = 18;
             btnRemoveIcon.TabStop = false;
             btnRemoveIcon.Click += BtnRemoveIcon_Click;
@@ -367,10 +367,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnClearLabelText.Font = new Font("Tahoma", 9.75F);
             btnClearLabelText.ForeColor = Color.White;
             btnClearLabelText.HoverImage = Properties.Resources.Delete_Hover;
-            btnClearLabelText.Location = new Point(330, 312);
-            btnClearLabelText.Margin = new Padding(7, 7, 7, 7);
+            btnClearLabelText.Location = new Point(396, 374);
+            btnClearLabelText.Margin = new Padding(8, 8, 8, 8);
             btnClearLabelText.Name = "btnClearLabelText";
-            btnClearLabelText.Size = new Size(33, 33);
+            btnClearLabelText.Size = new Size(40, 40);
             btnClearLabelText.TabIndex = 19;
             btnClearLabelText.TabStop = false;
             btnClearLabelText.Click += BtnClearLabelText_Click;
@@ -386,12 +386,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnBackColor.ForeColor = Color.White;
             btnBackColor.HoverColor = Color.Transparent;
             btnBackColor.Icon = Properties.Resources.Palette;
-            btnBackColor.Location = new Point(170, 206);
-            btnBackColor.Margin = new Padding(7, 7, 7, 7);
+            btnBackColor.Location = new Point(204, 247);
+            btnBackColor.Margin = new Padding(8, 8, 8, 8);
             btnBackColor.Name = "btnBackColor";
             btnBackColor.Progress = 0;
             btnBackColor.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnBackColor.Size = new Size(43, 47);
+            btnBackColor.Size = new Size(52, 56);
             btnBackColor.TabIndex = 25;
             btnBackColor.UseMnemonic = false;
             btnBackColor.UseVisualStyleBackColor = false;
@@ -408,10 +408,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOpenTemplateEditor.Font = new Font("Tahoma", 9.75F);
             btnOpenTemplateEditor.ForeColor = Color.White;
             btnOpenTemplateEditor.HoverImage = Properties.Resources.Arrow_Top_Right_Hover;
-            btnOpenTemplateEditor.Location = new Point(328, 270);
-            btnOpenTemplateEditor.Margin = new Padding(7, 7, 7, 7);
+            btnOpenTemplateEditor.Location = new Point(394, 324);
+            btnOpenTemplateEditor.Margin = new Padding(8, 8, 8, 8);
             btnOpenTemplateEditor.Name = "btnOpenTemplateEditor";
-            btnOpenTemplateEditor.Size = new Size(33, 33);
+            btnOpenTemplateEditor.Size = new Size(40, 40);
             btnOpenTemplateEditor.TabIndex = 24;
             btnOpenTemplateEditor.TabStop = false;
             btnOpenTemplateEditor.Click += BtnOpenTemplateEditor_Click;
@@ -425,10 +425,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnAddVariable.Font = new Font("Tahoma", 8.25F);
             btnAddVariable.ForeColor = Color.White;
             btnAddVariable.HoverImage = Properties.Resources.Variable_Hover;
-            btnAddVariable.Location = new Point(330, 353);
-            btnAddVariable.Margin = new Padding(7, 7, 7, 7);
+            btnAddVariable.Location = new Point(396, 424);
+            btnAddVariable.Margin = new Padding(8, 8, 8, 8);
             btnAddVariable.Name = "btnAddVariable";
-            btnAddVariable.Size = new Size(33, 33);
+            btnAddVariable.Size = new Size(40, 40);
             btnAddVariable.TabIndex = 22;
             btnAddVariable.TabStop = false;
             btnAddVariable.Click += BtnAddVariable_Click;
@@ -444,12 +444,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnForeColor.ForeColor = Color.White;
             btnForeColor.HoverColor = Color.Transparent;
             btnForeColor.Icon = Properties.Resources.Palette;
-            btnForeColor.Location = new Point(318, 489);
-            btnForeColor.Margin = new Padding(7, 7, 7, 7);
+            btnForeColor.Location = new Point(382, 597);
+            btnForeColor.Margin = new Padding(8, 8, 8, 8);
             btnForeColor.Name = "btnForeColor";
             btnForeColor.Progress = 0;
             btnForeColor.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnForeColor.Size = new Size(41, 47);
+            btnForeColor.Size = new Size(49, 56);
             btnForeColor.TabIndex = 21;
             btnForeColor.UseMnemonic = false;
             btnForeColor.UseVisualStyleBackColor = false;
@@ -463,25 +463,25 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             fonts.BackColor = Color.FromArgb(65, 65, 65);
             fonts.Cursor = Cursors.Hand;
             fonts.DropDownStyle = ComboBoxStyle.DropDownList;
-            fonts.Font = new Font("Tahoma", 9.75F);
+            fonts.Font = new Font("Tahoma", 12F);
             fonts.ForeColor = Color.White;
             fonts.Icon = null;
-            fonts.Location = new Point(8, 452);
+            fonts.Location = new Point(10, 542);
             fonts.Margin = new Padding(0);
             fonts.Name = "fonts";
             fonts.SelectedIndex = -1;
             fonts.SelectedItem = null;
-            fonts.Size = new Size(354, 27);
+            fonts.Size = new Size(425, 38);
             fonts.TabIndex = 20;
             fonts.SelectedIndexChanged += LabelChanged;
             // 
             // lblCurrentState
             // 
             lblCurrentState.Font = new Font("Tahoma", 9.75F);
-            lblCurrentState.Location = new Point(275, 596);
-            lblCurrentState.Margin = new Padding(7, 0, 7, 0);
+            lblCurrentState.Location = new Point(330, 715);
+            lblCurrentState.Margin = new Padding(8, 0, 8, 0);
             lblCurrentState.Name = "lblCurrentState";
-            lblCurrentState.Size = new Size(88, 35);
+            lblCurrentState.Size = new Size(106, 42);
             lblCurrentState.TabIndex = 22;
             lblCurrentState.Text = "Off";
             lblCurrentState.TextAlign = ContentAlignment.MiddleLeft;
@@ -490,10 +490,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // lblCurrentStateLabel
             // 
             lblCurrentStateLabel.Font = new Font("Tahoma", 9.75F);
-            lblCurrentStateLabel.Location = new Point(8, 596);
-            lblCurrentStateLabel.Margin = new Padding(7, 0, 7, 0);
+            lblCurrentStateLabel.Location = new Point(10, 715);
+            lblCurrentStateLabel.Margin = new Padding(8, 0, 8, 0);
             lblCurrentStateLabel.Name = "lblCurrentStateLabel";
-            lblCurrentStateLabel.Size = new Size(255, 35);
+            lblCurrentStateLabel.Size = new Size(306, 42);
             lblCurrentStateLabel.TabIndex = 23;
             lblCurrentStateLabel.Text = "Current state:";
             lblCurrentStateLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -509,12 +509,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.ForeColor = Color.White;
             btnOk.HoverColor = Color.FromArgb(0, 89, 184);
             btnOk.Icon = null;
-            btnOk.Location = new Point(1258, 820);
-            btnOk.Margin = new Padding(7, 7, 7, 7);
+            btnOk.Location = new Point(1510, 984);
+            btnOk.Margin = new Padding(8, 8, 8, 8);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
-            btnOk.Size = new Size(110, 47);
+            btnOk.Size = new Size(132, 56);
             btnOk.TabIndex = 25;
             btnOk.Text = "Ok";
             btnOk.UseMnemonic = false;
@@ -536,10 +536,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // lblStateBinding
             // 
             lblStateBinding.Font = new Font("Tahoma", 9.75F);
-            lblStateBinding.Location = new Point(8, 631);
-            lblStateBinding.Margin = new Padding(7, 0, 7, 0);
+            lblStateBinding.Location = new Point(10, 757);
+            lblStateBinding.Margin = new Padding(8, 0, 8, 0);
             lblStateBinding.Name = "lblStateBinding";
-            lblStateBinding.Size = new Size(352, 22);
+            lblStateBinding.Size = new Size(422, 26);
             lblStateBinding.TabIndex = 26;
             lblStateBinding.Text = "State binding:";
             lblStateBinding.TextAlign = ContentAlignment.MiddleLeft;
@@ -550,14 +550,15 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             listStateBinding.BackColor = Color.FromArgb(65, 65, 65);
             listStateBinding.Cursor = Cursors.Hand;
             listStateBinding.DropDownStyle = ComboBoxStyle.DropDownList;
-            listStateBinding.Font = new Font("Tahoma", 9F);
+            listStateBinding.Font = new Font("Tahoma", 12F);
             listStateBinding.ForeColor = Color.White;
             listStateBinding.Icon = null;
-            listStateBinding.Location = new Point(8, 658);
+            listStateBinding.Location = new Point(10, 790);
+            listStateBinding.Margin = new Padding(0);
             listStateBinding.Name = "listStateBinding";
             listStateBinding.SelectedIndex = -1;
             listStateBinding.SelectedItem = null;
-            listStateBinding.Size = new Size(317, 26);
+            listStateBinding.Size = new Size(380, 38);
             listStateBinding.TabIndex = 27;
             listStateBinding.SelectedIndexChanged += ListStateBinding_SelectedIndexChanged;
             // 
@@ -570,10 +571,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnDeleteStateBinding.Font = new Font("Tahoma", 9.75F);
             btnDeleteStateBinding.ForeColor = Color.White;
             btnDeleteStateBinding.HoverImage = Properties.Resources.Delete_Hover;
-            btnDeleteStateBinding.Location = new Point(330, 658);
-            btnDeleteStateBinding.Margin = new Padding(7, 7, 7, 7);
+            btnDeleteStateBinding.Location = new Point(396, 790);
+            btnDeleteStateBinding.Margin = new Padding(8, 8, 8, 8);
             btnDeleteStateBinding.Name = "btnDeleteStateBinding";
-            btnDeleteStateBinding.Size = new Size(33, 33);
+            btnDeleteStateBinding.Size = new Size(40, 40);
             btnDeleteStateBinding.TabIndex = 28;
             btnDeleteStateBinding.TabStop = false;
             btnDeleteStateBinding.Click += BtnDeleteStateBinding_Click;
@@ -581,10 +582,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // selectorPanel
             // 
             selectorPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            selectorPanel.Location = new Point(388, 113);
-            selectorPanel.Margin = new Padding(7, 7, 7, 7);
+            selectorPanel.Location = new Point(466, 136);
+            selectorPanel.Margin = new Padding(8, 8, 8, 8);
             selectorPanel.Name = "selectorPanel";
-            selectorPanel.Size = new Size(1102, 693);
+            selectorPanel.Size = new Size(1322, 832);
             selectorPanel.TabIndex = 29;
             // 
             // flowLayoutPanel1
@@ -598,10 +599,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             flowLayoutPanel1.Controls.Add(radioOnLongPressRelease);
             flowLayoutPanel1.Controls.Add(radioOnEvent);
             flowLayoutPanel1.Font = new Font("Tahoma", 12F);
-            flowLayoutPanel1.Location = new Point(387, 62);
+            flowLayoutPanel1.Location = new Point(464, 74);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1097, 42);
+            flowLayoutPanel1.Size = new Size(1316, 50);
             flowLayoutPanel1.TabIndex = 30;
             // 
             // radioOnPress
@@ -613,9 +614,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             radioOnPress.Icon = null;
             radioOnPress.IconAlignment = ContentAlignment.MiddleLeft;
             radioOnPress.Location = new Point(0, 0);
-            radioOnPress.Margin = new Padding(0, 0, 8, 0);
+            radioOnPress.Margin = new Padding(0, 0, 10, 0);
             radioOnPress.Name = "radioOnPress";
-            radioOnPress.Size = new Size(158, 40);
+            radioOnPress.Size = new Size(190, 48);
             radioOnPress.TabIndex = 0;
             radioOnPress.TabStop = true;
             radioOnPress.Text = "On press";
@@ -630,10 +631,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             radioOnRelease.Font = new Font("Tahoma", 11.25F);
             radioOnRelease.Icon = null;
             radioOnRelease.IconAlignment = ContentAlignment.MiddleLeft;
-            radioOnRelease.Location = new Point(166, 0);
-            radioOnRelease.Margin = new Padding(0, 0, 8, 0);
+            radioOnRelease.Location = new Point(200, 0);
+            radioOnRelease.Margin = new Padding(0, 0, 10, 0);
             radioOnRelease.Name = "radioOnRelease";
-            radioOnRelease.Size = new Size(235, 40);
+            radioOnRelease.Size = new Size(282, 48);
             radioOnRelease.TabIndex = 2;
             radioOnRelease.Text = "On release";
             radioOnRelease.UseMnemonic = false;
@@ -647,10 +648,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             radioOnLongPress.Font = new Font("Tahoma", 11.25F);
             radioOnLongPress.Icon = null;
             radioOnLongPress.IconAlignment = ContentAlignment.MiddleLeft;
-            radioOnLongPress.Location = new Point(409, 0);
-            radioOnLongPress.Margin = new Padding(0, 0, 8, 0);
+            radioOnLongPress.Location = new Point(492, 0);
+            radioOnLongPress.Margin = new Padding(0, 0, 10, 0);
             radioOnLongPress.Name = "radioOnLongPress";
-            radioOnLongPress.Size = new Size(220, 40);
+            radioOnLongPress.Size = new Size(264, 48);
             radioOnLongPress.TabIndex = 3;
             radioOnLongPress.Text = "On long press";
             radioOnLongPress.UseMnemonic = false;
@@ -664,10 +665,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             radioOnLongPressRelease.Font = new Font("Tahoma", 11.25F);
             radioOnLongPressRelease.Icon = null;
             radioOnLongPressRelease.IconAlignment = ContentAlignment.MiddleLeft;
-            radioOnLongPressRelease.Location = new Point(637, 0);
-            radioOnLongPressRelease.Margin = new Padding(0, 0, 8, 0);
+            radioOnLongPressRelease.Location = new Point(766, 0);
+            radioOnLongPressRelease.Margin = new Padding(0, 0, 10, 0);
             radioOnLongPressRelease.Name = "radioOnLongPressRelease";
-            radioOnLongPressRelease.Size = new Size(238, 40);
+            radioOnLongPressRelease.Size = new Size(286, 48);
             radioOnLongPressRelease.TabIndex = 4;
             radioOnLongPressRelease.Text = "On long press release";
             radioOnLongPressRelease.UseMnemonic = false;
@@ -681,10 +682,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             radioOnEvent.Font = new Font("Tahoma", 11.25F);
             radioOnEvent.Icon = null;
             radioOnEvent.IconAlignment = ContentAlignment.MiddleLeft;
-            radioOnEvent.Location = new Point(883, 0);
-            radioOnEvent.Margin = new Padding(0, 0, 8, 0);
+            radioOnEvent.Location = new Point(1062, 0);
+            radioOnEvent.Margin = new Padding(0, 0, 10, 0);
             radioOnEvent.Name = "radioOnEvent";
-            radioOnEvent.Size = new Size(162, 40);
+            radioOnEvent.Size = new Size(194, 48);
             radioOnEvent.TabIndex = 1;
             radioOnEvent.Text = "On event";
             radioOnEvent.UseMnemonic = false;
@@ -700,10 +701,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnRemoveHotkey.Font = new Font("Tahoma", 9.75F);
             btnRemoveHotkey.ForeColor = Color.White;
             btnRemoveHotkey.HoverImage = Properties.Resources.Delete_Hover;
-            btnRemoveHotkey.Location = new Point(330, 766);
-            btnRemoveHotkey.Margin = new Padding(7, 7, 7, 7);
+            btnRemoveHotkey.Location = new Point(396, 919);
+            btnRemoveHotkey.Margin = new Padding(8, 8, 8, 8);
             btnRemoveHotkey.Name = "btnRemoveHotkey";
-            btnRemoveHotkey.Size = new Size(33, 33);
+            btnRemoveHotkey.Size = new Size(40, 40);
             btnRemoveHotkey.TabIndex = 20;
             btnRemoveHotkey.TabStop = false;
             btnRemoveHotkey.Click += BtnRemoveHotkey_Click;
@@ -714,19 +715,19 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             hotkey.Cursor = Cursors.Hand;
             hotkey.Font = new Font("Tahoma", 9F);
             hotkey.Icon = Properties.Resources.Keyboard;
-            hotkey.Location = new Point(8, 762);
-            hotkey.Margin = new Padding(7, 7, 7, 7);
+            hotkey.Location = new Point(10, 914);
+            hotkey.Margin = new Padding(8, 8, 8, 8);
             hotkey.MaxCharacters = 32767;
             hotkey.Multiline = false;
             hotkey.Name = "hotkey";
-            hotkey.Padding = new Padding(43, 8, 12, 8);
+            hotkey.Padding = new Padding(52, 10, 14, 10);
             hotkey.PasswordChar = false;
             hotkey.PlaceHolderColor = Color.Gray;
             hotkey.PlaceHolderText = "";
             hotkey.ReadOnly = false;
             hotkey.ScrollBars = ScrollBars.None;
             hotkey.SelectionStart = 0;
-            hotkey.Size = new Size(317, 35);
+            hotkey.Size = new Size(380, 43);
             hotkey.TabIndex = 0;
             hotkey.TabStop = false;
             hotkey.TextAlignment = HorizontalAlignment.Left;
@@ -742,12 +743,12 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnEditJson.ForeColor = Color.White;
             btnEditJson.HoverColor = Color.Empty;
             btnEditJson.Icon = null;
-            btnEditJson.Location = new Point(388, 820);
-            btnEditJson.Margin = new Padding(7, 7, 7, 7);
+            btnEditJson.Location = new Point(466, 984);
+            btnEditJson.Margin = new Padding(8, 8, 8, 8);
             btnEditJson.Name = "btnEditJson";
             btnEditJson.Progress = 0;
             btnEditJson.ProgressColor = Color.FromArgb(0, 103, 225);
-            btnEditJson.Size = new Size(145, 47);
+            btnEditJson.Size = new Size(174, 56);
             btnEditJson.TabIndex = 33;
             btnEditJson.Text = "Edit JSON";
             btnEditJson.UseMnemonic = false;
@@ -759,10 +760,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // label1
             // 
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label1.Location = new Point(558, 825);
-            label1.Margin = new Padding(7, 0, 7, 0);
+            label1.Location = new Point(670, 990);
+            label1.Margin = new Padding(8, 0, 8, 0);
             label1.Name = "label1";
-            label1.Size = new Size(72, 38);
+            label1.Size = new Size(86, 46);
             label1.TabIndex = 34;
             label1.Text = "GUID:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -773,11 +774,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             buttonGUIDLabel.BackColor = Color.FromArgb(45, 45, 45);
             buttonGUIDLabel.BorderStyle = BorderStyle.None;
             buttonGUIDLabel.ForeColor = Color.White;
-            buttonGUIDLabel.Location = new Point(643, 831);
-            buttonGUIDLabel.Margin = new Padding(7, 0, 7, 0);
+            buttonGUIDLabel.Location = new Point(772, 997);
+            buttonGUIDLabel.Margin = new Padding(8, 0, 8, 0);
             buttonGUIDLabel.Name = "buttonGUIDLabel";
             buttonGUIDLabel.ReadOnly = true;
-            buttonGUIDLabel.Size = new Size(500, 20);
+            buttonGUIDLabel.Size = new Size(600, 24);
             buttonGUIDLabel.TabIndex = 35;
             buttonGUIDLabel.Text = "返回值为 4294967295";
             // 
@@ -787,9 +788,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             lblAppearance.Dock = DockStyle.Top;
             lblAppearance.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
             lblAppearance.Location = new Point(0, 0);
-            lblAppearance.Margin = new Padding(5, 0, 5, 0);
+            lblAppearance.Margin = new Padding(6, 0, 6, 0);
             lblAppearance.Name = "lblAppearance";
-            lblAppearance.Size = new Size(358, 43);
+            lblAppearance.Size = new Size(430, 52);
             lblAppearance.TabIndex = 36;
             lblAppearance.Text = "Appearance";
             lblAppearance.TextAlign = ContentAlignment.MiddleLeft;
@@ -799,20 +800,20 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             panel3.BackColor = Color.FromArgb(35, 35, 35);
             panel3.Controls.Add(lblAppearance);
             panel3.Controls.Add(panel1);
-            panel3.Location = new Point(7, 7);
-            panel3.Margin = new Padding(5, 5, 5, 5);
+            panel3.Location = new Point(8, 8);
+            panel3.Margin = new Padding(6, 6, 6, 6);
             panel3.Name = "panel3";
-            panel3.Size = new Size(358, 88);
+            panel3.Size = new Size(430, 106);
             panel3.TabIndex = 37;
             // 
             // lblState
             // 
             lblState.BackColor = Color.FromArgb(35, 35, 35);
             lblState.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
-            lblState.Location = new Point(7, 552);
-            lblState.Margin = new Padding(5, 0, 5, 0);
+            lblState.Location = new Point(8, 662);
+            lblState.Margin = new Padding(6, 0, 6, 0);
             lblState.Name = "lblState";
-            lblState.Size = new Size(358, 43);
+            lblState.Size = new Size(430, 52);
             lblState.TabIndex = 37;
             lblState.Text = "Button state";
             lblState.TextAlign = ContentAlignment.MiddleLeft;
@@ -822,10 +823,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblKeyBinding.BackColor = Color.FromArgb(35, 35, 35);
             lblKeyBinding.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
-            lblKeyBinding.Location = new Point(8, 712);
-            lblKeyBinding.Margin = new Padding(5, 0, 5, 0);
+            lblKeyBinding.Location = new Point(10, 854);
+            lblKeyBinding.Margin = new Padding(6, 0, 6, 0);
             lblKeyBinding.Name = "lblKeyBinding";
-            lblKeyBinding.Size = new Size(357, 43);
+            lblKeyBinding.Size = new Size(428, 52);
             lblKeyBinding.TabIndex = 38;
             lblKeyBinding.Text = "Key binding";
             lblKeyBinding.TextAlign = ContentAlignment.MiddleLeft;
@@ -834,10 +835,10 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblActions.BackColor = Color.FromArgb(35, 35, 35);
             lblActions.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
-            lblActions.Location = new Point(387, 7);
-            lblActions.Margin = new Padding(5, 0, 5, 0);
+            lblActions.Location = new Point(464, 8);
+            lblActions.Margin = new Padding(6, 0, 6, 0);
             lblActions.Name = "lblActions";
-            lblActions.Size = new Size(438, 43);
+            lblActions.Size = new Size(526, 52);
             lblActions.TabIndex = 39;
             lblActions.Text = "Actions";
             lblActions.TextAlign = ContentAlignment.MiddleLeft;
@@ -846,18 +847,18 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel4.BackColor = Color.Silver;
-            panel4.Location = new Point(375, 2);
-            panel4.Margin = new Padding(5, 5, 5, 5);
+            panel4.Location = new Point(450, 2);
+            panel4.Margin = new Padding(6, 6, 6, 6);
             panel4.Name = "panel4";
-            panel4.Size = new Size(2, 868);
+            panel4.Size = new Size(2, 1042);
             panel4.TabIndex = 40;
             // 
             // ButtonEditor
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
-            ClientSize = new Size(1500, 874);
+            ClientSize = new Size(1800, 1049);
             Controls.Add(panel4);
             Controls.Add(lblActions);
             Controls.Add(lblKeyBinding);
@@ -889,9 +890,8 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Controls.Add(btnApply);
             Controls.Add(fontSize);
             Controls.Add(btnPreview);
-            Margin = new Padding(7, 8, 7, 8);
+            Margin = new Padding(8, 10, 8, 10);
             Name = "ButtonEditor";
-            Padding = new Padding(2, 2, 2, 2);
             Text = "Macro Deck :: Edit button";
             Shown += ButtonEditor_Shown;
             ((ISupportInitialize)btnPreview).EndInit();

@@ -83,7 +83,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             template.Hotkeys = resources.GetString("template.Hotkeys");
             template.IsReplaceMode = false;
             template.Location = new Point(18, 150);
-            template.Margin = new Padding(4, 4, 4, 4);
+            template.Margin = new Padding(4);
             template.Name = "template";
             template.Paddings = new Padding(0);
             template.ReplaceForm = null;
@@ -105,7 +105,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.HoverColor = Color.FromArgb(0, 89, 184);
             btnOk.Icon = null;
             btnOk.Location = new Point(1020, 815);
-            btnOk.Margin = new Padding(4, 4, 4, 4);
+            btnOk.Margin = new Padding(4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -122,7 +122,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // lblResultLabel
             // 
             lblResultLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
-            lblResultLabel.Location = new Point(18, 598);
+            lblResultLabel.Location = new Point(23, 629);
             lblResultLabel.Margin = new Padding(4, 0, 4, 0);
             lblResultLabel.Name = "lblResultLabel";
             lblResultLabel.Size = new Size(434, 33);
@@ -132,7 +132,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // lblResult
             // 
-            lblResult.Location = new Point(18, 642);
+            lblResult.Location = new Point(23, 676);
             lblResult.Margin = new Padding(4, 0, 4, 0);
             lblResult.Name = "lblResult";
             lblResult.Size = new Size(981, 190);
@@ -150,7 +150,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnVariables.HoverColor = Color.FromArgb(0, 89, 184);
             btnVariables.Icon = null;
             btnVariables.Location = new Point(14, 74);
-            btnVariables.Margin = new Padding(4, 4, 4, 4);
+            btnVariables.Margin = new Padding(4);
             btnVariables.Name = "btnVariables";
             btnVariables.Progress = 0;
             btnVariables.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -198,7 +198,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnIf.HoverColor = Color.FromArgb(0, 89, 184);
             btnIf.Icon = null;
             btnIf.Location = new Point(196, 74);
-            btnIf.Margin = new Padding(4, 4, 4, 4);
+            btnIf.Margin = new Padding(4);
             btnIf.Name = "btnIf";
             btnIf.Progress = 0;
             btnIf.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -222,7 +222,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnAnd.HoverColor = Color.FromArgb(0, 89, 184);
             btnAnd.Icon = null;
             btnAnd.Location = new Point(318, 74);
-            btnAnd.Margin = new Padding(4, 4, 4, 4);
+            btnAnd.Margin = new Padding(4);
             btnAnd.Name = "btnAnd";
             btnAnd.Progress = 0;
             btnAnd.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -246,7 +246,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOr.HoverColor = Color.FromArgb(0, 89, 184);
             btnOr.Icon = null;
             btnOr.Location = new Point(440, 74);
-            btnOr.Margin = new Padding(4, 4, 4, 4);
+            btnOr.Margin = new Padding(4);
             btnOr.Name = "btnOr";
             btnOr.Progress = 0;
             btnOr.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -270,7 +270,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnNot.HoverColor = Color.FromArgb(0, 89, 184);
             btnNot.Icon = null;
             btnNot.Location = new Point(561, 74);
-            btnNot.Margin = new Padding(4, 4, 4, 4);
+            btnNot.Margin = new Padding(4);
             btnNot.Name = "btnNot";
             btnNot.Progress = 0;
             btnNot.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -285,8 +285,8 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // checkTrimBlankLines
             // 
-            checkTrimBlankLines.Location = new Point(27, 559);
-            checkTrimBlankLines.Margin = new Padding(4, 4, 4, 4);
+            checkTrimBlankLines.Location = new Point(23, 563);
+            checkTrimBlankLines.Margin = new Padding(4);
             checkTrimBlankLines.Name = "checkTrimBlankLines";
             checkTrimBlankLines.Size = new Size(507, 40);
             checkTrimBlankLines.TabIndex = 12;
@@ -313,7 +313,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Controls.Add(template);
             Margin = new Padding(6, 9, 6, 9);
             Name = "TemplateEditor";
-            Padding = new Padding(3, 3, 3, 3);
+            Padding = new Padding(3);
             Text = "Edit template";
             ((ISupportInitialize)template).EndInit();
             ResumeLayout(false);

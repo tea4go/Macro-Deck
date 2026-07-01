@@ -87,6 +87,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // btnCreateFolder
             // 
+            btnCreateFolder.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCreateFolder.BorderRadius = 8;
             btnCreateFolder.Cursor = Cursors.Hand;
             btnCreateFolder.FlatAppearance.BorderSize = 0;
@@ -95,7 +96,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnCreateFolder.ForeColor = Color.White;
             btnCreateFolder.HoverColor = Color.FromArgb(0, 89, 184);
             btnCreateFolder.Icon = null;
-            btnCreateFolder.Location = new Point(369, 366);
+            btnCreateFolder.Location = new Point(375, 470);
             btnCreateFolder.Name = "btnCreateFolder";
             btnCreateFolder.Progress = 0;
             btnCreateFolder.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -117,7 +118,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             groupAutomaticallySwitchFolder.ForeColor = Color.White;
             groupAutomaticallySwitchFolder.Location = new Point(12, 52);
             groupAutomaticallySwitchFolder.Name = "groupAutomaticallySwitchFolder";
-            groupAutomaticallySwitchFolder.Size = new Size(493, 308);
+            groupAutomaticallySwitchFolder.Size = new Size(493, 393);
             groupAutomaticallySwitchFolder.TabIndex = 3;
             groupAutomaticallySwitchFolder.TabStop = false;
             groupAutomaticallySwitchFolder.Text = "Automatically switch to folder";
@@ -130,9 +131,9 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             applicationDeviceSettings.Controls.Add(applicationList);
             applicationDeviceSettings.Controls.Add(lblApplication);
             applicationDeviceSettings.Enabled = false;
-            applicationDeviceSettings.Location = new Point(6, 94);
+            applicationDeviceSettings.Location = new Point(6, 100);
             applicationDeviceSettings.Name = "applicationDeviceSettings";
-            applicationDeviceSettings.Size = new Size(481, 208);
+            applicationDeviceSettings.Size = new Size(481, 287);
             applicationDeviceSettings.TabIndex = 2;
             // 
             // btnReloadApplications
@@ -147,7 +148,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnReloadApplications.ForeColor = Color.White;
             btnReloadApplications.HoverColor = Color.FromArgb(0, 89, 184);
             btnReloadApplications.Icon = Properties.Resources.reload;
-            btnReloadApplications.Location = new Point(438, 5);
+            btnReloadApplications.Location = new Point(432, 16);
             btnReloadApplications.Name = "btnReloadApplications";
             btnReloadApplications.Progress = 0;
             btnReloadApplications.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -161,13 +162,14 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             // devicesList
             // 
+            devicesList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             devicesList.BackColor = Color.FromArgb(65, 65, 65);
             devicesList.BorderStyle = BorderStyle.None;
             devicesList.ForeColor = Color.White;
             devicesList.FormattingEnabled = true;
-            devicesList.Location = new Point(6, 84);
+            devicesList.Location = new Point(6, 118);
             devicesList.Name = "devicesList";
-            devicesList.Size = new Size(472, 99);
+            devicesList.Size = new Size(472, 165);
             devicesList.TabIndex = 5;
             // 
             // lblDevices
@@ -175,7 +177,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             lblDevices.AutoSize = true;
             lblDevices.Font = new Font("Tahoma", 11.25F);
             lblDevices.ForeColor = Color.White;
-            lblDevices.Location = new Point(3, 46);
+            lblDevices.Location = new Point(3, 80);
             lblDevices.Name = "lblDevices";
             lblDevices.Size = new Size(89, 28);
             lblDevices.TabIndex = 4;
@@ -188,20 +190,21 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             applicationList.BorderRadius = 0;
             applicationList.Cursor = Cursors.Hand;
             applicationList.DropDownStyle = ComboBoxStyle.DropDownList;
-            applicationList.Font = new Font("Tahoma", 11.25F);
+            applicationList.Font = new Font("Tahoma", 12F);
             applicationList.ForeColor = Color.White;
             applicationList.FormattingEnabled = true;
-            applicationList.Location = new Point(102, 9);
-            applicationList.Margin = new Padding(0, 0, 0, 0);
+            applicationList.ItemHeight = 29;
+            applicationList.Location = new Point(102, 17);
+            applicationList.Margin = new Padding(0);
             applicationList.Name = "applicationList";
-            applicationList.Size = new Size(320, 27);
+            applicationList.Size = new Size(320, 37);
             applicationList.TabIndex = 3;
             // 
             // lblApplication
             // 
             lblApplication.Font = new Font("Tahoma", 11.25F);
             lblApplication.ForeColor = Color.White;
-            lblApplication.Location = new Point(3, 6);
+            lblApplication.Location = new Point(3, 21);
             lblApplication.Name = "lblApplication";
             lblApplication.Size = new Size(93, 24);
             lblApplication.TabIndex = 2;
@@ -244,7 +247,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(45, 45, 45);
-            ClientSize = new Size(524, 426);
+            ClientSize = new Size(524, 530);
             Controls.Add(groupAutomaticallySwitchFolder);
             Controls.Add(btnCreateFolder);
             Controls.Add(lblFolderName);

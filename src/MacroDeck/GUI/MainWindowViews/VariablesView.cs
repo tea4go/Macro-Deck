@@ -68,7 +68,7 @@ public partial class VariablesView : UserControl
                 Checked = !filterModel.HiddenCreators.Contains(creator),
                 Text = creator,
                 Name = creator,
-                AutoSize = false,
+                AutoSize = true,
                 Size = new Size(creatorFilter.Width - 30, 40)
             };
             creatorFilter.Controls.Add(creatorCheckBox);

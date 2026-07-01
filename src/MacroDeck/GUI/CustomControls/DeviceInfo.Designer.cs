@@ -186,10 +186,11 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             profiles.ForeColor = Color.White;
             profiles.Icon = null;
             profiles.Location = new Point(198, 205);
+            profiles.Margin = new Padding(0);
             profiles.Name = "profiles";
             profiles.SelectedIndex = -1;
             profiles.SelectedItem = null;
-            profiles.Size = new Size(428, 32);
+            profiles.Size = new Size(428, 38);
             profiles.TabIndex = 9;
             profiles.SelectedIndexChanged += Profiles_SelectedIndexChanged;
             // 
@@ -247,7 +248,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             Controls.Add(lblDisplayName);
             Font = new Font("Tahoma", 9F);
             Name = "DeviceInfo";
-            Size = new Size(640, 253);
+            Size = new Size(640, 270);
             Load += DeviceInfo_Load;
             ((ISupportInitialize)btnRemove).EndInit();
             ((ISupportInitialize)btnChangeDisplayName).EndInit();

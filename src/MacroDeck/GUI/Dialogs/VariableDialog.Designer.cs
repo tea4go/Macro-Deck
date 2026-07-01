@@ -51,11 +51,11 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             variableType.Font = new Font("Tahoma", 12F);
             variableType.Icon = null;
             variableType.Location = new Point(108, 15);
-            variableType.Margin = new Padding(0, 0, 0, 0);
+            variableType.Margin = new Padding(0);
             variableType.Name = "variableType";
             variableType.SelectedIndex = -1;
             variableType.SelectedItem = null;
-            variableType.Size = new Size(418, 43);
+            variableType.Size = new Size(418, 38);
             variableType.TabIndex = 3;
             variableType.SelectedIndexChanged += variableType_SelectedIndexChanged;
             // 
@@ -84,7 +84,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             btnOk.HoverColor = Color.FromArgb(0, 89, 184);
             btnOk.Icon = null;
             btnOk.Location = new Point(390, 195);
-            btnOk.Margin = new Padding(4, 4, 4, 4);
+            btnOk.Margin = new Padding(4);
             btnOk.Name = "btnOk";
             btnOk.Progress = 0;
             btnOk.ProgressColor = Color.FromArgb(0, 46, 94);
@@ -101,7 +101,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblName.AutoSize = true;
             lblName.Font = new Font("Tahoma", 12F);
-            lblName.Location = new Point(15, 77);
+            lblName.Location = new Point(15, 75);
             lblName.Margin = new Padding(4, 0, 4, 0);
             lblName.Name = "lblName";
             lblName.Size = new Size(83, 29);
@@ -116,8 +116,8 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             variableName.Font = new Font("Tahoma", 12F);
             variableName.ForeColor = Color.White;
             variableName.Icon = null;
-            variableName.Location = new Point(108, 74);
-            variableName.Margin = new Padding(4, 4, 4, 4);
+            variableName.Location = new Point(108, 66);
+            variableName.Margin = new Padding(4);
             variableName.MaxCharacters = 32767;
             variableName.Multiline = false;
             variableName.Name = "variableName";
@@ -136,7 +136,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             // 
             lblValue.AutoSize = true;
             lblValue.Font = new Font("Tahoma", 12F);
-            lblValue.Location = new Point(15, 138);
+            lblValue.Location = new Point(15, 137);
             lblValue.Margin = new Padding(4, 0, 4, 0);
             lblValue.Name = "lblValue";
             lblValue.Size = new Size(79, 29);
@@ -151,8 +151,8 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             variableValue.Font = new Font("Tahoma", 12F);
             variableValue.ForeColor = Color.White;
             variableValue.Icon = null;
-            variableValue.Location = new Point(108, 136);
-            variableValue.Margin = new Padding(4, 4, 4, 4);
+            variableValue.Location = new Point(108, 128);
+            variableValue.Margin = new Padding(4);
             variableValue.MaxCharacters = 32767;
             variableValue.Multiline = false;
             variableValue.Name = "variableValue";
@@ -197,7 +197,7 @@ namespace SuchByte.MacroDeck.GUI.Dialogs
             Margin = new Padding(6, 9, 6, 9);
             MinimumSize = new Size(534, 179);
             Name = "VariableDialog";
-            Padding = new Padding(3, 3, 3, 3);
+            Padding = new Padding(3);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Variable";
             Load += VariableDialog_Load;
